@@ -8,6 +8,7 @@ import FaMoneyBill from "@/assets/images/price.png";
 import FaMapMarker from "@/assets/images/stack.png";
 
 const PropertyCard = ({ property }) => {
+  console.log(property);
   const getRateDisplay = () => {
     const { rates } = property;
 
@@ -23,9 +24,10 @@ const PropertyCard = ({ property }) => {
   return (
     <div className="rounded-xl shadow-md relative">
       <Image
-        src={property.images[0]}
+        // src={property.images[0]}
+        src={`/house-placeholder.png`}
         alt=""
-        height={0}
+        height={200}
         width={0}
         sizes="100vw"
         className="w-full h-auto rounded-t-xl"
@@ -41,15 +43,29 @@ const PropertyCard = ({ property }) => {
 
         <div className="flex justify-center gap-4 text-gray-500 mb-4">
           <p>
-            <FaBed className="inline mr-2" /> {property.beds}{" "}
+            <Image
+              src={FaBed}
+              alt="fudge"
+              style={{ width: "100%", maxWidth: "20px" }}
+            />{" "}
+            {/* <FaBed className="inline mr-2" /> {property.beds}{" "} */}
             <span className="md:hidden lg:inline">Beds</span>
           </p>
           <p>
-            <FaBath className="inline mr-2" />
+            <Image
+              src={FaBath}
+              alt="fudge"
+              style={{ width: "100%", maxWidth: "20px" }}
+            />{" "}
+            {/* <FaBath className="inline mr-2" /> */}
             {property.baths} <span className="md:hidden lg:inline">Baths</span>
           </p>
           <p>
-            <FaRulerCombined className="inline mr-2" />
+            <Image
+              src={FaMapMarker}
+              alt="fudge"
+              style={{ width: "100%", maxWidth: "20px" }}
+            />
             {property.square_feet}{" "}
             <span className="md:hidden lg:inline">sqft</span>
           </p>
@@ -57,21 +73,15 @@ const PropertyCard = ({ property }) => {
 
         <div className="flex justify-center gap-4 text-green-900 text-sm mb-4">
           {property.rates.nightly && (
-            <p>
-              <FaMoneyBill className="inline mr-2" /> Nightly
-            </p>
+            <p>{/* <FaMoneyBill className="inline mr-2" /> Nightly */}</p>
           )}
 
           {property.rates.weekly && (
-            <p>
-              <FaMoneyBill className="inline mr-2" /> Weekly
-            </p>
+            <p>{/* <FaMoneyBill className="inline mr-2" /> Weekly */}</p>
           )}
 
           {property.rates.monthly && (
-            <p>
-              <FaMoneyBill className="inline mr-2" /> Monthly
-            </p>
+            <p>{/* <FaMoneyBill className="inline mr-2" /> Monthly */}</p>
           )}
         </div>
 
@@ -79,7 +89,7 @@ const PropertyCard = ({ property }) => {
 
         <div className="flex flex-col lg:flex-row justify-between mb-4">
           <div className="flex align-middle gap-2 mb-4 lg:mb-0">
-            <FaMapMarker className="text-orange-700 mt-1" />
+            {/* <FaMapMarker className="text-orange-700 mt-1" /> */}
             <span className="text-orange-700">
               {" "}
               {property.location.city} {property.location.state}{" "}
