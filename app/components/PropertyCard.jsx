@@ -1,3 +1,5 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
 
@@ -6,7 +8,7 @@ import FaBath from "@/assets/images/baths.png";
 import FaRulerCombined from "@/assets/images/clip.png";
 import FaMoneyBill from "@/assets/images/price.png";
 import FaMapMarker from "@/assets/images/stack.png";
-
+import image1 from "@/app/components/house-placeholder.png";
 const PropertyCard = ({ property }) => {
   console.log(property);
   const getRateDisplay = () => {
@@ -21,17 +23,30 @@ const PropertyCard = ({ property }) => {
     }
   };
 
+  let images = [
+    "https://images.pexels.com/photos/106399/pexels-photo-106399.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+    "https://images.pexels.com/photos/5524166/pexels-photo-5524166.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+    "https://images.pexels.com/photos/5524167/pexels-photo-5524167.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+    "https://images.pexels.com/photos/7578847/pexels-photo-7578847.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+    "https://images.pexels.com/photos/11018238/pexels-photo-11018238.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+    "https://images.pexels.com/photos/106399/pexels-photo-106399.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+    "https://images.pexels.com/photos/5524166/pexels-photo-5524166.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+    "https://images.pexels.com/photos/5524167/pexels-photo-5524167.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+    "https://images.pexels.com/photos/7578847/pexels-photo-7578847.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+    "https://images.pexels.com/photos/11018238/pexels-photo-11018238.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+  ];
+
   return (
     <div className="rounded-xl shadow-md relative">
-      <Image
+      {/* <Image
         // src={property.images[0]}
-        src={`/house-placeholder.png`}
-        alt=""
-        height={200}
-        width={0}
+        src={image1}
+        alt="dsdsd"
+        style={{ width: "100%", maxWidth: "20px" }}
         sizes="100vw"
         className="w-full h-auto rounded-t-xl"
-      />
+      /> */}
+      <img src={images[property._id]} alt="blah" />
       <div className="p-4">
         <div className="text-left md:text-center lg:text-left mb-6">
           <div className="text-gray-600">{property.type}</div>
@@ -46,10 +61,15 @@ const PropertyCard = ({ property }) => {
             <Image
               src={FaBed}
               alt="fudge"
-              style={{ width: "100%", maxWidth: "20px" }}
+              style={{
+                width: "100%",
+                maxWidth: "20px",
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+              }}
             />{" "}
-            {/* <FaBed className="inline mr-2" /> {property.beds}{" "} */}
-            <span className="md:hidden lg:inline">Beds</span>
+            {property.beds} <span className="md:hidden lg:inline">Beds</span>
           </p>
           <p>
             <Image
