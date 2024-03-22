@@ -421,7 +421,7 @@ const Properties = () => {
 
   //   fetchProperties();
   // }, [page, pageSize]);
-  console.log(properties);
+
   const handlePageChange = (newPage) => {
     setPage(newPage);
   };

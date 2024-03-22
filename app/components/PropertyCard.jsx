@@ -10,7 +10,6 @@ import FaMoneyBill from "@/assets/images/price.png";
 import FaMapMarker from "@/assets/images/stack.png";
 import image1 from "@/app/components/house-placeholder.png";
 const PropertyCard = ({ property }) => {
-  console.log(property);
   const getRateDisplay = () => {
     const { rates } = property;
 
