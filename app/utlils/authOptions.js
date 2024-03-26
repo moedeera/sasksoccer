@@ -14,4 +14,19 @@ export const authOptions = {
       },
     }),
   ],
+  callbacks: {
+    // Invoked on successfull signin
+    async signIn({ profile }) {
+      // connect to datatbase
+      // check if user logging in exist
+      // if not, add user to database
+      // return true to allow sign in
+    },
+
+    //Modify the session object
+    async session({ session }) {
+      // get user from database
+      // assign user id to the session
+    },
+  },
 };
