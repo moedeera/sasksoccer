@@ -4,6 +4,7 @@ import React, { useEffect, useState } from "react";
 import profileDefault from "../../assets/images/profile.png";
 import { useSession } from "next-auth/react";
 import Spinner from "../components/Spinner";
+import Link from "next/link";
 
 const ProfilePage = () => {
   const { data: session } = useSession();
@@ -78,11 +79,12 @@ const ProfilePage = () => {
               <h2 className="text-xl font-semibold mb-4">
                 {profileName ? profileName : ""} Listings
               </h2>
-              {properties.length === 0
+              {loading && <Spinner loading={loading} />}
+              {properties.length && !loading === 0
                 ? "No Properties"
                 : properties?.map((property) => (
                     <div className="mb-10" key={property._id}>
-                      <a href="/property.html">
+                      <Link href={`/properties/${property._id}`}>
                         <Image
                           className="h-32 w-full rounded-md object-cover"
                           src={property.images[0]}
@@ -90,23 +92,28 @@ const ProfilePage = () => {
                           width={400}
                           height={300}
                         />
-                      </a>
+                      </Link>
                       <div className="mt-2">
                         <p className="text-lg font-semibold">{property.name}</p>
                         <p className="text-gray-600">
                           Address: {property.location.street}
+                          {property.location.city}
+                          {property.location.state}
                         </p>
                       </div>
                       <div className="mt-2">
-                        <a
-                          href="/add-property.html"
+                        <Link
+                          href={`${property._id}/edit`}
                           className="bg-blue-500 text-white px-3 py-3 rounded-md mr-2 hover:bg-blue-600"
                         >
                           Edit
-                        </a>
+                        </Link>
                         <button
                           className="bg-red-500 text-white px-3 py-2 rounded-md hover:bg-red-600"
                           type="button"
+                          onClick={() => {
+                            console.log("property delete");
+                          }}
                         >
                           Delete
                         </button>
