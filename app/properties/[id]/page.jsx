@@ -3,6 +3,7 @@
 import PropertyContactForm from "@/app/components/PropertyContactForm";
 import PropertyDetails from "@/app/components/PropertyDetails";
 import PropertyHeaderImage from "@/app/components/PropertyHeaderImage";
+import PropertyImages from "@/app/components/PropertyImages";
 import Spinner from "@/app/components/Spinner";
 import { fetchProperty } from "@/app/utlils/request";
 import Link from "next/link";
@@ -68,7 +69,7 @@ const PropertyPage = () => {
               </aside>
             </div>
           </section>
-          {/* <PropertyImages images={property.images} /> */}
+          <PropertyImages images={property.images} />
         </>
       )}
     </div>
