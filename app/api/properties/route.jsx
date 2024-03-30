@@ -1,5 +1,8 @@
+import { authOptions } from "@/app/utlils/authOptions";
 import connectDB from "@/config/database";
 import Property from "@/models/Property";
+import { getServerSession } from "next-auth";
+
 // GET /api/properties
 export const GET = async (request) => {
   try {
@@ -11,8 +14,18 @@ export const GET = async (request) => {
     return new Response("Something went wrong", { status: 500 });
   }
 };
+
+// adding new property
 export const POST = async (request) => {
   try {
+    await connectDB();
+
+    const session = await getServerSession(authOptions);
+    if (!session) {
+      return new Response("Unauthorized", { status: 401 });
+    }
+    const userId = session?.user.id;
+
     const formData = await request.formData();
     console.log(formData.get("name"));
     // Access all values from amenities and images
@@ -48,7 +61,7 @@ export const POST = async (request) => {
         phone: formData.get("seller_info.phone"),
       },
       images,
-      // owner: userId,
+      owner: userId,
     };
     console.log(propertyData);
     return new Response(JSON.stringify({ message: "Success" }), {
