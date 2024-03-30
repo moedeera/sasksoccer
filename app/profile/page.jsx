@@ -1,14 +1,42 @@
 "use client";
 import Image from "next/image";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import profileDefault from "../../assets/images/profile.png";
 import { useSession } from "next-auth/react";
+import Spinner from "../components/Spinner";
 
 const ProfilePage = () => {
   const { data: session } = useSession();
   const profileImage = session?.user?.image;
   const profileName = session?.user?.name;
   const profileEmail = session?.user?.email;
+
+  const [loading, setLoading] = useState(true);
+  const [properties, setProperties] = useState([]);
+
+  useEffect(() => {
+    const fetchUserProperties = async (userId) => {
+      if (!userId) {
+        return;
+      }
+      try {
+        const res = await fetch(`api/properties/user/${userId}`);
+
+        if (res.status === 200) {
+          const data = await res.json();
+          setProperties(data);
+        }
+      } catch (error) {
+        console.log(error);
+      } finally {
+        setLoading(false);
+      }
+    };
+    // fetch only if user is available
+    if (session) {
+      fetchUserProperties(session.user.id);
+    }
+  }, [session]);
 
   return (
     <section className="bg-blue-50">
@@ -47,65 +75,44 @@ const ProfilePage = () => {
             </div>
 
             <div className="md:w-3/4 md:pl-4">
-              <h2 className="text-xl font-semibold mb-4">Your Listings</h2>
-              <div className="mb-10">
-                <a href="/property.html">
-                  <Image
-                    className="h-32 w-full rounded-md object-cover"
-                    src="https://images.pexels.com/photos/106399/pexels-photo-106399.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-                    alt="Property 1"
-                    width={400}
-                    height={300}
-                  />
-                </a>
-                <div className="mt-2">
-                  <p className="text-lg font-semibold">Property Title 1</p>
-                  <p className="text-gray-600">Address: 123 Main St</p>
-                </div>
-                <div className="mt-2">
-                  <a
-                    href="/add-property.html"
-                    className="bg-blue-500 text-white px-3 py-3 rounded-md mr-2 hover:bg-blue-600"
-                  >
-                    Edit
-                  </a>
-                  <button
-                    className="bg-red-500 text-white px-3 py-2 rounded-md hover:bg-red-600"
-                    type="button"
-                  >
-                    Delete
-                  </button>
-                </div>
-              </div>
-              <div className="mb-10">
-                <a href="/property.html">
-                  <Image
-                    className="h-32 w-full rounded-md object-cover"
-                    src="https://images.pexels.com/photos/5524166/pexels-photo-5524166.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-                    alt="Property 2"
-                    width={400}
-                    height={300}
-                  />
-                </a>
-                <div className="mt-2">
-                  <p className="text-lg font-semibold">Property Title 2</p>
-                  <p className="text-gray-600">Address: 456 Elm St</p>
-                </div>
-                <div className="mt-2">
-                  <a
-                    href="/add-property.html"
-                    className="bg-blue-500 text-white px-3 py-3 rounded-md mr-2 hover:bg-blue-600"
-                  >
-                    Edit
-                  </a>
-                  <button
-                    className="bg-red-500 text-white px-3 py-2 rounded-md hover:bg-red-600"
-                    type="button"
-                  >
-                    Delete
-                  </button>
-                </div>
-              </div>
+              <h2 className="text-xl font-semibold mb-4">
+                {profileName ? profileName : ""} Listings
+              </h2>
+              {properties.length === 0
+                ? "No Properties"
+                : properties?.map((property) => (
+                    <div className="mb-10" key={property._id}>
+                      <a href="/property.html">
+                        <Image
+                          className="h-32 w-full rounded-md object-cover"
+                          src={property.images[0]}
+                          alt="Property 1"
+                          width={400}
+                          height={300}
+                        />
+                      </a>
+                      <div className="mt-2">
+                        <p className="text-lg font-semibold">{property.name}</p>
+                        <p className="text-gray-600">
+                          Address: {property.location.street}
+                        </p>
+                      </div>
+                      <div className="mt-2">
+                        <a
+                          href="/add-property.html"
+                          className="bg-blue-500 text-white px-3 py-3 rounded-md mr-2 hover:bg-blue-600"
+                        >
+                          Edit
+                        </a>
+                        <button
+                          className="bg-red-500 text-white px-3 py-2 rounded-md hover:bg-red-600"
+                          type="button"
+                        >
+                          Delete
+                        </button>
+                      </div>
+                    </div>
+                  ))}
             </div>
           </div>
         </div>
