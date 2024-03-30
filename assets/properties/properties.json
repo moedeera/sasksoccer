@@ -1,6 +1,6 @@
 [
   {
-    "owner": "1",
+    "owner": "ObjectId('660676cbd7ef208c3cd5c202)",
     "name": "Boston Commons Retreat",
     "type": "Apartment",
     "description": "This is a beautiful apartment located near the commons. It is a 2 bedroom apartment with a full kitchen and bathroom. It is available for weekly or monthly rentals.",
@@ -38,13 +38,17 @@
       "email": "john@gmail.com",
       "phone": "617-555-5555"
     },
-    "images": ["a1.jpg", "a2.jpg", "a3.jpg"],
+    "images": [
+      "https://images.pexels.com/photos/106399/pexels-photo-106399.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      "https://images.pexels.com/photos/1571460/pexels-photo-1571460.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      "https://images.pexels.com/photos/1643383/pexels-photo-1643383.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+    ],
     "is_featured": false,
     "createdAt": "2024-01-01T00:00:00.000Z",
     "updatedAt": "2024-01-01T00:00:00.000Z"
   },
   {
-    "owner": "1",
+    "owner": "ObjectId('660676cbd7ef208c3cd5c202)",
     "name": "Cozy Downtown Loft",
     "type": "Apartment",
     "description": "A cozy downtown loft with great city views.",
@@ -81,13 +85,17 @@
       "email": "jane@gmail.com",
       "phone": "212-555-5555"
     },
-    "images": ["b1.jpg", "b2.jpg", "b3.jpg"],
+    "images": [
+      "https://images.pexels.com/photos/5524166/pexels-photo-5524166.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      "https://images.pexels.com/photos/2635038/pexels-photo-2635038.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      "https://images.pexels.com/photos/2724749/pexels-photo-2724749.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+    ],
     "is_featured": false,
     "createdAt": "2024-01-02T00:00:00.000Z",
     "updatedAt": "2024-01-02T00:00:00.000Z"
   },
   {
-    "owner": "2",
+    "owner": "ObjectId('660676cbd7ef208c3cd5c202)",
     "name": "Luxury Condo with a View",
     "type": "Condo",
     "description": "Experience luxury in this stunning condo with breathtaking views.",
@@ -126,13 +134,17 @@
       "email": "david@gmail.com",
       "phone": "213-555-5555"
     },
-    "images": ["c1.jpg", "c2.jpg", "c3.jpg"],
+    "images": [
+      "https://images.pexels.com/photos/5524167/pexels-photo-5524167.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      "https://images.pexels.com/photos/2724749/pexels-photo-2724749.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      "https://images.pexels.com/photos/259962/pexels-photo-259962.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+    ],
     "is_featured": false,
     "createdAt": "2024-01-03T00:00:00.000Z",
     "updatedAt": "2024-01-03T00:00:00.000Z"
   },
   {
-    "owner": "2",
+    "owner": "ObjectId('660676cbd7ef208c3cd5c202)",
     "name": "Charming Cottage Getaway",
     "type": "Cottage Or Cabin",
     "description": "Escape to this charming cottage for a peaceful retreat.",
@@ -159,13 +171,17 @@
       "email": "emily@gmail.com",
       "phone": "512-555-5555"
     },
-    "images": ["d1.jpg", "d2.jpg", "d3.jpg"],
+    "images": [
+      "https://images.pexels.com/photos/259588/pexels-photo-259588.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      "https://images.pexels.com/photos/1571460/pexels-photo-1571460.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      "https://images.pexels.com/photos/1643383/pexels-photo-1643383.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+    ],
     "is_featured": false,
     "createdAt": "2024-01-04T00:00:00.000Z",
     "updatedAt": "2024-01-04T00:00:00.000Z"
   },
   {
-    "owner": "3",
+    "owner": "ObjectId('66072fb7103fd6db0119a1b0)",
     "name": "Modern Downtown Studio",
     "type": "Studio",
     "description": "Stay in style in this modern downtown studio apartment.",
@@ -194,13 +210,17 @@
       "email": "michael@gmail.com",
       "phone": "312-555-5555"
     },
-    "images": ["e1.jpg", "e2.jpg", "e3.jpg"],
+    "images": [
+      "https://images.pexels.com/photos/259588/pexels-photo-259588.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      "https://images.pexels.com/photos/2635038/pexels-photo-2635038.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      "https://images.pexels.com/photos/2724749/pexels-photo-2724749.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+    ],
     "is_featured": true,
     "createdAt": "2024-01-05T00:00:00.000Z",
     "updatedAt": "2024-01-05T00:00:00.000Z"
   },
   {
-    "owner": "3",
+    "owner": "ObjectId('66072fb7103fd6db0119a1b0)",
     "name": "Seaside Retreat",
     "type": "House",
     "description": "Escape to this seaside house for a relaxing getaway.",
@@ -229,13 +249,17 @@
       "email": "sarah@gmail.com",
       "phone": "305-555-5555"
     },
-    "images": ["f1.jpg", "f2.jpg", "f3.jpg"],
+    "images": [
+      "https://images.pexels.com/photos/106399/pexels-photo-106399.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      "https://images.pexels.com/photos/2724749/pexels-photo-2724749.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      "https://images.pexels.com/photos/259962/pexels-photo-259962.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+    ],
     "is_featured": true,
     "createdAt": "2024-01-06T00:00:00.000Z",
     "updatedAt": "2024-01-06T00:00:00.000Z"
   },
   {
-    "owner": "4",
+    "owner": "ObjectId('66072fb7103fd6db0119a1b0)",
     "name": "Rustic Cabin in the Woods",
     "type": "Cottage Or Cabin",
     "description": "Experience nature in this cozy rustic cabin.",
@@ -263,13 +287,17 @@
       "email": "robert@gmail.com",
       "phone": "303-555-5555"
     },
-    "images": ["g1.jpg", "g2.jpg", "g3.jpg"],
+    "images": [
+      "https://images.pexels.com/photos/5524166/pexels-photo-5524166.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      "https://images.pexels.com/photos/1571460/pexels-photo-1571460.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      "https://images.pexels.com/photos/1643383/pexels-photo-1643383.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+    ],
     "is_featured": false,
     "createdAt": "2024-01-07T00:00:00.000Z",
     "updatedAt": "2024-01-07T00:00:00.000Z"
   },
   {
-    "owner": "5",
+    "owner": "ObjectId('66072fb7103fd6db0119a1b0)",
     "name": "Ski-In/Ski-Out Chalet",
     "type": "Chalet",
     "description": "Hit the slopes from this cozy ski-in/ski-out chalet.",
@@ -297,13 +325,17 @@
       "email": "jennifer@gmail.com",
       "phone": "970-555-5555"
     },
-    "images": ["h1.jpg", "h2.jpg", "h3.jpg"],
+    "images": [
+      "https://images.pexels.com/photos/5524167/pexels-photo-5524167.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      "https://images.pexels.com/photos/1571460/pexels-photo-1571460.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      "https://images.pexels.com/photos/1643383/pexels-photo-1643383.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+    ],
     "is_featured": false,
     "createdAt": "2024-01-08T00:00:00.000Z",
     "updatedAt": "2024-01-08T00:00:00.000Z"
   },
   {
-    "owner": "6",
+    "owner": "ObjectId('66072fb7103fd6db0119a1b0)",
     "name": "Mountain View Retreat",
     "type": "House",
     "description": "Enjoy stunning mountain views from this spacious retreat.",
@@ -332,13 +364,17 @@
       "email": "lisa@gmail.com",
       "phone": "303-555-5555"
     },
-    "images": ["i1.jpg", "i2.jpg", "i3.jpg"],
+    "images": [
+      "https://images.pexels.com/photos/259588/pexels-photo-259588.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      "https://images.pexels.com/photos/1643383/pexels-photo-1643383.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      "https://images.pexels.com/photos/2635038/pexels-photo-2635038.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+    ],
     "is_featured": false,
     "createdAt": "2024-01-09T00:00:00.000Z",
     "updatedAt": "2024-01-09T00:00:00.000Z"
   },
   {
-    "owner": "7",
+    "owner": "ObjectId('66072fb7103fd6db0119a1b0)",
     "name": "Historic Downtown Loft",
     "type": "Apartment",
     "description": "Step back in time with a stay in this historic downtown loft.",
@@ -366,7 +402,11 @@
       "email": "matthew@gmail.com",
       "phone": "215-555-5555"
     },
-    "images": ["j1.jpg", "j2.jpg", "j3.jpg"],
+    "images": [
+      "https://images.pexels.com/photos/11018238/pexels-photo-11018238.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      "https://images.pexels.com/photos/2724749/pexels-photo-2724749.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      "https://images.pexels.com/photos/259962/pexels-photo-259962.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+    ],
     "is_featured": false,
     "createdAt": "2024-01-10T00:00:00.000Z",
     "updatedAt": "2024-01-10T00:00:00.000Z"
