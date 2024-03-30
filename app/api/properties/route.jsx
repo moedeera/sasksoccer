@@ -1,7 +1,6 @@
-import { authOptions } from "@/app/utlils/authOptions";
+import { getSessionUser } from "@/app/components/getSessionUser";
 import connectDB from "@/config/database";
 import Property from "@/models/Property";
-import { getServerSession } from "next-auth";
 
 // GET /api/properties
 export const GET = async (request) => {
@@ -20,11 +19,11 @@ export const POST = async (request) => {
   try {
     await connectDB();
 
-    const session = await getServerSession(authOptions);
-    if (!session) {
-      return new Response("Unauthorized", { status: 401 });
+    const sessionUser = await getSessionUser();
+    if (!sessionUser || !sessionUser.userId) {
+      return new Response("User id not obtained", { status: 401 });
     }
-    const userId = session?.user.id;
+    const { userId } = sessionUser;
 
     const formData = await request.formData();
     console.log(formData.get("name"));
@@ -60,13 +59,20 @@ export const POST = async (request) => {
         email: formData.get("seller_info.email"),
         phone: formData.get("seller_info.phone"),
       },
-      images,
+      // images,
       owner: userId,
     };
     console.log(propertyData);
-    return new Response(JSON.stringify({ message: "Success" }), {
-      status: 200,
-    });
+
+    const newProperty = new Property(propertyData);
+    await newProperty.save();
+    return Response.redirect(
+      `${process.env.NEXTAUTH_URL}/properties/${newProperty._id}`
+    );
+
+    // return new Response(JSON.stringify({ message: "Success" }), {
+    //   status: 200,
+    // });
   } catch (error) {
     console.log(error);
     return new Response("Failed to add property", { status: 500 });
