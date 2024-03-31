@@ -4,8 +4,10 @@ import React, { useEffect, useState } from "react";
 import profileDefault from "../../assets/images/profile.png";
 import { useSession } from "next-auth/react";
 import Spinner from "../components/Spinner";
-import Link from "next/link";
 
+import Link from "next/link";
+import { toast } from "react-toastify";
+toast;
 const ProfilePage = () => {
   const { data: session } = useSession();
   const profileImage = session?.user?.image;
@@ -38,6 +40,32 @@ const ProfilePage = () => {
       fetchUserProperties(session.user.id);
     }
   }, [session]);
+
+  const handleDeleteProperty = async (propertyId) => {
+    const confirmed = window.confirm(
+      "Are you sure you want to delete this property?"
+    );
+    if (!confirmed) {
+      return;
+    }
+
+    try {
+      const res = await fetch(`api/properties/${propertyId}`, {
+        method: "DELETE",
+      });
+
+      if (res.status === 200) {
+        const updatedProperties = properties.filter((property) => property._id);
+        setProperties(updatedProperties);
+        toast.success("property deleted");
+      } else {
+        toast.error("failed to delete property");
+      }
+    } catch (error) {
+      console.log(error);
+      toast.error("Failed to delete property");
+    }
+  };
 
   return (
     <section className="bg-blue-50">
@@ -96,8 +124,7 @@ const ProfilePage = () => {
                       <div className="mt-2">
                         <p className="text-lg font-semibold">{property.name}</p>
                         <p className="text-gray-600">
-                          Address: {property.location.street}
-                          {property.location.city}
+                          {property.location.street} {property.location.city}{" "}
                           {property.location.state}
                         </p>
                       </div>
@@ -112,7 +139,7 @@ const ProfilePage = () => {
                           className="bg-red-500 text-white px-3 py-2 rounded-md hover:bg-red-600"
                           type="button"
                           onClick={() => {
-                            console.log("property delete");
+                            handleDeleteProperty(property._id);
                           }}
                         >
                           Delete
