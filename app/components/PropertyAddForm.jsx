@@ -215,7 +215,7 @@ const PropertyAddForm = () => {
               name="beds"
               className="border rounded w-full py-2 px-3"
               required
-              value={fields.location.beds}
+              value={fields.beds}
               onChange={handleChange}
             />
           </div>
@@ -232,7 +232,7 @@ const PropertyAddForm = () => {
               name="baths"
               className="border rounded w-full py-2 px-3"
               required
-              value={fields.location.baths}
+              value={fields.baths}
               onChange={handleChange}
             />
           </div>
@@ -249,7 +249,7 @@ const PropertyAddForm = () => {
               name="square_feet"
               className="border rounded w-full py-2 px-3"
               required
-              value={fields.location.square_feet}
+              value={fields.square_feet}
               onChange={handleChange}
             />
           </div>
