@@ -1,9 +1,11 @@
 "use client";
 
+import BookMarkButton from "@/app/components/BookMarkButton";
 import PropertyContactForm from "@/app/components/PropertyContactForm";
 import PropertyDetails from "@/app/components/PropertyDetails";
 import PropertyHeaderImage from "@/app/components/PropertyHeaderImage";
 import PropertyImages from "@/app/components/PropertyImages";
+import ShareButtons from "@/app/components/ShareButtons";
 import Spinner from "@/app/components/Spinner";
 import { fetchProperty } from "@/app/utlils/request";
 import Link from "next/link";
@@ -60,13 +62,12 @@ const PropertyPage = () => {
             <div className="container m-auto py-10 px-6">
               <div className="grid grid-cols-1 md:grid-cols-70/30 w-full gap-6">
                 <PropertyDetails property={property} />
-                <PropertyContactForm />
+                <aside className="space-y-4">
+                  <BookMarkButton property={property} />
+                  <ShareButtons />
+                  <PropertyContactForm />
+                </aside>
               </div>
-              <aside className="space-y-4">
-                {/* <BookmarkButton property={property} />
-              <ShareButtons property={property} />
-              <PropertyContactForm property={property} /> */}
-              </aside>
             </div>
           </section>
           <PropertyImages images={property.images} />
