@@ -3,14 +3,7 @@ import PropertyCard from "./PropertyCard";
 import Pagination from "./Pagination";
 import { fetchProperties } from "../utlils/request";
 
-//   fetchProperties();
-
 const Properties = async () => {
-  // const [properties, setProperties] = useState([]);
-  // const [loading, setLoading] = useState(false);
-  // const [page, setPage] = useState(1);
-  // const [pageSize, setPageSize] = useState(6);
-  // const [totalItems, setTotalItems] = useState(0);
   const loading = false;
   const page = 1;
   const pageSize = 6;
@@ -18,30 +11,6 @@ const Properties = async () => {
 
   const properties = await fetchProperties();
   console.log(properties);
-
-  // useEffect(() => {
-  //   const fetchProperties = async () => {
-  //     try {
-  //       const res = await fetch(
-  //         `/api/properties?page=${page}&pageSize=${pageSize}`
-  //       );
-
-  //       if (!res.ok) {
-  //         throw new Error("Failed to fetch data");
-  //       }
-
-  //       const data = await res.json();
-  //       setProperties(data.properties);
-  //       setTotalItems(data.total);
-  //     } catch (error) {
-  //       console.log(error);
-  //     } finally {
-  //       setLoading(false);
-  //     }
-  //   };
-
-  //   fetchProperties();
-  // }, [page, pageSize]);
 
   const handlePageChange = (newPage) => {
     // setPage(newPage);
