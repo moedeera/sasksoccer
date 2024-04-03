@@ -31,6 +31,7 @@ const MessageSchema = new Schema(
     },
     body: {
       type: String,
+      required: true,
     },
     read: {
       type: Boolean,
