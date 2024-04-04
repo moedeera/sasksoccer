@@ -1,14 +1,39 @@
-import React from "react";
+"use client";
+
+import React, { useEffect, useState } from "react";
 import Link from "next/link";
 
 import PropertyCard from "./PropertyCard";
 import { fetchProperties } from "../utlils/request";
+import Spinner from "./Spinner";
+import { toast } from "react-toastify";
 
-const HomeProperties = async () => {
-  const properties = await fetchProperties();
-  const recentProperties = properties
-    .sort(() => Math.random() - Math.random())
-    .slice(0, 3);
+const HomeProperties = () => {
+  const [recentProperties, setRecentProperties] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchRecentProperties = async () => {
+      try {
+        let res = await fetchProperties();
+        const selectProperties = res
+          .sort(() => Math.random() - Math.random())
+          .slice(0, 3);
+        setRecentProperties(selectProperties);
+        // toast.success("check our latest listings");
+      } catch (error) {
+        console.log(error);
+        toast.error("Unable to fetch recent properties");
+      } finally {
+        setLoading(false);
+      }
+    };
+    fetchRecentProperties();
+  }, []);
+
+  if (loading) {
+    return <Spinner />;
+  }
 
   return (
     <>
