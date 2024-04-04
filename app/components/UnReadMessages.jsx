@@ -4,7 +4,6 @@ import { useGlobalContext } from "../context/GlobalContext";
 
 const UnReadMessages = ({ session }) => {
   const { unreadCount, setUnreadCount } = useGlobalContext();
-  console.log(unreadCount.count);
 
   useEffect(() => {
     if (!session) return;
