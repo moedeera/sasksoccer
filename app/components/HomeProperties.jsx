@@ -17,7 +17,7 @@ const HomeProperties = () => {
       try {
         // is hiding the below function important?
         let res = await fetchProperties();
-        const selectProperties = res
+        const selectProperties = res.properties
           .sort(() => Math.random() - Math.random())
           .slice(0, 3);
         setRecentProperties(selectProperties);

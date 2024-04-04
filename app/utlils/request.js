@@ -21,26 +21,28 @@ function generateRentalBasisString(rates) {
   return `${rentalBases}`;
 }
 
-// fetch all properties
-const fetchProperties = async () => {
+async function fetchProperties({ showFeatured = false } = {}) {
   try {
-    // handle case where domain is not available
+    // Handle the case where the domain is not available yet
     if (!apiDomain) {
       return [];
     }
-    const res = await fetch(`${apiDomain}/properties`);
+
+    const res = await fetch(
+      `${apiDomain}/properties${showFeatured ? "/featured" : ""}`,
+      { cache: "no-store" }
+    );
 
     if (!res.ok) {
       throw new Error("Failed to fetch data");
     }
 
-    const data = await res.json();
-    return data;
+    return res.json();
   } catch (error) {
     console.log(error);
     return [];
   }
-};
+}
 
 // fetch Single property
 const fetchProperty = async (id) => {
