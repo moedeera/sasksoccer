@@ -28,7 +28,7 @@ const fetchProperties = async () => {
     if (!apiDomain) {
       return [];
     }
-    const res = await fetch(`${apiDomain}/properties`, { cache: "no-store" });
+    const res = await fetch(`${apiDomain}/properties`);
 
     if (!res.ok) {
       throw new Error("Failed to fetch data");

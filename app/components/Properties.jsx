@@ -1,23 +1,51 @@
+"use client";
 import PropertyCard from "./PropertyCard";
-
 import Pagination from "./Pagination";
 import { fetchProperties } from "../utlils/request";
+import Spinner from "./Spinner";
+import { useEffect, useState } from "react";
 
-const Properties = async () => {
-  const loading = false;
-  const page = 1;
-  const pageSize = 6;
-  const totalItems = 0;
+const Properties = () => {
+  const [properties, setProperties] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [page, setPage] = useState(1);
+  const [pageSize, setPageSize] = useState(3);
+  const [totalItems, setTotalItems] = useState(0);
 
-  const properties = await fetchProperties();
-  console.log(properties);
+  useEffect(() => {
+    const fetchAllProperties = async () => {
+      setLoading(true);
+      try {
+        const res = await fetch(
+          `/api/properties?page=${page}&pageSize=${pageSize}`
+        );
+
+        if (!res.ok) {
+          throw new Error("Failed to fetch data");
+        }
+
+        const data = await res.json();
+        setProperties(data.properties);
+        setTotalItems(data.total);
+      } catch (error) {
+        toast.error("Something went wrong");
+      } finally {
+        setLoading(false);
+      }
+    };
+    fetchAllProperties();
+  }, [page, pageSize]);
 
   const handlePageChange = (newPage) => {
-    // setPage(newPage);
-    console.log("hello");
+    setPage(newPage);
   };
+
+  if (loading) {
+    return <Spinner />;
+  }
+
   if (properties === undefined) {
-    return <>Loading</>;
+    return <>No Properties to show</>;
   }
   return (
     <section className="px-4 py-6">
@@ -31,12 +59,12 @@ const Properties = async () => {
             ))}
           </div>
         )}
-        {/* <Pagination
+        <Pagination
           page={page}
           pageSize={pageSize}
           totalItems={totalItems}
           onPageChange={handlePageChange}
-        /> */}
+        />
       </div>
     </section>
   );
