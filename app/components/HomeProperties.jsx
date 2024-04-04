@@ -15,6 +15,7 @@ const HomeProperties = () => {
   useEffect(() => {
     const fetchRecentProperties = async () => {
       try {
+        // is hiding the below function important?
         let res = await fetchProperties();
         const selectProperties = res
           .sort(() => Math.random() - Math.random())
