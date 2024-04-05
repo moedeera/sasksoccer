@@ -6,7 +6,6 @@ import Link from "next/link";
 import logo from "@/assets/images/logo-white.png";
 import profileDefault from "@/assets/images/profile.png";
 import { signIn, signOut, useSession, getProviders } from "next-auth/react";
-import UnReadMessageCount from "./unReadMessageCount";
 import UnReadMessages from "./UnReadMessages";
 
 const Navbar = () => {
