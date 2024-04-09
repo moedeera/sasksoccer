@@ -19,7 +19,15 @@ const MainLayout = ({ children }) => {
         <html lang="en">
           <body>
             <Navbar />
-            <main style={{ minHeight: "100vh" }}>{children}</main>
+            <main
+              style={{
+                minHeight: "100vh",
+                maxWidth: "1400px",
+                margin: "0 auto",
+              }}
+            >
+              {children}
+            </main>
             <Footer />
             <ToastContainer />
           </body>
