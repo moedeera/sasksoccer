@@ -1,9 +1,20 @@
 import React from "react";
 import { generateRentalBasisString } from "../utlils/request";
+import FaBed from "@/assets/images/beds.png";
+import FaBath from "@/assets/images/baths.png";
+import FaMapMarker from "@/assets/images/stack.png";
+import FaCheck from "@/assets/images/check.png";
+import Image from "next/image";
 
 import PropertyMap from "./PropertyMap";
 
 const PropertyDetails = ({ property }) => {
+  const details = [
+    { name: "beds", info: property?.beds, image: FaBed },
+    { name: "baths", info: property?.baths, image: FaBath },
+    { name: "sqft", info: property?.square_feet, image: FaMapMarker },
+  ];
+
   return (
     <main>
       <div className="bg-white p-6 rounded-lg shadow-md text-center md:text-left">
@@ -53,19 +64,23 @@ const PropertyDetails = ({ property }) => {
       <div className="bg-white p-6 rounded-lg shadow-md mt-6">
         <h3 className="text-lg font-bold mb-6">Description & Details</h3>
         <div className="flex justify-center gap-4 text-blue-500 mb-4 text-xl space-x-9">
-          <p>
-            <i className="fa-solid fa-bed"></i> {property.beds}{" "}
-            <span className="hidden sm:inline">Beds</span>
-          </p>
-          <p>
-            <i className="fa-solid fa-bath"></i> {property.baths}{" "}
-            <span className="hidden sm:inline">Baths</span>
-          </p>
-          <p>
-            <i className="fa-solid fa-ruler-combined"></i>
-            {property.square_feet}{" "}
-            <span className="hidden sm:inline">sqft</span>
-          </p>
+          {details.map((detail, index) => (
+            <p key={index}>
+              <Image
+                src={detail.image} // Dynamic source based on property._id
+                alt="blah" // Alt text for the image
+                style={{
+                  width: "100%",
+                  maxWidth: "20px",
+                  marginBottom: "5px",
+                }}
+                className="w-full h-auto rounded-t-xl"
+                layout="responsive" // Optional: Adjusts the layout behavior of the image (e.g., fill, fixed, responsive)
+              />
+              {detail.info}{" "}
+              <span className="hidden sm:inline capitalize">{detail.name}</span>
+            </p>
+          ))}
         </div>
         <p className="text-gray-500 mb-4">{property.description}</p>
         <p className="text-gray-500 mb-4">
@@ -82,8 +97,20 @@ const PropertyDetails = ({ property }) => {
 
         <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 list-none">
           {property.amenities.map((amenity, index) => (
-            <li key={index}>
-              <i className="fas fa-check text-green-600 mr-2 mt-3"></i>
+            <li key={index} className="flex gap-x-1.5">
+              {/* <i className="fas fa-check text-green-600 mr-2 mt-3"></i> */}
+              <Image
+                src={FaCheck} // Dynamic source based on property._id
+                alt="blah" // Alt text for the image
+                style={{
+                  width: "100%",
+                  maxWidth: "20px",
+                  marginBottom: "5px",
+                }}
+                className="w-full h-auto rounded-t-xl"
+                layout="responsive" // Optional: Adjusts the layout behavior of the image (e.g., fill, fixed, responsive)
+              />
+
               {amenity}
             </li>
           ))}

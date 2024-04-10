@@ -44,6 +44,12 @@ const PropertyCard = ({ property }) => {
   // ];
   // console.log(property.images);
 
+  const details = [
+    { name: "beds", image: FaBed },
+    { name: "baths", image: FaBath },
+    { name: "sqft", image: FaMapMarker },
+  ];
+
   return (
     <div className="rounded-xl shadow-md relative">
       <Image
@@ -64,39 +70,38 @@ const PropertyCard = ({ property }) => {
           ${getRateDisplay()}
         </h3>
 
-        <div className="flex justify-center gap-4 text-gray-500 mb-4">
-          <p>
-            <Image
-              src={FaBed}
-              alt="fudge"
-              style={{
-                width: "100%",
-                maxWidth: "20px",
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center",
-              }}
-            />{" "}
-            {property.beds} <span className="md:hidden lg:inline">Beds</span>
-          </p>
-          <p>
-            <Image
-              src={FaBath}
-              alt="fudge"
-              style={{ width: "100%", maxWidth: "20px" }}
-            />{" "}
-            {/* <FaBath className="inline mr-2" /> */}
-            {property.baths} <span className="md:hidden lg:inline">Baths</span>
-          </p>
-          <p>
-            <Image
-              src={FaMapMarker}
-              alt="fudge"
-              style={{ width: "100%", maxWidth: "20px" }}
-            />
-            {property.square_feet}{" "}
-            <span className="md:hidden lg:inline">sqft</span>
-          </p>
+        <div className="flex gap-4 text-gray-500 mb-4">
+          {details.map((detail, index) => (
+            <div
+              key={index}
+              className="flex flex-col justify-center align-center text-center gap-y-1.5"
+              style={{}}
+            >
+              <div
+                style={{
+                  display: "flex",
+                  justifyContent: "center",
+                  alignItems: "center",
+                }}
+              >
+                <Image
+                  src={detail.image} // Dynamic source based on property._id
+                  alt="blah" // Alt text for the image
+                  style={{
+                    width: "100%",
+                    maxWidth: "20px",
+                  }}
+                  className="w-full h-auto rounded-t-xl"
+                  layout="responsive" // Optional: Adjusts the layout behavior of the image (e.g., fill, fixed, responsive)
+                />
+              </div>
+              <small>
+                {" "}
+                {property.beds}{" "}
+                <span className="md:hidden lg:inline">Beds</span>
+              </small>
+            </div>
+          ))}
         </div>
 
         <div className="flex justify-center gap-4 text-green-900 text-sm mb-4">

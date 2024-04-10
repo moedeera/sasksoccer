@@ -25,7 +25,10 @@ const PropertySearchForm = () => {
       onSubmit={handleSubmit}
       className="mt-3 mx-auto max-w-2xl w-full flex flex-col md:flex-row items-center"
     >
-      <div className="w-full md:w-3/5 md:pr-2 mb-4 md:mb-0">
+      <div
+        className="w-full md:w-3/5 md:pr-2 mb-4 md:mb-0"
+        style={{ border: "1px solid grey", borderRadius: "5px" }}
+      >
         <label htmlFor="location" className="sr-only">
           Location
         </label>
@@ -38,7 +41,14 @@ const PropertySearchForm = () => {
           onChange={(e) => setLocation(e.target.value)}
         />
       </div>
-      <div className="w-full md:w-2/5 md:pl-2">
+      <div
+        className="w-full md:w-2/5 md:pl-2"
+        style={{
+          border: "1px solid grey",
+          borderRadius: "5px",
+          marginLeft: "5px",
+        }}
+      >
         <label htmlFor="property-type" className="sr-only">
           Property Type
         </label>
