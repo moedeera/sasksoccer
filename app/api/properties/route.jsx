@@ -38,7 +38,7 @@ export const POST = async (request) => {
     const { userId } = sessionUser;
 
     const formData = await request.formData();
-    console.log(formData.get("name"));
+
     // Access all values from amenities and images
 
     const amenities = formData.getAll("amenities");

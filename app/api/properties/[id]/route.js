@@ -66,7 +66,7 @@ export const PUT = async (request, { params }) => {
     const { userId } = sessionUser;
 
     const formData = await request.formData();
-    console.log(formData.get("name"));
+
     // Access all values from amenities
     const amenities = formData.getAll("amenities");
     // get property to update

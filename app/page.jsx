@@ -3,6 +3,7 @@ import Hero from "./components/Hero";
 import InfoBoxes from "./components/InfoBoxes";
 import HomeProperties from "./components/HomeProperties";
 import FeaturedProperties from "./components/FeaturedProperties";
+import AccordionDemo from "./components/Accordion";
 
 const HomePage = () => {
   return (
