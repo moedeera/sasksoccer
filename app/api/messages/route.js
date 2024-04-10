@@ -78,8 +78,6 @@ export const POST = async (request) => {
       body: message,
     });
 
-    console.log(newMessage);
-
     await newMessage.save();
 
     return new Response(JSON.stringify({ message: "Message Sent" }), {

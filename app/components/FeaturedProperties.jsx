@@ -5,7 +5,7 @@ const FeaturedProperties = async () => {
   const properties = await fetchProperties({
     showFeatured: true,
   });
-  console.log(properties[0].is_featured, properties[0]);
+
   return (
     properties.length > 0 && (
       <section className="bg-blue-50 px-4 pt-6 pb-10">

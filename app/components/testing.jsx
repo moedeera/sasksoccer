@@ -19,7 +19,6 @@ const Properties = async () => {
   };
 
   const properties = await fetchProperties();
-  console.log(properties);
 
   if (properties === undefined) {
     return <>Loading</>;

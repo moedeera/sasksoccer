@@ -63,7 +63,7 @@ export const DELETE = async (request, { params }) => {
     }
     // verify ownership
     if (message.recipient.toString() !== userId) {
-      console.log(message.recipient.toString(), userId);
+      co;
       return new Response("Unauthorized", {
         status: 401,
       });
