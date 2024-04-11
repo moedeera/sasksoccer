@@ -5,7 +5,6 @@ import Link from "next/link";
 
 import FaBed from "@/assets/images/beds.png";
 import FaBath from "@/assets/images/baths.png";
-
 import FaMapMarker from "@/assets/images/stack.png";
 
 const PropertyCard = ({ property }) => {
