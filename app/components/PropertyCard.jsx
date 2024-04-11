@@ -45,9 +45,9 @@ const PropertyCard = ({ property }) => {
   // console.log(property.images);
 
   const details = [
-    { name: "beds", image: FaBed },
-    { name: "baths", image: FaBath },
-    { name: "sqft", image: FaMapMarker },
+    { name: "beds", info: property?.beds, image: FaBed },
+    { name: "baths", info: property?.baths, image: FaBath },
+    { name: "sqft", info: property?.square_feet, image: FaMapMarker },
   ];
 
   return (
@@ -97,8 +97,8 @@ const PropertyCard = ({ property }) => {
               </div>
               <small>
                 {" "}
-                {property.beds}{" "}
-                <span className="md:hidden lg:inline">Beds</span>
+                {detail.info}{" "}
+                <span className="md:hidden lg:inline">{detail.name}</span>
               </small>
             </div>
           ))}

@@ -1,7 +1,17 @@
 import Link from "next/link";
 import Image from "next/image";
 
+import FaBed from "@/assets/images/beds.png";
+import FaBath from "@/assets/images/baths.png";
+import FaMapMarker from "@/assets/images/stack.png";
+
 const FeaturedPropertyCard = ({ property }) => {
+  const details = [
+    { name: "beds", info: property?.beds, image: FaBed },
+    { name: "baths", info: property?.baths, image: FaBath },
+    { name: "sqft", info: property?.square_feet, image: FaMapMarker },
+  ];
+
   const getRateDisplay = () => {
     const { rates } = property;
 
@@ -31,19 +41,26 @@ const FeaturedPropertyCard = ({ property }) => {
           ${getRateDisplay()}
         </h3>
         <div className="flex justify-center gap-4 text-gray-500 mb-4">
-          <p>
-            {/* <FaBed className='inline-block mr-2' /> */}
-            {property.beds} <span className="md:hidden lg:inline">Beds</span>
-          </p>
-          <p>
-            {/* <FaBath className='inline-block mr-2' /> */}
-            {property.baths} <span className="md:hidden lg:inline">Baths</span>
-          </p>
-          <p>
-            {/* <FaRulerCombined className='inline-block mr-2' /> */}
-            {property.square_feet}{" "}
-            <span className="md:hidden lg:inline">sqft</span>
-          </p>
+          {details.map((detail, index) => (
+            <div key={index}>
+              {/* <FaBed className='inline-block mr-2' /> */}
+              <Image
+                src={detail.image} // Dynamic source based on property._id
+                alt="blah" // Alt text for the image
+                style={{
+                  width: "100%",
+                  maxWidth: "20px",
+                }}
+                className="w-full h-auto rounded-t-xl"
+                layout="responsive" // Optional: Adjusts
+              />
+              <p>
+                {" "}
+                {detail.info}{" "}
+                <span className="md:hidden lg:inline">{detail.name}</span>
+              </p>
+            </div>
+          ))}
         </div>
 
         <div className="flex justify-center gap-4 text-green-900 text-sm mb-4">
