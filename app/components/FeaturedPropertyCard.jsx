@@ -42,7 +42,15 @@ const FeaturedPropertyCard = ({ property }) => {
         </h3>
         <div className="flex justify-center gap-4 text-gray-500 mb-4">
           {details.map((detail, index) => (
-            <div key={index}>
+            <div
+              key={index}
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                justifyContent: "center",
+                alignItems: "center",
+              }}
+            >
               {/* <FaBed className='inline-block mr-2' /> */}
               <Image
                 src={detail.image} // Dynamic source based on property._id

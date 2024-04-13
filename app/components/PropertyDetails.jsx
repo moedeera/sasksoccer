@@ -65,7 +65,15 @@ const PropertyDetails = ({ property }) => {
         <h3 className="text-lg font-bold mb-6">Description & Details</h3>
         <div className="flex justify-center gap-4 text-blue-500 mb-4 text-xl space-x-9">
           {details.map((detail, index) => (
-            <p key={index}>
+            <div
+              key={index}
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                justifyContent: "center",
+                alignItems: "center",
+              }}
+            >
               <Image
                 src={detail.image} // Dynamic source based on property._id
                 alt="blah" // Alt text for the image
@@ -77,9 +85,14 @@ const PropertyDetails = ({ property }) => {
                 className="w-full h-auto rounded-t-xl"
                 layout="responsive" // Optional: Adjusts the layout behavior of the image (e.g., fill, fixed, responsive)
               />
-              {detail.info}{" "}
-              <span className="hidden sm:inline capitalize">{detail.name}</span>
-            </p>
+              <p>
+                {" "}
+                {detail.info}{" "}
+                <span className="hidden sm:inline capitalize">
+                  {detail.name}
+                </span>
+              </p>
+            </div>
           ))}
         </div>
         <p className="text-gray-500 mb-4">{property.description}</p>
