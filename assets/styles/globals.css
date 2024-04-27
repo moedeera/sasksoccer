@@ -22,6 +22,7 @@ h3 {
 }
 button {
   background-color: #169873 !important;
+  color: white !important;
 }
 
 @layer base {

@@ -15,7 +15,7 @@ const Hero = () => {
           </h1>
           <p className="my-4 text-xl text-blue-700">{websiteInfo.tagLine}</p>
         </div>
-        <PropertySearchForm />
+        {/* <PropertySearchForm /> */}
       </div>
     </section>
   );
