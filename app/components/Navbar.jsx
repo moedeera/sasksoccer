@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
@@ -7,6 +7,7 @@ import logo from "@/assets/images/logo-white.png";
 import profileDefault from "@/assets/images/profile.png";
 import { signIn, signOut, useSession, getProviders } from "next-auth/react";
 import UnReadMessages from "./UnReadMessages";
+import { useGlobalContext } from "../context/GlobalContext";
 
 const Navbar = () => {
   const { data: session } = useSession();
@@ -14,6 +15,7 @@ const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isProfileMenuOpen, setIsProfileMenuOpen] = useState(false);
   const [providers, setProviders] = useState(null);
+  const { headerLinks, websiteInfo } = useGlobalContext();
 
   const links = [
     { name: "Home", link: "/" },
@@ -33,7 +35,10 @@ const Navbar = () => {
   }, []);
 
   return (
-    <div className="bg-blue-700 border-b border-blue-500">
+    <div
+      className="border-b border-blue-500"
+      style={{ backgroundColor: `${websiteInfo.mainColor}` }}
+    >
       <nav style={{ maxWidth: "1400px", margin: "0 auto" }}>
         <div className="mx-auto  px-0 sm:px-6 lg:px-1">
           <div className="relative flex h-20 items-center justify-between">
@@ -74,7 +79,7 @@ const Navbar = () => {
                 <Image className="h-10 w-auto" src={logo} alt="PropertyPulse" />
 
                 <span className="hidden md:block text-white text-2xl font-bold ml-2">
-                  PropertyPulse
+                  {websiteInfo.title}
                 </span>
               </Link>
               {/* <!-- Desktop Menu Hidden below md screens --> */}
