@@ -6,18 +6,30 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { GlobalProvider } from "./context/GlobalContext";
 import "photoswipe/dist/photoswipe.css";
+import { Inter as FontSans } from "next/font/google";
+import { cn } from "@/lib/utils";
 
 export const metadata = {
   title: "nextjs-template",
   description: "next js template",
 };
 
+const fontSans = FontSans({
+  subsets: ["latin"],
+  variable: "--font-sans",
+});
+
 const MainLayout = ({ children }) => {
   return (
     <GlobalProvider>
       <AuthProvider>
         <html lang="en">
-          <body>
+          <body
+            className={cn(
+              "min-h-screen bg-background font-sans antialiased",
+              fontSans.variable
+            )}
+          >
             <Navbar />
             <main
               style={{
