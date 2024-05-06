@@ -11,8 +11,8 @@ const HomePage = () => {
       <Hero />
       <Cards />
       <InfoBoxes />
-      <FeaturedProperties />
-      <HomeProperties />
+      {/* <FeaturedProperties />
+      <HomeProperties /> */}
     </>
   );
 };

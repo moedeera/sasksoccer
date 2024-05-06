@@ -10,7 +10,21 @@
   display: none;
 }
 .side-menu {
-  display: none;
+  display: block;
+  position: fixed;
+  height: 100vh;
+  background-color: salmon;
+  width: 100px;
+  top: 0;
+  right: 0;
+  width: 50vw;
+  transform: translateX(100%);
+  transition: all 0.35s ease-in-out;
+  padding: 5px;
+}
+
+.side-menu-show {
+  transform: translateX(0);
 }
 
 /* Medium devices (landscape tablets, 768px and up) */
@@ -23,9 +37,6 @@
     margin-top: 54px;
   }
   .side-menu {
-    height: 500px;
-    background-color: red;
-    width: 100px;
-    margin-top: 200px;
+    display: none;
   }
 }

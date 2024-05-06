@@ -16,7 +16,9 @@ const Navbar2 = () => {
         <div>{websiteInfo.title}</div>
         <div
           className="border-2 rounded-sm max-w-16 p-1 h-10 md:hidden "
-          onClick={() => {}}
+          onClick={() => {
+            setSideMenu(true);
+          }}
         >
           Menu
         </div>
@@ -30,11 +32,15 @@ const Navbar2 = () => {
           ))}
         </div>
       </div>
-      <div
-        // className={sideMenu ? "side-menu show" : "side-menu side-menu-show"}
-        className="side-menu"
-      >
-        Hello
+      <div className={sideMenu ? "side-menu side-menu-show" : "side-menu"}>
+        <div
+          className="border-2 rounded-sm max-w-16 p-1 h-10 md:hidden "
+          onClick={() => {
+            setSideMenu(false);
+          }}
+        >
+          Close
+        </div>
       </div>
     </div>
   );
