@@ -2,7 +2,7 @@
 import { createContext, useContext, useState } from "react";
 import image1 from "../../assets/images/logo-white.png";
 // Create context
-const GlobalContext = createContext();
+export const GlobalContext = createContext();
 
 // Create a provider
 export function GlobalProvider({ children }) {
@@ -22,8 +22,6 @@ export function GlobalProvider({ children }) {
   };
   const headerLinks = [
     { name: "Home", Link: "/", case: "All" },
-    { name: "Properties", Link: "/properties", case: "All" },
-    { name: "Add Property", Link: "/properties/add", case: "User" },
     { name: "Login or Register", Link: "/properties", case: "login" },
   ];
 

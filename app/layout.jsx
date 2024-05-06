@@ -8,6 +8,7 @@ import { GlobalProvider } from "./context/GlobalContext";
 import "photoswipe/dist/photoswipe.css";
 import { Inter as FontSans } from "next/font/google";
 import { cn } from "@/lib/utils";
+import Navbar2 from "./components/Navbar/Navbar";
 
 export const metadata = {
   title: "nextjs-template",
@@ -30,7 +31,8 @@ const MainLayout = ({ children }) => {
               fontSans.variable
             )}
           >
-            <Navbar />
+            <Navbar2 />
+
             <main
               style={{
                 minHeight: "100vh",

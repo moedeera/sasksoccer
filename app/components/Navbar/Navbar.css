@@ -1,0 +1,31 @@
+.upper {
+  height: 54px;
+  background-color: var(--mainColor80);
+  width: 100%;
+  position: fixed;
+  top: 0;
+}
+
+.lower {
+  display: none;
+}
+.side-menu {
+  display: none;
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+  .lower {
+    display: block;
+    height: 54px;
+    width: 100%;
+    background-color: var(--alternateColor2);
+    margin-top: 54px;
+  }
+  .side-menu {
+    height: 500px;
+    background-color: red;
+    width: 100px;
+    margin-top: 200px;
+  }
+}
