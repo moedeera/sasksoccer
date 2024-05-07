@@ -12,26 +12,33 @@ const Navbar2 = () => {
 
   return (
     <div>
-      <div className="upper px-2 py-1 flex justify-between">
-        <div>{websiteInfo.title}</div>
-        <div
-          className="border-2 rounded-sm max-w-16 p-1 h-10 md:hidden "
-          onClick={() => {
-            setSideMenu(true);
-          }}
-        >
-          Menu
+      <div className="upper-navbar-container">
+        <div className="upper px-2 py-1 flex justify-between">
+          <div>{websiteInfo.title}</div>
+          <div
+            className="border-2 rounded-sm max-w-16 p-1 h-10 md:hidden "
+            onClick={() => {
+              setSideMenu(true);
+            }}
+          >
+            Menu
+          </div>
         </div>
       </div>
-      <div className="lower px-2">
-        <div className=" flex gap-x-2">
-          {pages.map((page, index) => (
-            <Link key={index} href={"/"}>
-              {page}
-            </Link>
-          ))}
+
+      <div className="lower-navbar-container">
+        {" "}
+        <div className="lower px-2">
+          <div className=" flex gap-x-2">
+            {pages.map((page, index) => (
+              <Link key={index} href={"/"}>
+                {page}
+              </Link>
+            ))}
+          </div>
         </div>
       </div>
+
       <div className={sideMenu ? "side-menu side-menu-show" : "side-menu"}>
         <div
           className="border-2 rounded-sm max-w-16 p-1 h-10 md:hidden "

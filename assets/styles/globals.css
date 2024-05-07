@@ -39,6 +39,7 @@
     --secondaryColor: #44abff;
     --alternateColor1: #e3f0ff;
     --alternateColor2: #6a7798;
+    --maxWidth: 1300px;
   }
 
   .dark {
