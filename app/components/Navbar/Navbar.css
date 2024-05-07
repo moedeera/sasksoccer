@@ -1,9 +1,12 @@
 .upper-navbar-container {
-  background-color: var(--mainColor80);
+  background-color: rgba(255, 255, 255, 0.8);
   height: 54px;
   position: fixed;
   width: 100%;
   top: 0;
+  display: flex;
+  align-items: center;
+  border-bottom: 0.5px solid grey;
 }
 .upper {
   width: 100%;
@@ -32,13 +35,20 @@
 .side-menu-show {
   transform: translateX(0);
 }
+.header-container {
+  display: flex;
+}
+.header-container p {
+  font-weight: bold;
+}
 
 /* Medium devices (landscape tablets, 768px and up) */
 @media only screen and (min-width: 768px) {
   .lower-navbar-container {
     display: block;
     width: 100%;
-    background-color: var(--alternateColor2);
+    background-color: var(--alternateColor280);
+
     margin-top: 54px;
   }
   .lower {
@@ -48,5 +58,9 @@
   }
   .side-menu {
     display: none;
+  }
+  .lower-navbar-container a {
+    font-weight: 500;
+    letter-spacing: 0.5px;
   }
 }
