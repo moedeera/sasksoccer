@@ -1,5 +1,7 @@
+.navbar-container {
+  background-color: white;
+}
 .upper-navbar-container {
-  background-color: rgba(255, 255, 255, 0.8);
   height: 54px;
   position: fixed;
   width: 100%;
@@ -7,6 +9,9 @@
   display: flex;
   align-items: center;
   border-bottom: 0.5px solid grey;
+  background-color: white;
+
+  z-index: 2;
 }
 .upper {
   width: 100%;

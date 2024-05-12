@@ -4,6 +4,7 @@ const img = "./soccer.jpeg";
 const Landing = () => {
   return (
     <div className="landing">
+      <div className="landing-image"></div>
       <div className="landing-container">
         <div className="landing-content">
           <h1>Lakewood Tournament is here</h1>

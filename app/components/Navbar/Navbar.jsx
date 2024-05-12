@@ -1,9 +1,11 @@
 "use client";
 import { useContext, useState } from "react";
 import "./Navbar.css";
+import arrow from "./chevron.png";
 
 import { GlobalContext } from "@/app/context/GlobalContext";
 import Link from "next/link";
+import Image from "next/image";
 
 const Navbar2 = () => {
   const { headerLinks, websiteInfo } = useContext(GlobalContext);
@@ -12,7 +14,7 @@ const Navbar2 = () => {
   let pages = ["Home", "Leagues", "Latest", "News", "Shop"];
 
   return (
-    <div>
+    <div className="navbar-container">
       <div className="upper-navbar-container">
         <div className="upper px-2 py-1 flex justify-between items-center h-full">
           <div className="header-container">
@@ -45,7 +47,11 @@ const Navbar2 = () => {
         <div className="lower px-2">
           <div className=" flex gap-x-14 items-center  h-full">
             {pages.map((page, index) => (
-              <Link key={index} href={"/"}>
+              <Link
+                key={index}
+                href={"/"}
+                className="flex gap-x-1 justify-center items-center"
+              >
                 {page}
               </Link>
             ))}
