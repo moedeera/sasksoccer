@@ -1,10 +1,9 @@
 "use client";
 import { useContext, useState } from "react";
 import "./Navbar.css";
-import logo from "./logo.png";
+
 import { GlobalContext } from "@/app/context/GlobalContext";
 import Link from "next/link";
-import Image from "next/image";
 
 const Navbar2 = () => {
   const { headerLinks, websiteInfo } = useContext(GlobalContext);
@@ -44,7 +43,7 @@ const Navbar2 = () => {
       <div className="lower-navbar-container">
         {" "}
         <div className="lower px-2">
-          <div className=" flex gap-x-8 items-center h-full">
+          <div className=" flex gap-x-14 items-center  h-full">
             {pages.map((page, index) => (
               <Link key={index} href={"/"}>
                 {page}
@@ -58,7 +57,7 @@ const Navbar2 = () => {
         className={
           sideMenu
             ? "side-menu side-menu-show flex flex-col gap-y-10 py-3 md:hidden"
-            : "side-menu"
+            : "side-menu flex flex-col gap-y-10 py-3 md:hidden"
         }
       >
         {pages.map((page, index) => (

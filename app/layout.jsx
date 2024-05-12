@@ -36,7 +36,7 @@ const MainLayout = ({ children }) => {
             <main
               style={{
                 minHeight: "100vh",
-                maxWidth: "1400px",
+                Width: "100vw",
                 margin: "0 auto",
               }}
             >

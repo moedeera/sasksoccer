@@ -39,6 +39,7 @@
     --mainColor80: #169873c0;
     --secondaryColor: #44abff;
     --alternateColor1: #e3f0ff;
+    --alternateColor180: #e3f0ff91;
     --alternateColor2: #6a7798;
     --alternateColor280: #6a7798ad;
     --maxWidth: 1300px;
@@ -84,16 +85,33 @@
   }
 }
 
+h1 {
+  font-size: xx-large !important;
+  font-weight: bolder;
+}
 * {
   font-family: "Plus Jakarta Sans", sans-serif;
 }
 .btn {
   background-color: var(--mainColor);
+  display: flex;
   align-items: center;
   justify-content: center;
+  border: 1px solid rgba(128, 128, 128, 0.25);
+  box-shadow: 0.5px 0.5px rgba(0, 0, 0, 0.25);
+  cursor: pointer;
+  color: white;
+  font-size: small;
+  max-width: max-content;
+  padding: 10px 15px;
+  border-radius: 5px;
 }
+
 /* Extra small devices (phones, 600px and down) */
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 768px) {
+  .login-button {
+    display: none;
+  }
 }
 
 /* Small devices (portrait tablets and large phones, 600px and up) */

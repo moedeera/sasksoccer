@@ -22,14 +22,15 @@
   display: block;
   position: fixed;
   height: 100vh;
-  background-color: salmon;
+  background-color: var(--alternateColor2);
   width: 100px;
   top: 0;
   right: 0;
   width: 50vw;
   transform: translateX(100%);
   transition: all 0.35s ease-in-out;
-  padding: 5px;
+  padding: 5px 10px 5px 20px;
+  color: white;
 }
 
 .side-menu-show {
@@ -46,6 +47,7 @@
 @media only screen and (min-width: 768px) {
   .lower-navbar-container {
     display: block;
+
     width: 100%;
     background-color: var(--alternateColor280);
 
@@ -62,5 +64,6 @@
   .lower-navbar-container a {
     font-weight: 500;
     letter-spacing: 0.5px;
+    color: white;
   }
 }
