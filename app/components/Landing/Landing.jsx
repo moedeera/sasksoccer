@@ -10,7 +10,8 @@ const Landing = () => {
           <h1>Lakewood Tournament is here</h1>
           <p>
             Take a tour of Canada's only synchrotron research facility, for
-            free!
+            free! Take a tour of Canada's only synchrotron research facility,
+            for free!
           </p>
           <button className="btn">Book Now</button>
         </div>
