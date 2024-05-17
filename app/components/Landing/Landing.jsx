@@ -7,7 +7,7 @@ const Landing = () => {
       <div className="landing-image"></div>
       <div className="landing-container">
         <div className="landing-content">
-          <h1>Lakewood Tournament is here</h1>
+          <h1>Welcome to the Hub</h1>
           <p>
             Take a tour of Canada's only synchrotron research facility, for
             free! Take a tour of Canada's only synchrotron research facility,
