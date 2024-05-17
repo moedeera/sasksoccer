@@ -1,5 +1,5 @@
 .landing {
-  height: calc(60vh - 110px);
+  height: calc(80vh - 110px);
 
   width: 100%;
   margin: 0 auto;
@@ -23,7 +23,8 @@
   animation: kenBurns 20s infinite reverse;
 }
 .landing-container {
-  background-color: #44abffa8;
+  background-color: #44abff63;
+  background-color: rgba(0, 0, 0, 0.525);
   width: 100vw;
   height: 100%;
 }
@@ -34,12 +35,33 @@
   margin: auto auto;
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  align-items: center;
+  gap: 10px;
   padding-top: 80px;
   padding-left: 5px;
 }
+
+.landing h1 {
+  margin: 0;
+  text-align: center;
+}
+.landing p {
+  margin: 0;
+  max-width: 800px;
+  line-height: 1.8em;
+  font-size: smaller;
+  text-align: center;
+}
+
 /* Small devices (portrait tablets and large phones, 600px and up) */
 @media only screen and (min-width: 600px) {
+  .landing-content {
+    align-items: self-start;
+  }
+  .landing p {
+    text-align: left;
+    font-size: medium;
+  }
 }
 
 /* Medium devices (landscape tablets, 768px and up) */

@@ -11,9 +11,11 @@ const Landing = () => {
           <p>
             Take a tour of Canada's only synchrotron research facility, for
             free! Take a tour of Canada's only synchrotron research facility,
-            for free!
+            for free! Take a tour of Canada's only synchrotron research
+            facility, for free! Take a tour of Canada's only synchrotron
+            research facility, for free!
           </p>
-          <button className="btn">Book Now</button>
+          <button className="btn">Read More</button>
         </div>
       </div>
     </div>
