@@ -1,9 +1,7 @@
 .landing {
-  height: calc(80vh - 110px);
-
+  height: calc(70vh - 110px);
   width: 100%;
   margin: 0 auto;
-
   color: white;
   background-repeat: no-repeat;
   display: flex;
@@ -70,4 +68,7 @@
 
 /* Large devices (laptops/desktops, 992px and up) */
 @media only screen and (min-width: 992px) {
+  .landing {
+    height: calc(65vh - 110px);
+  }
 }

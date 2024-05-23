@@ -3,11 +3,11 @@ const img = "./soccer.jpeg";
 
 const Landing = () => {
   return (
-    <div className="landing">
+    <div className="landing ">
       <div className="landing-image"></div>
       <div className="landing-container">
         <div className="landing-content">
-          <h1>Welcome to the Hub</h1>
+          <h1>Saskatoon Soccer News</h1>
           <p>
             Take a tour of Canada's only synchrotron research facility, for
             free! Take a tour of Canada's only synchrotron research facility,
