@@ -9,7 +9,8 @@ export function GlobalProvider({ children }) {
   const [unreadCount, setUnreadCount] = useState(0);
 
   const websiteInfo = {
-    mainColor: "#169873",
+    // mainColor: "#169873",
+    mainColor: "#169873c0",
     secondaryColor: "#44ABFF",
     AlternateColor1: "#E3F0FF",
     AlternateColor2: "#6A7798",
