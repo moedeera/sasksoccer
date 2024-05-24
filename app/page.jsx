@@ -5,6 +5,7 @@ import InfoBoxes from "./components/InfoBoxes";
 import { Cards } from "@/components/Card/Card";
 import Landing from "./components/Landing/Landing";
 import Block1 from "./components/Block1/Block1";
+import Calendar from "./components/Calendar/Calendar";
 
 const HomePage = () => {
   return (
@@ -12,8 +13,9 @@ const HomePage = () => {
       {/* <Hero /> */}
       <Landing />
       <Cards />
-      <InfoBoxes />
+
       <Block1 />
+      <Calendar />
       {/* <FeaturedProperties />
       <HomeProperties /> */}
     </div>

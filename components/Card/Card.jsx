@@ -55,14 +55,6 @@ export function Cards({ data }) {
       {info.map((dat, index) => (
         <Card key={index}>
           <CardHeader>
-            {/* <Image
-              src={dat.image} // Dynamic source based on property._id
-              alt="blah" // Alt text for the image
-              width={0}
-              height={60}
-              style={{ height: "100px" }}
-              layout="responsive" // Optional: Adjusts the layout behavior of the image (e.g., fill, fixed, responsive)
-            /> */}
             <div
               className="card-image w-full h-56 bg-black bg-center bg-cover"
               style={{ backgroundImage: `url("${dat.image}")` }}
@@ -71,9 +63,6 @@ export function Cards({ data }) {
             <CardDescription>{dat.content}</CardDescription>
           </CardHeader>
 
-          {/* <CardContent>
-            <p>{dat.content}</p>
-          </CardContent> */}
           <CardFooter>
             <Link href={"/"} className="btn">
               Read More
