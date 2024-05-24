@@ -44,6 +44,9 @@
     --alternateColor280: #6a7798ad;
     --maxWidth: 1300px;
   }
+  .h3-header {
+    color: #169873c0;
+  }
 
   .dark {
     --background: 222.2 84% 4.9%;
@@ -87,6 +90,7 @@
 .component-container {
   max-width: var(--maxWidth);
   margin: 0 auto;
+  width: 95%;
 }
 
 h1 {

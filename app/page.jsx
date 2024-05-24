@@ -4,6 +4,7 @@ import InfoBoxes from "./components/InfoBoxes";
 
 import { Cards } from "@/components/Card/Card";
 import Landing from "./components/Landing/Landing";
+import Block1 from "./components/Block1/Block1";
 
 const HomePage = () => {
   return (
@@ -12,6 +13,7 @@ const HomePage = () => {
       <Landing />
       <Cards />
       <InfoBoxes />
+      <Block1 />
       {/* <FeaturedProperties />
       <HomeProperties /> */}
     </div>

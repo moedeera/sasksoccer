@@ -1,0 +1,16 @@
+.block1 {
+  display: grid;
+  border: 1px solid rgba(128, 128, 128, 0.5);
+  border-radius: 5px;
+}
+.block-1-image {
+  background-size: cover;
+  background-position: center;
+  min-height: 200px;
+}
+
+@media only screen and (min-width: 768px) {
+  .block1 {
+    grid-template-columns: 1fr 1fr;
+  }
+}
