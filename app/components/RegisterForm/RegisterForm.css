@@ -1,0 +1,41 @@
+.register-form-container {
+  max-width: 400px;
+  margin: 20px auto;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.register-form-container h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.register-form-container form {
+  display: flex;
+  flex-direction: column;
+}
+
+.register-form-container form > div {
+  margin-bottom: 15px;
+}
+
+.register-form-container label {
+  margin-bottom: 5px;
+  display: block;
+}
+
+.register-form-container .error-message {
+  color: red;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.register-form-container button {
+  margin-top: 10px;
+}
+
+.register-form-container button + button {
+  margin-top: 10px;
+}
