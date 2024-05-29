@@ -26,7 +26,7 @@ const Navbar2 = () => {
 
           <Link
             className="btn login-button hidden md:flex border-2 rounded-md px-4 py-2 text-white "
-            href={"/"}
+            href={"/login"}
           >
             Login
           </Link>

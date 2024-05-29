@@ -21,9 +21,9 @@ const LoginFormComponent = () => {
   };
 
   return (
-    <div className="login-form-container">
+    <div className="login-form-container ">
       <h2 className="text-2xl font-bold">Login</h2>
-      <form onSubmit={handleEmailLogin}>
+      <div>
         <div>
           <label>Email:</label>
           <Input
@@ -43,12 +43,12 @@ const LoginFormComponent = () => {
           />
         </div>
         {error && <p className="error-message">{error}</p>}
-        <Button type="submit">Login</Button>
+        <Button>Login</Button>
         <small className="my-3">No Account?</small>
-        <Button type="submit">
+        <Button>
           <Link href={"/register"}>Register</Link>
         </Button>
-      </form>
+      </div>
       <br />
       <Button onClick={handleGoogleLogin}>Login/Register with Google</Button>
     </div>
