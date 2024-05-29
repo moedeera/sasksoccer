@@ -46,14 +46,18 @@ const Navbar2 = () => {
         {" "}
         <div className="lower px-2">
           <div className=" flex gap-x-14 items-center  h-full">
-            {pages.map((page, index) => (
-              <Link
-                key={index}
-                href={"/"}
-                className="flex gap-x-1 justify-center items-center"
-              >
-                {page}
-              </Link>
+            {headerLinks.map((page, index) => (
+              <>
+                {page.case === "all" && (
+                  <Link
+                    key={index}
+                    href={page.Link}
+                    className="flex gap-x-1 justify-center items-center"
+                  >
+                    {page.name}
+                  </Link>
+                )}
+              </>
             ))}
           </div>
         </div>
@@ -66,9 +70,15 @@ const Navbar2 = () => {
             : "side-menu flex flex-col gap-y-10 py-3 md:hidden"
         }
       >
-        {pages.map((page, index) => (
-          <Link key={index} href={"/"}>
-            {page}
+        {headerLinks.map((page, index) => (
+          <Link
+            onClick={() => {
+              setSideMenu(false);
+            }}
+            key={index}
+            href={page.Link}
+          >
+            {page.name}
           </Link>
         ))}
 

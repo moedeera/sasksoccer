@@ -35,7 +35,7 @@ const Block2 = ({ data }) => {
       <div className="block2">
         {" "}
         <div className="text py-4 px-3">
-          <small>{info.date}</small>
+          <small>Recent</small>
           <div className="text-3xl font-bold h3-header">{info.title}</div>
 
           <p className="py-3  pr-2">{info.content}</p>

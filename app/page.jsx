@@ -8,16 +8,17 @@ import Block1 from "./components/Block1/Block1";
 import Calendar from "./components/Calendar/Calendar";
 import CarouselComponent from "./components/Slide/CarouselComponent";
 import TableComponent from "./components/Table/TableComponent";
-import { DataTableDemo } from "./components/DataTable/DataTable";
+
 import LeagueForm from "./components/FormComponent/FormComponent";
 import LoginFormComponent from "./components/LoginFormComponent/LoginFormComponent";
 import RegisterForm from "./components/RegisterForm/RegisterForm";
 import Block2 from "./components/Block2/Block2";
+import Block3 from "./components/Block3/Block3";
+import Block4 from "./components/Block4/Block4";
 
 const HomePage = () => {
   return (
     <div>
-      {/* <Hero /> */}
       <Landing />
       <Cards />
       <CarouselComponent />
@@ -28,6 +29,9 @@ const HomePage = () => {
       <LoginFormComponent />
       <RegisterForm />
       <Block2 />
+      <Block4 />
+
+      {/* <Block3 /> */}
 
       {/* <DataTableDemo /> */}
       {/* <FeaturedProperties />

@@ -22,8 +22,12 @@ export function GlobalProvider({ children }) {
     logo: image1,
   };
   const headerLinks = [
-    { name: "Home", Link: "/", case: "All" },
-    { name: "Login or Register", Link: "/properties", case: "login" },
+    { name: "Home", Link: "/", case: "all" },
+    { name: "Leagues", Link: "/leagues", case: "all" },
+    { name: "Latest", Link: "/latest", case: "all" },
+    { name: "Community", Link: "/community", case: "all" },
+    { name: "Shop", Link: "/shop", case: "all" },
+    { name: "myportal", Link: "/myportal", case: "login" },
   ];
 
   return (

@@ -31,7 +31,7 @@ const Block1 = ({ data }) => {
         {info.reverse ? (
           <>
             {" "}
-            <div className="text py-4 px-2">
+            <div className="text py-4 px-4">
               <div className="text-3xl font-bold h3-header">{info.title}</div>
               <small>{info.date}</small>
               <p className="py-3  pr-2">{info.content}</p>

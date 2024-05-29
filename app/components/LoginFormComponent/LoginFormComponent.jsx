@@ -5,6 +5,7 @@ import React, { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import "./LoginForm.css";
+import Link from "next/link";
 
 const LoginFormComponent = () => {
   const [email, setEmail] = useState("");
@@ -21,7 +22,7 @@ const LoginFormComponent = () => {
 
   return (
     <div className="login-form-container">
-      <h2>Login</h2>
+      <h2 className="text-2xl font-bold">Login</h2>
       <form onSubmit={handleEmailLogin}>
         <div>
           <label>Email:</label>
@@ -43,8 +44,13 @@ const LoginFormComponent = () => {
         </div>
         {error && <p className="error-message">{error}</p>}
         <Button type="submit">Login</Button>
+        <small className="my-3">No Account?</small>
+        <Button type="submit">
+          <Link href={"/register"}>Register</Link>
+        </Button>
       </form>
-      <Button onClick={handleGoogleLogin}>Login with Google</Button>
+      <br />
+      <Button onClick={handleGoogleLogin}>Login/Register with Google</Button>
     </div>
   );
 };
