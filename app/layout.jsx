@@ -9,6 +9,7 @@ import "photoswipe/dist/photoswipe.css";
 import { Inter as FontSans } from "next/font/google";
 import { cn } from "@/lib/utils";
 import Navbar2 from "./components/Navbar/Navbar";
+import FooterComponent from "./components/Footer/Footer";
 
 export const metadata = {
   title: "nextjs-template",
@@ -42,7 +43,7 @@ const MainLayout = ({ children }) => {
             >
               {children}
             </main>
-            <Footer />
+            <FooterComponent />
             <ToastContainer />
           </body>
         </html>
