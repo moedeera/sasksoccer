@@ -32,7 +32,7 @@ const Block2 = ({ data }) => {
 
   return (
     <div className="component-container ">
-      <div className="block2">
+      <div className="block2 mt-4">
         {" "}
         <div className="text py-4 px-3">
           <small>Recent</small>
