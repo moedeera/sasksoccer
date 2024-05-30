@@ -89,7 +89,7 @@
 }
 .component-container {
   max-width: var(--maxWidth);
-  margin: 50px auto;
+  margin: 80px auto;
   width: 95%;
 }
 
