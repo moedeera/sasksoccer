@@ -6,6 +6,7 @@ import arrow from "./chevron.png";
 import { GlobalContext } from "@/app/context/GlobalContext";
 import Link from "next/link";
 import Image from "next/image";
+import { SideMenu } from "../SideMenu/SideMenu";
 
 const Navbar2 = () => {
   const { headerLinks, websiteInfo } = useContext(GlobalContext);
@@ -32,12 +33,12 @@ const Navbar2 = () => {
           </Link>
 
           <div
-            className="btn border-2 rounded-sm max-w-16 p-1 h-10 md:hidden "
+            className="mr-2 max-w-16 p-1 h-10 md:hidden "
             onClick={() => {
-              setSideMenu(true);
+              // setSideMenu(true);
             }}
           >
-            Menu
+            <SideMenu text={"Menu"} />
           </div>
         </div>
       </div>

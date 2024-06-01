@@ -17,6 +17,7 @@ import Block3 from "./components/Block3/Block3";
 import Block4 from "./components/Block4/Block4";
 import { homepageInfo } from "./homepagecontent";
 import Banner from "./components/Banner/Banner";
+import { SideMenu } from "./components/SideMenu/SideMenu";
 
 const HomePage = () => {
   return (
@@ -32,6 +33,7 @@ const HomePage = () => {
       <RegisterForm /> */}
       <Block2 data={homepageInfo} />
       <Banner />
+      <SideMenu />
       {/* <Block4 /> */}
 
       {/* <Block3 /> */}
