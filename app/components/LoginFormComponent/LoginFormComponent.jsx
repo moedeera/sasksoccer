@@ -1,28 +1,55 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import { FaGoogle } from "react-icons/fa";
 // import { signInWithPopup, signInWithEmailAndPassword, auth, googleProvider } from "./firebase";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import "./LoginForm.css";
 import Link from "next/link";
+import { getProviders, signIn, useSession } from "next-auth/react";
+import { usePathname } from "next/navigation";
 
 const LoginFormComponent = () => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [error, setError] = useState("");
+  const { data: session } = useSession();
+  const profileImage = session?.user?.image;
+  const [providers, setProviders] = useState(null);
 
-  const handleEmailLogin = async (e) => {
-    alert("hello 1");
-  };
+  const pathname = usePathname();
+  console.log(session?.user);
 
-  const handleGoogleLogin = async () => {
-    alert("hello 2");
-  };
+  useEffect(() => {
+    const setAuthProvider = async () => {
+      const res = await getProviders();
+      setProviders(res);
+    };
+
+    setAuthProvider();
+  }, []);
 
   return (
     <div className="login-form-container flex flex-col justify-center items-center">
       <h2 className="text-2xl font-bold">Login</h2>
+      <div className="hidden md:block md:ml-6">
+        <div className="flex items-center">
+          {providers &&
+            Object.values(providers).map((provider, index) => (
+              <Button
+                key={index}
+                onClick={() => {
+                  signIn(provider.id);
+                }}
+                className="flex items-center text-white bg-gray-700 hover:bg-gray-900 hover:text-white rounded-md px-3 py-2"
+              >
+                <i className="fa-brands fa-google text-white mr-2"></i>
+                <span>
+                  Sign in with
+                  <FaGoogle className="w-3 h-3" />
+                </span>
+              </Button>
+            ))}
+        </div>
+      </div>
       {/* <div>
         <div>
           <label>Email:</label>
@@ -50,7 +77,7 @@ const LoginFormComponent = () => {
         </Button>
       </div>
       <br /> */}
-      <Button onClick={handleGoogleLogin}>Sign in with Google</Button>
+      {/* <Button>Sign in with Google</Button> */}
     </div>
   );
 };
