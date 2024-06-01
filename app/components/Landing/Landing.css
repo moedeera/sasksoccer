@@ -28,7 +28,7 @@
 }
 .landing-container {
   background-color: #44abff63;
-  background-color: rgba(0, 0, 0, 0.525);
+  background-color: rgba(0, 0, 0, 0.625);
   width: 100vw;
   height: 100%;
   padding-bottom: 50px;
@@ -40,10 +40,10 @@
   margin: auto auto;
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
   gap: 10px;
   padding-top: 80px;
-  padding-left: 5px;
 }
 
 .landing h1 {
@@ -80,5 +80,8 @@
   }
   .landing-mini {
     height: max-content;
+  }
+  .landing-content {
+    padding-left: 5px;
   }
 }
