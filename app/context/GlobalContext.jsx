@@ -16,7 +16,7 @@ export function GlobalProvider({ children }) {
     AlternateColor2: "#6A7798",
     light: "#FFFFFF",
     dark: "#000000",
-    title: "Saskatoon Soccer Hub",
+    title: "SaskSoccerHub",
     mainLine: "Saskatoon Soccer News",
     tagLine: "Your go-to stop for anything saskatoon soccer related.",
     logo: image1,

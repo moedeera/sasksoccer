@@ -33,7 +33,7 @@ const HomePage = () => {
       <RegisterForm /> */}
       <Block2 data={homepageInfo} />
       <Banner />
-      <SideMenu />
+
       {/* <Block4 /> */}
 
       {/* <Block3 /> */}
