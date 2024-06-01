@@ -2,7 +2,7 @@
   background-color: white;
 }
 .upper-navbar-container {
-  height: 54px;
+  min-height: 60px;
   position: fixed;
   width: 100%;
   top: 0;
@@ -10,7 +10,9 @@
   align-items: center;
   border-bottom: 0.5px solid rgba(128, 128, 128, 0.25);
   background-color: white;
-
+  background-color: black;
+  color: white;
+  padding: 2px 0;
   z-index: 2;
 }
 .upper {
@@ -59,6 +61,7 @@
     background-color: var(--alternateColor280);
     background-color: #d6d6d4;
     background-color: black;
+    background-color: white;
 
     margin-top: 54px;
   }
@@ -74,6 +77,7 @@
     font-weight: 500;
     letter-spacing: 0.5px;
     color: white;
+    color: black;
     transition: all 0.35s ease-in-out;
   }
   .lower-navbar-container a:hover {

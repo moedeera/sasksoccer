@@ -21,9 +21,9 @@ const LoginFormComponent = () => {
   };
 
   return (
-    <div className="login-form-container ">
+    <div className="login-form-container flex flex-col justify-center items-center">
       <h2 className="text-2xl font-bold">Login</h2>
-      <div>
+      {/* <div>
         <div>
           <label>Email:</label>
           <Input
@@ -49,8 +49,8 @@ const LoginFormComponent = () => {
           <Link href={"/register"}>Register</Link>
         </Button>
       </div>
-      <br />
-      <Button onClick={handleGoogleLogin}>Login/Register with Google</Button>
+      <br /> */}
+      <Button onClick={handleGoogleLogin}>Sign in with Google</Button>
     </div>
   );
 };
