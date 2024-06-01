@@ -92,6 +92,10 @@
   margin: 80px auto;
   width: 95%;
 }
+.carousel-container {
+  width: 90%;
+  margin: 0 auto;
+}
 
 h1 {
   font-size: xx-large;
