@@ -39,13 +39,10 @@ const LoginFormComponent = () => {
                 onClick={() => {
                   signIn(provider.id);
                 }}
-                className="flex items-center text-white bg-gray-700 hover:bg-gray-900 hover:text-white rounded-md px-3 py-2"
+                className="flex  gap-2 items-center text-white bg-gray-700 hover:bg-gray-900 hover:text-white rounded-md px-3 py-2"
               >
-                <i className="fa-brands fa-google text-white mr-2"></i>
-                <span>
-                  Sign in with
-                  <FaGoogle className="w-3 h-3" />
-                </span>
+                <span>Sign in with</span>
+                <FaGoogle className="w-3 h-3 color-gray-100" />
               </Button>
             ))}
         </div>
