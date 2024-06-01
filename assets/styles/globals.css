@@ -93,7 +93,7 @@
   width: 95%;
 }
 .carousel-container {
-  width: 90%;
+  width: 60%;
   margin: 0 auto;
 }
 
@@ -121,11 +121,23 @@ h1 {
 .card-image {
   background-image: url("../images/carddefault.webp");
 }
-
 /* Extra small devices (phones, 600px and down) */
 @media only screen and (max-width: 768px) {
   .login-button {
     display: none;
+  }
+}
+
+/* Phones (small and medium phones, 376px and up) */
+@media only screen and (min-width: 376px) {
+  .carousel-container {
+    width: 70%;
+  }
+}
+/* Large Phones (medium and large phones, 425px and up) */
+@media only screen and (min-width: 425px) {
+  .carousel-container {
+    width: 75%;
   }
 }
 
@@ -135,6 +147,9 @@ h1 {
 
 /* Medium devices (landscape tablets, 768px and up) */
 @media only screen and (min-width: 768px) {
+  .carousel-container {
+    width: 85%;
+  }
 }
 
 /* Large devices (laptops/desktops, 992px and up) */
