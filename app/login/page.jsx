@@ -1,11 +1,20 @@
 "use client";
-import React from "react";
+import React, { useEffect } from "react";
+import { useRouter } from "next/router";
+import { useSession } from "next-auth/react";
 import LoginFormComponent from "../components/LoginFormComponent/LoginFormComponent";
 import Landing from "../components/Landing/Landing";
-import { useSession } from "next-auth/react";
 
-const page = () => {
-  const { data: session } = useSession();
+const LoginPage = () => {
+  const { data: session, status } = useSession();
+  const router = useRouter();
+
+  useEffect(() => {
+    if (status === "authenticated") {
+      router.push("/profile");
+    }
+  }, [session, status, router]);
+
   const pageHeader = {
     title: "Login",
     content: null,
@@ -21,4 +30,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default LoginPage;
