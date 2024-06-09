@@ -16,7 +16,7 @@ const LeaguePage = () => {
   const [loading, setLoading] = useState(true);
 
   const leaguePageHeader = {
-    title: `${slug.replace(/_/g, " ")} League`,
+    title: `${slug?.replace(/_/g, " ")} League`,
     content: null,
     button: null,
     mini: true,
