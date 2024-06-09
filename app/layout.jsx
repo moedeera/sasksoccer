@@ -12,8 +12,8 @@ import Navbar2 from "./components/Navbar/Navbar";
 import FooterComponent from "./components/Footer/Footer";
 
 export const metadata = {
-  title: "nextjs-template",
-  description: "next js template",
+  title: "SaskSoccerHub",
+  description: "Saskatoon Soccer News",
 };
 
 const fontSans = FontSans({
