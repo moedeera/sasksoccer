@@ -64,5 +64,30 @@ const fetchProperty = async (id) => {
     return null;
   }
 };
+// fetch League
+const fetchLeague = async (id) => {
+  try {
+    // handle case where domain is not available
+    if (!apiDomain) {
+      return null;
+    }
+    const res = await fetch(`${apiDomain}/leagues/${id}`);
 
-export { fetchProperties, fetchProperty, generateRentalBasisString };
+    if (!res.ok) {
+      throw new Error("Failed to fetch data");
+    }
+
+    const data = await res.json();
+    return data;
+  } catch (error) {
+    console.log(error);
+    return null;
+  }
+};
+
+export {
+  fetchProperties,
+  fetchProperty,
+  generateRentalBasisString,
+  fetchLeague,
+};

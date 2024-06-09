@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./Table.css";
 import {
   Table,
@@ -13,67 +13,88 @@ import {
   TableRow,
 } from "@/components/ui/table";
 
-const invoices = [
+const defaultInfo = [
   {
-    invoice: "INV001",
-    paymentStatus: "Paid",
-    totalAmount: "$250.00",
-    teamName: "Lakewood",
-    record: [3, 3, 2, 5, 3],
-    paymentMethod: "Credit Card",
+    name: "Lakewood",
+    draw_total: 0,
+    goals_against: 5,
+    goals_for: 30,
+    id: "60d0fe4f5311236168a109fa",
+    loss_total: 0,
+    win_total: 14,
   },
   {
-    invoice: "INV002",
-    paymentStatus: "Pending",
-    totalAmount: "$150.00",
-    teamName: "Bayern Hatfield",
-    record: [3, 3, 2, 5, 3],
-    paymentMethod: "PayPal",
+    name: "Bayern Hatfield",
+    draw_total: 1,
+    goals_against: 5,
+    goals_for: 19,
+    id: "60d0fe4f5311236168a109fb",
+    loss_total: 1,
+    win_total: 12,
   },
   {
-    invoice: "INV003",
-    paymentStatus: "Unpaid",
-    totalAmount: "$350.00",
-    teamName: "FC Strikers",
-    record: [3, 3, 2, 5, 3],
-    paymentMethod: "Bank Transfer",
+    name: "FC Strikers",
+    draw_total: 2,
+    goals_against: 2,
+    goals_for: 10,
+    id: "60d0fe4f5311236168a109fb",
+    loss_total: 3,
+    win_total: 9,
   },
   {
-    invoice: "INV004",
-    paymentStatus: "Paid",
-    totalAmount: "$450.00",
-    teamName: "Westfield United",
-    record: [3, 3, 2, 5, 3],
-    paymentMethod: "Credit Card",
+    name: "Westfield United",
+    draw_total: 4,
+    goals_against: 10,
+    goals_for: 12,
+    id: "60d0fe4f5311236168a109fb",
+    loss_total: 3,
+    win_total: 7,
   },
   {
-    invoice: "INV005",
-    paymentStatus: "Paid",
-    totalAmount: "$550.00",
-    teamName: "Hollandia Mertens",
-    record: [3, 3, 2, 5, 3],
-    paymentMethod: "PayPal",
+    name: "Hollandia Mertens",
+    draw_total: 3,
+    goals_against: 5,
+    goals_for: 12,
+    id: "60d0fe4f5311236168a109fb",
+    loss_total: 5,
+    win_total: 6,
   },
   {
-    invoice: "INV006",
-    paymentStatus: "Pending",
-    totalAmount: "$200.00",
-    teamName: "Becker FC",
-    record: [3, 3, 2, 5, 3],
-    paymentMethod: "Bank Transfer",
+    name: "Becker FC",
+    draw_total: 4,
+    goals_against: 4,
+    goals_for: 8,
+    id: "60d0fe4f5311236168a109fb",
+    loss_total: 5,
+    win_total: 5,
   },
   {
-    invoice: "INV007",
-    paymentStatus: "Unpaid",
-    totalAmount: "$300.00",
-    teamName: "Deportivo Santiago",
-    record: [3, 3, 2, 5, 3],
-    paymentMethod: "Credit Card",
+    name: "Deportivo Santiago",
+    draw_total: 5,
+    goals_against: 18,
+    goals_for: 6,
+    id: "60d0fe4f5311236168a109fb",
+    loss_total: 8,
+    win_total: 4,
+  },
+  {
+    name: "Arsenal GFC",
+    draw_total: 2,
+    goals_against: 20,
+    goals_for: 4,
+    id: "60d0fe4f5311236168a109fb",
+    loss_total: 10,
+    win_total: 2,
   },
 ];
 
-const TableComponent = () => {
-  const [table, setTable] = useState();
+const TableComponent = ({ data }) => {
+  const [teamsInfo, setTeamsInfo] = useState(defaultInfo);
+  useEffect(() => {
+    if (data) {
+      setTeamsInfo(data);
+    }
+  }, []);
   return (
     <div className="component-container border border-grey ">
       <Table>
@@ -92,19 +113,22 @@ const TableComponent = () => {
           </TableRow>
         </TableHeader>
         <TableBody>
-          {invoices.map((invoice, index) => (
-            <TableRow key={invoice.invoice}>
+          {teamsInfo.map((team, index) => (
+            <TableRow key={team.name}>
               <TableCell className="font-medium">{index + 1}</TableCell>
 
-              <TableCell>{invoice.teamName}</TableCell>
-              <TableCell className="text-right">8</TableCell>
-              <TableCell className="text-right">{invoice.record[0]}</TableCell>
-              <TableCell className="text-right">{invoice.record[1]}</TableCell>
-              <TableCell className="text-right">{invoice.record[2]}</TableCell>
-              <TableCell className="text-right">{invoice.record[3]}</TableCell>
-              <TableCell className="text-right">{invoice.record[4]}</TableCell>
+              <TableCell>{team.name}</TableCell>
+
               <TableCell className="text-right">
-                {invoice.record[1] * 3 + invoice.record[2]}
+                {team.win_total + team.draw_total + team.loss_total}
+              </TableCell>
+              <TableCell className="text-right">{team.win_total}</TableCell>
+              <TableCell className="text-right">{team.draw_total}</TableCell>
+              <TableCell className="text-right">{team.loss_total}</TableCell>
+              <TableCell className="text-right">{team.goals_for}</TableCell>
+              <TableCell className="text-right">{team.goals_against}</TableCell>
+              <TableCell className="text-right">
+                {team.win_total * 3 + team.draw_total}
               </TableCell>
             </TableRow>
           ))}

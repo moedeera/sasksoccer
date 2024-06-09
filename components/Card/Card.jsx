@@ -75,7 +75,7 @@ export function Cards({ data }) {
           </CardHeader>
 
           <CardFooter>
-            <Link href={`/${dat.id}`} className="btn">
+            <Link href={`leagues/${dat.slug}`} className="btn">
               Read More
             </Link>
           </CardFooter>
