@@ -9,9 +9,9 @@ export const GET = async (request, { params }) => {
   try {
     await connectDB();
     // Find property by slug
-    console.log(params.slug);
+    console.log("slug is", params.id, params);
     // const league = await League.findById(params.id);
-    const league = await League.findOne({ slug: params.slug });
+    const league = await League.findOne({ slug: params.id });
     // If property is not found
     if (!league) {
       return new Response("Property not found", { status: 404 });

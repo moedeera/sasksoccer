@@ -65,13 +65,14 @@ const fetchProperty = async (id) => {
   }
 };
 // fetch League
-const fetchLeague = async (id) => {
+const fetchLeague = async (slug) => {
+  console.log("this is slug:", slug);
   try {
     // handle case where domain is not available
     if (!apiDomain) {
       return null;
     }
-    const res = await fetch(`${apiDomain}/leagues/${id}`);
+    const res = await fetch(`${apiDomain}/leagues/${slug}`);
 
     if (!res.ok) {
       throw new Error("Failed to fetch data");

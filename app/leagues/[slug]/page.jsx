@@ -10,13 +10,13 @@ import { fetchLeague } from "@/app/utlils/request";
 import Spinner from "@/app/components/Spinner";
 
 const LeaguePage = () => {
-  const { id } = useParams();
-  console.log(id);
+  const { slug } = useParams();
+  console.log(slug);
   const [league, setLeague] = useState(null);
   const [loading, setLoading] = useState(true);
 
   const leaguePageHeader = {
-    title: `${id.replace(/_/g, " ")} League`,
+    title: `${slug.replace(/_/g, " ")} League`,
     content: null,
     button: null,
     mini: true,
@@ -24,11 +24,11 @@ const LeaguePage = () => {
 
   useEffect(() => {
     const fetchLeagueData = async () => {
-      if (!id) {
+      if (!slug) {
         return;
       }
       try {
-        const leagueData = await fetchLeague(id);
+        const leagueData = await fetchLeague(slug);
 
         console.log(leagueData);
         setLeague(leagueData);
