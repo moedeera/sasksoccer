@@ -43,7 +43,9 @@ const LeagueForm = () => {
   return (
     <div className="component-container">
       <form
-        onSubmit={handleSubmit}
+        action="/api/properties"
+        method="POST"
+        encType="multipart/form-data"
         className="p-3 border border-grey flex flex-col gap-4 md:w-1/2 "
       >
         <div>
@@ -76,7 +78,7 @@ const LeagueForm = () => {
               required
             />
           ))}
-          <Button type="button" onClick={handleAddTeam} className="mt-2">
+          <Button type="submit" onClick={handleAddTeam} className="mt-2">
             Add Team
           </Button>
         </div>

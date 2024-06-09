@@ -20,7 +20,7 @@ const LeagueSchema = new Schema(
     },
     teams: [
       {
-        id: { type: Schema.Types.ObjectId, required: true },
+        id: { type: String, required: true },
         name: { type: String, required: true },
         win_total: { type: Number, required: true },
         loss_total: { type: Number, required: true },
@@ -31,8 +31,8 @@ const LeagueSchema = new Schema(
     ],
     games: [
       {
-        home_team_id: { type: Schema.Types.ObjectId, required: true },
-        away_team_id: { type: Schema.Types.ObjectId, required: true },
+        home_team_id: { type: String, required: true },
+        away_team_id: { type: String, required: true },
         home_team_goals: { type: Number, required: true },
         away_team_goals: { type: Number, required: true },
         date_of_game: { type: Date, required: true },
