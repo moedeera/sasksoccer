@@ -47,7 +47,11 @@ const LeaguePage = () => {
   return (
     <div>
       <Landing data={leaguePageHeader} />
-      {loading ? <Spinner /> : <TableComponent data={league.teams} />}
+      {loading && league?.teams ? (
+        <Spinner />
+      ) : (
+        <TableComponent data={league?.teams} />
+      )}
       <Block4 data={errorReportInfo} />
     </div>
   );
