@@ -17,7 +17,18 @@ const LeagueForm = () => {
   const [name, setName] = useState("");
   const [manager, setManager] = useState("");
   const [teams, setTeams] = useState([""]);
-  const [league, setLeague] = useState(null);
+  const [league, setLeague] = useState({
+    owner: "",
+    name: "",
+    type: "",
+    description: "",
+    teams: [],
+    games: [],
+    images: [],
+    isFeatured: false,
+    createdAt: null,
+    updatedAt: null,
+  });
 
   const handleAddTeam = () => {
     setTeams([...teams, ""]);
