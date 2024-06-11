@@ -18,6 +18,9 @@ const LeagueSchema = new Schema(
     description: {
       type: String,
     },
+    slug: {
+      type: String,
+    },
     teams: [
       {
         id: { type: String, required: true },
