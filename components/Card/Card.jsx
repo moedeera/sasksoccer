@@ -54,7 +54,7 @@ export function Cards({ data }) {
     if (data) {
       setInfo(data);
     }
-  }, []);
+  }, [data]);
 
   return (
     <div className="component-container grid md:grid-cols-3 gap-8 p-3">
