@@ -14,6 +14,7 @@ const LeaguePage = () => {
   console.log(slug);
   const [league, setLeague] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(false);
 
   const leaguePageHeader = {
     title: `${slug?.replace(/_/g, " ")} League`,
@@ -34,6 +35,7 @@ const LeaguePage = () => {
         setLeague(leagueData);
       } catch (error) {
         console.error("Error fetching league", error);
+        setError(error);
       } finally {
         setLoading(false);
       }
@@ -47,11 +49,19 @@ const LeaguePage = () => {
   return (
     <div>
       <Landing data={leaguePageHeader} />
-      {loading && league?.teams ? (
-        <Spinner />
+
+      {error ? (
+        <h3>Error</h3>
       ) : (
-        <TableComponent data={league?.teams} />
+        <>
+          {loading && league?.teams && !error ? (
+            <Spinner />
+          ) : (
+            <TableComponent data={league?.teams} />
+          )}
+        </>
       )}
+
       <Block4 data={errorReportInfo} />
     </div>
   );
