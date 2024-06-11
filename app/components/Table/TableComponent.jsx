@@ -98,7 +98,7 @@ const TableComponent = ({ data }) => {
       setTeamsInfo(data);
       setLoading(false);
     }
-  }, []);
+  }, [data]);
 
   if (loading) {
     return <Spinner />;
