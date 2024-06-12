@@ -7,6 +7,10 @@ const LeagueSchema = new Schema(
       ref: "User",
       required: false,
     },
+    admin: {
+      type: String,
+      required: true,
+    },
     name: {
       type: String,
       required: true,
@@ -35,8 +39,8 @@ const LeagueSchema = new Schema(
     ],
     games: [
       {
-        home_team_id: { type: String, required: true },
-        away_team_id: { type: String, required: true },
+        home_team_name: { type: String, required: true },
+        away_team_name: { type: String, required: true },
         home_team_goals: { type: Number, required: true },
         away_team_goals: { type: Number, required: true },
         date_of_game: { type: Date, required: true },
