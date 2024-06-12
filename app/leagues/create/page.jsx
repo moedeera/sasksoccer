@@ -19,3 +19,24 @@ export const page = () => {
 };
 
 export default page;
+// {league && (
+//   <div className="mt-4">
+//     <h3>League Details</h3>
+//     <Table>
+//       <TableHeader>
+//         <TableRow>
+//           <TableHead>League Name</TableHead>
+//           <TableHead>Manager</TableHead>
+//           <TableHead>Teams</TableHead>
+//         </TableRow>
+//       </TableHeader>
+//       <TableBody>
+//         <TableRow>
+//           <TableCell>{league.name}</TableCell>
+//           <TableCell>{league.manager}</TableCell>
+//           <TableCell>{league.teams.join(", ")}</TableCell>
+//         </TableRow>
+//       </TableBody>
+//     </Table>
+//   </div>
+// )}

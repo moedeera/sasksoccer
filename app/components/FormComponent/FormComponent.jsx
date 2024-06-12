@@ -5,6 +5,15 @@ import React, { useState } from "react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import {
+  Select,
+  SelectContent,
+  SelectGroup,
+  SelectItem,
+  SelectLabel,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+import {
   Table,
   TableBody,
   TableCell,
@@ -12,23 +21,28 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
+import { Textarea } from "@/components/ui/textarea";
 
 const LeagueForm = () => {
   const [name, setName] = useState("");
-  const [manager, setManager] = useState("");
+
   const [teams, setTeams] = useState([""]);
+  const [type, setType] = useState("");
+  const [description, setDescription] = useState("");
   const [league, setLeague] = useState({
-    owner: "",
     name: "",
     type: "",
     description: "",
     teams: [],
     games: [],
-    images: [],
+    images: ["https://placehold.co/600x400"],
     isFeatured: false,
     createdAt: null,
     updatedAt: null,
   });
+  const [error, setError] = useState("");
+
+  const types = ["Mens", "Womens", "Boys", "Girls", "Co-ed"];
 
   const handleAddTeam = () => {
     setTeams([...teams, ""]);
@@ -36,31 +50,77 @@ const LeagueForm = () => {
 
   const handleTeamChange = (index, event) => {
     const newTeams = [...teams];
-    newTeams[index] = event.target.value;
+    newTeams[index] = {
+      id: `${event.target.value}-${index}`,
+      name: event.target.value,
+      win_total: 0,
+      loss_total: 0,
+      draw_total: 0,
+      goals_for: 0,
+      goals_against: 0,
+    };
     setTeams(newTeams);
   };
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    const leagueData = {
-      name,
-      manager,
-      teams,
+  const handleSubmit = async () => {
+    if (!name || !description || type === "") {
+      setError("All fields are required.");
+      console.log(name, description, type);
+      return;
+    }
+
+    if (teams.length < 2) {
+      setError("A minimum of 2 teams is required.");
+      return;
+    }
+
+    if (teams.some((team) => team === "")) {
+      setError("Team names cannot be empty.");
+      return;
+    }
+
+    const currentDate = new Date();
+    const newLeague = {
+      name: name,
+      description: description,
+      type: type,
+      teams: teams,
+      images: ["https://placehold.co/600x400"],
+      isFeatured: false,
+      createdAt: currentDate,
+      updatedAt: currentDate,
     };
-    setLeague(leagueData);
-    console.log(leagueData); // For demonstration purposes
+
+    try {
+      const response = await fetch("/api/leagues", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(newLeague),
+      });
+
+      if (!response.ok) {
+        throw new Error("Failed to save league");
+      }
+
+      const result = await response.json();
+      console.log(result); // For demonstration purposes
+
+      setError(""); // Clear any existing errors
+      // Optionally reset form fields here
+    } catch (error) {
+      console.error(error);
+      setError("An error occurred while saving the league.");
+    }
   };
 
   return (
     <div className="component-container">
-      <form
-        action="/api/properties"
-        method="POST"
-        encType="multipart/form-data"
-        className="p-3 border border-grey flex flex-col gap-4 md:w-1/2 "
-      >
+      <div className="p-3 border border-grey flex flex-col gap-4 md:w-1/2 ">
         <div>
           <h3 className="text-3xl py-2 text-center">Create a League</h3>
+          {error && <p className="text-red-500">{error}</p>}
           <label>League Name:</label>
           <Input
             type="text"
@@ -69,12 +129,35 @@ const LeagueForm = () => {
             required
           />
         </div>
+
         <div>
-          <label>Manager:</label>
-          <Input
-            type="text"
-            value={manager}
-            onChange={(e) => setManager(e.target.value)}
+          <label>Type:</label>
+          <Select
+            defaultValue={"Select one"}
+            onValueChange={(value) => {
+              setType(value);
+            }}
+          >
+            <SelectTrigger className="w-[180px]">
+              <SelectValue placeholder="Select one" />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectGroup>
+                {types.map((type, index) => (
+                  <SelectItem key={index} value={type}>
+                    {type}
+                  </SelectItem>
+                ))}
+              </SelectGroup>
+            </SelectContent>
+          </Select>
+        </div>
+        <div>
+          <label>Description:</label>
+          <Textarea
+            placeholder="Write a brief description."
+            value={description}
+            onChange={(e) => setDescription(e.target.value)}
             required
           />
         </div>
@@ -84,38 +167,23 @@ const LeagueForm = () => {
             <Input
               key={index}
               type="text"
-              value={team}
+              value={team.name}
               onChange={(e) => handleTeamChange(index, e)}
               required
             />
           ))}
-          <Button type="submit" onClick={handleAddTeam} className="mt-2">
+          <Button onClick={handleAddTeam} className="mt-2">
             Add Team
           </Button>
         </div>
-        <Button type="submit">Save League</Button>
-      </form>
-      {league && (
-        <div className="mt-4">
-          <h3>League Details</h3>
-          <Table>
-            <TableHeader>
-              <TableRow>
-                <TableHead>League Name</TableHead>
-                <TableHead>Manager</TableHead>
-                <TableHead>Teams</TableHead>
-              </TableRow>
-            </TableHeader>
-            <TableBody>
-              <TableRow>
-                <TableCell>{league.name}</TableCell>
-                <TableCell>{league.manager}</TableCell>
-                <TableCell>{league.teams.join(", ")}</TableCell>
-              </TableRow>
-            </TableBody>
-          </Table>
-        </div>
-      )}
+        <Button
+          onClick={() => {
+            handleSubmit();
+          }}
+        >
+          Save League
+        </Button>
+      </div>
     </div>
   );
 };
