@@ -18,7 +18,7 @@ import { fetchLeague } from "@/app/utlils/request";
 
 const LeagueUpdateForm = () => {
   const [name, setName] = useState("");
-  const [owner, setOwner] = useState("");
+  const [admin, setAdmin] = useState("");
   const [teams, setTeams] = useState([]);
   const [type, setType] = useState("");
   const [description, setDescription] = useState("");
@@ -43,7 +43,7 @@ const LeagueUpdateForm = () => {
 
         console.log(data);
         setName(data.name);
-        setOwner(data.owner);
+        setAdmin(data.admin);
         setTeams(data.teams);
         setType(data.type);
         setDescription(data.description);
@@ -60,8 +60,57 @@ const LeagueUpdateForm = () => {
     setNewGame({ ...newGame, [e.target.name]: e.target.value });
   };
 
+  const updateTeamStats = (homeTeam, awayTeam, homeGoals, awayGoals) => {
+    const updatedTeams = teams.map((team) => {
+      if (team.name === homeTeam.name) {
+        return {
+          ...team,
+          goals_for: team.goals_for + parseInt(homeGoals, 10),
+          goals_against: team.goals_against + parseInt(awayGoals, 10),
+          win_total:
+            homeGoals > awayGoals ? team.win_total + 1 : team.win_total,
+          draw_total:
+            homeGoals === awayGoals ? team.draw_total + 1 : team.draw_total,
+          loss_total:
+            homeGoals < awayGoals ? team.loss_total + 1 : team.loss_total,
+        };
+      } else if (team.name === awayTeam.name) {
+        return {
+          ...team,
+          goals_for: team.goals_for + parseInt(awayGoals, 10),
+          goals_against: team.goals_against + parseInt(homeGoals, 10),
+          win_total:
+            awayGoals > homeGoals ? team.win_total + 1 : team.win_total,
+          draw_total:
+            awayGoals === homeGoals ? team.draw_total + 1 : team.draw_total,
+          loss_total:
+            awayGoals < homeGoals ? team.loss_total + 1 : team.loss_total,
+        };
+      } else {
+        return team;
+      }
+    });
+
+    setTeams(updatedTeams);
+  };
+
   const handleAddGame = () => {
+    const homeTeam = teams.find((team) => team.name === newGame.home_team_id);
+    const awayTeam = teams.find((team) => team.name === newGame.away_team_id);
+
+    if (!homeTeam || !awayTeam) {
+      setError("Both home and away teams must be selected.");
+      return;
+    }
+
     setGames([...games, newGame]);
+    updateTeamStats(
+      homeTeam,
+      awayTeam,
+      newGame.home_team_goals,
+      newGame.away_team_goals
+    );
+
     setNewGame({
       home_team_id: "",
       away_team_id: "",
@@ -72,20 +121,20 @@ const LeagueUpdateForm = () => {
   };
 
   const handleSubmit = async () => {
-    if (!name || !owner || !description || type === "") {
+    if (!name || !admin || !description || type === "") {
       setError("All fields are required.");
       return;
     }
 
     try {
-      const response = await fetch(`/api/leagues/${leagueId}`, {
+      const response = await fetch(`/api/leagues/${slug}`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
           name,
-          owner,
+          admin,
           description,
           type,
           teams,
@@ -121,7 +170,15 @@ const LeagueUpdateForm = () => {
             required
           />
         </div>
-
+        <div>
+          <label>Owner:</label>
+          <Input
+            type="text"
+            value={admin}
+            onChange={(e) => setAdmin(e.target.value)}
+            required
+          />
+        </div>
         <div>
           <label>Type:</label>
           <Select defaultValue={type} onValueChange={(value) => setType(value)}>
@@ -157,7 +214,7 @@ const LeagueUpdateForm = () => {
               value={team.name}
               onChange={(e) => {
                 const newTeams = [...teams];
-                newTeams[index] = e.target.value;
+                newTeams[index] = { ...newTeams[index], name: e.target.value };
                 setTeams(newTeams);
               }}
               required
@@ -172,13 +229,13 @@ const LeagueUpdateForm = () => {
                 type="text"
                 value={game.home_team_id}
                 readOnly
-                placeholder="Home Team ID"
+                placeholder="Home Team"
               />
               <Input
                 type="text"
                 value={game.away_team_id}
                 readOnly
-                placeholder="Away Team ID"
+                placeholder="Away Team"
               />
               <Input
                 type="number"
@@ -202,20 +259,46 @@ const LeagueUpdateForm = () => {
           ))}
           <div className="flex flex-col gap-2">
             <h4>Add New Game:</h4>
-            <Input
-              type="text"
+            <Select
               name="home_team_id"
               value={newGame.home_team_id}
-              onChange={handleGameChange}
-              placeholder="Home Team ID"
-            />
-            <Input
-              type="text"
+              onValueChange={(value) =>
+                setNewGame({ ...newGame, home_team_id: value })
+              }
+            >
+              <SelectTrigger className="w-full">
+                <SelectValue placeholder="Select Home Team" />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectGroup>
+                  {teams.map((team) => (
+                    <SelectItem key={team.id} value={team.name}>
+                      {team.name}
+                    </SelectItem>
+                  ))}
+                </SelectGroup>
+              </SelectContent>
+            </Select>
+            <Select
               name="away_team_id"
               value={newGame.away_team_id}
-              onChange={handleGameChange}
-              placeholder="Away Team ID"
-            />
+              onValueChange={(value) =>
+                setNewGame({ ...newGame, away_team_id: value })
+              }
+            >
+              <SelectTrigger className="w-full">
+                <SelectValue placeholder="Select Away Team" />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectGroup>
+                  {teams.map((team) => (
+                    <SelectItem key={team.id} value={team.name}>
+                      {team.name}
+                    </SelectItem>
+                  ))}
+                </SelectGroup>
+              </SelectContent>
+            </Select>
             <Input
               type="number"
               name="home_team_goals"
