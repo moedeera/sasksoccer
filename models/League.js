@@ -20,6 +20,7 @@ const LeagueSchema = new Schema(
     },
     slug: {
       type: String,
+      required: true,
     },
     teams: [
       {
