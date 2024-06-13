@@ -58,8 +58,11 @@ export const POST = async (request) => {
     const newLeague = new League({
       ...body,
       slug: slug,
+      admin: sessionUser.name,
       owner: userId,
     });
+
+    console.log("new league:", newLeague);
 
     await newLeague.save();
 

@@ -19,8 +19,8 @@ const Navbar = () => {
 
   const links = [
     { name: "Home", link: "/" },
-    { name: "Properties", link: "/properties" },
-    { name: "Add Property", link: "/properties/add" },
+    { name: "Leagues", link: "/leagues" },
+    { name: "Create League", link: "/properties/create" },
   ];
 
   const pathname = usePathname();
@@ -87,7 +87,7 @@ const Navbar = () => {
                 <div className="flex space-x-2">
                   {links.map(
                     (link, index) =>
-                      (session || link.link !== "/properties/add") && (
+                      (session || link.link !== "/leagues/create") && (
                         <Link
                           key={index}
                           href={link.link}
@@ -198,7 +198,7 @@ const Navbar = () => {
                         Your Profile
                       </Link>
                       <Link
-                        href="/properties/saved"
+                        href="/leagues/saved"
                         className="block px-4 py-2 text-sm text-gray-700"
                         role="menuitem"
                         tabIndex="-1"
@@ -207,7 +207,7 @@ const Navbar = () => {
                           setIsProfileMenuOpen(false);
                         }}
                       >
-                        Saved Properties
+                        Your Leagues
                       </Link>
                       <Link
                         href="#"

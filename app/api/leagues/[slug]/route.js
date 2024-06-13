@@ -48,6 +48,7 @@ export const PUT = async (request, { params }) => {
     }
 
     // Update the league fields
+    league.admin = sessionUser.name;
     league.name = body.name;
     league.description = body.description;
     league.type = body.type;
