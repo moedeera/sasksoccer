@@ -1,5 +1,6 @@
 "use client";
 import React, { useState } from "react";
+import { useRouter } from "next/router";
 
 // Sample components from your UI library (replace with actual imports)
 import { Input } from "@/components/ui/input";
@@ -13,7 +14,6 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-
 import { Textarea } from "@/components/ui/textarea";
 
 const LeagueForm = () => {
@@ -34,6 +34,8 @@ const LeagueForm = () => {
     updatedAt: null,
   });
   const [error, setError] = useState("");
+
+  const router = useRouter();
 
   const types = ["Mens", "Womens", "Boys", "Girls", "Co-ed"];
 
@@ -101,6 +103,7 @@ const LeagueForm = () => {
       console.log(result); // For demonstration purposes
 
       setError(""); // Clear any existing errors
+      router.push(`/leagues/${result.slug}`);
       // Optionally reset form fields here
     } catch (error) {
       console.error(error);

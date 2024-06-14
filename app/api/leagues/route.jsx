@@ -58,15 +58,16 @@ export const POST = async (request) => {
     const newLeague = new League({
       ...body,
       slug: slug,
-      admin: sessionUser.name,
+      admin: sessionUser.user.name,
       owner: userId,
     });
-
-    console.log("new league:", newLeague);
 
     await newLeague.save();
 
     return new Response(JSON.stringify(newLeague), { status: 201 });
+    // return Response.redirect(
+    //   `${process.env.NEXTAUTH_URL}/leagues/${newLeague.slug}`
+    // );
   } catch (error) {
     console.log(error);
     return new Response("Failed to add League", { status: 500 });
