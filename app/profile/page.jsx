@@ -136,11 +136,11 @@ const ProfilePage = () => {
 
                       <CardFooter className="flex gap-3">
                         <Link href={`leagues/${league.slug}`} className="btn">
-                          Read More
+                          Update
                         </Link>
                         <button
                           onClick={() => {
-                            handleDeleteLeague(league._id);
+                            handleDeleteLeague(league.slug);
                           }}
                           className="btn btn-danger"
                         >

@@ -68,6 +68,7 @@ export const PUT = async (request, { params }) => {
 // DELETE /api/properties/:id
 export const DELETE = async (request, { params }) => {
   try {
+    console.log("slug:", params.slug);
     const leagueSlug = params.slug;
     // Check for session
     const sessionUser = await getSessionUser();
@@ -79,7 +80,7 @@ export const DELETE = async (request, { params }) => {
     // Connect
     await connectDB();
     // Find property by ID
-    const league = await League.findOne({ slug: params.slug });
+    const league = await League.findOne({ slug: leagueSlug });
     // If property is not found
     if (!league) {
       return new Response("Property not found", { status: 404 });
@@ -92,7 +93,7 @@ export const DELETE = async (request, { params }) => {
     await league.deleteOne();
     return new Response("Property Deleted", { status: 200 });
   } catch (error) {
-    console.log(error);
+    console.log("error:", error);
     return new Response("Something went wrong", { status: 500 });
   }
 };
