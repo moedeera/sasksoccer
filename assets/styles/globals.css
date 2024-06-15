@@ -118,6 +118,9 @@ h1 {
   padding: 8px 15px;
   border-radius: 5px;
 }
+.btn-danger {
+  background-color: crimson;
+}
 .card-image {
   background-image: url("../images/carddefault.webp");
 }

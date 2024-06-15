@@ -7,6 +7,15 @@ import Spinner from "../components/Spinner";
 
 import Link from "next/link";
 import { toast } from "react-toastify";
+import { Cards } from "@/components/Card/Card";
+import {
+  Card,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
 toast;
 const ProfilePage = () => {
   const { data: session } = useSession();
@@ -15,19 +24,19 @@ const ProfilePage = () => {
   const profileEmail = session?.user?.email;
 
   const [loading, setLoading] = useState(true);
-  const [properties, setProperties] = useState([]);
+  const [leagues, setLeagues] = useState([]);
 
   useEffect(() => {
-    const fetchUserProperties = async (userId) => {
+    const fetchUserLeagues = async (userId) => {
       if (!userId) {
         return;
       }
       try {
-        const res = await fetch(`api/properties/user/${userId}`);
+        const res = await fetch(`api/leagues/user/${userId}`);
 
         if (res.status === 200) {
           const data = await res.json();
-          setProperties(data);
+          setLeagues(data);
         }
       } catch (error) {
         console.log(error);
@@ -37,33 +46,33 @@ const ProfilePage = () => {
     };
     // fetch only if user is available
     if (session) {
-      fetchUserProperties(session.user.id);
+      fetchUserLeagues(session.user.id);
     }
   }, [session]);
 
-  const handleDeleteProperty = async (propertyId) => {
+  const handleDeleteLeague = async (leagueId) => {
     const confirmed = window.confirm(
-      "Are you sure you want to delete this property?"
+      "Are you sure you want to delete this league?"
     );
     if (!confirmed) {
       return;
     }
 
     try {
-      const res = await fetch(`api/properties/${propertyId}`, {
+      const res = await fetch(`api/leagues/${leagueId}`, {
         method: "DELETE",
       });
 
       if (res.status === 200) {
-        const updatedProperties = properties.filter((property) => property._id);
-        setProperties(updatedProperties);
-        toast.success("property deleted");
+        const updatedLeagues = leagues.filter((league) => league._id);
+        setLeagues(updatedLeagues);
+        toast.success("league deleted");
       } else {
-        toast.error("failed to delete property");
+        toast.error("failed to delete league");
       }
     } catch (error) {
       console.log(error);
-      toast.error("Failed to delete property");
+      toast.error("Failed to delete league");
     }
   };
 
@@ -105,47 +114,64 @@ const ProfilePage = () => {
 
             <div className="md:w-3/4 md:pl-4">
               <h2 className="text-xl font-semibold mb-4">
-                {profileName ? profileName : ""} Listings
+                {profileName ? profileName : ""} Leagues
               </h2>
               {loading && <Spinner loading={loading} />}
-              {properties.length && !loading === 0
-                ? "No Properties"
-                : properties?.map((property) => (
-                    <div className="mb-10" key={property._id}>
-                      <Link href={`/properties/${property._id}`}>
-                        <Image
-                          className="h-32 w-full rounded-md object-cover"
-                          src={property.images[0]}
-                          alt="Property 1"
-                          width={400}
-                          height={300}
-                        />
-                      </Link>
-                      <div className="mt-2">
-                        <p className="text-lg font-semibold">{property.name}</p>
-                        <p className="text-gray-600">
-                          {property.location.street} {property.location.city}{" "}
-                          {property.location.state}
-                        </p>
-                      </div>
-                      <div className="mt-2">
-                        <Link
-                          href={`properties/${property._id}/edit`}
-                          className="bg-blue-500 text-white px-3 py-3 rounded-md mr-2 hover:bg-blue-600"
-                        >
-                          Edit
-                        </Link>
-                        <button
-                          className="bg-red-500 text-white px-3 py-2 rounded-md hover:bg-red-600"
-                          type="button"
-                          onClick={() => {
-                            handleDeleteProperty(property._id);
+              {leagues.length && !loading === 0
+                ? "No leagues"
+                : leagues?.map((league) => (
+                    <Card key={league._id}>
+                      <CardHeader>
+                        <div
+                          className="card-image w-full h-56 bg-black bg-center bg-cover"
+                          style={{
+                            backgroundImage: `url("${
+                              league?.images ? league.images[0] : league.image
+                            }")`,
                           }}
-                        >
-                          Delete
-                        </button>
-                      </div>
-                    </div>
+                        ></div>
+                        <CardTitle>{league.name}</CardTitle>
+                        <CardDescription>{league.description}</CardDescription>
+                      </CardHeader>
+
+                      <CardFooter className="flex gap-3">
+                        <Link href={`leagues/${league.slug}`} className="btn">
+                          Read More
+                        </Link>
+                        <button className="btn btn-danger">Delete</button>
+                      </CardFooter>
+                    </Card>
+                    // <div className="mb-10" key={league._id}>
+                    //   <Link href={`/leagues/${league.slug}`}>
+                    //     <Image
+                    //       className="h-32 w-full rounded-md object-cover"
+                    //       src={league.images[0]}
+                    //       alt="league 1"
+                    //       width={400}
+                    //       height={300}
+                    //     />
+                    //   </Link>
+                    //   <div className="mt-2">
+                    //     <p className="text-lg font-semibold">{league.name}</p>
+                    //   </div>
+                    //   <div className="mt-2">
+                    //     <Link
+                    //       href={`leagues/${league.slug}/edit`}
+                    //       className="bg-blue-500 text-white px-3 py-3 rounded-md mr-2 hover:bg-blue-600"
+                    //     >
+                    //       Edit
+                    //     </Link>
+                    //     <button
+                    //       className="bg-red-500 text-white px-3 py-2 rounded-md hover:bg-red-600"
+                    //       type="button"
+                    //       onClick={() => {
+                    //         handleDeleteLeague(league._id);
+                    //       }}
+                    //     >
+                    //       Delete
+                    //     </button>
+                    //   </div>
+                    // </div>
                   ))}
             </div>
           </div>

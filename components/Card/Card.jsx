@@ -3,16 +3,12 @@ import * as React from "react";
 
 import {
   Card,
-  CardContent,
   CardDescription,
   CardFooter,
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { buttonVariants } from "@/components/ui/button";
 
-import defaultImage from "../../assets/images/carddefault.webp";
-import Image from "next/image";
 import Link from "next/link";
 
 export function Cards({ data }) {

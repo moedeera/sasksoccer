@@ -17,6 +17,14 @@ import {
 import { Textarea } from "@/components/ui/textarea";
 
 const LeagueForm = () => {
+  const randomPlaceHolderImages = [
+    "https://images.pexels.com/photos/47343/the-ball-stadion-horn-corner-47343.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+    "https://images.pexels.com/photos/54567/pexels-photo-54567.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+    "https://images.pexels.com/photos/46798/the-ball-stadion-football-the-pitch-46798.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+    "https://images.pexels.com/photos/209841/pexels-photo-209841.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+  ];
+  const randomImageIndex = Math.floor(Math.random() * 4);
+
   const [name, setName] = useState("");
 
   const [teams, setTeams] = useState([""]);
@@ -28,7 +36,7 @@ const LeagueForm = () => {
     description: "",
     teams: [],
     games: [],
-    images: ["https://placehold.co/600x400"],
+    images: [randomPlaceHolderImages[randomImageIndex]],
     isFeatured: false,
     createdAt: null,
     updatedAt: null,
