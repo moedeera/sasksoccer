@@ -64,3 +64,35 @@ export const PUT = async (request, { params }) => {
     return new Response("Failed to update League", { status: 500 });
   }
 };
+
+// DELETE /api/properties/:id
+export const DELETE = async (request, { params }) => {
+  try {
+    const leagueSlug = params.slug;
+    // Check for session
+    const sessionUser = await getSessionUser();
+    if (!sessionUser || !sessionUser.userId) {
+      return new Response("User ID is required");
+    }
+    // Get ID
+    const { userId } = sessionUser;
+    // Connect
+    await connectDB();
+    // Find property by ID
+    const league = await League.findOne({ slug: params.slug });
+    // If property is not found
+    if (!league) {
+      return new Response("Property not found", { status: 404 });
+    }
+    // Verify Ownership
+    if (league.owner.toString() !== userId) {
+      return new Response("Unauthorized Access", { status: 401 });
+    }
+    //
+    await league.deleteOne();
+    return new Response("Property Deleted", { status: 200 });
+  } catch (error) {
+    console.log(error);
+    return new Response("Something went wrong", { status: 500 });
+  }
+};

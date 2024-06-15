@@ -15,7 +15,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
+
 toast;
 const ProfilePage = () => {
   const { data: session } = useSession();
@@ -50,7 +50,7 @@ const ProfilePage = () => {
     }
   }, [session]);
 
-  const handleDeleteLeague = async (leagueId) => {
+  const handleDeleteLeague = async (leagueSlug) => {
     const confirmed = window.confirm(
       "Are you sure you want to delete this league?"
     );
@@ -59,12 +59,12 @@ const ProfilePage = () => {
     }
 
     try {
-      const res = await fetch(`api/leagues/${leagueId}`, {
+      const res = await fetch(`api/leagues/${leagueSlug}`, {
         method: "DELETE",
       });
 
       if (res.status === 200) {
-        const updatedLeagues = leagues.filter((league) => league._id);
+        const updatedLeagues = leagues.filter((league) => league.slug);
         setLeagues(updatedLeagues);
         toast.success("league deleted");
       } else {
@@ -138,7 +138,14 @@ const ProfilePage = () => {
                         <Link href={`leagues/${league.slug}`} className="btn">
                           Read More
                         </Link>
-                        <button className="btn btn-danger">Delete</button>
+                        <button
+                          onClick={() => {
+                            handleDeleteLeague(league._id);
+                          }}
+                          className="btn btn-danger"
+                        >
+                          Delete
+                        </button>
                       </CardFooter>
                     </Card>
                     // <div className="mb-10" key={league._id}>
