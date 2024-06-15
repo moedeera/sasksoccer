@@ -28,7 +28,6 @@ const LeagueSchema = new Schema(
     },
     teams: [
       {
-        id: { type: String, required: true },
         name: { type: String, required: true },
         win_total: { type: Number, required: true },
         loss_total: { type: Number, required: true },

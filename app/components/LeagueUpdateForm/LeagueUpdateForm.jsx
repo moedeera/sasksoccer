@@ -24,8 +24,8 @@ const LeagueUpdateForm = () => {
   const [description, setDescription] = useState("");
   const [games, setGames] = useState([]);
   const [newGame, setNewGame] = useState({
-    home_team_id: "",
-    away_team_id: "",
+    home_team_name: "",
+    away_team_name: "",
     home_team_goals: "",
     away_team_goals: "",
     date_of_game: "",
@@ -95,8 +95,8 @@ const LeagueUpdateForm = () => {
   };
 
   const handleAddGame = () => {
-    const homeTeam = teams.find((team) => team.name === newGame.home_team_id);
-    const awayTeam = teams.find((team) => team.name === newGame.away_team_id);
+    const homeTeam = teams.find((team) => team.name === newGame.home_team_name);
+    const awayTeam = teams.find((team) => team.name === newGame.away_team_name);
 
     if (!homeTeam || !awayTeam) {
       setError("Both home and away teams must be selected.");
@@ -112,8 +112,8 @@ const LeagueUpdateForm = () => {
     );
 
     setNewGame({
-      home_team_id: "",
-      away_team_id: "",
+      home_team_name: "",
+      away_team_name: "",
       home_team_goals: "",
       away_team_goals: "",
       date_of_game: "",
@@ -227,13 +227,13 @@ const LeagueUpdateForm = () => {
             <div key={index} className="flex gap-2">
               <Input
                 type="text"
-                value={game.home_team_id}
+                value={game.home_team_name}
                 readOnly
                 placeholder="Home Team"
               />
               <Input
                 type="text"
-                value={game.away_team_id}
+                value={game.away_team_name}
                 readOnly
                 placeholder="Away Team"
               />
@@ -260,10 +260,10 @@ const LeagueUpdateForm = () => {
           <div className="flex flex-col gap-2">
             <h4>Add New Game:</h4>
             <Select
-              name="home_team_id"
-              value={newGame.home_team_id}
+              name="home_team_name"
+              value={newGame.home_team_name}
               onValueChange={(value) =>
-                setNewGame({ ...newGame, home_team_id: value })
+                setNewGame({ ...newGame, home_team_name: value })
               }
             >
               <SelectTrigger className="w-full">
@@ -272,7 +272,7 @@ const LeagueUpdateForm = () => {
               <SelectContent>
                 <SelectGroup>
                   {teams.map((team) => (
-                    <SelectItem key={team.id} value={team.name}>
+                    <SelectItem key={team.name} value={team.name}>
                       {team.name}
                     </SelectItem>
                   ))}
@@ -280,10 +280,10 @@ const LeagueUpdateForm = () => {
               </SelectContent>
             </Select>
             <Select
-              name="away_team_id"
-              value={newGame.away_team_id}
+              name="away_team_name"
+              value={newGame.away_team_name}
               onValueChange={(value) =>
-                setNewGame({ ...newGame, away_team_id: value })
+                setNewGame({ ...newGame, away_team_name: value })
               }
             >
               <SelectTrigger className="w-full">
@@ -292,7 +292,7 @@ const LeagueUpdateForm = () => {
               <SelectContent>
                 <SelectGroup>
                   {teams.map((team) => (
-                    <SelectItem key={team.id} value={team.name}>
+                    <SelectItem key={team.name} value={team.name}>
                       {team.name}
                     </SelectItem>
                   ))}

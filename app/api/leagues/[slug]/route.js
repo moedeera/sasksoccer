@@ -34,10 +34,10 @@ export const PUT = async (request, { params }) => {
     const { userId } = sessionUser;
 
     const body = await request.json();
-    const leagueId = params.id;
+    const leagueSlug = params.slug;
 
     // Find the existing league
-    const league = await League.findById(leagueId);
+    const league = await League.findOne({ slug: leagueSlug });
     if (!league) {
       return new Response("League not found", { status: 404 });
     }
@@ -48,7 +48,7 @@ export const PUT = async (request, { params }) => {
     }
 
     // Update the league fields
-    league.admin = sessionUser.name;
+    league.admin = sessionUser.user.name;
     league.name = body.name;
     league.description = body.description;
     league.type = body.type;

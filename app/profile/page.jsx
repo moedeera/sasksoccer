@@ -135,7 +135,10 @@ const ProfilePage = () => {
                       </CardHeader>
 
                       <CardFooter className="flex gap-3">
-                        <Link href={`leagues/${league.slug}`} className="btn">
+                        <Link
+                          href={`leagues/${league.slug}/edit`}
+                          className="btn"
+                        >
                           Update
                         </Link>
                         <button
