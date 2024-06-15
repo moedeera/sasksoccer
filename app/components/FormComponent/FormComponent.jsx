@@ -1,6 +1,6 @@
 "use client";
 import React, { useState } from "react";
-import { useRouter } from "next/router";
+import { useRouter } from "next/navigation";
 
 // Sample components from your UI library (replace with actual imports)
 import { Input } from "@/components/ui/input";
