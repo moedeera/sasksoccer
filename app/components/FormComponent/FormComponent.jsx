@@ -112,7 +112,6 @@ const LeagueForm = () => {
 
       setError(""); // Clear any existing errors
       router.push(`/leagues/${result.slug}`);
-      // Optionally reset form fields here
     } catch (error) {
       console.error(error);
       setError("An error occurred while saving the league.");

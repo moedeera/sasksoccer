@@ -4,6 +4,7 @@ import React, { useState, useEffect } from "react";
 // Sample components from your UI library (replace with actual imports)
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
+
 import {
   Select,
   SelectContent,
@@ -148,7 +149,7 @@ const LeagueUpdateForm = () => {
 
       const result = await response.json();
       console.log(result); // For demonstration purposes
-
+      router.push(`/leagues/${result.slug}`);
       setError(""); // Clear any existing errors
     } catch (error) {
       console.error(error);

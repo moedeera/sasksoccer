@@ -1,15 +1,7 @@
 import { getSessionUser } from "@/app/components/getSessionUser";
+import { generateSlug } from "@/app/utlils/functions";
 import connectDB from "@/config/database";
 import League from "@/models/League";
-
-// Function to generate slug
-const generateSlug = (name, userId) => {
-  const date = new Date();
-  const hours = date.getHours().toString().padStart(2, "0");
-  const minutes = date.getMinutes().toString().padStart(2, "0");
-  const userPrefix = userId.substring(0, 2);
-  return `${name}${hours}${minutes}${userPrefix}`;
-};
 
 // GET /api/leagues
 export const GET = async (request) => {

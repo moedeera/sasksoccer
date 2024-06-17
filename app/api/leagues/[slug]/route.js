@@ -1,4 +1,5 @@
 import { getSessionUser } from "@/app/components/getSessionUser";
+import { generateSlug } from "@/app/utlils/functions";
 import connectDB from "@/config/database";
 import League from "@/models/League";
 
@@ -48,10 +49,26 @@ export const PUT = async (request, { params }) => {
     }
 
     // Update the league fields
+
+    // check if league name was changed
+    const changed = league.name !== body.name;
+
     league.admin = sessionUser.user.name;
     league.name = body.name;
     league.description = body.description;
     league.type = body.type;
+    if (changed) {
+      let slug = body.name.toLowerCase().replace(/[\s]+/g, "-");
+      const existingLeague = await League.findOne({ slug: slug });
+
+      if (existingLeague) {
+        alternateSlug = generateSlug(body.name, userId);
+        league.slug = alternateSlug;
+      } else {
+        league.slug = slug;
+      }
+    }
+
     league.teams = body.teams;
     league.games = body.games;
     league.updatedAt = new Date();

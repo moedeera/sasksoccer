@@ -18,7 +18,7 @@ const LeaguePage = () => {
   const [assortedTeams, setAssortedTeams] = useState([]);
 
   const leaguePageHeader = {
-    title: `Standings`,
+    title: `${slug.replace(/-/g, " ")}`,
     content: null,
     button: null,
     mini: true,
@@ -79,19 +79,7 @@ const LeaguePage = () => {
   }, [slug]);
   return (
     <div>
-      {error ? (
-        <h3>An Error Occured</h3>
-      ) : (
-        <>
-          {" "}
-          {loading && league?.teams && !error ? (
-            <Landing data={leaguePageHeader} />
-          ) : (
-            <Landing data={LoadingHeader} />
-          )}
-        </>
-      )}
-
+      <Landing data={leaguePageHeader} />
       {error ? (
         <h3>An Error Occured</h3>
       ) : (
