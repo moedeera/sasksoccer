@@ -263,66 +263,76 @@ const LeagueUpdateForm = () => {
           ))}
           <div className="flex flex-col gap-2">
             <h4>Add New Game:</h4>
-            <Select
-              name="home_team_name"
-              value={newGame.home_team_name}
-              onValueChange={(value) =>
-                setNewGame({ ...newGame, home_team_name: value })
-              }
-            >
-              <SelectTrigger className="w-full">
-                <SelectValue placeholder="Select Home Team" />
-              </SelectTrigger>
-              <SelectContent>
-                <SelectGroup>
-                  {teams.map((team) => (
-                    <SelectItem key={team.name} value={team.name}>
-                      {team.name}
-                    </SelectItem>
-                  ))}
-                </SelectGroup>
-              </SelectContent>
-            </Select>
-            <Select
-              name="away_team_name"
-              value={newGame.away_team_name}
-              onValueChange={(value) =>
-                setNewGame({ ...newGame, away_team_name: value })
-              }
-            >
-              <SelectTrigger className="w-full">
-                <SelectValue placeholder="Select Away Team" />
-              </SelectTrigger>
-              <SelectContent>
-                <SelectGroup>
-                  {teams.map((team) => (
-                    <SelectItem key={team.name} value={team.name}>
-                      {team.name}
-                    </SelectItem>
-                  ))}
-                </SelectGroup>
-              </SelectContent>
-            </Select>
-
-            <div className="flex gap-3">
-              <>{newGame.home_team_goals}</>
-              <>-</>
-              <>{newGame.away_team_goals}</>
+            <div className="grid grid-cols-5 gap-x-2">
+              <Select
+                name="home_team_name"
+                value={newGame.home_team_name}
+                onValueChange={(value) =>
+                  setNewGame({ ...newGame, home_team_name: value })
+                }
+              >
+                <SelectTrigger className="w-full">
+                  <SelectValue placeholder="Select Home Team" />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectGroup>
+                    {teams.map((team) => (
+                      <SelectItem key={team.name} value={team.name}>
+                        {team.name}
+                      </SelectItem>
+                    ))}
+                  </SelectGroup>
+                </SelectContent>
+              </Select>
+              <Input
+                type="number"
+                name="home_team_goals"
+                value={newGame.home_team_goals}
+                onChange={handleGameChange}
+                placeholder="Home Goals"
+              />
+              <Input
+                type="number"
+                name="away_team_goals"
+                value={newGame.away_team_goals}
+                onChange={handleGameChange}
+                placeholder="Away Goals"
+              />{" "}
+              <Select
+                name="away_team_name"
+                value={newGame.away_team_name}
+                onValueChange={(value) =>
+                  setNewGame({ ...newGame, away_team_name: value })
+                }
+              >
+                <SelectTrigger className="w-full">
+                  <SelectValue placeholder="Select Away Team" />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectGroup>
+                    {teams.map((team) => (
+                      <SelectItem key={team.name} value={team.name}>
+                        {team.name}
+                      </SelectItem>
+                    ))}
+                  </SelectGroup>
+                </SelectContent>
+              </Select>{" "}
+              <Input
+                type="date"
+                name="date_of_game"
+                value={newGame.date_of_game}
+                onChange={handleGameChange}
+                placeholder="Date of Game"
+              />
             </div>
 
-            <Input
-              type="date"
-              name="date_of_game"
-              value={newGame.date_of_game}
-              onChange={handleGameChange}
-              placeholder="Date of Game"
-            />
             <Button onClick={handleAddGame} className="mt-2">
               Add Game
             </Button>
           </div>
         </div>
-        <Button onClick={handleSubmit} className="mt-4">
+        <Button onClick={handleSubmit} variant="success" className="mt-4">
           Update League
         </Button>
       </div>
