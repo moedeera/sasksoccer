@@ -18,7 +18,13 @@ const LeaguePage = () => {
   const [assortedTeams, setAssortedTeams] = useState([]);
 
   const leaguePageHeader = {
-    title: `${slug?.replace(/_/g, " ")} League`,
+    title: `Standings`,
+    content: null,
+    button: null,
+    mini: true,
+  };
+  const LoadingHeader = {
+    title: `Loading...`,
     content: null,
     button: null,
     mini: true,
@@ -70,19 +76,33 @@ const LeaguePage = () => {
     if (league === null) {
       fetchLeagueData();
     }
-  }, [slug, league]);
+  }, [slug]);
   return (
     <div>
-      <Landing data={leaguePageHeader} />
+      {error ? (
+        <h3>An Error Occured</h3>
+      ) : (
+        <>
+          {" "}
+          {loading && league?.teams && !error ? (
+            <Landing data={leaguePageHeader} />
+          ) : (
+            <Landing data={LoadingHeader} />
+          )}
+        </>
+      )}
 
       {error ? (
-        <h3>Error</h3>
+        <h3>An Error Occured</h3>
       ) : (
         <>
           {loading && league?.teams && !error ? (
             <Spinner />
           ) : (
-            <TableComponent data={assortedTeams} />
+            <div className="component-container">
+              <h3 className="mb-3 text-3xl">{league?.name} League</h3>
+              <TableComponent data={assortedTeams} />
+            </div>
           )}
         </>
       )}

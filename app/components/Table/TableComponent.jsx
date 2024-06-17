@@ -105,7 +105,7 @@ const TableComponent = ({ data }) => {
   }
 
   return (
-    <div className="component-container border border-grey ">
+    <div className=" border border-grey ">
       <Table>
         <TableHeader>
           <TableRow>
