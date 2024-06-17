@@ -1,7 +1,7 @@
 "use client";
 import { useContext, useState } from "react";
 import "./Navbar.css";
-import arrow from "./chevron.png";
+
 import profileDefault from "@/assets/images/profile.png";
 import { GlobalContext } from "@/app/context/GlobalContext";
 import Link from "next/link";
@@ -25,8 +25,7 @@ const Navbar2 = () => {
   const profileImage = session?.user?.image;
   const [sideMenu, setSideMenu] = useState(false);
   const [isProfileMenuOpen, setIsProfileMenuOpen] = useState(false);
-  let pages = ["Home", "Leagues", "Latest", "News", "Shop"];
-  console.log(session);
+
   const links = [
     { name: "profile", link: "/profile" },
     { name: "messages", link: "/messages" },

@@ -1,6 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import { useRouter } from "next/navigation";
+import { MdOutlineDoNotDisturbAlt } from "react-icons/md";
 
 // Sample components from your UI library (replace with actual imports)
 import { Input } from "@/components/ui/input";
@@ -15,6 +16,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { Textarea } from "@/components/ui/textarea";
+import { v4 as uuidv4 } from "uuid"; // Import UUID library
 
 const LeagueForm = () => {
   const randomPlaceHolderImages = [
@@ -27,7 +29,44 @@ const LeagueForm = () => {
 
   const [name, setName] = useState("");
 
-  const [teams, setTeams] = useState([""]);
+  const [teams, setTeams] = useState([
+    {
+      id: uuidv4(),
+      name: "Team A",
+      win_total: 0,
+      loss_total: 0,
+      draw_total: 0,
+      goals_for: 0,
+      goals_against: 0,
+    },
+    {
+      id: uuidv4(),
+      name: "Team B",
+      win_total: 0,
+      loss_total: 0,
+      draw_total: 0,
+      goals_for: 0,
+      goals_against: 0,
+    },
+    {
+      id: uuidv4(),
+      name: "Team C",
+      win_total: 0,
+      loss_total: 0,
+      draw_total: 0,
+      goals_for: 0,
+      goals_against: 0,
+    },
+    {
+      id: uuidv4(),
+      name: "Team D",
+      win_total: 0,
+      loss_total: 0,
+      draw_total: 0,
+      goals_for: 0,
+      goals_against: 0,
+    },
+  ]);
   const [type, setType] = useState("");
   const [description, setDescription] = useState("");
   const [league, setLeague] = useState({
@@ -48,21 +87,32 @@ const LeagueForm = () => {
   const types = ["Mens", "Womens", "Boys", "Girls", "Co-ed"];
 
   const handleAddTeam = () => {
-    setTeams([...teams, ""]);
+    setTeams([
+      ...teams,
+      {
+        id: uuidv4(),
+        name: "",
+        win_total: 0,
+        loss_total: 0,
+        draw_total: 0,
+        goals_for: 0,
+        goals_against: 0,
+      },
+    ]);
   };
 
   const handleTeamChange = (index, event) => {
     const newTeams = [...teams];
     newTeams[index] = {
-      id: `${event.target.value}-${index}`,
+      ...newTeams[index],
       name: event.target.value,
-      win_total: 0,
-      loss_total: 0,
-      draw_total: 0,
-      goals_for: 0,
-      goals_against: 0,
     };
     setTeams(newTeams);
+  };
+
+  const handleTeamDelete = (id) => {
+    const updatedTeams = teams.filter((team) => team.id !== id);
+    setTeams(updatedTeams);
   };
 
   const handleSubmit = async () => {
@@ -77,7 +127,7 @@ const LeagueForm = () => {
       return;
     }
 
-    if (teams.some((team) => team === "")) {
+    if (teams.some((team) => team.name === "")) {
       setError("Team names cannot be empty.");
       return;
     }
@@ -167,13 +217,28 @@ const LeagueForm = () => {
         <div className="flex flex-col gap-3">
           <label>Teams:</label>
           {teams.map((team, index) => (
-            <Input
-              key={index}
-              type="text"
-              value={team.name}
-              onChange={(e) => handleTeamChange(index, e)}
-              required
-            />
+            <div className="flex gap-3" key={team.id}>
+              <Input
+                type="text"
+                value={team.name}
+                onChange={(e) => handleTeamChange(index, e)}
+                required
+              />
+              {index > 1 ? (
+                <Button
+                  onClick={() => {
+                    handleTeamDelete(team.id);
+                  }}
+                  variant="destructive"
+                >
+                  Delete
+                </Button>
+              ) : (
+                <Button variant="secondary">
+                  <MdOutlineDoNotDisturbAlt />
+                </Button>
+              )}
+            </div>
           ))}
           <Button onClick={handleAddTeam} className="mt-2">
             Add Team

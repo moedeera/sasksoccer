@@ -8,10 +8,14 @@ import React, { useEffect, useState } from "react";
 import { errorReportInfo } from "./info";
 import { fetchLeague } from "@/app/utlils/request";
 import Spinner from "@/app/components/Spinner";
+import { useSession } from "next-auth/react";
+import { Button } from "@/components/ui/button";
+import Link from "next/link";
 
 const LeaguePage = () => {
+  const { data: session } = useSession();
   const { slug } = useParams();
-  console.log(slug);
+
   const [league, setLeague] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
@@ -63,7 +67,7 @@ const LeaguePage = () => {
           setAssortedTeams(sortedTeams);
         }
 
-        console.log(leagueData);
+        console.log(leagueData, session);
         setLeague(leagueData);
       } catch (error) {
         console.error("Error fetching league", error);
@@ -76,7 +80,7 @@ const LeaguePage = () => {
     if (league === null) {
       fetchLeagueData();
     }
-  }, [slug]);
+  }, [slug, session]);
   return (
     <div>
       <Landing data={leaguePageHeader} />
@@ -88,7 +92,15 @@ const LeaguePage = () => {
             <Spinner />
           ) : (
             <div className="component-container">
-              <h3 className="mb-3 text-3xl">{league?.name} League</h3>
+              <div className="flex gap-3 mb-5 ">
+                <h3 className="text-3xl">{league?.description} </h3>
+                {session && league && session.user.name === league.admin && (
+                  <Link href={`/leagues/${slug}/edit`}>
+                    <Button>Edit</Button>
+                  </Link>
+                )}
+              </div>
+
               <TableComponent data={assortedTeams} />
             </div>
           )}

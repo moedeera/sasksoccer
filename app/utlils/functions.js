@@ -6,4 +6,37 @@ const generateSlug = (name, userId) => {
   return `${name}${hours}${minutes}${userPrefix}`;
 };
 
-export { generateSlug };
+function formatDateFunction(dateString) {
+  const date = new Date(dateString);
+
+  const months = [
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December",
+  ];
+
+  const month = months[date.getMonth()];
+  const day = date.getDate();
+  const year = date.getFullYear();
+  let hours = date.getHours();
+  const minutes = date.getMinutes().toString().padStart(2, "0");
+  const period = hours >= 12 ? "PM" : "AM";
+
+  // Convert to 12-hour format
+  hours = hours % 12 || 12;
+
+  return `${month} ${day} ${year} @ ${hours}:${minutes} ${period}`;
+}
+
+// Example usage:
+
+export { generateSlug, formatDateFunction };

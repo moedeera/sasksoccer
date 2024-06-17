@@ -16,6 +16,9 @@ import {
 import { Textarea } from "@/components/ui/textarea";
 import { useParams, useRouter } from "next/navigation";
 import { fetchLeague } from "@/app/utlils/request";
+import { Label } from "@/components/ui/label";
+import { formatDate } from "date-fns";
+import { formatDateFunction } from "@/app/utlils/functions";
 
 const LeagueUpdateForm = () => {
   const [name, setName] = useState("");
@@ -159,7 +162,7 @@ const LeagueUpdateForm = () => {
 
   return (
     <div className="component-container">
-      <div className="p-3 border border-grey flex flex-col gap-4 md:w-1/2 ">
+      <div className="p-3 border border-grey flex flex-col gap-4 md:w-3/4 ">
         <h3 className="text-3xl py-2 text-center">Update League</h3>
         {error && <p className="text-red-500">{error}</p>}
         <div>
@@ -209,53 +212,53 @@ const LeagueUpdateForm = () => {
         <div className="flex flex-col gap-3">
           <label>Teams:</label>
           {teams.map((team, index) => (
-            <Input
-              key={index}
-              type="text"
-              value={team.name}
-              onChange={(e) => {
-                const newTeams = [...teams];
-                newTeams[index] = { ...newTeams[index], name: e.target.value };
-                setTeams(newTeams);
-              }}
-              required
-            />
+            <div className="flex justify-between" key={index}>
+              {" "}
+              <Label className="mb-2 text-md">{team.name}</Label>
+              <div className="flex gap-1">
+                {" "}
+                <Button variant="success">Edit</Button>
+                <Button variant="destructive">Delete</Button>
+              </div>
+            </div>
           ))}
         </div>
-        <div className="flex flex-col gap-3">
+        <div className="flex flex-col gap-3 justify-center">
           <label>Games:</label>
           {games.map((game, index) => (
-            <div key={index} className="flex gap-2">
-              <Input
+            <div key={index} className="flex gap-2 items-center">
+              {/* <Input
                 type="text"
-                value={game.home_team_name}
+                value={game.home_team_name.substring(0, 4)}
                 readOnly
                 placeholder="Home Team"
+                disabled="true"
               />
               <Input
                 type="text"
                 value={game.away_team_name}
                 readOnly
                 placeholder="Away Team"
-              />
-              <Input
-                type="number"
-                value={game.home_team_goals}
-                readOnly
-                placeholder="Home Goals"
-              />
-              <Input
-                type="number"
-                value={game.away_team_goals}
-                readOnly
-                placeholder="Away Goals"
-              />
-              <Input
+              /> */}
+              <div className="flex gap-3 border border-rounded px-3 ">
+                <>{game.home_team_name}</>
+                <> vs </>
+                <>{game.away_team_name}</>
+              </div>
+              <div className="flex gap-3 border border-rounded px-3">
+                <>{game.home_team_goals}</>
+                <>-</>
+                <>{game.away_team_goals}</>
+              </div>
+              <Label
+                className="hidden md:block"
                 type="date"
                 value={game.date_of_game}
                 readOnly
                 placeholder="Date of Game"
-              />
+              >
+                {formatDateFunction(game.date_of_game)}
+              </Label>
             </div>
           ))}
           <div className="flex flex-col gap-2">
@@ -300,20 +303,13 @@ const LeagueUpdateForm = () => {
                 </SelectGroup>
               </SelectContent>
             </Select>
-            <Input
-              type="number"
-              name="home_team_goals"
-              value={newGame.home_team_goals}
-              onChange={handleGameChange}
-              placeholder="Home Goals"
-            />
-            <Input
-              type="number"
-              name="away_team_goals"
-              value={newGame.away_team_goals}
-              onChange={handleGameChange}
-              placeholder="Away Goals"
-            />
+
+            <div className="flex gap-3">
+              <>{newGame.home_team_goals}</>
+              <>-</>
+              <>{newGame.away_team_goals}</>
+            </div>
+
             <Input
               type="date"
               name="date_of_game"
