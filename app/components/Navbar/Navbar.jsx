@@ -18,6 +18,7 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { Button } from "@/components/ui/button";
+import { PopOver } from "../PopOver/PopOver";
 
 const Navbar2 = () => {
   const { headerLinks, websiteInfo } = useContext(GlobalContext);
@@ -54,6 +55,11 @@ const Navbar2 = () => {
               </Link>
             </Button>
           )}
+          {/* <PopOver
+            links={links}
+            profileImage={profileImage}
+            profileDefault={profileDefault}
+          /> */}
           {session && (
             <div className="relative  w-52">
               <div className="flex justify-end">

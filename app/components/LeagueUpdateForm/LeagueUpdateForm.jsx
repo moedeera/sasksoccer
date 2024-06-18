@@ -19,6 +19,7 @@ import { fetchLeague } from "@/app/utlils/request";
 import { Label } from "@/components/ui/label";
 import { formatDate } from "date-fns";
 import { formatDateFunction } from "@/app/utlils/functions";
+import { UpdateLeague } from "../LeagueFormUpdate2/UpdateForm";
 
 const LeagueUpdateForm = () => {
   const [name, setName] = useState("");
@@ -38,6 +39,16 @@ const LeagueUpdateForm = () => {
   const { slug } = useParams();
   const router = useRouter();
   const types = ["Mens", "Womens", "Boys", "Girls", "Co-ed"];
+
+  const [editTeams, setEditTeams] = useState("");
+
+  const handleEditTeam = (value, name) => {
+    const updatedTeams = teams.map((team) =>
+      team.name === name ? { ...team, name: value } : team
+    );
+    setTeams(updatedTeams);
+    setEditTeams(value);
+  };
 
   useEffect(() => {
     // Fetch existing league data
@@ -214,10 +225,26 @@ const LeagueUpdateForm = () => {
           {teams.map((team, index) => (
             <div className="flex justify-between" key={index}>
               {" "}
-              <Label className="mb-2 text-md">{team.name}</Label>
+              {editTeams === team.name ? (
+                <Input
+                  type="text"
+                  value={team.name}
+                  onChange={(e) => handleEditTeam(e.target.value, team.name)}
+                  className="mr-8"
+                />
+              ) : (
+                <Label className="mb-2 text-md">{team.name}</Label>
+              )}
               <div className="flex gap-1">
                 {" "}
-                <Button variant="success">Edit</Button>
+                <Button
+                  onClick={() => {
+                    setEditTeams(team.name);
+                  }}
+                  variant="success"
+                >
+                  Edit
+                </Button>
                 <Button variant="destructive">Delete</Button>
               </div>
             </div>
@@ -336,6 +363,7 @@ const LeagueUpdateForm = () => {
           Update League
         </Button>
       </div>
+      <UpdateLeague />
     </div>
   );
 };
