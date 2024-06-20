@@ -20,12 +20,20 @@ import { Label } from "@/components/ui/label";
 import { formatDate } from "date-fns";
 import { formatDateFunction } from "@/app/utlils/functions";
 import { UpdateLeague } from "../LeagueFormUpdate2/UpdateForm";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+
+import LeagueSettings from "./LeagueSettings";
+import Spinner from "../Spinner";
+import EditTeams from "./EditTeams";
+import UpdateResults from "./UpdateResults";
 
 const LeagueUpdateForm = () => {
+  const [league, setLeague] = useState(null);
   const [name, setName] = useState("");
   const [admin, setAdmin] = useState("");
   const [teams, setTeams] = useState([]);
   const [type, setType] = useState("");
+  const [loading, setLoading] = useState(false);
   const [description, setDescription] = useState("");
   const [games, setGames] = useState([]);
   const [newGame, setNewGame] = useState({
@@ -38,24 +46,13 @@ const LeagueUpdateForm = () => {
   const [error, setError] = useState("");
   const { slug } = useParams();
   const router = useRouter();
-  const types = ["Mens", "Womens", "Boys", "Girls", "Co-ed"];
-
-  const [editTeams, setEditTeams] = useState("");
-
-  const handleEditTeam = (value, name) => {
-    const updatedTeams = teams.map((team) =>
-      team.name === name ? { ...team, name: value } : team
-    );
-    setTeams(updatedTeams);
-    setEditTeams(value);
-  };
 
   useEffect(() => {
     // Fetch existing league data
     const fetchInfo = async () => {
       try {
         const data = await fetchLeague(slug);
-
+        setLeague(data);
         console.log(data);
         setName(data.name);
         setAdmin(data.admin);
@@ -142,6 +139,7 @@ const LeagueUpdateForm = () => {
     }
 
     try {
+      setLoading(true);
       const response = await fetch(`/api/leagues/${slug}`, {
         method: "PUT",
         headers: {
@@ -168,202 +166,62 @@ const LeagueUpdateForm = () => {
     } catch (error) {
       console.error(error);
       setError("An error occurred while updating the league.");
+    } finally {
+      setLoading(false);
     }
   };
-
+  if (loading) {
+    return <Spinner />;
+  }
   return (
     <div className="component-container">
       <div className="p-3 border border-grey flex flex-col gap-4 md:w-3/4 ">
-        <h3 className="text-3xl py-2 text-center">Update League</h3>
-        {error && <p className="text-red-500">{error}</p>}
-        <div>
-          <label>League Name:</label>
-          <Input
-            type="text"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-            required
-          />
-        </div>
-        <div>
-          <label>Owner:</label>
-          <Input
-            type="text"
-            value={admin}
-            onChange={(e) => setAdmin(e.target.value)}
-            required
-          />
-        </div>
-        <div>
-          <label>Type:</label>
-          <Select defaultValue={type} onValueChange={(value) => setType(value)}>
-            <SelectTrigger className="w-[180px]">
-              <SelectValue placeholder="Select one" />
-            </SelectTrigger>
-            <SelectContent>
-              <SelectGroup>
-                {types.map((type, index) => (
-                  <SelectItem key={index} value={type}>
-                    {type}
-                  </SelectItem>
-                ))}
-              </SelectGroup>
-            </SelectContent>
-          </Select>
-        </div>
-        <div>
-          <label>Description:</label>
-          <Textarea
-            placeholder="Write a brief description."
-            value={description}
-            onChange={(e) => setDescription(e.target.value)}
-            required
-          />
-        </div>
-        <div className="flex flex-col gap-3">
-          <label>Teams:</label>
-          {teams.map((team, index) => (
-            <div className="flex justify-between" key={index}>
-              {" "}
-              {editTeams === team.name ? (
-                <Input
-                  type="text"
-                  value={team.name}
-                  onChange={(e) => handleEditTeam(e.target.value, team.name)}
-                  className="mr-8"
-                />
-              ) : (
-                <Label className="mb-2 text-md">{team.name}</Label>
-              )}
-              <div className="flex gap-1">
-                {" "}
-                <Button
-                  onClick={() => {
-                    setEditTeams(team.name);
-                  }}
-                  variant="success"
-                >
-                  Edit
-                </Button>
-                <Button variant="destructive">Delete</Button>
-              </div>
-            </div>
-          ))}
-        </div>
-        <div className="flex flex-col gap-3 justify-center">
-          <label>Games:</label>
-          {games.map((game, index) => (
-            <div key={index} className="flex gap-2 items-center">
-              {/* <Input
-                type="text"
-                value={game.home_team_name.substring(0, 4)}
-                readOnly
-                placeholder="Home Team"
-                disabled="true"
+        <h3 className="text-2xl">Update League Information </h3>
+        <p className="text-2xl text-red-500">{error}</p>
+        <Tabs defaultValue="results" className="md:w-[800px] min-h-56">
+          <TabsList className="grid w-full grid-cols-3 gap-1">
+            <TabsTrigger value="results">Enter Results</TabsTrigger>
+            <TabsTrigger value="teams">Edit Teams</TabsTrigger>
+            <TabsTrigger value="settings">Settings</TabsTrigger>
+          </TabsList>
+          <TabsContent value="results" className="w-full">
+            <>
+              <UpdateResults
+                games={games}
+                setNewGame={setNewGame}
+                handleGameChange={handleGameChange}
+                handleAddGame={handleAddGame}
+                newGame={newGame}
+                teams={teams}
               />
-              <Input
-                type="text"
-                value={game.away_team_name}
-                readOnly
-                placeholder="Away Team"
-              /> */}
-              <div className="flex gap-3 border border-rounded px-3 ">
-                <>{game.home_team_name}</>
-                <> vs </>
-                <>{game.away_team_name}</>
-              </div>
-              <div className="flex gap-3 border border-rounded px-3">
-                <>{game.home_team_goals}</>
-                <>-</>
-                <>{game.away_team_goals}</>
-              </div>
-              <Label
-                className="hidden md:block"
-                type="date"
-                value={game.date_of_game}
-                readOnly
-                placeholder="Date of Game"
-              >
-                {formatDateFunction(game.date_of_game)}
-              </Label>
-            </div>
-          ))}
-          <div className="flex flex-col gap-2">
-            <h4>Add New Game:</h4>
-            <div className="grid grid-cols-5 gap-x-2">
-              <Select
-                name="home_team_name"
-                value={newGame.home_team_name}
-                onValueChange={(value) =>
-                  setNewGame({ ...newGame, home_team_name: value })
-                }
-              >
-                <SelectTrigger className="w-full">
-                  <SelectValue placeholder="Select Home Team" />
-                </SelectTrigger>
-                <SelectContent>
-                  <SelectGroup>
-                    {teams.map((team) => (
-                      <SelectItem key={team.name} value={team.name}>
-                        {team.name}
-                      </SelectItem>
-                    ))}
-                  </SelectGroup>
-                </SelectContent>
-              </Select>
-              <Input
-                type="number"
-                name="home_team_goals"
-                value={newGame.home_team_goals}
-                onChange={handleGameChange}
-                placeholder="Home Goals"
-              />
-              <Input
-                type="number"
-                name="away_team_goals"
-                value={newGame.away_team_goals}
-                onChange={handleGameChange}
-                placeholder="Away Goals"
-              />{" "}
-              <Select
-                name="away_team_name"
-                value={newGame.away_team_name}
-                onValueChange={(value) =>
-                  setNewGame({ ...newGame, away_team_name: value })
-                }
-              >
-                <SelectTrigger className="w-full">
-                  <SelectValue placeholder="Select Away Team" />
-                </SelectTrigger>
-                <SelectContent>
-                  <SelectGroup>
-                    {teams.map((team) => (
-                      <SelectItem key={team.name} value={team.name}>
-                        {team.name}
-                      </SelectItem>
-                    ))}
-                  </SelectGroup>
-                </SelectContent>
-              </Select>{" "}
-              <Input
-                type="date"
-                name="date_of_game"
-                value={newGame.date_of_game}
-                onChange={handleGameChange}
-                placeholder="Date of Game"
-              />
-            </div>
-
-            <Button onClick={handleAddGame} className="mt-2">
-              Add Game
-            </Button>
-          </div>
-        </div>
-        <Button onClick={handleSubmit} variant="success" className="mt-4">
-          Update League
-        </Button>
+            </>
+          </TabsContent>
+          <TabsContent value="teams">
+            <EditTeams
+              teams={teams}
+              setTeams={setTeams}
+              league={league}
+              error={error}
+              setError={setError}
+            />
+          </TabsContent>
+          <TabsContent value="settings">
+            {" "}
+            <LeagueSettings
+              name={name}
+              admin={admin}
+              setName={setName}
+              type={type}
+              setType={setType}
+              setDescription={setDescription}
+              description={description}
+            />
+          </TabsContent>{" "}
+          <Button onClick={handleSubmit} variant="success" className="mt-4">
+            Update League
+          </Button>
+        </Tabs>
       </div>
-      <UpdateLeague />
     </div>
   );
 };

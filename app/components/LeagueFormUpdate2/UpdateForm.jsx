@@ -13,7 +13,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 export function UpdateLeague() {
   return (
-    <Tabs defaultValue="account" className="md:w-[800px] ">
+    <Tabs defaultValue="results" className="md:w-[800px] ">
       <TabsList className="grid w-full grid-cols-3 gap-1">
         <TabsTrigger value="results">Enter Results</TabsTrigger>
         <TabsTrigger value="teams">Edit Teams</TabsTrigger>

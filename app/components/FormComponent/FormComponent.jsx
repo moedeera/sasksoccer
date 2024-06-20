@@ -138,7 +138,7 @@ const LeagueForm = () => {
       description: description,
       type: type,
       teams: teams,
-      images: ["https://placehold.co/600x400"],
+      images: league.images[0],
       isFeatured: false,
       createdAt: currentDate,
       updatedAt: currentDate,

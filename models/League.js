@@ -28,6 +28,7 @@ const LeagueSchema = new Schema(
     },
     teams: [
       {
+        team_id: { type: String, required: false },
         name: { type: String, required: true },
         win_total: { type: Number, required: true },
         loss_total: { type: Number, required: true },
@@ -38,6 +39,7 @@ const LeagueSchema = new Schema(
     ],
     games: [
       {
+        game_id: { type: String, required: false },
         home_team_name: { type: String, required: true },
         away_team_name: { type: String, required: true },
         home_team_goals: { type: Number, required: true },
