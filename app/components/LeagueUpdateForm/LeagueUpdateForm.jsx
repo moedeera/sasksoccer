@@ -74,7 +74,7 @@ const LeagueUpdateForm = () => {
 
   const updateTeamStats = (homeTeam, awayTeam, homeGoals, awayGoals) => {
     const updatedTeams = teams.map((team) => {
-      if (team.name === homeTeam.name) {
+      if (team.team_id === homeTeam.id) {
         return {
           ...team,
           goals_for: team.goals_for + parseInt(homeGoals, 10),
@@ -86,7 +86,7 @@ const LeagueUpdateForm = () => {
           loss_total:
             homeGoals < awayGoals ? team.loss_total + 1 : team.loss_total,
         };
-      } else if (team.name === awayTeam.name) {
+      } else if (team.team_id === awayTeam.id) {
         return {
           ...team,
           goals_for: team.goals_for + parseInt(awayGoals, 10),
@@ -112,6 +112,14 @@ const LeagueUpdateForm = () => {
 
     if (!homeTeam || !awayTeam) {
       setError("Both home and away teams must be selected.");
+      return;
+    }
+    if (homeTeam.team_id === awayTeam.team_id) {
+      setError("Please select different teams");
+      return;
+    }
+    if (!newGame.date_of_game) {
+      setError("Please select a date");
       return;
     }
 
