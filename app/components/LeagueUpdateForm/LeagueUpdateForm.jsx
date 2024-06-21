@@ -36,13 +36,7 @@ const LeagueUpdateForm = () => {
   const [loading, setLoading] = useState(false);
   const [description, setDescription] = useState("");
   const [games, setGames] = useState([]);
-  const [newGame, setNewGame] = useState({
-    home_team_name: "",
-    away_team_name: "",
-    home_team_goals: "",
-    away_team_goals: "",
-    date_of_game: "",
-  });
+
   const [error, setError] = useState("");
   const { slug } = useParams();
   const router = useRouter();
@@ -53,7 +47,7 @@ const LeagueUpdateForm = () => {
       try {
         const data = await fetchLeague(slug);
         setLeague(data);
-        console.log(data);
+
         setName(data.name);
         setAdmin(data.admin);
         setTeams(data.teams);
@@ -67,78 +61,6 @@ const LeagueUpdateForm = () => {
 
     fetchInfo();
   }, [slug]);
-
-  const handleGameChange = (e) => {
-    setNewGame({ ...newGame, [e.target.name]: e.target.value });
-  };
-
-  const updateTeamStats = (homeTeam, awayTeam, homeGoals, awayGoals) => {
-    const updatedTeams = teams.map((team) => {
-      if (team.team_id === homeTeam.id) {
-        return {
-          ...team,
-          goals_for: team.goals_for + parseInt(homeGoals, 10),
-          goals_against: team.goals_against + parseInt(awayGoals, 10),
-          win_total:
-            homeGoals > awayGoals ? team.win_total + 1 : team.win_total,
-          draw_total:
-            homeGoals === awayGoals ? team.draw_total + 1 : team.draw_total,
-          loss_total:
-            homeGoals < awayGoals ? team.loss_total + 1 : team.loss_total,
-        };
-      } else if (team.team_id === awayTeam.id) {
-        return {
-          ...team,
-          goals_for: team.goals_for + parseInt(awayGoals, 10),
-          goals_against: team.goals_against + parseInt(homeGoals, 10),
-          win_total:
-            awayGoals > homeGoals ? team.win_total + 1 : team.win_total,
-          draw_total:
-            awayGoals === homeGoals ? team.draw_total + 1 : team.draw_total,
-          loss_total:
-            awayGoals < homeGoals ? team.loss_total + 1 : team.loss_total,
-        };
-      } else {
-        return team;
-      }
-    });
-
-    setTeams(updatedTeams);
-  };
-
-  const handleAddGame = () => {
-    const homeTeam = teams.find((team) => team.name === newGame.home_team_name);
-    const awayTeam = teams.find((team) => team.name === newGame.away_team_name);
-
-    if (!homeTeam || !awayTeam) {
-      setError("Both home and away teams must be selected.");
-      return;
-    }
-    if (homeTeam.team_id === awayTeam.team_id) {
-      setError("Please select different teams");
-      return;
-    }
-    if (!newGame.date_of_game) {
-      setError("Please select a date");
-      return;
-    }
-
-    setGames([...games, newGame]);
-    updateTeamStats(
-      homeTeam,
-      awayTeam,
-      newGame.home_team_goals,
-      newGame.away_team_goals
-    );
-
-    setNewGame({
-      home_team_name: "",
-      away_team_name: "",
-      home_team_goals: "",
-      away_team_goals: "",
-      date_of_game: "",
-    });
-  };
 
   const handleSubmit = async () => {
     if (!name || !admin || !description || type === "") {
@@ -183,7 +105,7 @@ const LeagueUpdateForm = () => {
   }
   return (
     <div className="component-container">
-      <div className="p-3 border border-grey flex flex-col gap-4 md:w-3/4 ">
+      <div className="p-3 border border-grey flex flex-col gap-4 md:w-full">
         <h3 className="text-2xl">Update League Information </h3>
         <p className="text-2xl text-red-500">{error}</p>
         <Tabs defaultValue="results" className="md:w-[800px] min-h-56">
@@ -196,10 +118,10 @@ const LeagueUpdateForm = () => {
             <>
               <UpdateResults
                 games={games}
-                setNewGame={setNewGame}
-                handleGameChange={handleGameChange}
-                handleAddGame={handleAddGame}
-                newGame={newGame}
+                setGames={setGames}
+                error={error}
+                setError={setError}
+                setTeams={setTeams}
                 teams={teams}
               />
             </>

@@ -1,8 +1,7 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { MdOutlineDoNotDisturbAlt } from "react-icons/md";
-
 // Sample components from your UI library (replace with actual imports)
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
@@ -16,7 +15,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { Textarea } from "@/components/ui/textarea";
-import { v4 as uuidv4 } from "uuid"; // Import UUID library
+import { generateId } from "@/app/utlils/functions";
 
 const LeagueForm = () => {
   const randomPlaceHolderImages = [
@@ -31,42 +30,59 @@ const LeagueForm = () => {
 
   const [teams, setTeams] = useState([
     {
-      id: uuidv4(),
+      team_id: generateId("Team A"),
       name: "Team A",
       win_total: 0,
       loss_total: 0,
       draw_total: 0,
       goals_for: 0,
       goals_against: 0,
+      color1: "gray",
+      color2: "white",
+      coach1: null,
+      coach2: null,
     },
     {
-      id: uuidv4(),
+      team_id: generateId("Team B"),
       name: "Team B",
       win_total: 0,
       loss_total: 0,
       draw_total: 0,
       goals_for: 0,
       goals_against: 0,
+      color1: "gray",
+      color2: "white",
+      coach1: null,
+      coach2: null,
     },
     {
-      id: uuidv4(),
+      team_id: generateId("Team C"),
       name: "Team C",
       win_total: 0,
       loss_total: 0,
       draw_total: 0,
       goals_for: 0,
       goals_against: 0,
+      color1: "gray",
+      color2: "white",
+      coach1: null,
+      coach2: null,
     },
     {
-      id: uuidv4(),
+      team_id: generateId("Team D"),
       name: "Team D",
       win_total: 0,
       loss_total: 0,
       draw_total: 0,
       goals_for: 0,
       goals_against: 0,
+      color1: "gray",
+      color2: "white",
+      coach1: null,
+      coach2: null,
     },
   ]);
+
   const [type, setType] = useState("");
   const [description, setDescription] = useState("");
   const [league, setLeague] = useState({
@@ -90,22 +106,28 @@ const LeagueForm = () => {
     setTeams([
       ...teams,
       {
-        id: uuidv4(),
+        team_id: generateId("Team"),
         name: "",
         win_total: 0,
         loss_total: 0,
         draw_total: 0,
         goals_for: 0,
         goals_against: 0,
+        color1: "gray",
+        color2: "white",
+        coach1: null,
+        coach2: null,
       },
     ]);
   };
 
   const handleTeamChange = (index, event) => {
     const newTeams = [...teams];
+    const newName = event.target.value;
     newTeams[index] = {
       ...newTeams[index],
-      name: event.target.value,
+      name: newName,
+      team_id: generateId(newName), // Generate a new ID based on the new name
     };
     setTeams(newTeams);
   };
@@ -160,7 +182,7 @@ const LeagueForm = () => {
       const result = await response.json();
       console.log(result); // For demonstration purposes
 
-      setError(""); // Clear any existing errors
+      setError(""); // Clear any existing error
       router.push(`/leagues/${result.slug}`);
     } catch (error) {
       console.error(error);
