@@ -21,7 +21,8 @@ export function Cards({ data }) {
         "Lakewood tournament starting this thursday.See latest updates on the action today",
       image:
         "https://images.pexels.com/photos/1171084/pexels-photo-1171084.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-      link: "",
+      slug: "blog/lakewood-tournament",
+      blog: true,
     },
 
     {
@@ -32,7 +33,8 @@ export function Cards({ data }) {
         "Fun and Festivities at the SaskSoccerFestival starting this thursday",
       image:
         "https://images.pexels.com/photos/47730/the-ball-stadion-football-the-pitch-47730.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-      link: "",
+      slug: "blog/city-soccer-festival",
+      blog: true,
     },
     {
       name: "New Jersey kits",
@@ -42,6 +44,8 @@ export function Cards({ data }) {
         "Amazing new kits for amazing new prices. Look into our new catalogue for the summer.",
 
       image: "https://images.pexels.com/photos/114296/pexels-photo-114296.jpeg",
+      slug: "blog/new-kits",
+      blog: true,
     },
   ];
   const [info, setInfo] = React.useState(defaultData);
@@ -71,7 +75,10 @@ export function Cards({ data }) {
           </CardHeader>
 
           <CardFooter>
-            <Link href={`leagues/${dat.slug}`} className="btn">
+            <Link
+              href={dat.blog ? `${dat.link}` : `leagues/${dat.slug}`}
+              className="btn"
+            >
               Read More
             </Link>
           </CardFooter>

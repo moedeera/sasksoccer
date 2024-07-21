@@ -16,6 +16,7 @@ const homeCardsData = [
     image:
       "https://images.pexels.com/photos/1171084/pexels-photo-1171084.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
     link: "blogs/new-to-soccer",
+    blog: true,
   },
 
   {
@@ -27,6 +28,7 @@ const homeCardsData = [
     image:
       "https://images.pexels.com/photos/47730/the-ball-stadion-football-the-pitch-47730.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
     link: "blogs/adult-soccer",
+    blog: true,
   },
   {
     name: "Youth Tournaments",
@@ -36,6 +38,7 @@ const homeCardsData = [
       "A plethora of youth tournaments this summer to keep your kids active and engaged.",
     image: "https://images.pexels.com/photos/114296/pexels-photo-114296.jpeg",
     link: "blogs/youth-tournaments",
+    blog: true,
   },
 ];
 
