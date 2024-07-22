@@ -10,6 +10,7 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
+import Link from "next/link";
 
 const CarouselComponent = ({ data }) => {
   const items = [1, 2, 3, 4, 5, 6];
@@ -65,13 +66,15 @@ const CarouselComponent = ({ data }) => {
   return (
     <div className="component-container border-x-2 ">
       <div className="carousel-container">
-        <div className="text-3xl font-bold h3-header py-4">Latest</div>
+        <div className="text-3xl font-bold h3-header py-4">
+          Latest Bulletins
+        </div>
         <Carousel className="">
           <CarouselContent>
             {info.map((item, index) => (
               <CarouselItem
                 key={index}
-                className="md:basis-1/2 lg:basis-1/4 py-3"
+                className="md:basis-1/2 lg:basis-1/4 py-3 "
               >
                 <div
                   className={`min-h-72 m-w-36 border-2 border-solid rounded flex flex-col justify-center px-3 pt-2 pb-4 bg-neutral-${
@@ -81,8 +84,13 @@ const CarouselComponent = ({ data }) => {
                   <div className="text-2xl font-bold h3-header px-0 pb-3">
                     {item.title}
                   </div>
-                  <small className="py-1">May 2{index * 2 + 1} 2024</small>
+                  <small className="py-1">{item.date}</small>
                   <p className="pr-2 ">{item.content}</p>
+                  {item.link && (
+                    <Link href={item.link} className="btn mt-3">
+                      More
+                    </Link>
+                  )}
                 </div>
               </CarouselItem>
             ))}

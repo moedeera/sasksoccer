@@ -18,14 +18,18 @@ import Block4 from "./components/Block4/Block4";
 import { homepageInfo } from "./homepagecontent";
 import Banner from "./components/Banner/Banner";
 
-import { homeCardsData, homeLandingInfo } from "@/assets/Info/Info";
+import {
+  homeCardsData,
+  homeCarouselData,
+  homeLandingInfo,
+} from "@/assets/Info/Info";
 
 const HomePage = () => {
   return (
     <div>
       <Landing data={homeLandingInfo} />
       <Cards data={homeCardsData} />
-      <CarouselComponent />
+      <CarouselComponent data={homeCarouselData} />
       <Block1 />
       {/* <Calendar /> */}
       {/* <TableComponent />

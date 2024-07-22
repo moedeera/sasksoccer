@@ -76,10 +76,10 @@ export function Cards({ data }) {
 
           <CardFooter>
             <Link
-              href={dat.blog ? `${dat.link}` : `leagues/${dat.slug}`}
+              href={dat.button ? `${dat.link}` : `leagues/${dat.slug}`}
               className="btn"
             >
-              Read More
+              {dat.button ? dat.button.text : "Read More"}
             </Link>
           </CardFooter>
         </Card>
