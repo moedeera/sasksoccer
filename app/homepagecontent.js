@@ -2,8 +2,9 @@ const homepageInfo = {
   reverse: true,
   title: "A lot of Soccer This Summer, Don't Miss out",
   date: "May 21 2024",
-  content: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum,
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum`,
+  content: `For those looking to enjoy the sport casually, local parks and recreational leagues provide ample opportunities to join pick-up games and meet fellow soccer enthusiasts. For younger players under 18, the city hosts various tournaments that cater to different skill levels, allowing them to showcase their talents and experience the thrill of competition. These tournaments are not only about the game but also foster a sense of community and teamwork among participants.
+
+Volunteering opportunities abound for those who want to support these events. From helping with event organization and setup to coaching and refereeing, volunteers play a crucial role in making these tournaments successful. Getting involved is a rewarding way to contribute to the local soccer scene, meet new people, and support youth sports development in Saskatoon.`,
   buttonText: "Read More",
   buttonLink: "/",
   image:

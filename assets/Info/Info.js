@@ -1,3 +1,5 @@
+import img1 from "./logo.webp";
+
 const homeLandingInfo = {
   title: "Saskatoon Soccer News",
   content: `Your premier destination for all things recreational soccer in Saskatoon! Whether you're a seasoned player or just looking to have fun, we offer a wide range of soccer activities and tournaments for all skill levels. Join our vibrant community, stay active, and enjoy the beautiful game with friends old and new. Explore our upcoming events, register your team, and get ready to hit the field with SaskSoccerHub!`,
@@ -98,7 +100,7 @@ const homeCarouselData = [
 ];
 const block1HomePage = {
   reverse: true,
-  title: "Summer Soccer Is Here",
+  title: "Summer Soccer Is Here ",
   date: "May 21 2024",
   content: `
   Summer soccer in Saskatoon promises an exciting season with numerous tournaments for youth. Major events include the Lakewood, Hollandia, and Women's Western Shield tournaments, catering to players from ages 11 to 18. These tournaments provide a fantastic opportunity for young athletes to showcase their skills, enjoy competitive play, and experience the thrill of the sport in a supportive community. Families and fans will enjoy the vibrant atmosphere and the chance to see future soccer stars in action.
@@ -106,8 +108,7 @@ const block1HomePage = {
 In addition to local tournaments, soccer enthusiasts can look forward to watching Canada compete in the Copa America 2024. This prestigious international tournament will feature top teams from across the Americas, offering thrilling matches and showcasing some of the best talent in the world. It's an excellent chance for soccer fans to support the national team and enjoy world-class soccer.
   `,
 
-  image:
-    "https://images.pexels.com/photos/47730/the-ball-stadion-football-the-pitch-47730.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+  image: img1,
 };
 
 export { homeLandingInfo, homeCardsData, homeCarouselData, block1HomePage };
