@@ -43,7 +43,7 @@ const Block2 = ({ data }) => {
           <Accordion type="single" collapsible className="md:w-full">
             <AccordionItem value="item-1">
               <AccordionTrigger>
-                Where do I start if I want something casual?
+                Where do I start if I want to play casual?
               </AccordionTrigger>
               <AccordionContent>
                 Yes. It adheres to the WAI-ARIA design pattern.
