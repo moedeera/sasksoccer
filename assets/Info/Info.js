@@ -96,5 +96,18 @@ const homeCarouselData = [
   //     "The Saskatoon Adult Soccer Championship brings together the best adult teams in the city. Held at the SaskTel Sports Centre, this one-day tournament promises intense competition and high-quality soccer. Don't miss out on the action!",
   // },
 ];
+const block1HomePage = {
+  reverse: true,
+  title: "Summer Soccer Is Here",
+  date: "May 21 2024",
+  content: `
+  Summer soccer in Saskatoon promises an exciting season with numerous tournaments for youth. Major events include the Lakewood, Hollandia, and Women's Western Shield tournaments, catering to players from ages 11 to 18. These tournaments provide a fantastic opportunity for young athletes to showcase their skills, enjoy competitive play, and experience the thrill of the sport in a supportive community. Families and fans will enjoy the vibrant atmosphere and the chance to see future soccer stars in action.
 
-export { homeLandingInfo, homeCardsData, homeCarouselData };
+In addition to local tournaments, soccer enthusiasts can look forward to watching Canada compete in the Copa America 2024. This prestigious international tournament will feature top teams from across the Americas, offering thrilling matches and showcasing some of the best talent in the world. It's an excellent chance for soccer fans to support the national team and enjoy world-class soccer.
+  `,
+
+  image:
+    "https://images.pexels.com/photos/47730/the-ball-stadion-football-the-pitch-47730.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+};
+
+export { homeLandingInfo, homeCardsData, homeCarouselData, block1HomePage };

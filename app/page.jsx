@@ -19,6 +19,7 @@ import { homepageInfo } from "./homepagecontent";
 import Banner from "./components/Banner/Banner";
 
 import {
+  block1HomePage,
   homeCardsData,
   homeCarouselData,
   homeLandingInfo,
@@ -30,7 +31,7 @@ const HomePage = () => {
       <Landing data={homeLandingInfo} />
       <Cards data={homeCardsData} />
       <CarouselComponent data={homeCarouselData} />
-      <Block1 />
+      <Block1 data={block1HomePage} />
       {/* <Calendar /> */}
       {/* <TableComponent />
       <LeagueForm />
