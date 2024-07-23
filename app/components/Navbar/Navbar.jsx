@@ -30,7 +30,7 @@ const Navbar2 = () => {
   const links = [
     { name: "profile", link: "/profile" },
     { name: "messages", link: "/messages" },
-    { name: "Create league", link: "leagues/create" },
+    { name: "Create league", link: "/leagues/create" },
     { name: "My leagues", link: "/leagues/saved" },
   ];
   const pathname = usePathname();

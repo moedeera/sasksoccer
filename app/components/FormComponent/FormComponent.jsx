@@ -175,6 +175,7 @@ const LeagueForm = () => {
     const currentDate = new Date();
     const newLeague = {
       name: name,
+      groups: groups,
       description: description,
       type: type,
       teams: teams,
