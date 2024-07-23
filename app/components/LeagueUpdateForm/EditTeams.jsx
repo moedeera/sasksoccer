@@ -6,6 +6,7 @@ import Spinner from "../Spinner";
 
 const EditTeams = ({ teams, setTeams, league, error, setError }) => {
   const [editTeams, setEditTeams] = useState("");
+  const [editTeamsGroup, setEditTeamsGroup] = useState("");
   const [loading, setLoading] = useState(false);
 
   const handleEditTeam = (value, name) => {
@@ -14,6 +15,18 @@ const EditTeams = ({ teams, setTeams, league, error, setError }) => {
     );
     setTeams(updatedTeams);
     setEditTeams(value);
+  };
+
+  const handleEditTeamGroup = (value, name) => {
+    const updatedTeams = teams.map((team) =>
+      team.name === name ? { ...team, group: value } : team
+    );
+    setTeams(updatedTeams);
+    setEditTeamsGroup(value);
+  };
+  const handleDelete = (id) => {
+    const updatedTeams = teams.filter((team) => team.team_id !== id);
+    setTeams(updatedTeams);
   };
 
   const handleSave = async () => {
@@ -62,14 +75,31 @@ const EditTeams = ({ teams, setTeams, league, error, setError }) => {
           <div className="flex justify-between" key={index}>
             {" "}
             {editTeams === team.name ? (
-              <Input
-                type="text"
-                value={team.name}
-                onChange={(e) => handleEditTeam(e.target.value, team.name)}
-                className="mr-8"
-              />
+              <>
+                {" "}
+                <Input
+                  type="text"
+                  value={team.name}
+                  onChange={(e) => handleEditTeam(e.target.value, team.name)}
+                  className="mr-8"
+                />
+                {league.groups && (
+                  <Input
+                    type="text"
+                    value={team.group}
+                    onChange={(e) =>
+                      handleEditTeamGroup(e.target.value, team.name)
+                    }
+                    className="mr-8"
+                  />
+                )}
+              </>
             ) : (
-              <Label className="mb-2 text-md">{team.name}</Label>
+              <>
+                {" "}
+                <Label className="mb-2 text-md">{team.name}</Label>
+                <Label className="mb-2 text-md">{team.group}</Label>
+              </>
             )}
             <div className="flex gap-1">
               {" "}
@@ -102,7 +132,14 @@ const EditTeams = ({ teams, setTeams, league, error, setError }) => {
                   Save
                 </Button>
               ) : (
-                <Button variant="destructive">Delete</Button>
+                <Button
+                  variant="destructive"
+                  onClick={() => {
+                    handleDelete(team.team_id);
+                  }}
+                >
+                  Delete
+                </Button>
               )}
             </div>
           </div>
