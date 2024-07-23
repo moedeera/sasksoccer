@@ -41,6 +41,7 @@ const LeagueForm = () => {
       color2: "white",
       coach1: null,
       coach2: null,
+      group: "Group A",
     },
     {
       team_id: generateId("Team B"),
@@ -54,6 +55,7 @@ const LeagueForm = () => {
       color2: "white",
       coach1: null,
       coach2: null,
+      group: "Group A",
     },
     {
       team_id: generateId("Team C"),
@@ -67,6 +69,7 @@ const LeagueForm = () => {
       color2: "white",
       coach1: null,
       coach2: null,
+      group: "Group A",
     },
     {
       team_id: generateId("Team D"),
@@ -80,16 +83,19 @@ const LeagueForm = () => {
       color2: "white",
       coach1: null,
       coach2: null,
+      group: "Group A",
     },
   ]);
 
   const [type, setType] = useState("");
+  const [groups, setGroups] = useState(false);
   const [description, setDescription] = useState("");
   const [league, setLeague] = useState({
     name: "",
     type: "",
     description: "",
     teams: [],
+    groups: false,
     games: [],
     images: [randomPlaceHolderImages[randomImageIndex]],
     isFeatured: false,
@@ -101,6 +107,7 @@ const LeagueForm = () => {
   const router = useRouter();
 
   const types = ["Mens", "Womens", "Boys", "Girls", "Co-ed"];
+  const group_types = ["No Groups", "Groups"];
 
   const handleAddTeam = () => {
     setTeams([
@@ -117,6 +124,7 @@ const LeagueForm = () => {
         color2: "white",
         coach1: null,
         coach2: null,
+        group: "Group A",
       },
     ]);
   };
@@ -132,8 +140,18 @@ const LeagueForm = () => {
     setTeams(newTeams);
   };
 
+  const handleGroupChange = (index, event) => {
+    const newTeams = [...teams];
+    const newGroup = event.target.value;
+    newTeams[index] = {
+      ...newTeams[index],
+      group: newGroup,
+    };
+    setTeams(newTeams);
+  };
+
   const handleTeamDelete = (id) => {
-    const updatedTeams = teams.filter((team) => team.id !== id);
+    const updatedTeams = teams.filter((team) => team.team_id !== id);
     setTeams(updatedTeams);
   };
 
@@ -204,29 +222,58 @@ const LeagueForm = () => {
             required
           />
         </div>
-
-        <div>
-          <label>Type:</label>
-          <Select
-            defaultValue={"Select one"}
-            onValueChange={(value) => {
-              setType(value);
-            }}
-          >
-            <SelectTrigger className="w-[180px]">
-              <SelectValue placeholder="Select one" />
-            </SelectTrigger>
-            <SelectContent>
-              <SelectGroup>
-                {types.map((type, index) => (
-                  <SelectItem key={index} value={type}>
-                    {type}
-                  </SelectItem>
-                ))}
-              </SelectGroup>
-            </SelectContent>
-          </Select>
+        <div className="flex gap-3">
+          {" "}
+          <div>
+            <label>Type:</label>
+            <Select
+              defaultValue={"Select one"}
+              onValueChange={(value) => {
+                setType(value);
+              }}
+            >
+              <SelectTrigger className="w-[180px]">
+                <SelectValue placeholder="Select one" />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectGroup>
+                  {types.map((type, index) => (
+                    <SelectItem key={index} value={type}>
+                      {type}
+                    </SelectItem>
+                  ))}
+                </SelectGroup>
+              </SelectContent>
+            </Select>
+          </div>
+          <div>
+            <label>Groups:</label>
+            <Select
+              defaultValue={"Select one"}
+              onValueChange={(value) => {
+                if (value === "Groups") {
+                  setGroups(true);
+                } else {
+                  setGroups(false);
+                }
+              }}
+            >
+              <SelectTrigger className="w-[180px]">
+                <SelectValue placeholder="Select one" />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectGroup>
+                  {group_types.map((type, index) => (
+                    <SelectItem key={index} value={type}>
+                      {type}
+                    </SelectItem>
+                  ))}
+                </SelectGroup>
+              </SelectContent>
+            </Select>
+          </div>
         </div>
+
         <div>
           <label>Description:</label>
           <Textarea
@@ -236,20 +283,32 @@ const LeagueForm = () => {
             required
           />
         </div>
-        <div className="flex flex-col gap-3">
+        <div className="flex flex-col gap-3 ">
           <label>Teams:</label>
           {teams.map((team, index) => (
-            <div className="flex gap-3" key={team.id}>
+            <div
+              className="flex gap-3 flex-wrap md:grid md:grid-cols-3"
+              key={team.id}
+            >
               <Input
                 type="text"
                 value={team.name}
                 onChange={(e) => handleTeamChange(index, e)}
                 required
               />
+              {groups && (
+                <Input
+                  type="text"
+                  value={team.group}
+                  onChange={(e) => handleGroupChange(index, e)}
+                  required
+                />
+              )}
+
               {index > 1 ? (
                 <Button
                   onClick={() => {
-                    handleTeamDelete(team.id);
+                    handleTeamDelete(team.team_id);
                   }}
                   variant="destructive"
                 >

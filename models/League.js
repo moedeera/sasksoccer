@@ -26,6 +26,10 @@ const LeagueSchema = new Schema(
       type: String,
       required: true,
     },
+    groups: {
+      type: Boolean,
+      default: false,
+    },
     teams: [
       {
         team_id: { type: String, required: false },
@@ -39,6 +43,7 @@ const LeagueSchema = new Schema(
         color2: { type: String, required: false },
         coach1: { type: String, required: false },
         coach2: { type: String, required: false },
+        group: { type: String, required: false },
       },
     ],
     games: [
