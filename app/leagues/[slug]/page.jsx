@@ -17,6 +17,8 @@ const LeaguePage = () => {
   const { slug } = useParams();
 
   const [league, setLeague] = useState(null);
+  const [groups, setGroups] = useState(false);
+  const [groupAssortedTeams, setGroupAssortedTeams] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
   const [assortedTeams, setAssortedTeams] = useState([]);
@@ -35,6 +37,12 @@ const LeaguePage = () => {
   };
 
   useEffect(() => {
+    const fetchAndSort = async () => {
+      await fetchLeagueData();
+      sortAndGroupTeams();
+      console.log("hey:", groupAssortedTeams);
+    };
+
     const calculatePointsAndDifferential = (teams) => {
       return teams.map((team) => ({
         ...team,
@@ -50,6 +58,43 @@ const LeaguePage = () => {
           return b.goal_differential - a.goal_differential;
         return b.goals_for - a.goals_for;
       });
+    };
+
+    const sortAndGroupTeams = (teams) => {
+      // Sort teams based on points, goal differential, and goals for
+      const sortedTeams = teams.sort((a, b) => {
+        if (b.points !== a.points) return b.points - a.points;
+        if (b.goal_differential !== a.goal_differential)
+          return b.goal_differential - a.goal_differential;
+        return b.goals_for - a.goals_for;
+      });
+
+      // Create an object to hold the assorted teams by group
+      const groupedTeams = {};
+
+      sortedTeams.forEach((team) => {
+        if (team.group) {
+          if (!groupedTeams[team.group]) {
+            groupedTeams[team.group] = {
+              name: team.group,
+              assorted_teams: [],
+            };
+          }
+          groupedTeams[team.group].assorted_teams.push(team);
+        }
+      });
+
+      // Convert the grouped teams object into an array
+      const assortedTeams = Object.values(groupedTeams);
+
+      // Add an object for all teams
+      assortedTeams.push({
+        name: "all",
+        assorted_teams: sortedTeams,
+      });
+
+      // Update the state
+      setGroupAssortedTeams(assortedTeams);
     };
 
     const fetchLeagueData = async () => {
@@ -78,9 +123,10 @@ const LeaguePage = () => {
     };
 
     if (league === null) {
-      fetchLeagueData();
+      fetchAndSort();
     }
   }, [slug, session]);
+
   return (
     <div>
       <Landing data={leaguePageHeader} />
@@ -100,7 +146,9 @@ const LeaguePage = () => {
                   </Link>
                 )}
               </div>
-
+              {groupAssortedTeams.forEach(() => (
+                <h1>Hello</h1>
+              ))}
               <TableComponent data={assortedTeams} />
             </div>
           )}
