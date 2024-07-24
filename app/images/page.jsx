@@ -1,6 +1,7 @@
 import Image from "next/image";
 import React from "react";
-import img from "../../assets/info/logo.webp";
+import img from "../../assets/Info/logo.webp";
+// import img from "@/assets/Info/logo.webp"
 const page = () => {
   return (
     <div>
