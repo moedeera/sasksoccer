@@ -43,7 +43,7 @@ const Navbar2 = () => {
           <div className="header-container">
             {/* <Image src={logo} alt="logo" width={25} /> */}
             <div>
-              <p>
+              <Link href={"/"}>
                 <Image
                   className=""
                   src={logo}
@@ -51,7 +51,7 @@ const Navbar2 = () => {
                   width={200}
                   height={200}
                 />
-              </p>
+              </Link>
             </div>
           </div>
           {!session && (
