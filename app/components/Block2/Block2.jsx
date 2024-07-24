@@ -46,7 +46,11 @@ const Block2 = ({ data }) => {
                 Where do I start if I want to play casual?
               </AccordionTrigger>
               <AccordionContent>
-                Yes. It adheres to the WAI-ARIA design pattern.
+                Click{" "}
+                <Link href={"/play/casual"} className="font-bold">
+                  Here
+                </Link>{" "}
+                for weekly casual meetups
               </AccordionContent>
             </AccordionItem>
             <AccordionItem value="item-2">
@@ -54,15 +58,23 @@ const Block2 = ({ data }) => {
                 How do I find tournaments/leagues that suit my skill level?
               </AccordionTrigger>
               <AccordionContent>
-                Yes. It comes with default styles that matches the other
-                components&apos; aesthetic.
+                <Link
+                  href={"https://www.saskatoonadultsoccer.com"}
+                  className="font-bold"
+                >
+                  Saskatoon Adult Soccer
+                </Link>{" "}
+                has a variety of different divisions suited for each skill level
               </AccordionContent>
             </AccordionItem>
             <AccordionItem value="item-3">
               <AccordionTrigger>Where can I volunteer?</AccordionTrigger>
               <AccordionContent>
-                Yes. It&apos;s animated by default, but you can disable it if
-                you prefer.
+                Go to our{" "}
+                <Link href={"/play/casual"} className="font-bold">
+                  Community Page
+                </Link>{" "}
+                to find out about opportunities to volunteer .
               </AccordionContent>
             </AccordionItem>
           </Accordion>
