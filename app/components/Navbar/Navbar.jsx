@@ -3,6 +3,7 @@ import { useContext, useState } from "react";
 import "./Navbar.css";
 
 import profileDefault from "@/assets/images/profile.png";
+import logo from "./logo-no-background.png";
 import { GlobalContext } from "@/app/context/GlobalContext";
 import Link from "next/link";
 import Image from "next/image";
@@ -42,7 +43,15 @@ const Navbar2 = () => {
           <div className="header-container">
             {/* <Image src={logo} alt="logo" width={25} /> */}
             <div>
-              <p>{websiteInfo.title}</p>
+              <p>
+                <Image
+                  className=""
+                  src={logo}
+                  alt=""
+                  width={200}
+                  height={200}
+                />
+              </p>
             </div>
           </div>
           {!session && (
