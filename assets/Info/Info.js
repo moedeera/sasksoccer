@@ -2,6 +2,15 @@ import img1 from "./logo.webp";
 
 const homeLandingInfo = {
   title: "Saskatoon Soccer News",
+  content: `Your premier destination for all things recreational soccer in Saskatoon! Whether you're a seasoned player or just looking to have fun, we offer a wide range of soccer activities and tournaments for all skill levels. `,
+  button: true,
+  buttonLink: "/",
+  buttonName: "Read More",
+  mini: false,
+};
+
+const homeLandingInfo2 = {
+  title: "Saskatoon Soccer News",
   content: `Your premier destination for all things recreational soccer in Saskatoon! Whether you're a seasoned player or just looking to have fun, we offer a wide range of soccer activities and tournaments for all skill levels. Join our vibrant community, stay active, and enjoy the beautiful game with friends old and new. Explore our upcoming events, register your team, and get ready to hit the field with SaskSoccerHub!`,
   button: true,
   buttonLink: "/",
@@ -146,8 +155,17 @@ const block1HomePage = {
   date: "May 21 2024",
   content: `
   Summer soccer in Saskatoon promises an exciting season with numerous tournaments for youth. Major events include the Lakewood, Hollandia, and Women's Western Shield tournaments, catering to players from ages 11 to 18. These tournaments provide a fantastic opportunity for young athletes to showcase their skills, enjoy competitive play, and experience the thrill of the sport in a supportive community. Families and fans will enjoy the vibrant atmosphere and the chance to see future soccer stars in action.
+  `,
 
-In addition to local tournaments, soccer enthusiasts can look forward to watching Canada compete in the Copa America 2024. This prestigious international tournament will feature top teams from across the Americas, offering thrilling matches and showcasing some of the best talent in the world. It's an excellent chance for soccer fans to support the national team and enjoy world-class soccer.
+  image:
+    "/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Flogo.442efdd9.webp&w=640&q=75",
+};
+const block1HomePage2 = {
+  reverse: true,
+  title: "Support Canada in Copa America 2024 ",
+  date: "May 21 2024",
+  content: `
+  In addition to local tournaments, soccer enthusiasts can look forward to watching Canada compete in the Copa America 2024. This prestigious international tournament will feature top teams from across the Americas, offering thrilling matches and showcasing some of the best talent in the world. It's an excellent chance for soccer fans to support the national team and enjoy world-class soccer.
   `,
 
   image: img1,

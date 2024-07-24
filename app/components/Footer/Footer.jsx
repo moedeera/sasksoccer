@@ -18,7 +18,7 @@ const FooterComponent = () => {
           </p>
         </div>
         <div className="mb-4 md:mb-0">
-          <nav className="hidden md:flex md:flex-col md:flex-row space-y-2 md:space-y-0 md:space-x-4">
+          <nav className="hidden md:flex  md:flex-row space-y-2 md:space-y-0 md:space-x-4">
             <a href="/" className="hover:underline">
               Home
             </a>

@@ -43,7 +43,10 @@ const Block1 = ({ data }) => {
             </div>
             <div
               className="block-1-image w-full h-full  "
-              style={{ backgroundImage: `url(${info.image})` }}
+              style={{
+                backgroundImage: `url(${info.image})`,
+                minHeight: "350px",
+              }}
             ></div>
           </>
         ) : (
