@@ -17,7 +17,7 @@ const homeCardsData = [
       "Don't know where and when to start? No worries, just click on this post to get quick scoops on how to start playing soccer in Saskatoon.",
     image:
       "https://images.pexels.com/photos/1171084/pexels-photo-1171084.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-    link: "blogs/new-to-soccer",
+    link: "play/casual",
     blog: true,
     button: {
       text: "Read More",
@@ -31,11 +31,11 @@ const homeCardsData = [
     description:
       "Looking to compete? Saskatoon has a variety of divisions and leagues suitable for all ages and skill levels.",
     image:
-      "https://images.pexels.com/photos/47730/the-ball-stadion-football-the-pitch-47730.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-    link: "blogs/adult-soccer",
+      "https://www.saskatoonadultsoccer.com/cloud/saskatoonadultsoccerinc/css/img/assocLogo.svg",
+    link: "https://www.saskatoonadultsoccer.com",
     blog: true,
     button: {
-      text: "Read More",
+      text: "Official Site",
     },
   },
   {
@@ -44,8 +44,50 @@ const homeCardsData = [
     id: "tournaments",
     description:
       "A plethora of youth tournaments this summer to keep your kids active and engaged.",
+    image:
+      "https://www.saskatoonyouthsoccer.ca/cloud/saskatoonyouthsoccer/css/img/assocLogo.svg",
+    link: "https://www.saskatoonyouthsoccer.ca",
+    blog: true,
+    button: {
+      text: "Official Site",
+    },
+  },
+];
+const playCardsData = [
+  {
+    name: "Saskatoon Adult Soccer ",
+    id: "sas",
+    date: "July 1, 2024",
+    description: "Competitive & Organized Soccer For Adults",
+    image:
+      "https://www.saskatoonadultsoccer.com/cloud/saskatoonadultsoccerinc/css/img/assocLogo.svg",
+    link: "https://www.saskatoonadultsoccer.com/",
+    blog: true,
+    button: {
+      text: "Go to Site",
+    },
+  },
+
+  {
+    name: "Saskatoon Youth Soccer",
+    date: "July 2, 2024",
+    id: "youthsoccer",
+    description: "Competitive & Organized Soccer For Youth",
+    image:
+      "https://www.saskatoonyouthsoccer.ca/cloud/saskatoonyouthsoccer/css/img/assocLogo.svg",
+    link: "https://www.saskatoonyouthsoccer.ca",
+    blog: true,
+    button: {
+      text: "Go to Site",
+    },
+  },
+  {
+    name: "Casual Soccer",
+    date: "June 20, 2024",
+    id: "tournaments",
+    description: "Non-competitive meetups intended for fitness and fun.",
     image: "https://images.pexels.com/photos/114296/pexels-photo-114296.jpeg",
-    link: "blogs/youth-tournaments",
+    link: "/play/casual",
     blog: true,
     button: {
       text: "Read More",
@@ -111,4 +153,10 @@ In addition to local tournaments, soccer enthusiasts can look forward to watchin
   image: img1,
 };
 
-export { homeLandingInfo, homeCardsData, homeCarouselData, block1HomePage };
+export {
+  homeLandingInfo,
+  homeCardsData,
+  homeCarouselData,
+  block1HomePage,
+  playCardsData,
+};

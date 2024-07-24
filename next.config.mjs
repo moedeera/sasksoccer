@@ -22,6 +22,17 @@ const nextConfig = {
         hostname: "res.cloudinary.com",
         pathname: "**",
       },
+      {
+        protocol: "https",
+        hostname: "https://www.saskatoonadultsoccer.com",
+        pathname: "**",
+      },
+      {
+        protocol: "https",
+        hostname:
+          "https://www.saskatoonyouthsoccer.ca/cloud/saskatoonyouthsoccer",
+        pathname: "**",
+      },
     ],
   },
 };
