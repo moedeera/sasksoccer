@@ -108,17 +108,31 @@ const TableComponent = ({ data }) => {
     <div className=" border border-grey ">
       <Table>
         <TableHeader>
-          <TableRow>
+          <TableRow className="bg-black ">
             <TableHead className="w-[100px]">#</TableHead>
 
-            <TableHead>Team</TableHead>
-            <TableHead className="text-right">GP</TableHead>
-            <TableHead className="text-right">Win</TableHead>
-            <TableHead className="text-right">Draw</TableHead>
-            <TableHead className="text-right">Loss</TableHead>
-            <TableHead className="text-right">GF</TableHead>
-            <TableHead className="text-right">GA</TableHead>
-            <TableHead className="text-right">Points</TableHead>
+            <TableHead className="font-bold text-white">Team</TableHead>
+            <TableHead className="text-right font-bold text-white">
+              GP
+            </TableHead>
+            <TableHead className="text-right font-bold text-white">
+              Win
+            </TableHead>
+            <TableHead className="text-right font-bold text-white">
+              Draw
+            </TableHead>
+            <TableHead className="text-right font-bold text-white">
+              Loss
+            </TableHead>
+            <TableHead className="text-right font-bold text-white">
+              GF
+            </TableHead>
+            <TableHead className="text-right font-bold text-white">
+              GA
+            </TableHead>
+            <TableHead className="text-right font-bold text-white">
+              Points
+            </TableHead>
           </TableRow>
         </TableHeader>
         <TableBody>
@@ -136,7 +150,7 @@ const TableComponent = ({ data }) => {
               <TableCell className="text-right">{team.loss_total}</TableCell>
               <TableCell className="text-right">{team.goals_for}</TableCell>
               <TableCell className="text-right">{team.goals_against}</TableCell>
-              <TableCell className="text-right">
+              <TableCell className="text-right font-bold">
                 {team.win_total * 3 + team.draw_total}
               </TableCell>
             </TableRow>
