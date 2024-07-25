@@ -14,81 +14,6 @@ import {
 } from "@/components/ui/table";
 import Spinner from "../Spinner";
 
-// const defaultInfo = [
-//   {
-//     name: "Lakewood",
-//     draw_total: 0,
-//     goals_against: 5,
-//     goals_for: 30,
-//     id: "60d0fe4f5311236168a109fa",
-//     loss_total: 0,
-//     win_total: 14,
-//   },
-//   {
-//     name: "Bayern Hatfield",
-//     draw_total: 1,
-//     goals_against: 5,
-//     goals_for: 19,
-//     id: "60d0fe4f5311236168a109fb",
-//     loss_total: 1,
-//     win_total: 12,
-//   },
-//   {
-//     name: "FC Strikers",
-//     draw_total: 2,
-//     goals_against: 2,
-//     goals_for: 10,
-//     id: "60d0fe4f5311236168a109fb",
-//     loss_total: 3,
-//     win_total: 9,
-//   },
-//   {
-//     name: "Westfield United",
-//     draw_total: 4,
-//     goals_against: 10,
-//     goals_for: 12,
-//     id: "60d0fe4f5311236168a109fb",
-//     loss_total: 3,
-//     win_total: 7,
-//   },
-//   {
-//     name: "Hollandia Mertens",
-//     draw_total: 3,
-//     goals_against: 5,
-//     goals_for: 12,
-//     id: "60d0fe4f5311236168a109fb",
-//     loss_total: 5,
-//     win_total: 6,
-//   },
-//   {
-//     name: "Becker FC",
-//     draw_total: 4,
-//     goals_against: 4,
-//     goals_for: 8,
-//     id: "60d0fe4f5311236168a109fb",
-//     loss_total: 5,
-//     win_total: 5,
-//   },
-//   {
-//     name: "Deportivo Santiago",
-//     draw_total: 5,
-//     goals_against: 18,
-//     goals_for: 6,
-//     id: "60d0fe4f5311236168a109fb",
-//     loss_total: 8,
-//     win_total: 4,
-//   },
-//   {
-//     name: "Arsenal GFC",
-//     draw_total: 2,
-//     goals_against: 20,
-//     goals_for: 4,
-//     id: "60d0fe4f5311236168a109fb",
-//     loss_total: 10,
-//     win_total: 2,
-//   },
-// ];
-
 const TableComponent = ({ data }) => {
   const [teamsInfo, setTeamsInfo] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -108,7 +33,7 @@ const TableComponent = ({ data }) => {
     <div className=" border border-grey ">
       <Table>
         <TableHeader>
-          <TableRow className="bg-black ">
+          <TableRow className="bg-black hover:bg-black">
             <TableHead className="w-[100px]">#</TableHead>
 
             <TableHead className="font-bold text-white">Team</TableHead>
@@ -124,10 +49,10 @@ const TableComponent = ({ data }) => {
             <TableHead className="text-right font-bold text-white">
               Loss
             </TableHead>
-            <TableHead className="text-right font-bold text-white">
+            <TableHead className="stats-goals text-right font-bold text-white">
               GF
             </TableHead>
-            <TableHead className="text-right font-bold text-white">
+            <TableHead className="stats-goals text-right font-bold text-white">
               GA
             </TableHead>
             <TableHead className="text-right font-bold text-white">
@@ -148,8 +73,12 @@ const TableComponent = ({ data }) => {
               <TableCell className="text-right">{team.win_total}</TableCell>
               <TableCell className="text-right">{team.draw_total}</TableCell>
               <TableCell className="text-right">{team.loss_total}</TableCell>
-              <TableCell className="text-right">{team.goals_for}</TableCell>
-              <TableCell className="text-right">{team.goals_against}</TableCell>
+              <TableCell className="stats-goals text-right">
+                {team.goals_for}
+              </TableCell>
+              <TableCell className="stats-goals text-right">
+                {team.goals_against}
+              </TableCell>
               <TableCell className="text-right font-bold">
                 {team.win_total * 3 + team.draw_total}
               </TableCell>
