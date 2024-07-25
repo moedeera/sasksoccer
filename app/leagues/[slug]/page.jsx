@@ -39,8 +39,6 @@ const LeaguePage = () => {
   useEffect(() => {
     const fetchAndSort = async () => {
       await fetchLeagueData();
-      sortAndGroupTeams();
-      console.log("hey:", groupAssortedTeams);
     };
 
     const calculatePointsAndDifferential = (teams) => {
@@ -92,7 +90,7 @@ const LeaguePage = () => {
         name: "all",
         assorted_teams: sortedTeams,
       });
-
+      console.log(assortedTeams);
       // Update the state
       setGroupAssortedTeams(assortedTeams);
     };
@@ -110,9 +108,10 @@ const LeaguePage = () => {
           );
           const sortedTeams = sortTeams(teamsWithStats);
           setAssortedTeams(sortedTeams);
+          sortAndGroupTeams(teamsWithStats);
         }
 
-        console.log(leagueData, session);
+        // console.log(leagueData, session);
         setLeague(leagueData);
       } catch (error) {
         console.error("Error fetching league", error);
@@ -139,7 +138,9 @@ const LeaguePage = () => {
           ) : (
             <div className="component-container">
               <div className="flex gap-3 mb-5 ">
-                <h3 className="text-3xl">{league?.description} </h3>
+                <h3 className="h3-header text-4xl font-bold py-3">
+                  {league?.description}{" "}
+                </h3>
                 {session && league && session.user.name === league.admin && (
                   <Link href={`/leagues/${slug}/edit`}>
                     <Button>Edit</Button>
@@ -149,7 +150,23 @@ const LeaguePage = () => {
               {groupAssortedTeams.forEach(() => (
                 <h1>Hello</h1>
               ))}
-              <TableComponent data={assortedTeams} />
+              {groupAssortedTeams.length === 0 ? (
+                <>
+                  <Spinner />
+                </>
+              ) : (
+                <>
+                  {groupAssortedTeams.map(
+                    (group, index) =>
+                      group.name !== "all" && (
+                        <div key={index} className="mb-8">
+                          <h3 className="text-2xl mb-3">{group.name}</h3>
+                          <TableComponent data={group.assorted_teams} />
+                        </div>
+                      )
+                  )}
+                </>
+              )}
             </div>
           )}
         </>
