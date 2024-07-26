@@ -10,6 +10,7 @@ import { Button } from "@/components/ui/button";
 import { GlobalContext } from "@/app/context/GlobalContext";
 import Link from "next/link";
 import "./SideMenu.css";
+import { Input } from "@/components/ui/input";
 
 export const SideMenu = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -43,6 +44,14 @@ export const SideMenu = () => {
                 <SheetClose>{link.name}</SheetClose>
               </Link>
             ))}
+
+            <div className="bg-gray-200 px-2 py-2">
+              <p className="mb-3">Subscribe to our Newsletter</p>
+              <div className="flex w-full max-w-sm items-center space-x-2">
+                <Input type="email" placeholder="Email" />
+                <Button type="submit">Subscribe</Button>
+              </div>
+            </div>
           </div>
         </SheetContent>
       </Sheet>

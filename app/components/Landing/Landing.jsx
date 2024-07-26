@@ -30,7 +30,10 @@ const Landing = ({ data }) => {
 
   return (
     <div className={info?.mini ? "landing landing-mini" : "landing"}>
-      <div className="landing-image"></div>
+      <div
+        className="landing-image"
+        style={data.image && { backgroundImage: `url${data.image}` }}
+      ></div>
       <div className="landing-container">
         <div className="landing-content">
           <h1 className="capitalize">{info.title}</h1>

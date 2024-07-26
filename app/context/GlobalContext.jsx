@@ -27,7 +27,8 @@ export function GlobalProvider({ children }) {
     { name: "Latest", Link: "/latest", case: "all" },
     { name: "Community", Link: "/community", case: "all" },
     { name: "Shop", Link: "/shop", case: "all" },
-    { name: "My Dashboard", Link: "/myportal", case: "login" },
+    { name: "Contact", Link: "/contact", case: "all" },
+    // { name: "My Dashboard", Link: "/myportal", case: "login" },
   ];
 
   return (
