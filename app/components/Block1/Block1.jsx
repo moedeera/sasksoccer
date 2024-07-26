@@ -34,7 +34,7 @@ const Block1 = ({ data }) => {
             <div className="text py-4 px-4">
               <div className="text-3xl font-bold h3-header">{info.title}</div>
               <small>{info.date}</small>
-              <p className="py-3  pr-2">{info.content}</p>
+              <p className="pt-1 pb-3  pr-2">{info.content}</p>
               {info.buttonLink && (
                 <Link href={info.buttonLink} className="btn">
                   {info.buttonText}

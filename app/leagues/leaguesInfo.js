@@ -1,7 +1,11 @@
 const openerContent = {
-  title: `Stay up to date with current leagues`,
-  content: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum,
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum`,
+  title: `Find and Follow Tournaments and Leagues.`,
+  content: `
+  Playing or following a league here in Saskatoon? Just find it here in our
+  list. If you would like regular updates, create an account and save the league.
+  No charge or personal information required, just sign in with your google account and 
+  we will take care of the rest.
+  `,
 };
 
 const currentData = [
@@ -56,11 +60,11 @@ const currentData = [
 ];
 
 const createOwnLeague = {
-  name: `Your Current league not in our database? Add or Create your league today`,
-  content: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum,
-        Lorem ipsum dolor sit amet`,
-  buttonText: "Create",
-  buttonLink: "/create",
+  title: `Your current league not in our database? Let us know`,
+  content: `Contact us today to include your own league and even get access to an Admin account so you can manage
+  it directly. Just click the link below`,
+  buttonText: "Contact",
+  buttonLink: "/contact",
   image:
     "https://images.pexels.com/photos/47730/the-ball-stadion-football-the-pitch-47730.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
   reverse: true,
