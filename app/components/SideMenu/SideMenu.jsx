@@ -9,6 +9,7 @@ import {
 import { Button } from "@/components/ui/button";
 import { GlobalContext } from "@/app/context/GlobalContext";
 import Link from "next/link";
+import "./SideMenu.css";
 
 export const SideMenu = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -24,10 +25,14 @@ export const SideMenu = () => {
         <SheetTrigger>
           <Button
             variant="secondary"
-            class="border rounded px-2 py-1 mx-3 "
+            class="border rounded px-1 py-1 mx-3 "
             onClick={toggleMenu}
           >
-            Menu
+            <div className="side-menu-icon">
+              <div className="side-menu-bar upper"></div>
+              <div className="side-menu-bar middle"></div>
+              <div className="side-menu-bar lower"></div>
+            </div>
           </Button>
         </SheetTrigger>
 
