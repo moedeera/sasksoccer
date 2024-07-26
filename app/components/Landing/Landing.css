@@ -1,5 +1,6 @@
 .landing {
-  height: calc(75vh - 110px);
+  min-height: 200px;
+  height: calc(85vh - 110px);
   width: 100%;
   margin: 0 auto;
   color: white;
