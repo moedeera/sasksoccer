@@ -170,7 +170,7 @@ const block1HomePage = {
   content: `
   Summer soccer is in with numerous tournaments for youth. Major events include the Lakewood, Hollandia, and Women's Western Shield tournaments, catering to players from ages 11 to 18.
   `,
-  content_sec: `These tournaments provide a fantastic opportunity for young athletes to showcase their skills, enjoy competitive play, and experience the thrill of the sport in a supportive community. Families and fans will enjoy the vibrant atmosphere and the chance to see future soccer stars in action`,
+  content_sec: `These are a fantastic opportunity for young athletes to showcase their skills, enjoy competitive play, and experience the thrill of the sport in a supportive community. Families and fans will enjoy the vibrant atmosphere and the chance to see future soccer stars in action`,
   image:
     "/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Flogo.442efdd9.webp&w=640&q=75",
 };
