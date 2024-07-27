@@ -29,24 +29,14 @@ const HomePage = () => {
   return (
     <div>
       <Landing data={homeLandingInfo} />
-      <Cards data={homeCardsData} />
-      <CarouselComponent data={homeCarouselData} />
-      <Block1 data={block1HomePage} />
-      {/* <Calendar /> */}
-      {/* <TableComponent />
-      <LeagueForm />
-      <LoginFormComponent />
-      <RegisterForm /> */}
-      <Block2 data={homepageInfo} />
-      <Banner />
-
-      {/* <Block4 /> */}
-
-      {/* <Block3 /> */}
-
-      {/* <DataTableDemo /> */}
-      {/* <FeaturedProperties />
-      <HomeProperties /> */}
+      <div className="">
+        {" "}
+        <Cards data={homeCardsData} />
+        <CarouselComponent data={homeCarouselData} />
+        <Block1 data={block1HomePage} />
+        <Block2 data={homepageInfo} />
+        <Banner />
+      </div>
     </div>
   );
 };

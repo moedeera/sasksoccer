@@ -66,8 +66,12 @@
 
     margin-top: 54px;
   }
+
+  .upper {
+  }
   .lower {
     height: 54px;
+    width: 80%;
     max-width: var(--maxWidth);
     margin: 0 auto;
   }

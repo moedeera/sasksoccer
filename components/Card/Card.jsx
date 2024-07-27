@@ -63,7 +63,7 @@ export function Cards({ data }) {
         <Card key={index}>
           <CardHeader>
             <div
-              className="card-image w-full h-32  md:h-48 bg-black bg-center bg-cover"
+              className="card-image w-full h-32  md:h-44 bg-black bg-center bg-cover"
               style={{
                 backgroundImage: `url("${
                   dat?.images ? dat.images[0] : dat.image

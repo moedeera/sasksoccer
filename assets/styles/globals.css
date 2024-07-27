@@ -42,7 +42,7 @@
     --alternateColor180: #e3f0ff91;
     --alternateColor2: #6a7798;
     --alternateColor280: #6a7798ad;
-    --maxWidth: 1300px;
+    --maxWidth: 1450px;
   }
   .h3-header {
     color: #169873c0;
@@ -155,6 +155,9 @@ p {
 @media only screen and (min-width: 768px) {
   .carousel-container {
     width: 85%;
+  }
+  .component-container {
+    width: 80%;
   }
 }
 

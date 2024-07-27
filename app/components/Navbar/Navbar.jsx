@@ -137,7 +137,7 @@ const Navbar2 = () => {
 
       <div className="lower-navbar-container">
         {" "}
-        <div className="lower px-2">
+        <div className="lower px-2 text-sm">
           <div className=" flex gap-x-14 items-center  h-full">
             {headerLinks.map((page, index) => (
               <>
