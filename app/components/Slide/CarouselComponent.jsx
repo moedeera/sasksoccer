@@ -81,7 +81,7 @@ const CarouselComponent = ({ data }) => {
                     index + 1
                   }00`}
                 >
-                  <div className="text-2xl font-bold h3-header px-0 pb-3">
+                  <div className="text-xl text-black font-bold h3-header px-0 pb-3">
                     {item.title}
                   </div>
                   <small className="py-1">{item.date}</small>
