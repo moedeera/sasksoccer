@@ -101,6 +101,9 @@ h1 {
   font-size: xx-large;
   font-weight: bolder;
 }
+p {
+  color: gray;
+}
 * {
   font-family: "Plus Jakarta Sans", sans-serif;
 }

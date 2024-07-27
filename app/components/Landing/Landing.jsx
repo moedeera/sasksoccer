@@ -37,7 +37,7 @@ const Landing = ({ data }) => {
       <div className="landing-container">
         <div className="landing-content">
           <h1 className="capitalize">{info.title}</h1>
-          <p className="w-4/5 md:w-">{info.content}</p>
+          <p className="text-white w-4/5 md:w-">{info.content}</p>
           {info.button && (
             <Link className="btn" href={info.buttonLink}>
               {info.buttonName}
