@@ -57,13 +57,13 @@ export function Cards({ data }) {
   }, [data]);
 
   return (
-    <div className="component-container grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 md:p-3">
+    <div className="component-container grid md:grid-cols-3 lg:grid-cols-4 gap-8 md:p-3">
       {" "}
       {info.map((dat, index) => (
         <Card key={index}>
           <CardHeader>
             <div
-              className="card-image w-full h-16  md:h-48 bg-black bg-center bg-cover"
+              className="card-image w-full h-32  md:h-48 bg-black bg-center bg-cover"
               style={{
                 backgroundImage: `url("${
                   dat?.images ? dat.images[0] : dat.image
@@ -71,7 +71,7 @@ export function Cards({ data }) {
               }}
             ></div>
             <CardTitle className="text-md md:text-xl">{dat.name}</CardTitle>
-            <CardDescription className="hidden md:block text-sm">
+            <CardDescription className="text-sm">
               {dat.description}
             </CardDescription>
           </CardHeader>
