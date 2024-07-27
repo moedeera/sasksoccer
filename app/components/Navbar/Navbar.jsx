@@ -48,8 +48,8 @@ const Navbar2 = () => {
                   className=""
                   src={logo}
                   alt=""
-                  width={200}
-                  height={200}
+                  width={150}
+                  height={150}
                 />
               </Link>
             </div>
