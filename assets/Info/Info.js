@@ -23,7 +23,7 @@ const homeCardsData = [
     id: "newarrivals",
     date: "July 1, 2024",
     description:
-      "Don't know where and when to start? No worries, just click on this post to get quick scoops on how to start playing soccer in Saskatoon.",
+      "Don't know where and when to start? Just click on this post to get quick scoops on how to start playing soccer.",
     image:
       "https://images.pexels.com/photos/1171084/pexels-photo-1171084.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
     link: "play/casual",
@@ -34,7 +34,7 @@ const homeCardsData = [
   },
 
   {
-    name: "Saskatoon Adult Soccer",
+    name: "Adult Soccer",
     date: "July 2, 2024",
     id: "adultsoccer",
     description:
@@ -48,17 +48,31 @@ const homeCardsData = [
     },
   },
   {
-    name: "Youth Tournaments",
+    name: "Youth Soccer",
     date: "June 20, 2024",
     id: "tournaments",
     description:
-      "A plethora of youth tournaments this summer to keep your kids active and engaged.",
+      "A plethora of youth tournaments and leagues to keep your kids active and engaged.",
     image:
       "https://www.saskatoonyouthsoccer.ca/cloud/saskatoonyouthsoccer/css/img/assocLogo.svg",
     link: "https://www.saskatoonyouthsoccer.ca",
     blog: true,
     button: {
       text: "Official Site",
+    },
+  },
+  {
+    name: "FAQs",
+    date: "June 20, 2024",
+    id: "inquiries",
+    description:
+      "Looking to become a ref? Book a field? Or any other questions? Check out our FAQ page",
+    image:
+      "/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fimage0.c1c04e41.jpg&w=640&q=75",
+    link: "/faq",
+    blog: true,
+    button: {
+      text: "Read More",
     },
   },
 ];
