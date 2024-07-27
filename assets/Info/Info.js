@@ -29,7 +29,7 @@ const homeCardsData = [
     link: "play/casual",
     blog: true,
     button: {
-      text: "Read More",
+      text: "More",
     },
   },
 
@@ -44,7 +44,7 @@ const homeCardsData = [
     link: "https://www.saskatoonadultsoccer.com",
     blog: true,
     button: {
-      text: "Official Site",
+      text: "Website",
     },
   },
   {
@@ -58,7 +58,7 @@ const homeCardsData = [
     link: "https://www.saskatoonyouthsoccer.ca",
     blog: true,
     button: {
-      text: "Official Site",
+      text: "Website",
     },
   },
   {
@@ -72,7 +72,7 @@ const homeCardsData = [
     link: "/faq",
     blog: true,
     button: {
-      text: "Read More",
+      text: "More",
     },
   },
 ];
