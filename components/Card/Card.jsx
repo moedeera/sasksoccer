@@ -57,27 +57,29 @@ export function Cards({ data }) {
   }, [data]);
 
   return (
-    <div className="component-container grid md:grid-cols-3 gap-8 p-3">
+    <div className="component-container grid grid-cols-2 md:grid-cols-3 gap-8 p-3">
       {" "}
       {info.map((dat, index) => (
         <Card key={index}>
           <CardHeader>
             <div
-              className="card-image w-full h-56 bg-black bg-center bg-cover"
+              className="card-image w-full h-24  md:h-56 bg-black bg-center bg-cover"
               style={{
                 backgroundImage: `url("${
                   dat?.images ? dat.images[0] : dat.image
                 }")`,
               }}
             ></div>
-            <CardTitle>{dat.name}</CardTitle>
-            <CardDescription>{dat.description}</CardDescription>
+            <CardTitle className="text-xl">{dat.name}</CardTitle>
+            <CardDescription className="hidden md:block">
+              {dat.description}
+            </CardDescription>
           </CardHeader>
 
           <CardFooter>
             <Link
               href={dat.button ? `${dat.link}` : `leagues/${dat.slug}`}
-              className="btn"
+              className="btn text-small"
             >
               {dat.button ? dat.button.text : "Read More"}
             </Link>
