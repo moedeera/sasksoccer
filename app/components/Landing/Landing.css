@@ -65,6 +65,7 @@
 @media only screen and (min-width: 600px) {
   .landing-content {
     align-items: self-start;
+    width: 80%;
   }
   .landing p {
     text-align: left;
