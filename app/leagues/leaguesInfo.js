@@ -2,10 +2,11 @@ const openerContent = {
   title: `Find and Follow Tournaments and Leagues.`,
   content: `
   Playing or following a league here in Saskatoon? Just find it here in our
-  list. If you would like regular updates, create an account and save the league.
-  No charge or personal information required, just sign in with your google account and 
-  we will take care of the rest.
+  list. 
+
   `,
+  content_sec: `If you would like regular updates, create an account and save the league. No charge or personal information required, just sign in with your google account and 
+  we will take care of the rest.`,
 };
 
 const currentData = [

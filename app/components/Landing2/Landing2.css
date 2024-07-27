@@ -1,5 +1,5 @@
 .landing {
-  height: calc(75vh - 110px);
+  height: calc(85vh - 110px);
   width: 100%;
   margin: 0 auto;
   color: white;
@@ -10,7 +10,7 @@
 }
 
 .landing-mini {
-  height: calc(35vh - 110px);
+  height: calc(55vh - 110px);
   justify-content: center;
   align-items: center;
 }
@@ -61,6 +61,7 @@
 @media only screen and (min-width: 600px) {
   .landing-content {
     align-items: self-start;
+    width: 80%;
   }
   .landing p {
     text-align: left;

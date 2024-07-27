@@ -1,6 +1,8 @@
 const latestOpener = {
-  title: `Latest News and Updates as of May 2024`,
-  content: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum,`,
+  title: `Alpha Launch of SaskSoccerHub!`,
+  date: `July 27 2024`,
+  content: `We are thrilled to announce the alpha launch of SaskSoccerHub, your go-to resource for all publicly organized soccer activities in Saskatoon! Our website will feature the latest news on soccer events, leagues, and tournaments, ensuring you stay up-to-date with everything soccer-related in town. Additionally, we will organize casual soccer games for enthusiasts of all skill levels to join and enjoy. We're also looking for passionate individuals to help us grow our community.`,
+  content_sec: `If you're interested in becoming an admin or content creator for SaskSoccer Hub, please get in touch with us. Together, let's celebrate and expand the soccer culture in Saskatoon!`,
 };
 
 const soccerTournaments = [
