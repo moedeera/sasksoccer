@@ -23,7 +23,7 @@ const Block4 = ({ data }) => {
 
   return (
     <div className="component-container modified-container">
-      <p className="text-sm">{info?.date}</p>
+      <p className="text-center md:text-left text-sm">{info?.date}</p>
       <div className="text-center md:text-left h3-header text-xl font-bold py-1">
         {info.title}
       </div>
