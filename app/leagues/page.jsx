@@ -56,7 +56,7 @@ const PageComponent = () => {
       <Landing2 data={pageHeader} />
       <Block4 data={openerContent} />
 
-      {loading ? (
+      {!loading ? (
         <>
           <CardSkeleton />
         </>
