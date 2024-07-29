@@ -159,7 +159,7 @@ const LeaguePage = () => {
                   <Spinner />
                 </>
               ) : (
-                <div className="overflow-scroll grid md:grid-cols-2 gap-2">
+                <div className="overflow-x-scroll grid md:grid-cols-2 gap-2">
                   {groupAssortedTeams.map(
                     (group, index) =>
                       group.name !== "all" && (
