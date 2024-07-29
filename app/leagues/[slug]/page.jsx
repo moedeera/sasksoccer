@@ -11,6 +11,7 @@ import Spinner from "@/app/components/Spinner";
 import { useSession } from "next-auth/react";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
+import { reorganizeTeamsByGroupNumber } from "@/app/utlils/functions";
 
 const LeaguePage = () => {
   const { data: session } = useSession();
@@ -92,7 +93,8 @@ const LeaguePage = () => {
       });
       console.log(assortedTeams);
       // Update the state
-      setGroupAssortedTeams(assortedTeams);
+      const reorganizedTeams = reorganizeTeamsByGroupNumber(assortedTeams);
+      setGroupAssortedTeams(reorganizedTeams);
     };
 
     const fetchLeagueData = async () => {
@@ -108,7 +110,9 @@ const LeaguePage = () => {
           );
           const sortedTeams = sortTeams(teamsWithStats);
           setAssortedTeams(sortedTeams);
+
           sortAndGroupTeams(teamsWithStats);
+          console.log(teamsWithStats);
         }
 
         // console.log(leagueData, session);

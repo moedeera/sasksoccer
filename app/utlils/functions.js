@@ -60,4 +60,22 @@ function generateId(inputString) {
   return id;
 }
 
-export { generateSlug, formatDateFunction, generateId };
+const extractFirstNumber = (str) => {
+  const match = str.match(/\d+/);
+  return match ? parseInt(match[0], 10) : 0;
+};
+
+const reorganizeTeamsByGroupNumber = (teams) => {
+  return teams.sort((a, b) => {
+    const numA = extractFirstNumber(a.name);
+    const numB = extractFirstNumber(b.name);
+    return numA - numB;
+  });
+};
+
+export {
+  generateSlug,
+  formatDateFunction,
+  generateId,
+  reorganizeTeamsByGroupNumber,
+};
