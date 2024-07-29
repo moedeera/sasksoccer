@@ -120,6 +120,13 @@ const playCardsData = [
 
 const homeCarouselData = [
   {
+    title: "Canada Women's team wins Olympic opener",
+    date: "July 25 2024",
+    content:
+      "Canada Women's team kicks off title defense in Paris Olympics with a 2-1 win against New Zealand ",
+    link: "https://nationalpost.com/sports/olympics/canadian-womens-soccer-team-rallies-past-new-zealand-at-2024-olympics",
+  },
+  {
     title: "Air Quality Alerts for Outdoor Soccer",
     date: "July 21 2024",
     content:

@@ -147,9 +147,9 @@ const LeaguePage = () => {
                   </Link>
                 )}
               </div>
-              {groupAssortedTeams.forEach(() => (
+              {/* {groupAssortedTeams.forEach(() => (
                 <h1>Hello</h1>
-              ))}
+              ))} */}
               {groupAssortedTeams.length === 0 ? (
                 <>
                   <Spinner />
@@ -160,7 +160,9 @@ const LeaguePage = () => {
                     (group, index) =>
                       group.name !== "all" && (
                         <div key={index} className="mb-8">
-                          <h3 className="text-2xl mb-3">{group.name}</h3>
+                          <h3 className="text-2xl mb-3">
+                            {league.groups && group.name}
+                          </h3>
                           <TableComponent data={group.assorted_teams} />
                         </div>
                       )
