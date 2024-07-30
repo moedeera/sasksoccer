@@ -120,7 +120,8 @@ p {
   cursor: pointer;
   color: white;
   font-size: medium;
-  max-width: max-content;
+  min-width: 14rem;
+  /* max-width: max-content; */
   padding: 8px 10px;
   border-radius: 5px;
 }
@@ -161,6 +162,10 @@ p {
   }
   .component-container {
     width: 80%;
+  }
+  .btn {
+    min-width: 10rem;
+    max-width: max-content;
   }
 }
 
