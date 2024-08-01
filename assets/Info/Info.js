@@ -120,6 +120,13 @@ const playCardsData = [
 
 const homeCarouselData = [
   {
+    title: "Mini World Cup This September",
+    date: "August 1 2024",
+    content:
+      "WCP is organizing a Mini Coed World Cup starting from September 5th to the 8th. To get more details read the link below.",
+    link: "https://wcpsport.ca/tournament-info-soccer/",
+  },
+  {
     title: "Canada Women's team wins Olympic opener",
     date: "July 25 2024",
     content:

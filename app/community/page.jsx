@@ -4,6 +4,7 @@ import Block1 from "../components/Block1/Block1";
 import Block2 from "../components/Block2/Block2";
 import { communityPageData, communityPageMainInfo } from "./info";
 import ContactForm from "../components/Contact/ContactForm";
+import Landing2 from "../components/Landing2/Landing2";
 
 const page = () => {
   const pageHeader = {
@@ -15,7 +16,7 @@ const page = () => {
 
   return (
     <div>
-      <Landing data={pageHeader} />
+      <Landing2 data={pageHeader} />
       <Block1 data={communityPageMainInfo} />
       <Block2 data={communityPageData} />
       <ContactForm />

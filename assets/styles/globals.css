@@ -128,6 +128,19 @@ p {
 .btn-danger {
   background-color: crimson;
 }
+
+.btn-carousel {
+  background-color: var(--mainColor);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(128, 128, 128, 0.25);
+  box-shadow: 0.5px 0.5px rgba(0, 0, 0, 0.25);
+  cursor: pointer;
+  color: white;
+  padding: 8px 10px;
+  border-radius: 5px;
+}
 .card-image {
   background-image: url("../images/carddefault.webp");
 }
