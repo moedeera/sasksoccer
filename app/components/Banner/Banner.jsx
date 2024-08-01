@@ -4,7 +4,7 @@ import { FaFacebook, FaTwitter, FaInstagram, FaLinkedin } from "react-icons/fa";
 
 const Banner = () => {
   return (
-    <div className="w-full py-8">
+    <div className="w-full py-8 bg-gray-200">
       <div className="component-container text-center">
         <div className="text-3xl font-bold h3-header">
           {" "}

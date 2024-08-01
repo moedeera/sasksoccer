@@ -69,7 +69,7 @@ const homeCardsData = [
       "Looking to become a ref? Book a field? Or any other questions? Check out our FAQ page",
     image:
       "/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fimage0.c1c04e41.jpg&w=640&q=75",
-    link: "/faq",
+    link: "/faqs",
     blog: true,
     button: {
       text: "More",
