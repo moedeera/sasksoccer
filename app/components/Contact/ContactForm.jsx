@@ -61,10 +61,7 @@ const ContactForm = () => {
               className="mt-1 block w-full border-gray-300 rounded-md shadow-sm"
             />
           </div>
-          <Button
-            type="submit"
-            className="w-full bg-blue-500 text-white py-2 rounded-md"
-          >
+          <Button type="submit" className="btn">
             Submit
           </Button>
         </form>
