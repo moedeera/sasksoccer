@@ -22,9 +22,7 @@ const ContactForm = () => {
         <h3 className="h3-header font-bold text-3xl py-3">
           Any concerns or inquiries? Send us a message
         </h3>
-        <h2 className="text-2xl font-bold mb-4">
-          Please fill out all the fields
-        </h2>
+
         <form onSubmit={handleSubmit}>
           <div className="mb-4">
             <label className="block text-sm font-medium text-gray-700">
