@@ -1,6 +1,7 @@
 "use client";
 import { useContext, useState } from "react";
 import "./Navbar.css";
+import React from "react";
 
 import profileDefault from "@/assets/images/profile.png";
 import logo from "./logo-no-background.png";
@@ -10,16 +11,10 @@ import Image from "next/image";
 import { SideMenu } from "../SideMenu/SideMenu";
 import { useSession, signOut, signIn } from "next-auth/react";
 import { usePathname } from "next/navigation";
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
+
 import { Button } from "@/components/ui/button";
-import { PopOver } from "../PopOver/PopOver";
+
+import { FaCaretDown } from "react-icons/fa";
 
 const Navbar2 = () => {
   const { headerLinks, websiteInfo } = useContext(GlobalContext);
@@ -27,6 +22,7 @@ const Navbar2 = () => {
   const profileImage = session?.user?.image;
   const [sideMenu, setSideMenu] = useState(false);
   const [isProfileMenuOpen, setIsProfileMenuOpen] = useState(false);
+  const [dropDown, setDropDown] = useState(null);
 
   const links = [
     { name: "profile", link: "/profile" },
@@ -137,20 +133,28 @@ const Navbar2 = () => {
 
       <div className="lower-navbar-container">
         {" "}
-        <div className="lower px-2 text-sm">
-          <div className=" flex gap-x-14 items-center  h-full">
+        <div className="lower px-2 text-sm ">
+          <div className=" flex  items-center h-full ">
             {headerLinks.map((page, index) => (
-              <>
+              <div className="link-container h-full relative" key={index}>
                 {page.case === "all" && (
                   <Link
-                    key={index}
                     href={page.Link}
-                    className="flex gap-x-1 justify-center items-center"
+                    className="flex gap-1 px-2 relative justify-center items-center h-full w-28  hover:bg-black hover:text-white"
+                    onClick={() => {
+                      setDropDown(page.name);
+                    }}
                   >
                     {page.name}
+                    <FaCaretDown />
+                    {dropDown === page.name && (
+                      <div className="lower-navbar-dropdown">
+                        Under Construction
+                      </div>
+                    )}
                   </Link>
                 )}
-              </>
+              </div>
             ))}
           </div>
         </div>
