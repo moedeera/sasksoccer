@@ -22,12 +22,38 @@ export function GlobalProvider({ children }) {
     logo: image1,
   };
   const headerLinks = [
-    { name: "Home", Link: "/", case: "all" },
-    { name: "Leagues", Link: "/leagues", case: "all" },
-    { name: "Latest", Link: "/latest", case: "all" },
-    { name: "Community", Link: "/community", case: "all" },
-    { name: "Shop", Link: "/shop", case: "all" },
-    { name: "Contact", Link: "/contact", case: "all" },
+    {
+      name: "Leagues",
+      Link: "/leagues",
+      case: "all",
+      subLinks: [
+        { name: "Mens Full Field 2024", link: "/leagues/men's-outdoor-2024" },
+        {
+          name: "Women's Full Field 2024",
+          link: "/leagues/women's-outdoor-2024",
+        },
+        { name: "Mens Legends 2024", link: "/leagues/men's-masters-2024" },
+        { name: "Mens Masters 2024", link: "/leagues/men's-masters-2024" },
+        {
+          name: "Mens Half field 2024",
+          link: "/leagues/men's-half-field-2024",
+        },
+      ],
+    },
+    {
+      name: "Latest",
+      Link: "/latest",
+      case: "all",
+      subLinks: [{ name: "", link: "" }],
+    },
+    {
+      name: "Community",
+      Link: "/community",
+      case: "all",
+      subLinks: [{ name: "", link: "" }],
+    },
+    { name: "Shop", Link: "/shop", case: "all", subLinks: [] },
+    { name: "Contact", Link: "/contact", case: "all", subLinks: [] },
     // { name: "My Dashboard", Link: "/myportal", case: "login" },
   ];
 

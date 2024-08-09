@@ -136,23 +136,48 @@ const Navbar2 = () => {
         <div className="lower px-2 text-sm ">
           <div className=" flex  items-center h-full ">
             {headerLinks.map((page, index) => (
-              <div className="link-container h-full relative" key={index}>
+              <div
+                className="link-container h-full relative"
+                key={index}
+                style={
+                  dropDown === page.name
+                    ? {
+                        backgroundColor: "black",
+                        color: "white",
+                      }
+                    : { backgroundColor: "white", color: "black" }
+                }
+              >
                 {page.case === "all" && (
-                  <Link
+                  <div
                     href={page.Link}
-                    className="flex gap-1 px-2 relative justify-center items-center h-full w-28  hover:bg-black hover:text-white"
-                    onClick={() => {
-                      setDropDown(page.name);
-                    }}
+                    className="flex gap-1 px-2 relative justify-center items-center h-full w-28  hover:bg-black hover:text-white cursor-pointer"
                   >
-                    {page.name}
-                    <FaCaretDown />
-                    {dropDown === page.name && (
-                      <div className="lower-navbar-dropdown">
-                        Under Construction
+                    <div
+                      onClick={() => {
+                        setDropDown(page.name);
+                      }}
+                    >
+                      {page.name}
+                    </div>
+
+                    {page.subLinks.length > 0 && <FaCaretDown />}
+                    {dropDown === page.name && page.subLinks.length > 0 && (
+                      <div className="lower-navbar-dropdown text-black h-full">
+                        {page.subLinks.map((subLink, index) => (
+                          <Link
+                            key={index}
+                            href={subLink.link}
+                            onClick={() => {
+                              setDropDown(null);
+                            }}
+                          >
+                            {subLink.name}
+                          </Link>
+                        ))}
                       </div>
                     )}
-                  </Link>
+                  </div>
                 )}
               </div>
             ))}
