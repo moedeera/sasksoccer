@@ -58,16 +58,16 @@
   position: absolute;
   left: 0;
   top: 100%;
-  min-height: 220px;
+  min-height: 280px;
   background-color: white;
 
   border: 1px solid black;
   width: 200%;
-  z-index: 3;
+  z-index: 24;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
-  box-shadow: 1px 1px 0.8px rgba(128, 128, 128, 0.5);
+  box-shadow: 0.1px 0.1px 0.2px rgba(128, 128, 128, 0.5);
 }
 
 .lower-navbar-dropdown a {
@@ -81,6 +81,7 @@
 .lower-navbar-dropdown a:hover {
   background-color: black;
   color: white;
+  text-decoration: none;
 }
 /* Medium devices (landscape tablets, 768px and up) */
 @media only screen and (min-width: 768px) {

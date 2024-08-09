@@ -170,17 +170,27 @@ const Navbar2 = () => {
                 {page.case === "all" && (
                   <div
                     href={page.Link}
-                    className="flex gap-1 px-2 relative justify-center items-center h-full w-28  hover:bg-black hover:text-white cursor-pointer"
+                    className="flex gap-1 px-2 relative justify-center items-center h-full w-28  hover:bg-gray-600 hover:text-white cursor-pointer"
                   >
-                    <div
-                      onClick={() => {
-                        setDropDown(page.name);
-                      }}
-                    >
-                      {page.name}
-                    </div>
+                    {page.subLinks.length > 0 ? (
+                      <>
+                        {" "}
+                        <div
+                          className=" h-4/5 w-full flex justify-center items-center gap-x-2"
+                          onClick={() => {
+                            setDropDown(page.name);
+                          }}
+                        >
+                          {page.name}
+                          <FaCaretDown />
+                        </div>
+                      </>
+                    ) : (
+                      <>
+                        <Link href={page.Link}>{page.name}</Link>
+                      </>
+                    )}
 
-                    {page.subLinks.length > 0 && <FaCaretDown />}
                     {dropDown === page.name && page.subLinks.length > 0 && (
                       <div className="lower-navbar-dropdown text-black h-full">
                         {page.subLinks.map((subLink, index) => (

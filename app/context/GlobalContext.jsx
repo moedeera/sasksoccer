@@ -27,6 +27,7 @@ export function GlobalProvider({ children }) {
       Link: "/leagues",
       case: "all",
       subLinks: [
+        { name: "All", link: "/leagues" },
         { name: "Mens Full Field 2024", link: "/leagues/men's-outdoor-2024" },
         {
           name: "Women's Full Field 2024",
@@ -44,13 +45,13 @@ export function GlobalProvider({ children }) {
       name: "Latest",
       Link: "/latest",
       case: "all",
-      subLinks: [{ name: "", link: "" }],
+      subLinks: [],
     },
     {
       name: "Community",
       Link: "/community",
       case: "all",
-      subLinks: [{ name: "", link: "" }],
+      subLinks: [],
     },
     { name: "Shop", Link: "/shop", case: "all", subLinks: [] },
     { name: "Contact", Link: "/contact", case: "all", subLinks: [] },
