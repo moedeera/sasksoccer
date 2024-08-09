@@ -1,5 +1,5 @@
 "use client";
-import { useContext, useState } from "react";
+import { useContext, useState, useRef, useEffect } from "react";
 import "./Navbar.css";
 import React from "react";
 
@@ -23,7 +23,26 @@ const Navbar2 = () => {
   const [sideMenu, setSideMenu] = useState(false);
   const [isProfileMenuOpen, setIsProfileMenuOpen] = useState(false);
   const [dropDown, setDropDown] = useState(null);
+  const containerRef = useRef(null);
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      // Check if the clicked target is not inside the container
+      if (
+        containerRef.current &&
+        !containerRef.current.contains(event.target)
+      ) {
+        setDropDown(null);
+      }
+    };
 
+    // Attach the event listener
+    document.addEventListener("mousedown", handleClickOutside);
+
+    // Cleanup the event listener on component unmount
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
   const links = [
     { name: "profile", link: "/profile" },
     { name: "messages", link: "/messages" },
@@ -131,7 +150,7 @@ const Navbar2 = () => {
         </div>
       </div>
 
-      <div className="lower-navbar-container">
+      <div ref={containerRef} className="lower-navbar-container">
         {" "}
         <div className="lower px-2 text-sm ">
           <div className=" flex  items-center h-full ">
