@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
+import React, { useState } from "react";
 import { useSession, signOut, signIn } from "next-auth/react";
 import SideMenu from "../SideMenu/SideMenu";
 
@@ -10,6 +10,7 @@ import logo from "./logo-no-background.png";
 const UpperNavbar = () => {
   const { data: session } = useSession();
   const profileImage = session?.user?.image;
+  const [isProfileMenuOpen, setIsProfileMenuOpen] = useState(false);
 
   return (
     <div className="upper-navbar-container">
