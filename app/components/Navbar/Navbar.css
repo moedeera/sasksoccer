@@ -116,6 +116,6 @@
     transition: all 0.35s ease-in-out;
   }
   .lower-navbar-container a:hover {
-    border-bottom: 1px solid white;
+    color: white;
   }
 }
