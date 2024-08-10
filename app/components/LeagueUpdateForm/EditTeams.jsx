@@ -25,7 +25,7 @@ const EditTeams = ({ teams, setTeams, league, error, setError }) => {
     coach2: null,
     group: "Group A",
   });
-  console.log(teams);
+
   const handleEditTeam = (value, name) => {
     const updatedTeams = teams.map((team) =>
       team.name === name ? { ...team, name: value } : team
