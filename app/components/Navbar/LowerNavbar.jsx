@@ -64,7 +64,14 @@ const LowerNavbar = () => {
                     </>
                   ) : (
                     <>
-                      <Link href={page.Link}>{page.name}</Link>
+                      <Link
+                        onClick={() => {
+                          setDropDown(null);
+                        }}
+                        href={page.Link}
+                      >
+                        {page.name}
+                      </Link>
                     </>
                   )}
 
