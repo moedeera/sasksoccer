@@ -1,11 +1,11 @@
 import img1 from "./logo.webp";
 
 const homeLandingInfo = {
-  title: "Saskatoon Soccer News",
-  content: `Your premier destination for all things recreational soccer in Saskatoon! Whether you're a seasoned player or just looking to have fun, we offer a wide range of soccer activities and tournaments for all skill levels. `,
+  title: "Saskatoon Soccer News & Updates",
+  content: `Your premier destination for all things recreational soccer in Saskatoon! Whether you're a seasoned player or just looking to have fun`,
   button: true,
-  buttonLink: "/",
-  buttonName: "Read More",
+  buttonLink: "/latest",
+  buttonName: "More",
   mini: false,
 };
 

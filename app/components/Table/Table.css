@@ -2,4 +2,12 @@
   .stats-goals {
     display: none;
   }
+  .stats-record {
+    display: none;
+  }
+}
+@media only screen and (min-width: 601px) {
+  .stats-records {
+    display: none;
+  }
 }
