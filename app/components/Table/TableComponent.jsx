@@ -58,8 +58,8 @@ const TableComponent = ({ data }) => {
             <TableHead className="stats-goals text-right font-bold text-white">
               GA
             </TableHead>
-            <TableHead className="text-right font-bold text-white text-xs md:text-sm">
-              Points
+            <TableHead className="text-right  text-white text-xs md:text-sm">
+              Pts
             </TableHead>
           </TableRow>
         </TableHeader>

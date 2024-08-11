@@ -12,13 +12,21 @@ import { useSession } from "next-auth/react";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { reorganizeTeamsByGroupNumber } from "@/app/utlils/functions";
+import {
+  Select,
+  SelectContent,
+  SelectGroup,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 
 const LeaguePage = () => {
   const { data: session } = useSession();
   const { slug } = useParams();
 
   const [league, setLeague] = useState(null);
-  const [groups, setGroups] = useState(false);
+  const [teamsInView, setTeamsInView] = useState(false);
   const [groupAssortedTeams, setGroupAssortedTeams] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
@@ -95,6 +103,7 @@ const LeaguePage = () => {
       // Update the state
       const reorganizedTeams = reorganizeTeamsByGroupNumber(assortedTeams);
       setGroupAssortedTeams(reorganizedTeams);
+      setTeamsInView(reorganizedTeams);
     };
 
     const fetchLeagueData = async () => {
@@ -151,27 +160,64 @@ const LeaguePage = () => {
                   </Link>
                 )}
               </div>
-              {/* {groupAssortedTeams.forEach(() => (
-                <h1>Hello</h1>
-              ))} */}
+
               {groupAssortedTeams.length === 0 ? (
                 <>
                   <Spinner />
                 </>
               ) : (
-                <div className="overflow-x-scroll grid md:grid-cols-2 gap-2">
-                  {groupAssortedTeams.map(
-                    (group, index) =>
-                      group.name !== "all" && (
-                        <div key={index} className="mb-8">
-                          <h3 className="text-2xl mb-3">
-                            {league.groups && group.name}
-                          </h3>
-                          <TableComponent data={group.assorted_teams} />
-                        </div>
-                      )
-                  )}
-                </div>
+                <>
+                  <Select
+                    className="mb-24 border"
+                    defaultValue={"all"}
+                    onValueChange={(value) => {
+                      console.log(value.name, groupAssortedTeams[1].name);
+                      if (value.name === "all") {
+                        setTeamsInView(groupAssortedTeams);
+                        console.log(teamsInView);
+                        return;
+                      }
+                      // Search for the team with the matching name in the groupAssortedTeams array
+                      const matchingTeam = groupAssortedTeams.filter(
+                        (team) => team.name === value.name
+                      );
+                      let matchingTeamArray = [matchingTeam];
+                      // Update the teamsInView state with the matching team, or set it to false if no match is found
+                      setTeamsInView(matchingTeam || false);
+                      console.log(teamsInView);
+                    }}
+                  >
+                    <SelectTrigger className="w-[180px]">
+                      <SelectValue placeholder="All" />
+                    </SelectTrigger>
+                    <SelectContent>
+                      <SelectGroup>
+                        {groupAssortedTeams.map((group, index) => (
+                          <SelectItem
+                            key={index}
+                            value={group}
+                            className="capitalize"
+                          >
+                            {group.name}
+                          </SelectItem>
+                        ))}
+                      </SelectGroup>
+                    </SelectContent>
+                  </Select>
+                  <div className="overflow-x-scroll grid mt-4 md:grid-cols-2 gap-2">
+                    {teamsInView.map(
+                      (group, index) =>
+                        group.name !== "all" && (
+                          <div key={index} className="mb-8">
+                            <h3 className="text-2xl mb-3">
+                              {league.groups && group.name}
+                            </h3>
+                            <TableComponent data={group.assorted_teams} />
+                          </div>
+                        )
+                    )}
+                  </div>
+                </>
               )}
             </div>
           )}
