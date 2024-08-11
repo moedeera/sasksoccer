@@ -87,6 +87,26 @@ const EditTeams = ({ teams, setTeams, league, error, setError }) => {
       setLoading(false);
     }
   };
+
+  const teamsAssortedByGroup = teams.reduce((acc, team) => {
+    // Find if the group already exists in the accumulator
+    const groupIndex = acc.findIndex((group) => group.name === team.group);
+
+    if (groupIndex === -1) {
+      // If the group doesn't exist, create a new group object
+      acc.push({
+        name: team.group,
+        teams: [team],
+      });
+    } else {
+      // If the group exists, push the team into the existing group
+      acc[groupIndex].teams.push(team);
+    }
+
+    return acc;
+  }, []);
+  console.log(teamsAssortedByGroup);
+
   if (loading) {
     return <Spinner />;
   }
@@ -94,170 +114,180 @@ const EditTeams = ({ teams, setTeams, league, error, setError }) => {
   return (
     <>
       {" "}
-      <div className="flex flex-col gap-3">
-        <label>Teams:</label>
-        {teams.map((team, index) => (
-          <div className="flex justify-between" key={index}>
+      <div className="flex flex-col gap-3 text-sm lg:text-base">
+        {teamsAssortedByGroup.map((group, index) => (
+          <div
+            key={index}
+            className="mb-1 flex flex-col gap-3 border py-3 px-1"
+          >
             {" "}
-            {editTeams === team.name ? (
-              <div>
-                <div className="mb-2">
+            <label>{group.name}</label>
+            {group.teams.map((team, index) => (
+              <div className="grid grid-cols-4" key={index}>
+                {" "}
+                {editTeams === team.name ? (
+                  <div>
+                    <div className="mb-2">
+                      {" "}
+                      <Input
+                        type="text"
+                        value={team.name}
+                        onChange={(e) =>
+                          handleEditTeam(e.target.value, team.name)
+                        }
+                        className="mr-8 mb-2 max-w-80"
+                      />
+                      {/* {league.groups && (
+                        <Input
+                          type="text"
+                          value={team.group}
+                          onChange={(e) =>
+                            handleEditTeamGroup(e.target.value, team.name)
+                          }
+                          className="mr-8 max-w-80"
+                        />
+                      )} */}
+                    </div>
+                    <>
+                      <div className="bg-gray-200 p-3 mt-2">
+                        {
+                          <>
+                            <div className="flex gap-2 items-center mt-2 w-full flex-wrap">
+                              <div className="flex gap-2 items-center w-full">
+                                <label>Wins</label>{" "}
+                                <Input
+                                  type="number"
+                                  value={team.win_total}
+                                  onChange={(e) =>
+                                    handleEditTeamStat(
+                                      "win_total",
+                                      e.target.value,
+                                      team.name
+                                    )
+                                  }
+                                  className="mr-8 max-w-60"
+                                />
+                              </div>
+                              <div className="flex gap-2 items-center max-w-40">
+                                <label>Lose</label>{" "}
+                                <Input
+                                  type="number"
+                                  value={team.loss_total}
+                                  onChange={(e) =>
+                                    handleEditTeamStat(
+                                      "loss_total",
+                                      e.target.value,
+                                      team.name
+                                    )
+                                  }
+                                  className="mr-8 max-w-60"
+                                />
+                              </div>
+                              <div className="flex gap-2 items-center max-w-40">
+                                <label>Draw</label>{" "}
+                                <Input
+                                  type="number"
+                                  value={team.draw_total}
+                                  onChange={(e) =>
+                                    handleEditTeamStat(
+                                      "draw_total",
+                                      e.target.value,
+                                      team.name
+                                    )
+                                  }
+                                  className="mr-8 max-w-60"
+                                />
+                              </div>
+                              <div className="flex gap-2 items-center max-w-40">
+                                <label>Goals</label>{" "}
+                                <Input
+                                  type="number"
+                                  value={team.goals_for}
+                                  onChange={(e) =>
+                                    handleEditTeamStat(
+                                      "goals_for",
+                                      e.target.value,
+                                      team.name
+                                    )
+                                  }
+                                  className="mr-8 max-w-60"
+                                />
+                              </div>
+                              <div className="flex gap-2 items-center max-w-40">
+                                <label>GA</label>{" "}
+                                <Input
+                                  type="number"
+                                  value={team.goals_against}
+                                  onChange={(e) =>
+                                    handleEditTeamStat(
+                                      "goals_against",
+                                      e.target.value,
+                                      team.name
+                                    )
+                                  }
+                                  className="mr-8 max-w-60"
+                                />
+                              </div>
+                            </div>
+                          </>
+                        }
+                      </div>
+                    </>
+                  </div>
+                ) : (
+                  <>
+                    {" "}
+                    <Label className="mb-2 text-md">{team.name}</Label>
+                    <Label className="mb-2 text-md">{team.group}</Label>
+                  </>
+                )}
+                <div className="flex gap-1">
                   {" "}
-                  <Input
-                    type="text"
-                    value={team.name}
-                    onChange={(e) => handleEditTeam(e.target.value, team.name)}
-                    className="mr-8 mb-2 max-w-80"
-                  />
-                  {league.groups && (
-                    <Input
-                      type="text"
-                      value={team.group}
-                      onChange={(e) =>
-                        handleEditTeamGroup(e.target.value, team.name)
-                      }
-                      className="mr-8 max-w-80"
-                    />
+                  {editTeams === team.name ? (
+                    <Button
+                      onClick={() => {
+                        setEditTeams("");
+                      }}
+                    >
+                      Cancel
+                    </Button>
+                  ) : (
+                    <Button
+                      onClick={() => {
+                        setEditTeams(team.name);
+                      }}
+                      variant="success"
+                    >
+                      Edit
+                    </Button>
+                  )}
+                  {editTeams === team.name ? (
+                    <Button
+                      onClick={() => {
+                        setEditTeams("");
+                        handleSave();
+                      }}
+                      variant="success"
+                    >
+                      Save
+                    </Button>
+                  ) : (
+                    <Button
+                      variant="destructive"
+                      onClick={() => {
+                        handleDelete(team.team_id);
+                      }}
+                    >
+                      Delete
+                    </Button>
                   )}
                 </div>
-                <>
-                  <div className="bg-gray-200 p-3 mt-2">
-                    {
-                      <>
-                        <div className="flex gap-2 items-center mt-2 flex-wrap">
-                          <div className="flex gap-2 items-center max-w-40">
-                            <label>Wins</label>{" "}
-                            <Input
-                              type="number"
-                              value={team.win_total}
-                              onChange={(e) =>
-                                handleEditTeamStat(
-                                  "win_total",
-                                  e.target.value,
-                                  team.name
-                                )
-                              }
-                              className="mr-8 max-w-60"
-                            />
-                          </div>
-                          <div className="flex gap-2 items-center max-w-40">
-                            <label>Lose</label>{" "}
-                            <Input
-                              type="number"
-                              value={team.loss_total}
-                              onChange={(e) =>
-                                handleEditTeamStat(
-                                  "loss_total",
-                                  e.target.value,
-                                  team.name
-                                )
-                              }
-                              className="mr-8 max-w-60"
-                            />
-                          </div>
-                          <div className="flex gap-2 items-center max-w-40">
-                            <label>Draw</label>{" "}
-                            <Input
-                              type="number"
-                              value={team.draw_total}
-                              onChange={(e) =>
-                                handleEditTeamStat(
-                                  "draw_total",
-                                  e.target.value,
-                                  team.name
-                                )
-                              }
-                              className="mr-8 max-w-60"
-                            />
-                          </div>
-                          <div className="flex gap-2 items-center max-w-40">
-                            <label>Goals</label>{" "}
-                            <Input
-                              type="number"
-                              value={team.goals_for}
-                              onChange={(e) =>
-                                handleEditTeamStat(
-                                  "goals_for",
-                                  e.target.value,
-                                  team.name
-                                )
-                              }
-                              className="mr-8 max-w-60"
-                            />
-                          </div>
-                          <div className="flex gap-2 items-center max-w-40">
-                            <label>GA</label>{" "}
-                            <Input
-                              type="number"
-                              value={team.goals_against}
-                              onChange={(e) =>
-                                handleEditTeamStat(
-                                  "goals_against",
-                                  e.target.value,
-                                  team.name
-                                )
-                              }
-                              className="mr-8 max-w-60"
-                            />
-                          </div>
-                        </div>
-                      </>
-                    }
-                  </div>
-                </>
               </div>
-            ) : (
-              <>
-                {" "}
-                <Label className="mb-2 text-md">{team.name}</Label>
-                <Label className="mb-2 text-md">{team.group}</Label>
-              </>
-            )}
-            <div className="flex gap-1">
-              {" "}
-              {editTeams === team.name ? (
-                <Button
-                  onClick={() => {
-                    setEditTeams("");
-                  }}
-                >
-                  Cancel
-                </Button>
-              ) : (
-                <Button
-                  onClick={() => {
-                    setEditTeams(team.name);
-                  }}
-                  variant="success"
-                >
-                  Edit
-                </Button>
-              )}
-              {editTeams === team.name ? (
-                <Button
-                  onClick={() => {
-                    setEditTeams("");
-                    handleSave();
-                  }}
-                  variant="success"
-                >
-                  Save
-                </Button>
-              ) : (
-                <Button
-                  variant="destructive"
-                  onClick={() => {
-                    handleDelete(team.team_id);
-                  }}
-                >
-                  Delete
-                </Button>
-              )}
-            </div>
+            ))}
           </div>
         ))}
       </div>
-      <div className="bg-gray-200 p-3 mt-2">
+      <div className="bg-gray-200 p-3 mt-2 text-sm">
         {addTeam && (
           <>
             <div className="flex gap-3 items-center">
