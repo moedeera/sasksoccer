@@ -96,10 +96,10 @@ const LeaguePage = () => {
 
       // Add an object for all teams
       assortedTeams.push({
-        name: "all",
+        name: "All",
         assorted_teams: sortedTeams,
       });
-      console.log(assortedTeams);
+
       // Update the state
       const reorganizedTeams = reorganizeTeamsByGroupNumber(assortedTeams);
       setGroupAssortedTeams(reorganizedTeams);
@@ -121,10 +121,8 @@ const LeaguePage = () => {
           setAssortedTeams(sortedTeams);
 
           sortAndGroupTeams(teamsWithStats);
-          console.log(teamsWithStats);
         }
 
-        // console.log(leagueData, session);
         setLeague(leagueData);
       } catch (error) {
         console.error("Error fetching league", error);
@@ -167,43 +165,46 @@ const LeaguePage = () => {
                 </>
               ) : (
                 <>
-                  <Select
-                    className="mb-24 border"
-                    defaultValue={"all"}
-                    onValueChange={(value) => {
-                      console.log(value.name, groupAssortedTeams[1].name);
-                      if (value.name === "all") {
-                        setTeamsInView(groupAssortedTeams);
-                        console.log(teamsInView);
-                        return;
-                      }
-                      // Search for the team with the matching name in the groupAssortedTeams array
-                      const matchingTeam = groupAssortedTeams.filter(
-                        (team) => team.name === value.name
-                      );
-                      let matchingTeamArray = [matchingTeam];
-                      // Update the teamsInView state with the matching team, or set it to false if no match is found
-                      setTeamsInView(matchingTeam || false);
-                      console.log(teamsInView);
-                    }}
-                  >
-                    <SelectTrigger className="w-[180px]">
-                      <SelectValue placeholder="All" />
-                    </SelectTrigger>
-                    <SelectContent>
-                      <SelectGroup>
-                        {groupAssortedTeams.map((group, index) => (
-                          <SelectItem
-                            key={index}
-                            value={group}
-                            className="capitalize"
-                          >
-                            {group.name}
-                          </SelectItem>
-                        ))}
-                      </SelectGroup>
-                    </SelectContent>
-                  </Select>
+                  <div className="flex items-center gap-4">
+                    <div className="text-base">Filter</div>
+
+                    <Select
+                      className="mb-24 border"
+                      defaultValue={"All"}
+                      onValueChange={(value) => {
+                        if (value.name === "all" || value.name === "All") {
+                          setTeamsInView(groupAssortedTeams);
+
+                          return;
+                        }
+                        // Search for the team with the matching name in the groupAssortedTeams array
+                        const matchingTeam = groupAssortedTeams.filter(
+                          (team) => team.name === value.name
+                        );
+                        let matchingTeamArray = [matchingTeam];
+                        // Update the teamsInView state with the matching team, or set it to false if no match is found
+                        setTeamsInView(matchingTeam || false);
+                      }}
+                    >
+                      <SelectTrigger className="w-[180px]">
+                        <SelectValue placeholder="All" />
+                      </SelectTrigger>
+                      <SelectContent>
+                        <SelectGroup>
+                          {groupAssortedTeams.map((group, index) => (
+                            <SelectItem
+                              key={index}
+                              value={group}
+                              className="capitalize"
+                            >
+                              {group.name}
+                            </SelectItem>
+                          ))}
+                        </SelectGroup>
+                      </SelectContent>
+                    </Select>
+                  </div>
+
                   <div className="overflow-x-scroll grid mt-4 md:grid-cols-2 gap-2">
                     {teamsInView.map(
                       (group, index) =>
