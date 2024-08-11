@@ -173,7 +173,11 @@ const LeaguePage = () => {
                       defaultValue={"All"}
                       onValueChange={(value) => {
                         if (value.name === "all" || value.name === "All") {
-                          setTeamsInView(groupAssortedTeams);
+                          setTeamsInView(
+                            groupAssortedTeams.filter(
+                              (group) => group.name !== "all"
+                            )
+                          );
 
                           return;
                         }
@@ -204,20 +208,35 @@ const LeaguePage = () => {
                       </SelectContent>
                     </Select>
                   </div>
-
-                  <div className="overflow-x-scroll grid mt-4 md:grid-cols-2 gap-2">
-                    {teamsInView.map(
-                      (group, index) =>
-                        group.name !== "all" && (
-                          <div key={index} className="mb-8">
-                            <h3 className="text-2xl mb-3">
-                              {league.groups && group.name}
-                            </h3>
-                            <TableComponent data={group.assorted_teams} />
-                          </div>
-                        )
-                    )}
-                  </div>
+                  {teamsInView.length > 1 ? (
+                    <div className="overflow-x-scroll grid mt-4 md:grid-cols-2 gap-2">
+                      {teamsInView.map(
+                        (group, index) =>
+                          group.name !== "All" && (
+                            <div key={index} className="mb-8">
+                              <h3 className="text-2xl mb-3">
+                                {league.groups && group.name}
+                              </h3>
+                              <TableComponent data={group.assorted_teams} />
+                            </div>
+                          )
+                      )}
+                    </div>
+                  ) : (
+                    <div className="overflow-x-scroll grid mt-4 ">
+                      {teamsInView.map(
+                        (group, index) =>
+                          group.name !== "all" && (
+                            <div key={index} className="mb-8">
+                              <h3 className="text-2xl mb-3">
+                                {league.groups && group.name}
+                              </h3>
+                              <TableComponent data={group.assorted_teams} />
+                            </div>
+                          )
+                      )}
+                    </div>
+                  )}
                 </>
               )}
             </div>
