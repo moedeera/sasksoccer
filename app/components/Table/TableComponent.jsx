@@ -46,11 +46,10 @@ const TableComponent = ({ data }) => {
               Win
             </TableHead>
             <TableHead className="text-right font-bold text-white stats-record">
-              Draw
-            </TableHead>
-
-            <TableHead className="text-right font-bold text-white stats-record">
               Loss
+            </TableHead>
+            <TableHead className="text-right font-bold text-white stats-record">
+              Draw
             </TableHead>
             <TableHead className="stats-goals text-right font-bold text-white">
               GF
@@ -80,10 +79,10 @@ const TableComponent = ({ data }) => {
                 {team.win_total}
               </TableCell>
               <TableCell className="text-right stats-record">
-                {team.draw_total}
+                {team.loss_total}
               </TableCell>
               <TableCell className="text-right stats-record">
-                {team.loss_total}
+                {team.draw_total}
               </TableCell>
               <TableCell className="stats-goals text-right">
                 {team.goals_for}
