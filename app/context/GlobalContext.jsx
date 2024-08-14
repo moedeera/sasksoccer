@@ -23,6 +23,12 @@ export function GlobalProvider({ children }) {
   };
   const headerLinks = [
     {
+      name: "Home",
+      Link: "/",
+      case: "all",
+      subLinks: [],
+    },
+    {
       name: "Leagues",
       Link: "/leagues",
       case: "all",

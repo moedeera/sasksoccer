@@ -5,8 +5,9 @@ import { FaCaretDown } from "react-icons/fa";
 
 const LowerNavbar = () => {
   const containerRef = useRef(null);
-  const [dropDown, setDropDown] = useState(null);
+  const [dropDown, setDropDown] = useState("/");
   const { headerLinks, websiteInfo } = useContext(GlobalContext);
+
   useEffect(() => {
     const handleClickOutside = (event) => {
       // Check if the clicked target is not inside the container
@@ -26,6 +27,22 @@ const LowerNavbar = () => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
   }, []);
+
+  const [sublink, setSublink] = useState("/");
+
+  useEffect(() => {
+    // Check if running on client side
+    if (typeof window !== "undefined") {
+      const pathname = window.location.pathname;
+
+      // Extract the sublink
+      const extractedSublink = pathname.split("/").filter(Boolean).join("/");
+
+      setSublink(`/${extractedSublink}`);
+
+      console.log("Sublink:", extractedSublink);
+    }
+  }, []); // Empty dependency array means this effect runs only on mount
   return (
     <div ref={containerRef} className="lower-navbar-container">
       {" "}
@@ -33,7 +50,7 @@ const LowerNavbar = () => {
         <div className=" flex  items-center h-full ">
           {headerLinks.map((page, index) => (
             <div
-              className="link-container h-full relative"
+              className="link-container h-full relative  text-left"
               key={index}
               style={
                 dropDown === page.name

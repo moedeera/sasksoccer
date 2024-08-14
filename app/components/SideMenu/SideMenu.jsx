@@ -26,7 +26,7 @@ export const SideMenu = () => {
         <SheetTrigger>
           <Button
             variant="secondary"
-            class="border rounded px-1 py-1 mx-3 "
+            class="border rounded  py-1 mx-3 "
             onClick={toggleMenu}
           >
             <div className="side-menu-icon">
@@ -45,13 +45,13 @@ export const SideMenu = () => {
               </Link>
             ))}
 
-            <div className="bg-gray-200 px-2 py-2">
+            {/* <div className="bg-gray-200  ">
               <p className="mb-3">Subscribe to our Newsletter</p>
               <div className="flex w-full max-w-sm items-center space-x-2">
                 <Input type="email" placeholder="Email" />
                 <Button type="submit">Subscribe</Button>
               </div>
-            </div>
+            </div> */}
           </div>
         </SheetContent>
       </Sheet>
