@@ -43,7 +43,7 @@ const FooterComponent = () => {
             {" "}
             Links
           </div>
-          <div className="flex gap-20 w-full">
+          <div className="flex gap-20 w-full ">
             {" "}
             <nav className="flex flex-col gap-y-4 text-sm text-slate-400">
               <a href="/" className="hover:underline">
@@ -75,8 +75,9 @@ const FooterComponent = () => {
             </nav>
           </div>
         </div>
-        <div className="w-full">
+        <div className="w-full md:w-1/3 h-80">
           {" "}
+          <div className="text-2xl font-bold">Subscribe</div>
           <div>
             {" "}
             Interested in keeping up to date with latest news and updates?. Sign
