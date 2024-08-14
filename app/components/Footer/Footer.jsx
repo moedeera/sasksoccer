@@ -75,7 +75,7 @@ const FooterComponent = () => {
             </nav>
           </div>
         </div>
-        <div className="w-1/4">
+        <div className="w-full">
           {" "}
           <div>
             {" "}
