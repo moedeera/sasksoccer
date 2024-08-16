@@ -60,16 +60,19 @@ export function Cards({ data }) {
     <div className="component-container grid md:grid-cols-3 lg:grid-cols-4 gap-8 md:p-3">
       {" "}
       {info.map((dat, index) => (
-        <Card key={index}>
+        <Card key={index} className="flex flex-col justify-between">
           <CardHeader>
-            <div
-              className="card-image w-full h-32  md:h-44 bg-black bg-center bg-cover"
-              style={{
-                backgroundImage: `url("${
-                  dat?.images ? dat.images[0] : dat.image
-                }")`,
-              }}
-            ></div>
+            {dat?.image && (
+              <div
+                className="card-image w-full h-24  md:h-40 bg-black bg-center bg-cover"
+                style={{
+                  backgroundImage: `url("${
+                    dat?.images ? dat.images[0] : dat.image
+                  }")`,
+                }}
+              ></div>
+            )}
+
             <CardTitle className="text-md md:text-xl">{dat.name}</CardTitle>
             <CardDescription className="text-sm">
               {dat.description}

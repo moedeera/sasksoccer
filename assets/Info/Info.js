@@ -17,6 +17,61 @@ const homeLandingInfo2 = {
   buttonName: "Read More",
   mini: false,
 };
+
+const shopCardsData = [
+  {
+    name: "SoccerLocker",
+    id: "soccerlocker",
+    date: null,
+    description: `477 2nd Avenue North
+Saskatoon, Saskatchewan S7K 2C1`,
+    image: null,
+    link: "https://soccerlocker.ca",
+    blog: true,
+    button: {
+      text: "Website",
+    },
+  },
+
+  {
+    name: "Olympian Sports",
+    date: null,
+    id: "olympiansports",
+    description:
+      "Core Neighborhood Planning Area, 101 Idylwyld Dr N, Saskatoon, SK S7L 0Y6",
+    image: null,
+    link: "https://www.olympiansports.ca",
+    blog: true,
+    button: {
+      text: "Website",
+    },
+  },
+  {
+    name: "Al Anderson's Source For Sports",
+    date: null,
+    id: "alanderson",
+    description: `208 Avenue B S, Saskatoon, SK S7M 1M3`,
+    image: null,
+    link: "https://www.sourceforsports.ca",
+    blog: true,
+    button: {
+      text: "Website",
+    },
+  },
+  {
+    name: "Sport Chek",
+    date: null,
+    id: "inquiries",
+    description: `3310 8 St E, Saskatoon, SK S7H 5M3`,
+    image: null,
+    link: "https://www.sportchek.ca/en/store-details/sk/centre-circle-8th-sport-chek-338.html?utm_source=google&utm_medium=organic&utm_content=338",
+    blog: true,
+    button: {
+      text: "More",
+    },
+  },
+];
+
 const homeCardsData = [
   {
     name: "New to Soccer?",
@@ -205,4 +260,5 @@ export {
   homeCarouselData,
   block1HomePage,
   playCardsData,
+  shopCardsData,
 };
