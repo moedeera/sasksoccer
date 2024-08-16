@@ -147,7 +147,7 @@ p {
 }
 
 .link-container {
-  border: 1px solid rgba(128, 128, 128, 0.5);
+  border: 0.5px solid rgba(128, 128, 128, 0.25);
   border-bottom: none;
 }
 /* Extra small devices (phones, 600px and down) */
