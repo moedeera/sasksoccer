@@ -5,7 +5,8 @@ import { FaCaretDown } from "react-icons/fa";
 
 const LowerNavbar = () => {
   const containerRef = useRef(null);
-  const [dropDown, setDropDown] = useState("/");
+  const [dropDown, setDropDown] = useState(null);
+  const [currentPage, setCurrentPage] = useState(null);
   const { headerLinks, websiteInfo } = useContext(GlobalContext);
 
   useEffect(() => {
@@ -39,6 +40,7 @@ const LowerNavbar = () => {
       const extractedSublink = pathname.split("/").filter(Boolean).join("/");
 
       setSublink(`/${extractedSublink}`);
+      setCurrentPage(`/${extractedSublink}`);
 
       console.log("Sublink:", extractedSublink);
     }
@@ -53,7 +55,7 @@ const LowerNavbar = () => {
               className="link-container h-full relative  text-left"
               key={index}
               style={
-                dropDown === page.name
+                currentPage === page.Link
                   ? {
                       backgroundColor: "black",
                       color: "white",
@@ -83,7 +85,7 @@ const LowerNavbar = () => {
                     <>
                       <Link
                         onClick={() => {
-                          setDropDown(null);
+                          setCurrentPage(page.Link);
                         }}
                         href={page.Link}
                       >
@@ -92,7 +94,7 @@ const LowerNavbar = () => {
                     </>
                   )}
 
-                  {dropDown === page.name && page.subLinks.length > 0 && (
+                  {currentPage === page.Link && page.subLinks.length > 0 && (
                     <div className="lower-navbar-dropdown text-black h-full">
                       {page.subLinks.map((subLink, index) => (
                         <Link
