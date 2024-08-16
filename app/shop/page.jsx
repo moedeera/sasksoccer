@@ -16,12 +16,12 @@ const page = () => {
   return (
     <div>
       <Landing data={pageHeader} />
-      <div className="text-3xl font-bold h3-header text-center mt-5  mb-0">
+      <div className="text-3xl font-bold h3-header text-center mt-8  mb-0">
         {" "}
         List of Soccer Shops in Saskatoon{" "}
       </div>
       <Cards data={shopCardsData} />
-      <Block1 data={shopInfo} />
+      {/* <Block1 data={shopInfo} /> */}
     </div>
   );
 };
