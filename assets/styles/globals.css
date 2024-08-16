@@ -145,6 +145,11 @@ p {
 .card-image {
   background-image: url("../images/carddefault.webp");
 }
+
+.link-container {
+  border: 1px solid rgba(128, 128, 128, 0.5);
+  border-bottom: none;
+}
 /* Extra small devices (phones, 600px and down) */
 @media only screen and (max-width: 768px) {
   .login-button {

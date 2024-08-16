@@ -5,7 +5,7 @@ import { FaCaretDown } from "react-icons/fa";
 
 const LowerNavbar = () => {
   const containerRef = useRef(null);
-  const [dropDown, setDropDown] = useState(null);
+  const [dropDown, setDropDown] = useState(false);
   const [currentPage, setCurrentPage] = useState(null);
   const { headerLinks, websiteInfo } = useContext(GlobalContext);
 
@@ -16,7 +16,7 @@ const LowerNavbar = () => {
         containerRef.current &&
         !containerRef.current.contains(event.target)
       ) {
-        setDropDown(null);
+        setDropDown(false);
       }
     };
 
@@ -48,11 +48,11 @@ const LowerNavbar = () => {
   return (
     <div ref={containerRef} className="lower-navbar-container">
       {" "}
-      <div className="lower px-2 text-sm ">
+      <div className="lower  text-sm ">
         <div className=" flex  items-center h-full ">
           {headerLinks.map((page, index) => (
             <div
-              className="link-container h-full relative  text-left"
+              className="link-container   h-full relative  text-left"
               key={index}
               style={
                 currentPage === page.Link
@@ -66,15 +66,15 @@ const LowerNavbar = () => {
               {page.case === "all" && (
                 <div
                   href={page.Link}
-                  className="flex gap-1 px-2 relative justify-center items-center h-full w-28  hover:bg-gray-600 hover:text-white cursor-pointer"
+                  className="flex gap-1  relative justify-center items-center h-full w-28  hover:bg-gray-600 hover:text-white cursor-pointer"
                 >
                   {page.subLinks.length > 0 ? (
                     <>
                       {" "}
                       <div
-                        className=" h-4/5 w-full flex justify-center items-center gap-x-2"
+                        className=" h-4/5 w-full px-4 flex justify-center items-center gap-x-2"
                         onClick={() => {
-                          setDropDown(page.name);
+                          setDropDown(true);
                         }}
                       >
                         {page.name}
@@ -88,20 +88,22 @@ const LowerNavbar = () => {
                           setCurrentPage(page.Link);
                         }}
                         href={page.Link}
+                        className="pl-1"
                       >
                         {page.name}
                       </Link>
                     </>
                   )}
 
-                  {currentPage === page.Link && page.subLinks.length > 0 && (
+                  {dropDown && page.subLinks.length > 0 && (
                     <div className="lower-navbar-dropdown text-black h-full">
                       {page.subLinks.map((subLink, index) => (
                         <Link
                           key={index}
                           href={subLink.link}
                           onClick={() => {
-                            setDropDown(null);
+                            setDropDown(false);
+                            setCurrentPage(page.Link);
                           }}
                         >
                           {subLink.name}
