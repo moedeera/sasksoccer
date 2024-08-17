@@ -57,7 +57,7 @@ const LowerNavbar = () => {
               style={
                 currentPage === page.Link
                   ? {
-                      backgroundColor: "black",
+                      backgroundColor: "darkslategray",
                       color: "white",
                     }
                   : { backgroundColor: "white", color: "black" }

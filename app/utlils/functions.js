@@ -72,10 +72,25 @@ const reorganizeTeamsByGroupNumber = (teams) => {
     return numA - numB;
   });
 };
+function calculateAndSortTeamsByPoints(teamsAssortedByGroup) {
+  return teamsAssortedByGroup.map((group) => {
+    // Calculate the points for each team in the group
+    group.teams.forEach((team) => {
+      const goalDifference = team.goals_for - team.goals_against;
+      team.points = team.win_total * 3 + team.draw_total + 0 * goalDifference;
+    });
+
+    // Sort the teams in the group by points in descending order
+    group.teams.sort((a, b) => b.points - a.points);
+
+    return group;
+  });
+}
 
 export {
   generateSlug,
   formatDateFunction,
   generateId,
   reorganizeTeamsByGroupNumber,
+  calculateAndSortTeamsByPoints,
 };

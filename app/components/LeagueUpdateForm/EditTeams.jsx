@@ -3,8 +3,10 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import React, { useState } from "react";
 import Spinner from "../Spinner";
-import { generateId } from "@/app/utlils/functions";
-generateId;
+import {
+  calculateAndSortTeamsByPoints,
+  generateId,
+} from "@/app/utlils/functions";
 
 const EditTeams = ({ teams, setTeams, league, error, setError }) => {
   const [editTeams, setEditTeams] = useState("");
@@ -105,7 +107,8 @@ const EditTeams = ({ teams, setTeams, league, error, setError }) => {
 
     return acc;
   }, []);
-  console.log(teamsAssortedByGroup);
+  const finalTeamsArray = calculateAndSortTeamsByPoints(teamsAssortedByGroup);
+  console.log(finalTeamsArray);
 
   if (loading) {
     return <Spinner />;
@@ -115,7 +118,7 @@ const EditTeams = ({ teams, setTeams, league, error, setError }) => {
     <>
       {" "}
       <div className="flex flex-col gap-3 text-sm lg:text-base">
-        {teamsAssortedByGroup.map((group, index) => (
+        {finalTeamsArray.map((group, index) => (
           <div
             key={index}
             className="mb-1 flex flex-col gap-3 border py-3 px-1"
@@ -137,16 +140,6 @@ const EditTeams = ({ teams, setTeams, league, error, setError }) => {
                         }
                         className="mr-8 mb-2 max-w-80"
                       />
-                      {/* {league.groups && (
-                        <Input
-                          type="text"
-                          value={team.group}
-                          onChange={(e) =>
-                            handleEditTeamGroup(e.target.value, team.name)
-                          }
-                          className="mr-8 max-w-80"
-                        />
-                      )} */}
                     </div>
                     <>
                       <div className="bg-gray-200 p-3 mt-2">
@@ -238,7 +231,12 @@ const EditTeams = ({ teams, setTeams, league, error, setError }) => {
                   <>
                     {" "}
                     <Label className="mb-2 text-md">{team.name}</Label>
-                    <Label className="mb-2 text-md">{team.group}</Label>
+                    <Label className="mb-2 text-md">
+                      {`${team.win_total + team.loss_total + team.draw_total}-${
+                        team.win_total
+                      }-${team.loss_total}-${team.draw_total} `}
+                      <span className="font-bold">{team.points} pts</span>
+                    </Label>
                   </>
                 )}
                 <div className="flex gap-1">
