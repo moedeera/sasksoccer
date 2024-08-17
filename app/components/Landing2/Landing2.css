@@ -1,5 +1,5 @@
-.landing {
-  height: calc(85vh - 110px);
+.landing2 {
+  height: calc(35vh - 110px);
   width: 100%;
   margin: 0 auto;
   color: white;
@@ -9,7 +9,7 @@
   overflow: hidden;
 }
 
-.landing-mini {
+.landing-mini2 {
   height: calc(55vh - 110px);
   justify-content: center;
   align-items: center;

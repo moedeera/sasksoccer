@@ -29,14 +29,14 @@ const Landing2 = ({ data }) => {
   }, []);
 
   return (
-    <div className={info?.mini ? "landing landing-mini" : "landing"}>
+    <div className={info?.mini ? "landing2 landing-mini2" : "landing2"}>
       <div
         className="landing-image"
         style={data.image && { backgroundImage: `url(${data.image})` }}
       ></div>
       <div className="landing-container">
         <div className="landing-content">
-          <h1 className="capitalize">{info.title}</h1>
+          <h1 className="capitalize w-4/5 md:w-max">{info.title}</h1>
           <p className="w-4/5 md:w-">{info.content}</p>
           {info.button && (
             <Link className="btn" href={info.buttonLink}>
