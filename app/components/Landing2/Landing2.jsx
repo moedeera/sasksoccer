@@ -32,7 +32,7 @@ const Landing2 = ({ data }) => {
     <div className={info?.mini ? "landing2 landing-mini2" : "landing2"}>
       <div
         className="landing-image"
-        style={data.image && { backgroundImage: `url(${data.image})` }}
+        style={info.image && { backgroundImage: `url(${info.image})` }}
       ></div>
       <div className="landing-container">
         <div className="landing-content">
