@@ -21,6 +21,13 @@ export function GlobalProvider({ children }) {
     tagLine: "Your go-to stop for anything saskatoon soccer related.",
     logo: image1,
   };
+
+  const links = [
+    { name: "Messages", link: "/messages" },
+    { name: "Create", link: "/leagues/create" },
+    { name: "Profile", link: "/profile" },
+  ];
+
   const headerLinks = [
     {
       name: "Home",
@@ -71,6 +78,7 @@ export function GlobalProvider({ children }) {
         setUnreadCount,
         headerLinks,
         websiteInfo,
+        links,
       }}
     >
       {children}

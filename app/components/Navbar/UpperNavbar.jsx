@@ -1,17 +1,18 @@
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import Link from "next/link";
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { useSession, signOut, signIn } from "next-auth/react";
 import SideMenu from "../SideMenu/SideMenu";
 
 import profileDefault from "@/assets/images/profile.png";
 import logo from "./logo-no-background.png";
+import { GlobalContext } from "@/app/context/GlobalContext";
 const UpperNavbar = () => {
   const { data: session } = useSession();
   const profileImage = session?.user?.image;
   const [isProfileMenuOpen, setIsProfileMenuOpen] = useState(false);
-
+  const { links } = useContext(GlobalContext);
   return (
     <div className="upper-navbar-container">
       <div className="upper px-2 py-1 flex justify-between items-center h-full">
@@ -33,11 +34,7 @@ const UpperNavbar = () => {
             </Link>
           </Button>
         )}
-        {/* <PopOver
-      links={links}
-      profileImage={profileImage}
-      profileDefault={profileDefault}
-    /> */}
+
         {session && (
           <div className="relative  w-52">
             <div className="flex justify-end">
