@@ -6,9 +6,9 @@ import Block4 from "../components/Block4/Block4";
 import { Cards } from "@/components/Card/Card";
 import { createOwnLeague, currentData, openerContent } from "./leaguesInfo";
 import Block1 from "../components/Block1/Block1";
-import Spinner from "../components/Spinner";
+
 import Landing2 from "../components/Landing2/Landing2";
-import { Skeleton } from "@/components/ui/skeleton";
+
 import CardSkeleton from "../components/CardSkeleton/CardSkeleton";
 
 const PageComponent = () => {

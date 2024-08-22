@@ -5,18 +5,14 @@ const MessageSchema = new Schema(
     sender: {
       type: Schema.Types.ObjectId,
       ref: "User",
-      required: true,
+      required: false,
     },
     recipient: {
       type: Schema.Types.ObjectId,
       ref: "User",
-      required: true,
+      required: false,
     },
-    property: {
-      type: Schema.Types.ObjectId,
-      ref: "Property",
-      required: true,
-    },
+
     name: {
       type: String,
       required: true,

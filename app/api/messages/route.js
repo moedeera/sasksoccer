@@ -22,17 +22,13 @@ export const GET = async () => {
 
     const readMessages = await Message.find({ recipient: userId, read: true })
       .sort({ createdAt: -1 }) // Sort read messages in asc order
-      .populate("sender", "username")
-      .populate("property", "name");
-
+      .populate("sender", "username");
     const unreadMessages = await Message.find({
       recipient: userId,
       read: false,
     })
       .sort({ createdAt: -1 }) // Sort read messages in asc order
-      .populate("sender", "username")
-      .populate("property", "name");
-
+      .populate("sender", "username");
     const messages = [...unreadMessages, ...readMessages];
 
     return new Response(JSON.stringify(messages), { status: 200 });
@@ -46,8 +42,7 @@ export const POST = async (request) => {
   try {
     await connectDB();
 
-    const { name, email, phone, message, property, recipient } =
-      await request.json();
+    const { name, email, message } = await request.json();
 
     const sessionUser = await getSessionUser();
 
@@ -60,21 +55,11 @@ export const POST = async (request) => {
 
     const { user } = sessionUser;
 
-    // Can not send message to self
-    if (user.id === recipient) {
-      return new Response(
-        JSON.stringify({ message: "Can not send a message to yourself" }),
-        { status: 400 }
-      );
-    }
-
     const newMessage = new Message({
       sender: user.id,
-      recipient,
-      property,
+      recipient: "66693f8716b9933b34ef7ecb",
       name,
       email,
-      phone,
       body: message,
     });
 

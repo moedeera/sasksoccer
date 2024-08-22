@@ -13,6 +13,7 @@ const UpperNavbar = () => {
   const profileImage = session?.user?.image;
   const [isProfileMenuOpen, setIsProfileMenuOpen] = useState(false);
   const { links } = useContext(GlobalContext);
+
   return (
     <div className="upper-navbar-container">
       <div className="upper px-2 py-1 flex justify-between items-center h-full">
