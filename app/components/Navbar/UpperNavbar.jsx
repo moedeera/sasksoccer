@@ -18,7 +18,6 @@ const UpperNavbar = () => {
     <div className="upper-navbar-container">
       <div className="upper px-2 py-1 flex justify-between items-center h-full">
         <div className="header-container">
-          {/* <Image src={logo} alt="logo" width={25} /> */}
           <div>
             <Link href={"/"}>
               <Image className="" src={logo} alt="" width={150} height={150} />

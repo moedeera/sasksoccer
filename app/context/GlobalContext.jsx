@@ -23,9 +23,8 @@ export function GlobalProvider({ children }) {
   };
 
   const links = [
-    { name: "Messages", link: "/messages" },
-    { name: "Create", link: "/leagues/create" },
     { name: "Profile", link: "/profile" },
+    { name: "Your Watchlist", link: "/leagues/create" },
   ];
 
   const headerLinks = [

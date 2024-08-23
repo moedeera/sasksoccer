@@ -20,6 +20,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import BookMarkButton from "@/app/components/BookMarkButton";
 
 const LeaguePage = () => {
   const { data: session } = useSession();
@@ -166,6 +167,16 @@ const LeaguePage = () => {
               ) : (
                 <>
                   <div className="flex items-center gap-4">
+                    <div
+                      className="btn border"
+                      onClick={() => {
+                        console.log("saved");
+                      }}
+                    >
+                      Save
+                    </div>
+
+                    <BookMarkButton league={league} />
                     <div className="text-base">Filter</div>
 
                     <Select

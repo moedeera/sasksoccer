@@ -82,9 +82,12 @@ export function Cards({ data }) {
           <CardFooter>
             <Link
               href={dat.button ? `${dat.link}` : `leagues/${dat.slug}`}
-              className="btn text-xs"
+              passHref
+              legacyBehavior
             >
-              {dat.button ? dat.button.text : "Read More"}
+              <a target="_blank" className="btn text-xs">
+                {dat.button ? dat.button.text : "Read More"}
+              </a>
             </Link>
           </CardFooter>
         </Card>

@@ -35,7 +35,7 @@ export const POST = async (request) => {
   try {
     await connectDB();
 
-    const { propertyId } = await request.json();
+    const { leagueId } = await request.json();
     const sessionUser = await getSessionUser();
 
     if (!sessionUser || !sessionUser.userId) {
@@ -45,17 +45,18 @@ export const POST = async (request) => {
     const { userId } = sessionUser;
     // find User
     const user = await User.findOne({ _id: userId });
+    console.log(user.bookmarks);
     // Check if property is bookmarked
-    let isBookmarked = user.bookmarks.includes(propertyId);
+    let isBookmarked = user.bookmarks.includes(leagueId);
 
     let message;
     if (isBookmarked) {
-      user.bookmarks.pull(propertyId);
+      user.bookmarks.pull(leagueId);
       message = "Bookmark removed successfully";
       isBookmarked = false;
     } else {
       //if not bookmarked, add it
-      user.bookmarks.push(propertyId);
+      user.bookmarks.push(leagueId);
       message = "Bookmark added successfully";
       isBookmarked = true;
     }

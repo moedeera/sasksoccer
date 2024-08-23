@@ -175,6 +175,14 @@ const playCardsData = [
 
 const homeCarouselData = [
   {
+    title: "Refresher course for Referees starting August 26.",
+    date: "August 23 2024",
+    content: `Registered referees will have to option to
+      renew their license between August 26th and August 29th. For more information,
+      visit the Saskatoon Adult Soccer Website.`,
+    link: null,
+  },
+  {
     title: "Mini World Cup This September",
     date: "August 1 2024",
     content:
