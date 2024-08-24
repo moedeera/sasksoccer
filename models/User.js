@@ -20,6 +20,12 @@ const UserSchema = new Schema(
         ref: "League",
       },
     ],
+    bookmarks: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: "League",
+      },
+    ],
   },
   { timestamps: true }
 );

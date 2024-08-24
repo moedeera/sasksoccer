@@ -45,7 +45,7 @@ export const POST = async (request) => {
     const { userId } = sessionUser;
     // find User
     const user = await User.findOne({ _id: userId });
-    console.log(user.bookmarks);
+    console.log(user.bookmarks, user, "type:", user.type);
     // Check if property is bookmarked
     let isBookmarked = user.bookmarks.includes(leagueId);
 
