@@ -39,12 +39,6 @@ const LeaguePage = () => {
     button: null,
     mini: true,
   };
-  const LoadingHeader = {
-    title: `Loading...`,
-    content: null,
-    button: null,
-    mini: true,
-  };
 
   useEffect(() => {
     const fetchAndSort = async () => {
@@ -167,17 +161,8 @@ const LeaguePage = () => {
               ) : (
                 <>
                   <div className="flex items-center gap-4">
-                    <div
-                      className="btn border"
-                      onClick={() => {
-                        console.log("saved");
-                      }}
-                    >
-                      Save
-                    </div>
-
                     <BookMarkButton league={league} />
-                    <div className="text-base">Filter</div>
+                    <div className="text-base">Filter by league</div>
 
                     <Select
                       className="mb-24 border"

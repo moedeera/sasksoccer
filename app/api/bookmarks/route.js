@@ -1,5 +1,6 @@
 import { getSessionUser } from "@/app/components/getSessionUser";
 import connectDB from "@/config/database";
+import League from "@/models/League";
 import Property from "@/models/Property";
 import User from "@/models/User";
 
@@ -20,9 +21,9 @@ export const GET = async () => {
 
     // Find user in database
     const user = await User.findOne({ _id: userId });
-
+    console.log("user is:", user);
     // Get users bookmarks
-    const bookmarks = await Property.find({ _id: { $in: user.bookmarks } });
+    const bookmarks = await League.find({ _id: { $in: user.bookmarks } });
 
     return new Response(JSON.stringify(bookmarks), { status: 200 });
   } catch (error) {

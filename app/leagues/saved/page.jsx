@@ -19,11 +19,11 @@ const SavedLeaguesPage = () => {
           setProperties(data);
         } else {
           console.log(res.statusText);
-          toast.error("Failed to fetch saved properties");
+          toast.error("Failed to fetch saved leagues");
         }
       } catch (error) {
         console.log(error);
-        toast.error("Failed to fetch saved properties");
+        toast.error("Failed to fetch saved leagues");
       } finally {
         setLoading(false);
       }

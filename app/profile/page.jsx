@@ -26,55 +26,100 @@ const ProfilePage = () => {
   const [loading, setLoading] = useState(true);
   const [leagues, setLeagues] = useState([]);
 
-  useEffect(() => {
-    const fetchUserLeagues = async (userId) => {
-      if (!userId) {
-        return;
+  // useEffect(() => {
+  //   const fetchUserLeagues = async (userId) => {
+  //     if (!userId) {
+  //       return;
+  //     }
+  //     try {
+  //       const res = await fetch(`api/leagues/user/${userId}`);
+
+  //       if (res.status === 200) {
+  //         const data = await res.json();
+  //         setLeagues(data);
+  //       }
+  //     } catch (error) {
+  //       console.log(error);
+  //     } finally {
+  //       setLoading(false);
+  //     }
+  //   };
+  //   // fetch only if user is available
+  //   if (session) {
+  //     fetchUserLeagues(session.user.id);
+  //   }
+  // }, [session]);
+  const handleDeleteBookmark = async (leagueID) => {
+    try {
+      const res = await fetch("/api/bookmarks", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          leagueId: leagueID,
+        }),
+      });
+
+      if (res.status === 200) {
+        const data = await res.json();
+        toast.success(data.message);
       }
+    } catch (error) {
+      console.log(error);
+      toast.error("Something went wrong");
+    }
+  };
+
+  // const handleDeleteLeague = async (leagueSlug) => {
+  //   const confirmed = window.confirm(
+  //     "Are you sure you want to delete this league?"
+  //   );
+  //   if (!confirmed) {
+  //     return;
+  //   }
+
+  //   try {
+  //     const res = await fetch(`api/leagues/${leagueSlug}`, {
+  //       method: "DELETE",
+  //     });
+
+  //     if (res.status === 200) {
+  //       const updatedLeagues = leagues.filter((league) => league.slug);
+  //       setLeagues(updatedLeagues);
+  //       toast.success("league deleted");
+  //     } else {
+  //       toast.error("failed to delete league");
+  //     }
+  //   } catch (error) {
+  //     console.log(error);
+  //     toast.error("Failed to delete league");
+  //   }
+  // };
+
+  useEffect(() => {
+    const fetchSavedLeagues = async () => {
       try {
-        const res = await fetch(`api/leagues/user/${userId}`);
+        const res = await fetch("/api/bookmarks");
 
         if (res.status === 200) {
           const data = await res.json();
+          console.log("data:", data);
           setLeagues(data);
+        } else {
+          console.log(res.statusText);
+          toast.error("Failed to fetch bookmarked leagues");
         }
       } catch (error) {
         console.log(error);
+        toast.error("Failed to fetch bookmarked leagues");
       } finally {
         setLoading(false);
       }
     };
-    // fetch only if user is available
-    if (session) {
-      fetchUserLeagues(session.user.id);
-    }
-  }, [session]);
 
-  const handleDeleteLeague = async (leagueSlug) => {
-    const confirmed = window.confirm(
-      "Are you sure you want to delete this league?"
-    );
-    if (!confirmed) {
-      return;
-    }
-
-    try {
-      const res = await fetch(`api/leagues/${leagueSlug}`, {
-        method: "DELETE",
-      });
-
-      if (res.status === 200) {
-        const updatedLeagues = leagues.filter((league) => league.slug);
-        setLeagues(updatedLeagues);
-        toast.success("league deleted");
-      } else {
-        toast.error("failed to delete league");
-      }
-    } catch (error) {
-      console.log(error);
-      toast.error("Failed to delete league");
-    }
-  };
+    fetchSavedLeagues();
+  }, []);
 
   return (
     <section className="bg-blue-50">
@@ -113,9 +158,7 @@ const ProfilePage = () => {
             </div>
 
             <div className="md:w-3/4 md:pl-4">
-              <h2 className="text-xl font-semibold mb-4">
-                {profileName ? profileName : ""} Leagues
-              </h2>
+              <h2 className="text-xl font-semibold mb-4">Leagues you follow</h2>
               {loading && <Spinner loading={loading} />}
               {leagues.length && !loading === 0
                 ? "No leagues"
@@ -135,53 +178,16 @@ const ProfilePage = () => {
                       </CardHeader>
 
                       <CardFooter className="flex gap-3">
-                        <Link
-                          href={`leagues/${league.slug}/edit`}
-                          className="btn"
-                        >
-                          Update
-                        </Link>
                         <button
                           onClick={() => {
-                            handleDeleteLeague(league.slug);
+                            handleDeleteBookmark(league._id);
                           }}
                           className="btn btn-danger"
                         >
-                          Delete
+                          Unfollow
                         </button>
                       </CardFooter>
                     </Card>
-                    // <div className="mb-10" key={league._id}>
-                    //   <Link href={`/leagues/${league.slug}`}>
-                    //     <Image
-                    //       className="h-32 w-full rounded-md object-cover"
-                    //       src={league.images[0]}
-                    //       alt="league 1"
-                    //       width={400}
-                    //       height={300}
-                    //     />
-                    //   </Link>
-                    //   <div className="mt-2">
-                    //     <p className="text-lg font-semibold">{league.name}</p>
-                    //   </div>
-                    //   <div className="mt-2">
-                    //     <Link
-                    //       href={`leagues/${league.slug}/edit`}
-                    //       className="bg-blue-500 text-white px-3 py-3 rounded-md mr-2 hover:bg-blue-600"
-                    //     >
-                    //       Edit
-                    //     </Link>
-                    //     <button
-                    //       className="bg-red-500 text-white px-3 py-2 rounded-md hover:bg-red-600"
-                    //       type="button"
-                    //       onClick={() => {
-                    //         handleDeleteLeague(league._id);
-                    //       }}
-                    //     >
-                    //       Delete
-                    //     </button>
-                    //   </div>
-                    // </div>
                   ))}
             </div>
           </div>

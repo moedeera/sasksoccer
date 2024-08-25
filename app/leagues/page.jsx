@@ -10,6 +10,7 @@ import Block1 from "../components/Block1/Block1";
 import Landing2 from "../components/Landing2/Landing2";
 
 import CardSkeleton from "../components/CardSkeleton/CardSkeleton";
+import Landing from "../components/Landing/Landing";
 
 const PageComponent = () => {
   const pageHeader = {
@@ -53,7 +54,7 @@ const PageComponent = () => {
 
   return (
     <div>
-      <Landing2 data={pageHeader} />
+      <Landing data={pageHeader} />
       <Block4 data={openerContent} />
 
       {loading ? (

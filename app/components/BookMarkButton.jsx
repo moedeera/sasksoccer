@@ -1,4 +1,5 @@
 "use client";
+import { Button } from "@/components/ui/button";
 import { useSession } from "next-auth/react";
 import { useEffect, useState } from "react";
 import { toast } from "react-toastify";
@@ -30,6 +31,7 @@ const BookMarkButton = ({ league }) => {
 
         if (res.status === 200) {
           const data = await res.json();
+          console.log("data:", data);
           setIsBookmarked(data.isBookmarked);
         }
       } catch (error) {
@@ -45,6 +47,7 @@ const BookMarkButton = ({ league }) => {
   const handleClick = async () => {
     if (!userId) {
       toast.error("You need to sign in to bookmark a league");
+      return;
     }
 
     try {
@@ -70,14 +73,11 @@ const BookMarkButton = ({ league }) => {
   };
   if (loading) return <p className="text-center">Loading...</p>;
   return isBookmarked ? (
-    <button
-      onClick={handleClick}
-      className="bg-red-500 hover:bg-red-600 text-white font-bold w-full py-2 px-4 rounded-full flex items-center justify-center"
-    >
+    <Button onClick={handleClick} variant="destructive">
       Remove Bookmark
-    </button>
+    </Button>
   ) : (
-    <button onClick={handleClick} className="btn">
+    <button onClick={handleClick} className="btn text-xs">
       Bookmark League
     </button>
   );
