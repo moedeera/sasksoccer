@@ -17,11 +17,13 @@ import {
   homeCarouselData,
   homeLandingInfo,
 } from "@/assets/Info/Info";
+import LoadingBars from "./components/LoadingBars/LoadingBars";
 
 const HomePage = () => {
   return (
     <div>
       <Landing data={homeLandingInfo} />
+
       <div className="">
         {" "}
         <Cards data={homeCardsData} />

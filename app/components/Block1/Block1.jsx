@@ -4,6 +4,8 @@ import Link from "next/link";
 
 import "./Block1.css";
 import { useState, useEffect } from "react";
+import Image from "next/image";
+import { AspectRatio } from "@/components/ui/aspect-ratio";
 
 const Block1 = ({ data }) => {
   const defaultInfo = {
@@ -43,13 +45,21 @@ const Block1 = ({ data }) => {
                 </Link>
               )}
             </div>
-            <div
+            {/* <div
               className="block-1-image w-full h-full  "
               style={{
                 backgroundImage: `url(${info.image})`,
                 minHeight: "350px",
               }}
-            ></div>
+            ></div> */}
+            <AspectRatio ratio={16 / 9} className="bg-muted">
+              <Image
+                src="https://images.pexels.com/photos/47730/the-ball-stadion-football-the-pitch-47730.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                alt="Photo by Drew Beamer"
+                fill
+                className="h-full w-full rounded-md object-cover"
+              />
+            </AspectRatio>
           </>
         ) : (
           <>

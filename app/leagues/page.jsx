@@ -7,8 +7,6 @@ import { Cards } from "@/components/Card/Card";
 import { createOwnLeague, currentData, openerContent } from "./leaguesInfo";
 import Block1 from "../components/Block1/Block1";
 
-import Landing2 from "../components/Landing2/Landing2";
-
 import CardSkeleton from "../components/CardSkeleton/CardSkeleton";
 import Landing from "../components/Landing/Landing";
 
