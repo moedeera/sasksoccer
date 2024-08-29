@@ -1,5 +1,4 @@
 import { Schema, model, models } from "mongoose";
-import { required } from "nodemon/lib/config";
 
 const LeagueSchema = new Schema(
   {
