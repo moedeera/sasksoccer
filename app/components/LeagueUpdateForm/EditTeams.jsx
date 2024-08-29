@@ -10,7 +10,8 @@ import {
 
 const EditTeams = ({ teams, setTeams, league, error, setError }) => {
   const [editTeams, setEditTeams] = useState("");
-  const [editTeamsGroup, setEditTeamsGroup] = useState("");
+  const [editGroup, setEditGroup] = useState("");
+  const [editTeamsGroup, setEditTeamsGroup] = useState(null);
   const [loading, setLoading] = useState(false);
   const [addTeam, showAddTeam] = useState(false);
   const [newTeam, setNewTeam] = useState({
@@ -108,6 +109,7 @@ const EditTeams = ({ teams, setTeams, league, error, setError }) => {
     return acc;
   }, []);
   const finalTeamsArray = calculateAndSortTeamsByPoints(teamsAssortedByGroup);
+
   console.log(finalTeamsArray);
 
   if (loading) {
@@ -126,7 +128,14 @@ const EditTeams = ({ teams, setTeams, league, error, setError }) => {
             {" "}
             <label>{group.name}</label>
             {group.teams.map((team, index) => (
-              <div className="grid grid-cols-3" key={index}>
+              <div
+                className={
+                  editTeams === team.name
+                    ? "grid grid-cols-1 gap-3"
+                    : "grid grid-cols-3"
+                }
+                key={index}
+              >
                 {" "}
                 {editTeams === team.name ? (
                   <div>
@@ -146,7 +155,7 @@ const EditTeams = ({ teams, setTeams, league, error, setError }) => {
                         {
                           <>
                             <div className="flex gap-2 items-center mt-2 w-full flex-wrap md:flex-nowrap">
-                              <div className="flex gap-2 items-center w-full">
+                              <div className="flex gap-2 items-center w-max">
                                 <label>Wins</label>{" "}
                                 <Input
                                   type="number"
@@ -158,7 +167,7 @@ const EditTeams = ({ teams, setTeams, league, error, setError }) => {
                                       team.name
                                     )
                                   }
-                                  className="mr-8 max-w-60"
+                                  className="mr-8 max-w-30"
                                 />
                               </div>
                               <div className="flex gap-2 items-center max-w-40">
