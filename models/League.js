@@ -1,4 +1,5 @@
 import { Schema, model, models } from "mongoose";
+import { required } from "nodemon/lib/config";
 
 const LeagueSchema = new Schema(
   {
@@ -19,6 +20,8 @@ const LeagueSchema = new Schema(
       type: String,
       required: true,
     },
+    year: { type: Number, required: false },
+
     description: {
       type: String,
     },
@@ -55,6 +58,15 @@ const LeagueSchema = new Schema(
         away_team_goals: { type: Number, required: true },
         date_of_game: { type: Date, required: true },
         // match_number: { type: Number, required: true },
+      },
+    ],
+    details: [
+      {
+        group: { type: String, required: true },
+        completed: { type: Boolean, required: true, default: false },
+        winner: { type: String, required: true },
+        runnerUp: { type: String, required: true },
+        playoffs: { type: String, required: true },
       },
     ],
     images: [
