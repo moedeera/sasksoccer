@@ -126,7 +126,7 @@ const EditTeams = ({ teams, setTeams, league, error, setError }) => {
             {" "}
             <label>{group.name}</label>
             {group.teams.map((team, index) => (
-              <div className="grid grid-cols-4" key={index}>
+              <div className="grid grid-cols-3" key={index}>
                 {" "}
                 {editTeams === team.name ? (
                   <div>
@@ -145,7 +145,7 @@ const EditTeams = ({ teams, setTeams, league, error, setError }) => {
                       <div className="bg-gray-200 p-3 mt-2">
                         {
                           <>
-                            <div className="flex gap-2 items-center mt-2 w-full flex-wrap">
+                            <div className="flex gap-2 items-center mt-2 w-full flex-wrap md:flex-nowrap">
                               <div className="flex gap-2 items-center w-full">
                                 <label>Wins</label>{" "}
                                 <Input
@@ -251,6 +251,7 @@ const EditTeams = ({ teams, setTeams, league, error, setError }) => {
                     </Button>
                   ) : (
                     <Button
+                      className="max-w-40"
                       onClick={() => {
                         setEditTeams(team.name);
                       }}
@@ -261,6 +262,7 @@ const EditTeams = ({ teams, setTeams, league, error, setError }) => {
                   )}
                   {editTeams === team.name ? (
                     <Button
+                      className="max-w-40"
                       onClick={() => {
                         setEditTeams("");
                         handleSave();
@@ -271,6 +273,7 @@ const EditTeams = ({ teams, setTeams, league, error, setError }) => {
                     </Button>
                   ) : (
                     <Button
+                      className="min-w-40"
                       variant="destructive"
                       onClick={() => {
                         handleDelete(team.team_id);

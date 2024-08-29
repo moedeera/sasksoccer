@@ -108,7 +108,7 @@ const LeagueUpdateForm = () => {
       <div className="p-3 border border-grey flex flex-col gap-4 md:w-full">
         <h3 className="text-2xl">Update League Information </h3>
         <p className="text-2xl text-red-500">{error}</p>
-        <Tabs defaultValue="results" className="md:w-[800px] min-h-56">
+        <Tabs defaultValue="teams" className="md:w-[800px] min-h-56">
           <TabsList className="grid w-full grid-cols-3 gap-1">
             <TabsTrigger value="results">Enter Results</TabsTrigger>
             <TabsTrigger value="teams">Edit Teams</TabsTrigger>
