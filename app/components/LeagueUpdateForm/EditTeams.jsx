@@ -162,10 +162,11 @@ const EditTeams = ({ teams, setTeams, league, error, setError }) => {
                   <div
                     className={
                       editTeams === team.name
-                        ? "grid grid-cols-1 gap-3"
+                        ? "grid grid-cols-1 gap-3 border bg-gray-500 px-1 py-3"
                         : "grid grid-cols-3"
                     }
                     key={index}
+                    style={{ transition: "all .35s ease-in-out" }}
                   >
                     {" "}
                     {editTeams === team.name ? (
