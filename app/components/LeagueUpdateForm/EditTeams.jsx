@@ -126,174 +126,209 @@ const EditTeams = ({ teams, setTeams, league, error, setError }) => {
             className="mb-1 flex flex-col gap-3 border py-3 px-1"
           >
             {" "}
-            <label>{group.name}</label>
-            {group.teams.map((team, index) => (
-              <div
-                className={
-                  editTeams === team.name
-                    ? "grid grid-cols-1 gap-3"
-                    : "grid grid-cols-3"
-                }
-                key={index}
-              >
-                {" "}
-                {editTeams === team.name ? (
-                  <div>
-                    <div className="mb-2">
-                      {" "}
-                      <Input
-                        type="text"
-                        value={team.name}
-                        onChange={(e) =>
-                          handleEditTeam(e.target.value, team.name)
-                        }
-                        className="mr-8 mb-2 max-w-80"
-                      />
-                    </div>
-                    <>
-                      <div className="bg-gray-200 p-3 mt-2">
-                        {
-                          <>
-                            <div className="flex gap-2 items-center mt-2 w-full flex-wrap md:flex-nowrap">
-                              <div className="flex gap-2 items-center w-max">
-                                <label>Wins</label>{" "}
-                                <Input
-                                  type="number"
-                                  value={team.win_total}
-                                  onChange={(e) =>
-                                    handleEditTeamStat(
-                                      "win_total",
-                                      e.target.value,
-                                      team.name
-                                    )
-                                  }
-                                  className="mr-8 max-w-30"
-                                />
-                              </div>
-                              <div className="flex gap-2 items-center max-w-40">
-                                <label>Lose</label>{" "}
-                                <Input
-                                  type="number"
-                                  value={team.loss_total}
-                                  onChange={(e) =>
-                                    handleEditTeamStat(
-                                      "loss_total",
-                                      e.target.value,
-                                      team.name
-                                    )
-                                  }
-                                  className="mr-8 max-w-60"
-                                />
-                              </div>
-                              <div className="flex gap-2 items-center max-w-40">
-                                <label>Draw</label>{" "}
-                                <Input
-                                  type="number"
-                                  value={team.draw_total}
-                                  onChange={(e) =>
-                                    handleEditTeamStat(
-                                      "draw_total",
-                                      e.target.value,
-                                      team.name
-                                    )
-                                  }
-                                  className="mr-8 max-w-60"
-                                />
-                              </div>
-                              <div className="flex gap-2 items-center max-w-40">
-                                <label>Goals</label>{" "}
-                                <Input
-                                  type="number"
-                                  value={team.goals_for}
-                                  onChange={(e) =>
-                                    handleEditTeamStat(
-                                      "goals_for",
-                                      e.target.value,
-                                      team.name
-                                    )
-                                  }
-                                  className="mr-8 max-w-60"
-                                />
-                              </div>
-                              <div className="flex gap-2 items-center max-w-40">
-                                <label>GA</label>{" "}
-                                <Input
-                                  type="number"
-                                  value={team.goals_against}
-                                  onChange={(e) =>
-                                    handleEditTeamStat(
-                                      "goals_against",
-                                      e.target.value,
-                                      team.name
-                                    )
-                                  }
-                                  className="mr-8 max-w-60"
-                                />
-                              </div>
-                            </div>
-                          </>
-                        }
-                      </div>
-                    </>
-                  </div>
-                ) : (
-                  <>
-                    {" "}
-                    <Label className="mb-2 text-md">{team.name}</Label>
-                    <Label className="mb-2 text-md">
-                      {`${team.win_total + team.loss_total + team.draw_total}-${
-                        team.win_total
-                      }-${team.loss_total}-${team.draw_total} `}
-                      <span className="font-bold">{team.points} pts</span>
-                    </Label>
-                  </>
-                )}
-                <div className="flex gap-1">
+            <div className="flex items-center justify-evenly gap-4 ">
+              <label>{group.name}</label>{" "}
+              {editGroup === group.name ? (
+                <>
                   {" "}
-                  {editTeams === team.name ? (
-                    <Button
-                      onClick={() => {
-                        setEditTeams("");
-                      }}
-                    >
-                      Cancel
-                    </Button>
-                  ) : (
-                    <Button
-                      className="max-w-40"
-                      onClick={() => {
-                        setEditTeams(team.name);
-                      }}
-                      variant="success"
-                    >
-                      Edit
-                    </Button>
-                  )}
-                  {editTeams === team.name ? (
-                    <Button
-                      className="max-w-40"
-                      onClick={() => {
-                        setEditTeams("");
-                        handleSave();
-                      }}
-                      variant="success"
-                    >
-                      Save
-                    </Button>
-                  ) : (
-                    <Button
-                      className="min-w-40"
-                      variant="destructive"
-                      onClick={() => {
-                        handleDelete(team.team_id);
-                      }}
-                    >
-                      Delete
-                    </Button>
-                  )}
-                </div>
-              </div>
-            ))}
+                  <Button
+                    className="w-max min-w-20"
+                    onClick={() => {
+                      setEditGroup("");
+                    }}
+                    variant="destructive"
+                  >
+                    Cancel
+                  </Button>
+                </>
+              ) : (
+                <>
+                  {" "}
+                  <Button
+                    className="w-max min-w-20"
+                    onClick={() => {
+                      setEditGroup(group.name);
+                    }}
+                    variant="success"
+                  >
+                    Edit
+                  </Button>
+                </>
+              )}
+            </div>
+            {editGroup === group.name && (
+              <>
+                {group.teams.map((team, index) => (
+                  <div
+                    className={
+                      editTeams === team.name
+                        ? "grid grid-cols-1 gap-3"
+                        : "grid grid-cols-3"
+                    }
+                    key={index}
+                  >
+                    {" "}
+                    {editTeams === team.name ? (
+                      <div>
+                        <div className="mb-2">
+                          {" "}
+                          <Input
+                            type="text"
+                            value={team.name}
+                            onChange={(e) =>
+                              handleEditTeam(e.target.value, team.name)
+                            }
+                            className="mr-8 mb-2 max-w-80"
+                          />
+                        </div>
+                        <>
+                          <div className="bg-gray-200 p-3 mt-2">
+                            {
+                              <>
+                                <div className="flex gap-2 items-center mt-2 w-full flex-wrap md:flex-nowrap">
+                                  <div className="flex gap-2 items-center w-max">
+                                    <label>Wins</label>{" "}
+                                    <Input
+                                      type="number"
+                                      value={team.win_total}
+                                      onChange={(e) =>
+                                        handleEditTeamStat(
+                                          "win_total",
+                                          e.target.value,
+                                          team.name
+                                        )
+                                      }
+                                      className="mr-8 max-w-30"
+                                    />
+                                  </div>
+                                  <div className="flex gap-2 items-center max-w-40">
+                                    <label>Lose</label>{" "}
+                                    <Input
+                                      type="number"
+                                      value={team.loss_total}
+                                      onChange={(e) =>
+                                        handleEditTeamStat(
+                                          "loss_total",
+                                          e.target.value,
+                                          team.name
+                                        )
+                                      }
+                                      className="mr-8 max-w-60"
+                                    />
+                                  </div>
+                                  <div className="flex gap-2 items-center max-w-40">
+                                    <label>Draw</label>{" "}
+                                    <Input
+                                      type="number"
+                                      value={team.draw_total}
+                                      onChange={(e) =>
+                                        handleEditTeamStat(
+                                          "draw_total",
+                                          e.target.value,
+                                          team.name
+                                        )
+                                      }
+                                      className="mr-8 max-w-60"
+                                    />
+                                  </div>
+                                  <div className="flex gap-2 items-center max-w-40">
+                                    <label>Goals</label>{" "}
+                                    <Input
+                                      type="number"
+                                      value={team.goals_for}
+                                      onChange={(e) =>
+                                        handleEditTeamStat(
+                                          "goals_for",
+                                          e.target.value,
+                                          team.name
+                                        )
+                                      }
+                                      className="mr-8 max-w-60"
+                                    />
+                                  </div>
+                                  <div className="flex gap-2 items-center max-w-40">
+                                    <label>GA</label>{" "}
+                                    <Input
+                                      type="number"
+                                      value={team.goals_against}
+                                      onChange={(e) =>
+                                        handleEditTeamStat(
+                                          "goals_against",
+                                          e.target.value,
+                                          team.name
+                                        )
+                                      }
+                                      className="mr-8 max-w-60"
+                                    />
+                                  </div>
+                                </div>
+                              </>
+                            }
+                          </div>
+                        </>
+                      </div>
+                    ) : (
+                      <>
+                        {" "}
+                        <Label className="mb-2 text-md">{team.name}</Label>
+                        <Label className="mb-2 text-md">
+                          {`${
+                            team.win_total + team.loss_total + team.draw_total
+                          }-${team.win_total}-${team.loss_total}-${
+                            team.draw_total
+                          } `}
+                          <span className="font-bold">{team.points} pts</span>
+                        </Label>
+                      </>
+                    )}
+                    <div className="flex gap-1">
+                      {" "}
+                      {editTeams === team.name ? (
+                        <Button
+                          onClick={() => {
+                            setEditTeams("");
+                          }}
+                        >
+                          Cancel
+                        </Button>
+                      ) : (
+                        <Button
+                          className="max-w-40"
+                          onClick={() => {
+                            setEditTeams(team.name);
+                          }}
+                          variant="success"
+                        >
+                          Edit
+                        </Button>
+                      )}
+                      {editTeams === team.name ? (
+                        <Button
+                          className="max-w-40"
+                          onClick={() => {
+                            setEditTeams("");
+                            handleSave();
+                          }}
+                          variant="success"
+                        >
+                          Save
+                        </Button>
+                      ) : (
+                        <Button
+                          className="min-w-40"
+                          variant="destructive"
+                          onClick={() => {
+                            handleDelete(team.team_id);
+                          }}
+                        >
+                          Delete
+                        </Button>
+                      )}
+                    </div>
+                  </div>
+                ))}
+              </>
+            )}
           </div>
         ))}
       </div>
