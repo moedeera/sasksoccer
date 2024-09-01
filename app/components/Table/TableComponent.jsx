@@ -15,9 +15,19 @@ import Spinner from "../Spinner";
 const TableComponent = ({ data, leagueDetails, name }) => {
   const [teamsInfo, setTeamsInfo] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [currentdetails, setCurrentDetails] = useState("");
 
-  const groupDetails = leagueDetails.find((detail) => detail.group === name);
-  console.log(leagueDetails[0].group, name);
+  useEffect(() => {
+    const match = leagueDetails.some((detail) => detail.group === name);
+    if (match) {
+      const matchingDetails = leagueDetails.find(
+        (detail) => detail.group === name
+      );
+      console.log(matchingDetails);
+      setCurrentDetails(matchingDetails);
+    }
+  }, []);
+
   useEffect(() => {
     if (data) {
       setTeamsInfo(data);
@@ -66,10 +76,41 @@ const TableComponent = ({ data, leagueDetails, name }) => {
         </TableHeader>
         <TableBody>
           {teamsInfo?.map((team, index) => (
-            <TableRow key={team.name}>
+            <TableRow
+              key={team.name}
+              className={
+                currentdetails &&
+                currentdetails.completed &&
+                currentdetails.winner === team.name
+                  ? "bg-green-100"
+                  : currentdetails &&
+                    currentdetails.completed &&
+                    currentdetails.runnerUp === team.name
+                  ? "bg-gray-100"
+                  : ""
+              }
+            >
               <TableCell className="font-medium">{index + 1}</TableCell>
 
-              <TableCell className="text-xs md:text-sm">{team.name}</TableCell>
+              <TableCell className="text-xs md:text-sm">
+                {team.name}
+                {currentdetails &&
+                  currentdetails.completed &&
+                  currentdetails.winner === team.name && (
+                    <small className="hidden md:inline ml-2">
+                      {" "}
+                      (Playoff Winner)
+                    </small>
+                  )}
+                {currentdetails &&
+                  currentdetails.completed &&
+                  currentdetails.runnerUp === team.name && (
+                    <small className="hidden md:inline ml-2">
+                      {" "}
+                      (Playoff Finalist)
+                    </small>
+                  )}
+              </TableCell>
 
               <TableCell className="text-right text-xs md:text-sm">
                 {team.win_total + team.draw_total + team.loss_total}

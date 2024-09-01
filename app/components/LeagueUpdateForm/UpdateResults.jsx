@@ -46,15 +46,19 @@ const UpdateResults = ({
     groups.push(unit.name);
   });
 
-  const [newDetails, setNewDetails] = useState({
-    group: "",
-    completed: false,
-    winner: "TBA",
-    runnerUp: "TBA",
-    playoffs1: "",
-    playoffs2: "",
-    final: "",
-  });
+  const [newDetails, setNewDetails] = useState(
+    details
+      ? details
+      : {
+          group: "",
+          completed: false,
+          winner: "TBA",
+          runnerUp: "TBA",
+          playoffs1: "",
+          playoffs2: "",
+          final: "",
+        }
+  );
   const [teamRankings, setTeamRankings] = useState({
     firstPlace: "1st Place Team",
     secondPlace: "2nd Place Team",
