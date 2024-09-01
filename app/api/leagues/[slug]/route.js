@@ -35,6 +35,7 @@ export const PUT = async (request, { params }) => {
     const { userId } = sessionUser;
 
     const body = await request.json();
+    console.log(body.details);
     const leagueSlug = params.slug;
 
     // Find the existing league
@@ -71,6 +72,7 @@ export const PUT = async (request, { params }) => {
 
     league.teams = body.teams;
     league.games = body.games;
+    league.details = body.details;
     league.updatedAt = new Date();
 
     await league.save();

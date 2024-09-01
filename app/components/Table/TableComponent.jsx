@@ -12,10 +12,12 @@ import {
 } from "@/components/ui/table";
 import Spinner from "../Spinner";
 
-const TableComponent = ({ data }) => {
+const TableComponent = ({ data, leagueDetails, name }) => {
   const [teamsInfo, setTeamsInfo] = useState(null);
   const [loading, setLoading] = useState(true);
 
+  const groupDetails = leagueDetails.find((detail) => detail.group === name);
+  console.log(leagueDetails[0].group, name);
   useEffect(() => {
     if (data) {
       setTeamsInfo(data);

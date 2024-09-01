@@ -36,7 +36,7 @@ const LeagueUpdateForm = () => {
   const [loading, setLoading] = useState(false);
   const [description, setDescription] = useState("");
   const [games, setGames] = useState([]);
-
+  const [details, setDetails] = useState();
   const [error, setError] = useState("");
   const { slug } = useParams();
   const router = useRouter();
@@ -54,6 +54,20 @@ const LeagueUpdateForm = () => {
         setType(data.type);
         setDescription(data.description);
         setGames(data.games);
+        setDetails(
+          data?.details
+            ? data.details
+            : {
+                group: "",
+                completed: false,
+                winner: "TBA",
+                runnerUp: "TBA",
+                playOffs1: "",
+                playOffs2: "",
+                final: "",
+              }
+        );
+        console.log(data.details);
       } catch (error) {
         console.error("Failed to fetch league data:", error);
       }
@@ -69,6 +83,11 @@ const LeagueUpdateForm = () => {
     }
 
     try {
+      console.log(details);
+      if (details === 1) {
+        console.log("error");
+        return;
+      }
       setLoading(true);
       const response = await fetch(`/api/leagues/${slug}`, {
         method: "PUT",
@@ -82,6 +101,7 @@ const LeagueUpdateForm = () => {
           type,
           teams,
           games,
+          details,
         }),
       });
 
@@ -123,6 +143,8 @@ const LeagueUpdateForm = () => {
                 setError={setError}
                 setTeams={setTeams}
                 teams={teams}
+                details={details}
+                setDetails={setDetails}
               />
             </>
           </TabsContent>

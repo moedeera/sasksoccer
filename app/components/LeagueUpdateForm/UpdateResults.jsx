@@ -11,8 +11,17 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import React, { useEffect, useState } from "react";
+import { calculateTeamRating } from "./Functions";
 
-const UpdateResults = ({ games, setGames, teams, setTeams, setError }) => {
+const UpdateResults = ({
+  games,
+  setGames,
+  teams,
+  setTeams,
+  setError,
+  details,
+  setDetails,
+}) => {
   // sort teams by group
   const teamsAssortedByGroup = teams.reduce((acc, team) => {
     // Find if the group already exists in the accumulator
@@ -36,14 +45,14 @@ const UpdateResults = ({ games, setGames, teams, setTeams, setError }) => {
   teamsAssortedByGroup.forEach((unit) => {
     groups.push(unit.name);
   });
-  console.log(groups);
+
   const [newDetails, setNewDetails] = useState({
     group: "",
     completed: false,
     winner: "TBA",
     runnerUp: "TBA",
-    playOffs1: "",
-    playOffs2: "",
+    playoffs1: "",
+    playoffs2: "",
     final: "",
   });
   const [teamRankings, setTeamRankings] = useState({
@@ -55,16 +64,22 @@ const UpdateResults = ({ games, setGames, teams, setTeams, setError }) => {
     secondFinalist: "Winner of SF2 (2nd vs 3rd)",
   });
 
-  const calculateTeamRating = (team) => {
-    return (
-      (team.win_total * 3 + team.draw_total) * 10 -
-      (team.goals_for - team.goals_against) * 0.1
-    );
-  };
-
   const handleNewDetailChange = (value, name) => {
-    const newDetail = { ...newDetails, [name]: value };
-    setNewDetails(newDetail);
+    let match = false;
+    if (name === "group") {
+      if (details.length > 0) {
+        match = details.find((detail) => detail.name === value);
+      }
+
+      if (match) {
+        console.log("match");
+        setNewDetails(match);
+      } else {
+        console.log("no match");
+        const newDetail = { ...newDetails, [name]: value };
+        setNewDetails(newDetail);
+      }
+    }
   };
 
   const [groupsTeams, setGroupsTeams] = useState([]);
@@ -161,6 +176,57 @@ const UpdateResults = ({ games, setGames, teams, setTeams, setError }) => {
       return newPlayoffResults;
     });
   };
+  useEffect(() => {
+    // Ensure this effect runs with the latest values of all dependencies
+    if (
+      teamRankings.firstFinalist === "Winner of SF1 (1st vs 4th)" ||
+      teamRankings.secondFinalist === "Winner of SF2 (2nd vs 3rd)"
+    ) {
+      console.log("waiting for scores from both teams", teamRankings);
+      return;
+    }
+
+    console.log("called for A");
+    setNewDetails((prevDetails) => {
+      let updatedDetails = { ...prevDetails };
+      if (playoffResults.finalResult[0] > playoffResults.finalResult[1]) {
+        console.log("called for condition 1");
+        updatedDetails = {
+          ...prevDetails,
+          winner: teamRankings.firstFinalist,
+          runnerUp: teamRankings.secondFinalist,
+          completed: true,
+        };
+      } else if (
+        playoffResults.finalResult[0] < playoffResults.finalResult[1]
+      ) {
+        updatedDetails = {
+          ...prevDetails,
+          winner: teamRankings.secondFinalist,
+          runnerUp: teamRankings.firstFinalist,
+          completed: true,
+        };
+      } else {
+        updatedDetails = {
+          ...prevDetails,
+          winner: "TBA",
+          runnerUp: "TBA",
+        };
+      }
+      console.log("completed", updatedDetails);
+      return updatedDetails;
+    });
+  }, [
+    playoffResults.finalResult,
+    teamRankings.firstFinalist,
+    teamRankings.secondFinalist,
+  ]);
+
+  // const handleGroupChange = () => {
+  //   const matchingGroupDetails = details.find(
+  //     (group) => group.name === newDetails.group
+  //   );
+  // };
 
   return (
     <div className="flex flex-col gap-3 justify-center">
@@ -188,23 +254,10 @@ const UpdateResults = ({ games, setGames, teams, setTeams, setError }) => {
             </Select>
           </div>
           <div className="flex gap-2 items-center">
-            <div>Completed</div>
-            <Select
-              defaultValue={false}
-              onValueChange={(value) =>
-                handleNewDetailChange(value, "completed")
-              }
-            >
-              <SelectTrigger className="w-[180px]">
-                <SelectValue placeholder="False" />
-              </SelectTrigger>
-              <SelectContent>
-                <SelectGroup>
-                  <SelectItem value={true}>True</SelectItem>
-                  <SelectItem value={false}>False</SelectItem>
-                </SelectGroup>
-              </SelectContent>
-            </Select>
+            <div>Completed:</div>
+            <div className="border w-20 p-1">
+              {newDetails.completed ? "True" : "False"}
+            </div>
           </div>
         </div>
         <div className="flex gap-3 items-center mt-3 flex-wrap">
@@ -349,6 +402,35 @@ const UpdateResults = ({ games, setGames, teams, setTeams, setError }) => {
           </div>
         </div>
       </div>
+      <Button
+        onClick={() => {
+          let match = false;
+          console.log(details);
+          let updatedDetails = [];
+          const fullDetails = {
+            ...newDetails,
+            final: `${teamRankings.firstFinalist} ${playoffResults.finalResult[0]}-${playoffResults.finalResult[1]} ${teamRankings.secondFinalist}`,
+            playoffs1: `${teamRankings.firstPlace} ${playoffResults.playoffResult1[0]}-${playoffResults.playoffResult1[1]} ${teamRankings.fourthPlace}`,
+            playoffs2: `${teamRankings.secondPlace} ${playoffResults.playoffResult2[0]}-${playoffResults.playoffResult2[1]} ${teamRankings.thirdPlace}`,
+          };
+          if (details.length > 0) {
+            match = details.find((detail) => detail.name === newDetails);
+          }
+
+          if (match) {
+            updatedDetails = details.map((detail) =>
+              detail.group === newDetails.group ? fullDetails : detail
+            );
+          } else {
+            updatedDetails = [...details, fullDetails];
+          }
+          console.log(updatedDetails);
+          setDetails(updatedDetails);
+          console.log(details);
+        }}
+      >
+        Save Results
+      </Button>
     </div>
   );
 };

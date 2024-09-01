@@ -213,7 +213,11 @@ const LeaguePage = () => {
                               <h3 className="text-2xl mb-3">
                                 {league.groups && group.name}
                               </h3>
-                              <TableComponent data={group.assorted_teams} />
+                              <TableComponent
+                                data={group.assorted_teams}
+                                leagueDetails={league?.details}
+                                name={group.name}
+                              />
                             </div>
                           )
                       )}
@@ -227,7 +231,11 @@ const LeaguePage = () => {
                               <h3 className="text-2xl mb-3">
                                 {league.groups && group.name}
                               </h3>
-                              <TableComponent data={group.assorted_teams} />
+                              <TableComponent
+                                data={group.assorted_teams}
+                                leagueDetails={league?.details}
+                                name={group.name}
+                              />
                             </div>
                           )
                       )}
