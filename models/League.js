@@ -56,7 +56,6 @@ const LeagueSchema = new Schema(
         home_team_goals: { type: Number, required: true },
         away_team_goals: { type: Number, required: true },
         date_of_game: { type: Date, required: true },
-        // match_number: { type: Number, required: true },
       },
     ],
     details: [
@@ -65,7 +64,10 @@ const LeagueSchema = new Schema(
         completed: { type: Boolean, required: true, default: false },
         winner: { type: String, required: true },
         runnerUp: { type: String, required: true },
-        playoffs: { type: String, required: true },
+        playoffs1: { type: String, required: true },
+        playoffs2: { type: String, required: true },
+        final: { type: String, required: true },
+        link: { type: String, required: false },
       },
     ],
     images: [

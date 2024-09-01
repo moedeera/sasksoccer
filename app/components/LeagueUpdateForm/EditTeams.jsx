@@ -110,7 +110,7 @@ const EditTeams = ({ teams, setTeams, league, error, setError }) => {
   }, []);
   const finalTeamsArray = calculateAndSortTeamsByPoints(teamsAssortedByGroup);
 
-  console.log(finalTeamsArray);
+  console.log(teamsAssortedByGroup);
 
   if (loading) {
     return <Spinner />;
