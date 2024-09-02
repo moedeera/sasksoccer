@@ -46,19 +46,19 @@ const UpdateResults = ({
     groups.push(unit.name);
   });
 
-  const [newDetails, setNewDetails] = useState(
-    details
-      ? details
-      : {
-          group: "",
-          completed: false,
-          winner: "TBA",
-          runnerUp: "TBA",
-          playoffs1: "",
-          playoffs2: "",
-          final: "",
-        }
+  const [newDetails, setNewDetails] = useState(details ? details : []);
+  const [leagueDetailsArray, setLeagueDetailsArray] = useState(
+    details ? details : []
   );
+  const [currentGroupDetails, setCurrentGroupDetails] = useState({
+    group: "",
+    completed: false,
+    winner: "TBA",
+    runnerUp: "TBA",
+    playoffs1: "",
+    playoffs2: "",
+    final: "",
+  });
   const [teamRankings, setTeamRankings] = useState({
     firstPlace: "1st Place Team",
     secondPlace: "2nd Place Team",
@@ -70,13 +70,63 @@ const UpdateResults = ({
 
   const handleNewDetailChange = (value, name) => {
     let match = false;
+    let updatedLeagueDetailsArray = [];
+    // check if the variable being changed is group
+    if (name === "group") {
+      // If it is, check if details is zero in length
+      if (details.length === 0) {
+        console.log("no details for this league, creating one...");
+        // If details is 0 in length immediately create new group detail
+        let newDetailsForGroup = {
+          group: teams[0].group,
+          completed: false,
+          winner: "TBA",
+          runnerUp: "TBA",
+          playoffs1: "",
+          playoffs2: "",
+          final: "",
+        };
+        updatedLeagueDetailsArray = [...newDetailsForGroup];
+        console.log("updatedDetails:", updatedLeagueDetailsArray);
+        // put that group detail in the new league detail
+        setLeagueDetailsArray(updatedLeagueDetailsArray);
+      } else {
+        // if there are details in this league check for a match
+        match = details.find((detail) => detail.group === value);
+        if (match) {
+          // if a match is found update the hook for current group details
+          console.log("match for this group:", match);
+          setCurrentGroupDetails(match);
+        } else {
+          // else if no match is found create new details and update league array
+          console.log("no match");
+          const newDetailsForGroup = {
+            group: value,
+            completed: false,
+            winner: "TBA",
+            runnerUp: "TBA",
+            playoffs1: "",
+            playoffs2: "",
+            final: "",
+          };
+          updatedLeagueDetailsArray = [...details, newDetailsForGroup];
+          console.log(
+            "no match, create new groupDetail Object and pushed it into array:",
+            updatedLeagueDetailsArray
+          );
+          setLeagueDetailsArray(updatedLeagueDetailsArray);
+          setCurrentGroupDetails(newDetailsForGroup);
+        }
+      }
+    }
+
     if (name === "group") {
       if (details.length > 0) {
-        match = details.find((detail) => detail.name === value);
+        match = details.find((detail) => detail.group === value);
+        console.log(details, match);
       }
 
       if (match) {
-        console.log("match");
         setNewDetails(match);
       } else {
         console.log("no match");
@@ -119,7 +169,6 @@ const UpdateResults = ({
 
   const updatePlayoffResultsAndFinalists = (score, teamName) => {
     if (score === null || !score) {
-      console.log("no score");
       return;
     }
 
@@ -186,15 +235,12 @@ const UpdateResults = ({
       teamRankings.firstFinalist === "Winner of SF1 (1st vs 4th)" ||
       teamRankings.secondFinalist === "Winner of SF2 (2nd vs 3rd)"
     ) {
-      console.log("waiting for scores from both teams", teamRankings);
       return;
     }
 
-    console.log("called for A");
     setNewDetails((prevDetails) => {
       let updatedDetails = { ...prevDetails };
       if (playoffResults.finalResult[0] > playoffResults.finalResult[1]) {
-        console.log("called for condition 1");
         updatedDetails = {
           ...prevDetails,
           winner: teamRankings.firstFinalist,
@@ -217,7 +263,7 @@ const UpdateResults = ({
           runnerUp: "TBA",
         };
       }
-      console.log("completed", updatedDetails);
+
       return updatedDetails;
     });
   }, [
@@ -409,7 +455,7 @@ const UpdateResults = ({
       <Button
         onClick={() => {
           let match = false;
-          console.log(details);
+
           let updatedDetails = [];
           const fullDetails = {
             ...newDetails,
