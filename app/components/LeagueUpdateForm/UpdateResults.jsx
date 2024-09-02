@@ -314,11 +314,13 @@ const UpdateResults = ({
           {" "}
           <div className="flex gap-2 items-center flex-wrap">
             <div>Winner:</div>
-            <div className="border w-40 p-1">{newDetails.winner}</div>
+            <div className="border w-40 p-1">{currentGroupDetails.winner}</div>
           </div>
           <div className="flex gap-2 items-center flex-wrap">
             <div>Runner-Up</div>
-            <div className="border w-44 p-1">{newDetails.runnerUp}</div>
+            <div className="border w-44 p-1">
+              {currentGroupDetails.runnerUp}
+            </div>
           </div>
         </div>
         <div className=" mt-3 font-bold">Playoff Semi-final 1</div>
