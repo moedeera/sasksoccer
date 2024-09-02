@@ -1,4 +1,5 @@
 "use client";
+import { BarLoader } from "react-spinners";
 import ClipLoader from "react-spinners/ClipLoader";
 
 const override = {
@@ -8,8 +9,14 @@ const override = {
 
 const Spinner = ({ loading }) => {
   return (
-    <ClipLoader
-      color="#3b82f6"
+    // <ClipLoader
+    //   color="#3b82f6"
+    //   loading={loading}
+    //   cssOverride={override}
+    //   size={150}
+    //   aria-label="Loading Spinner"
+    // />
+    <BarLoader
       loading={loading}
       cssOverride={override}
       size={150}
