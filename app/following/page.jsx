@@ -21,7 +21,7 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 
 toast;
-const ProfilePage = () => {
+const FollowingPage = () => {
   const { data: session } = useSession();
   const profileImage = session?.user?.image;
   const profileName = session?.user?.name;
@@ -129,42 +129,11 @@ const ProfilePage = () => {
     <section className="bg-blue-50">
       <div className="container m-auto py-24">
         <div className="bg-white px-6 py-8 mb-4 shadow-md rounded-md border m-4 md:m-0">
-          <h1 className="text-xl font-bold mb-4">Your Profile</h1>
           <div className="flex flex-col md:flex-row">
-            <div className="md:w-1/4 mx-20 mt-10">
-              <div className="mb-4">
-                {profileImage ? (
-                  <Image
-                    className="h-32 w-32 md:h-24 md:w-24 rounded-full mx-auto md:mx-0"
-                    src={profileImage}
-                    width={400}
-                    height={300}
-                    alt="profile image"
-                  />
-                ) : (
-                  <Image
-                    className="h-32 w-32 md:h-48 md:w-48 rounded-full mx-auto md:mx-0"
-                    src={profileDefault}
-                    alt="User"
-                    width={400}
-                    height={300}
-                  />
-                )}
-              </div>
-              <h2 className="text-lg mb-4">
-                <span className="font-bold block text-lg">Name: </span>
-                {profileName ? profileName : "John Doe"}
-              </h2>
-              <h2 className="text-lg">
-                <span className="font-bold block">Email: </span>
-                {profileEmail ? profileEmail : "john@gmail.com"}
-              </h2>
-            </div>
-
             <div className="md:w-3/4 md:pl-4">
               <h2 className="text-xl font-semibold mb-4">Leagues you follow</h2>
               {loading && <Spinner loading={loading} />}
-              <div className="grid md:grid-cols-3">
+              <div className="grid md:grid-cols-3 gap-2">
                 {leagues.length && !loading === 0
                   ? "No leagues"
                   : leagues?.map((league) => (
@@ -173,14 +142,6 @@ const ProfilePage = () => {
                         className="flex flex-col justify-between"
                       >
                         <CardHeader>
-                          {/* <div
-                            className="card-image w-full h-56 bg-black bg-center bg-cover"
-                            style={{
-                              backgroundImage: `url("${
-                                league?.images ? league.images[0] : league.image
-                              }")`,
-                            }}
-                          ></div> */}
                           <AspectRatio ratio={16 / 9} className="bg-muted">
                             <Image
                               src={
@@ -199,6 +160,18 @@ const ProfilePage = () => {
                           <CardDescription>
                             {league.description}
                           </CardDescription>
+                          <div className="text-sm"> Type: {league.type}</div>
+                          <div className="text-sm">Divisions</div>
+                          <div className="text-xs">
+                            {" "}
+                            {league.groups &&
+                              league.details.map((detail, index) => (
+                                <span key={index}>
+                                  {detail.group}
+                                  <br />
+                                </span>
+                              ))}
+                          </div>
                         </CardContent>
 
                         <CardFooter className="flex flex-col justify-center gap-3">
@@ -230,4 +203,4 @@ const ProfilePage = () => {
   );
 };
 
-export default ProfilePage;
+export default FollowingPage;

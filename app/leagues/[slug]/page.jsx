@@ -22,7 +22,6 @@ import {
 } from "@/components/ui/select";
 import BookMarkButton from "@/app/components/BookMarkButton";
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { Badge } from "@/components/ui/badge";
 import { TabsContent } from "@radix-ui/react-tabs";
 
 const LeaguePage = () => {
@@ -225,9 +224,9 @@ const LeaguePage = () => {
 
                               <Tabs
                                 defaultValue="standings"
-                                className="md:block md:w-full  pb-1"
+                                className="md:block md:w-full border pb-1 mb-4"
                               >
-                                <TabsList className="flex justify-start  md:grid md:w-full md:grid-cols-4 gap-1 bg-gray-200">
+                                <TabsList className="flex justify-start  md:grid md:w-full md:grid-cols-4 gap-1 bg-gray-200 mb-1">
                                   <TabsTrigger
                                     value="standings"
                                     style={{
@@ -332,6 +331,7 @@ const LeaguePage = () => {
                                       key={index}
                                       className="bg-gray-200 p-3 text-sm"
                                     >
+                                      <div>Details:</div>
                                       <div>
                                         {" "}
                                         Playoff Champions:{" "}

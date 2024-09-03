@@ -24,7 +24,7 @@ export function GlobalProvider({ children }) {
 
   const links = [
     { name: "Profile", link: "/profile" },
-    { name: "Your Watchlist", link: "/leagues/create" },
+    { name: "Your Follows", link: "/following" },
   ];
 
   const headerLinks = [
