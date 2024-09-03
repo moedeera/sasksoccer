@@ -45,7 +45,7 @@ const TableComponent = ({ data, leagueDetails, name }) => {
         <TableHeader>
           <TableRow className="bg-black hover:bg-black">
             <TableHead className="w-[10px]">#</TableHead>
-            <TableHead className="font-bold text-white text-xs md:text-sm">
+            <TableHead className="font-bold text-white text-xs md:text-sm ">
               Team
             </TableHead>
             <TableHead className="text-right font-bold text-white text-xs md:text-sm">
@@ -92,22 +92,41 @@ const TableComponent = ({ data, leagueDetails, name }) => {
             >
               <TableCell className="font-medium">{index + 1}</TableCell>
 
-              <TableCell className="text-xs md:text-sm">
+              <TableCell
+                //  className="text-xs md:text-sm"
+                className={
+                  currentdetails &&
+                  currentdetails.completed &&
+                  currentdetails.winner === team.name
+                    ? "text-xs md:text-sm font-bold"
+                    : currentdetails &&
+                      currentdetails.completed &&
+                      currentdetails.runnerUp === team.name
+                    ? "text-xs md:text-sm font-bold"
+                    : "text-xs md:text-sm"
+                }
+              >
                 {team.name}
                 {currentdetails &&
                   currentdetails.completed &&
                   currentdetails.winner === team.name && (
-                    <small className="hidden md:inline ml-2">
+                    <small
+                      className="hidden md:inline ml-2"
+                      style={{ fontSize: "8px;" }}
+                    >
                       {" "}
-                      (Playoff Winner)
+                      (Playoff Winners)
                     </small>
                   )}
                 {currentdetails &&
                   currentdetails.completed &&
                   currentdetails.runnerUp === team.name && (
-                    <small className="hidden md:inline ml-2">
+                    <small
+                      className="hidden md:inline ml-2"
+                      style={{ fontSize: "8px;" }}
+                    >
                       {" "}
-                      (Playoff Finalist)
+                      (Playoff Finalists)
                     </small>
                   )}
               </TableCell>
