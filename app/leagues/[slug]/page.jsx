@@ -227,7 +227,7 @@ const LeaguePage = () => {
                                 defaultValue="standings"
                                 className="md:block md:w-full  pb-1"
                               >
-                                <TabsList className="flex  md:grid md:w-full md:grid-cols-4 gap-1 bg-gray-200">
+                                <TabsList className="flex justify-start  md:grid md:w-full md:grid-cols-4 gap-1 bg-gray-200">
                                   <TabsTrigger
                                     value="standings"
                                     style={{
