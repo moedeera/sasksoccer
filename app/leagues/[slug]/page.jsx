@@ -209,8 +209,8 @@ const LeaguePage = () => {
                       {teamsInView.map(
                         (group, index) =>
                           group.name !== "All" && (
-                            <div key={index} className="mb-8">
-                              <h3 className="text-2xl mb-3">
+                            <div key={index} className="mb-8  border">
+                              <h3 className="text-2xl  px-1 py-3 text-xl bg-gray-100 font-bold">
                                 {league.groups && group.name}
                               </h3>
                               <TableComponent
@@ -223,12 +223,12 @@ const LeaguePage = () => {
                       )}
                     </div>
                   ) : (
-                    <div className="overflow-x-scroll grid mt-4 ">
+                    <div className="overflow-x-scroll grid mt-4  border">
                       {teamsInView.map(
                         (group, index) =>
                           group.name !== "all" && (
                             <div key={index} className="mb-8">
-                              <h3 className="text-2xl mb-3">
+                              <h3 className="text-2xl  px-1 py-3 text-xl bg-gray-100 font-bold">
                                 {league.groups && group.name}
                               </h3>
                               <TableComponent
