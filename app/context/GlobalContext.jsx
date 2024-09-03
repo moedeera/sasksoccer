@@ -45,7 +45,7 @@ export function GlobalProvider({ children }) {
           name: "Women's Full Field 2024",
           link: "/leagues/women's-outdoor-2024",
         },
-        { name: "Mens Legends 2024", link: "/leagues/men's-masters-2024" },
+        { name: "Mens Legends 2024", link: "/leagues/men's-legends-2024" },
         { name: "Mens Masters 2024", link: "/leagues/men's-masters-2024" },
         {
           name: "Mens Half field 2024",

@@ -86,7 +86,8 @@ const UpdateResults = ({
           playoffs2: "",
           final: "",
         };
-        updatedLeagueDetailsArray = [...newDetailsForGroup];
+        const createdArray = [newDetailsForGroup];
+        updatedLeagueDetailsArray = [...createdArray];
         console.log("updatedDetails:", updatedLeagueDetailsArray);
         // put that group detail in the new league detail
         setLeagueDetailsArray(updatedLeagueDetailsArray);

@@ -2,6 +2,8 @@
 
 import { useEffect, useState } from "react";
 import "./Table.css";
+import { GiTrophy } from "react-icons/gi";
+import { FaMedal } from "react-icons/fa";
 import {
   Table,
   TableBody,
@@ -98,7 +100,7 @@ const TableComponent = ({ data, leagueDetails, name }) => {
                   currentdetails &&
                   currentdetails.completed &&
                   currentdetails.winner === team.name
-                    ? "text-xs md:text-sm font-bold"
+                    ? "text-xs md:text-sm font-bold flex items-center"
                     : currentdetails &&
                       currentdetails.completed &&
                       currentdetails.runnerUp === team.name
@@ -112,10 +114,10 @@ const TableComponent = ({ data, leagueDetails, name }) => {
                   currentdetails.winner === team.name && (
                     <small
                       className="hidden md:inline ml-2"
-                      style={{ fontSize: "8px;" }}
+                      style={{ fontSize: "4px;" }}
                     >
                       {" "}
-                      (Playoff Winners)
+                      <GiTrophy />
                     </small>
                   )}
                 {currentdetails &&
@@ -123,10 +125,9 @@ const TableComponent = ({ data, leagueDetails, name }) => {
                   currentdetails.runnerUp === team.name && (
                     <small
                       className="hidden md:inline ml-2"
-                      style={{ fontSize: "8px;" }}
+                      style={{ fontSize: "4px;" }}
                     >
-                      {" "}
-                      (Playoff Finalists)
+                      *
                     </small>
                   )}
               </TableCell>
