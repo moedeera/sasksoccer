@@ -225,7 +225,7 @@ const LeaguePage = () => {
 
                               <Tabs
                                 defaultValue="standings"
-                                className="hidden md:block md:w-full  pb-1"
+                                className="md:block md:w-full  pb-1"
                               >
                                 <TabsList className="flex  md:grid md:w-full md:grid-cols-4 gap-1 bg-gray-200">
                                   <TabsTrigger
