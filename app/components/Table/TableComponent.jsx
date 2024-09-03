@@ -43,7 +43,10 @@ const TableComponent = ({ data, leagueDetails, name }) => {
 
   return (
     <div className=" border border-grey ">
-      <Table className="text-xs md:text-sm">
+      <Table
+        className="text-xs md:text-sm"
+        style={{ transition: "all .35s ease-in-out" }}
+      >
         <TableHeader>
           <TableRow className="bg-black hover:bg-black">
             <TableHead className="w-[10px]">#</TableHead>

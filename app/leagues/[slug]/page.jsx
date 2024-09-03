@@ -259,7 +259,50 @@ const LeaguePage = () => {
                                   />
                                 </TabsContent>
                                 <TabsContent value="playoffs">
-                                  Playoffs
+                                  {league.details.map(
+                                    (detail, index) =>
+                                      detail.group === group.name &&
+                                      detail.completed && (
+                                        <div
+                                          key={index}
+                                          className="bg-gray-200 p-3 text-sm"
+                                        >
+                                          <div>
+                                            {" "}
+                                            Playoff Champions:{" "}
+                                            <span className="font-bold">
+                                              {detail.winner}
+                                            </span>
+                                          </div>
+                                          <div className="border border-gray-400 rounded p-1 my-1">
+                                            {" "}
+                                            Final: <br />
+                                            <span className="font-bold">
+                                              {detail.final}
+                                            </span>
+                                          </div>
+                                          {group.assorted_teams.length > 5 && (
+                                            <>
+                                              {" "}
+                                              <div className="border border-gray-400 rounded p-1 my-1">
+                                                {" "}
+                                                Semi-final 1: <br />
+                                                <span className="font-bold">
+                                                  {detail.playoffs1}
+                                                </span>
+                                              </div>
+                                              <div className="border border-gray-400 rounded p-1 my-1 ">
+                                                {" "}
+                                                Semi-final 2: <br />
+                                                <span className="font-bold">
+                                                  {detail.playoffs2}
+                                                </span>
+                                              </div>
+                                            </>
+                                          )}
+                                        </div>
+                                      )
+                                  )}
                                 </TabsContent>
                               </Tabs>
                             </div>
@@ -275,11 +318,56 @@ const LeaguePage = () => {
                               <h3 className="text-2xl  px-1 py-3 text-xl bg-gray-100 font-bold">
                                 {league.groups && group.name}
                               </h3>
+
                               <TableComponent
                                 data={group.assorted_teams}
                                 leagueDetails={league?.details}
                                 name={group.name}
                               />
+                              {league.details.map(
+                                (detail, index) =>
+                                  detail.group === group.name &&
+                                  detail.completed && (
+                                    <div
+                                      key={index}
+                                      className="bg-gray-200 p-3 text-sm"
+                                    >
+                                      <div>
+                                        {" "}
+                                        Playoff Champions:{" "}
+                                        <span className="font-bold">
+                                          {detail.winner}
+                                        </span>
+                                      </div>
+                                      <div className="border border-gray-400 rounded p-1 my-1">
+                                        {" "}
+                                        Final: <br />
+                                        <span className="font-bold">
+                                          {detail.final}
+                                        </span>
+                                      </div>
+                                      {group.assorted_teams.length > 5 && (
+                                        <>
+                                          {" "}
+                                          <div className="border border-gray-400 rounded p-1 my-1">
+                                            {" "}
+                                            Semi-final 1: <br />
+                                            <span className="font-bold">
+                                              {detail.playoffs1}
+                                            </span>
+                                          </div>
+                                          <div className="border border-gray-400 rounded p-1 my-1 ">
+                                            {" "}
+                                            Semi-final 2: <br />
+                                            <span className="font-bold">
+                                              {detail.playoffs2}
+                                            </span>
+                                          </div>
+                                        </>
+                                      )}
+                                    </div>
+                                  )
+                              )}
                             </div>
                           )
                       )}
