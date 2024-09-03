@@ -21,6 +21,9 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import BookMarkButton from "@/app/components/BookMarkButton";
+import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Badge } from "@/components/ui/badge";
+import { TabsContent } from "@radix-ui/react-tabs";
 
 const LeaguePage = () => {
   const { data: session } = useSession();
@@ -210,14 +213,55 @@ const LeaguePage = () => {
                         (group, index) =>
                           group.name !== "All" && (
                             <div key={index} className="mb-8  border">
-                              <h3 className="text-2xl  px-1 py-3 text-xl bg-gray-100 font-bold">
-                                {league.groups && group.name}
-                              </h3>
-                              <TableComponent
-                                data={group.assorted_teams}
-                                leagueDetails={league?.details}
-                                name={group.name}
-                              />
+                              <div className="px-1 py-3 bg-gray-200">
+                                {" "}
+                                <h3 className="text-2xl text-xl font-bold">
+                                  {league.groups && group.name}
+                                </h3>
+                                <small className="border py-1 text-xs">
+                                  Last updated August 29 2024
+                                </small>
+                              </div>
+
+                              <Tabs
+                                defaultValue="standings"
+                                className="hidden md:block md:w-full  pb-1"
+                              >
+                                <TabsList className="flex  md:grid md:w-full md:grid-cols-4 gap-1 bg-gray-200">
+                                  <TabsTrigger
+                                    value="standings"
+                                    style={{
+                                      border:
+                                        "2px solid rgba(128,128,128,0.65)",
+                                    }}
+                                  >
+                                    Standings
+                                  </TabsTrigger>
+                                  <TabsTrigger
+                                    value="playoffs"
+                                    style={{
+                                      border:
+                                        "2px solid rgba(128,128,128,0.65)",
+                                    }}
+                                  >
+                                    Playoffs
+                                  </TabsTrigger>
+                                </TabsList>
+                                <TabsContent
+                                  value="standings"
+                                  className="w-full"
+                                >
+                                  {" "}
+                                  <TableComponent
+                                    data={group.assorted_teams}
+                                    leagueDetails={league?.details}
+                                    name={group.name}
+                                  />
+                                </TabsContent>
+                                <TabsContent value="playoffs">
+                                  Playoffs
+                                </TabsContent>
+                              </Tabs>
                             </div>
                           )
                       )}
