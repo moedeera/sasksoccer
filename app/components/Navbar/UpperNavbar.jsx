@@ -8,16 +8,7 @@ import SideMenu from "../SideMenu/SideMenu";
 import profileDefault from "@/assets/images/profile.png";
 import logo from "./logo-no-background.png";
 import { GlobalContext } from "@/app/context/GlobalContext";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuGroup,
-  DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
+
 const UpperNavbar = () => {
   const { data: session } = useSession();
   const profileImage = session?.user?.image;
@@ -34,6 +25,44 @@ const UpperNavbar = () => {
             </Link>
           </div>
         </div>
+
+        {session?.user ? (
+          <div>
+            {" "}
+            <img
+              onClick={() => {
+                setIsProfileMenuOpen(!isProfileMenuOpen);
+              }}
+              src={session?.user?.image ? session.user.image : profileDefault}
+              alt=""
+              style={{ height: "25px", width: "25px", borderRadius: "50%" }}
+            />
+            {isProfileMenuOpen && (
+              <div className="absolute top-0 left-0 bg-gray-100 w-full h-48 top-full border rounded-md flex flex-col justify-evenly p-2 capitalize">
+                {" "}
+                {links.map(
+                  (link, index) =>
+                    (session || link.link !== "/properties/add") && (
+                      <Link
+                        onClick={() => {
+                          setIsProfileMenuOpen(false);
+                        }}
+                        key={index}
+                        href={link.link}
+                        className="text-black"
+                      >
+                        {link.name}
+                      </Link>
+                    )
+                )}
+              </div>
+            )}
+          </div>
+        ) : (
+          <button className="btn" onClick={() => signIn()}>
+            Login
+          </button>
+        )}
 
         <div
           className="mr-2 max-w-16 p-1 h-10 md:hidden "
