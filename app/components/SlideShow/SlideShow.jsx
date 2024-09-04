@@ -1,6 +1,6 @@
 "use client";
 import { useEffect, useState } from "react";
-import styles from "./Slideshow.css";
+import "./Slideshow.css";
 
 const Slideshow = ({ slides }) => {
   const [currentSlide, setCurrentSlide] = useState(0);

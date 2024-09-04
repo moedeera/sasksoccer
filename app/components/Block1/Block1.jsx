@@ -37,24 +37,17 @@ const Block1 = ({ data }) => {
             <div className="text py-4 px-4">
               <div className="text-3xl font-bold h3-header">{info.title}</div>
               <small>{info.date}</small>
-              <p className="pt-1 pb-3  pr-2">{info.content}</p>
-              <p className="pt-1 pb-3  pr-2">{info.content_sec}</p>
+              <p className="pt-1 pb-3  pr-2 text-base">{info.content}</p>
+              <p className="pt-1 pb-3  pr-2 text-base">{info.content_sec}</p>
               {info.buttonLink && (
                 <Link href={info.buttonLink} className="btn">
                   {info.buttonText}
                 </Link>
               )}
             </div>
-            {/* <div
-              className="block-1-image w-full h-full  "
-              style={{
-                backgroundImage: `url(${info.image})`,
-                minHeight: "350px",
-              }}
-            ></div> */}
             <AspectRatio ratio={16 / 9} className="bg-muted">
               <Image
-                src="https://images.pexels.com/photos/47730/the-ball-stadion-football-the-pitch-47730.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                src={info.image}
                 alt="Photo by Drew Beamer"
                 fill
                 className="h-full w-full rounded-md object-cover"

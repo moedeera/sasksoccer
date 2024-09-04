@@ -39,7 +39,7 @@ const Block2 = ({ data }) => {
           <small>Recent</small>
           <div className="text-3xl font-bold h3-header">{info.title}</div>
 
-          <p className="py-3  pr-2">{info.content}</p>
+          <p className="py-3  pr-2 text-base">{info.content}</p>
 
           {info.accordion && (
             <>

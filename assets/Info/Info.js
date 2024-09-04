@@ -251,6 +251,17 @@ const block1HomePage = {
   image:
     "/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Flogo.442efdd9.webp&w=640&q=75",
 };
+const block1HomePageFall = {
+  reverse: true,
+  title: "Indoor season is here",
+  date: "September 22 2024",
+  content: `Looking for a team to join? Plenty of teams are looking for players to fill their rosters before indoor season kicks in. `,
+  content_sec: ` Everything from Division 1 to Masters to Co-eds are still available.  If you are looking for something more casual you can check out our Meetup Group  on meetup up.com `,
+  image:
+    "https://images.pexels.com/photos/2935982/pexels-photo-2935982.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+  buttonText: "Read More",
+  buttonLink: "/",
+};
 const block1HomePage2 = {
   reverse: true,
   title: "Support Canada in Copa America 2024 ",
@@ -269,4 +280,5 @@ export {
   block1HomePage,
   playCardsData,
   shopCardsData,
+  block1HomePageFall,
 };
