@@ -19,19 +19,23 @@ const FooterComponent = () => {
               Dedicated to connecting soccer enthusiast in and around Saskatoon.
               For more content and latest updates, follow us on social media{" "}
             </div>
-            <div className="flex space-x-4 mt-4 md:h-44">
-              <Button variant="ghost" as="a" href="https://facebook.com">
-                <FaFacebook className="w-5 h-5" />
-              </Button>
-              <Button variant="ghost" as="a" href="https://twitter.com">
-                <FaTwitter className="w-5 h-5" />
-              </Button>
-              <Button variant="ghost" as="a" href="https://instagram.com">
-                <FaInstagram className="w-5 h-5" />
-              </Button>
-              <Button variant="ghost" as="a" href="https://linkedin.com">
-                <FaLinkedin className="w-5 h-5" />
-              </Button>
+            <div className="flex justify-between space-x-4 mt-4 md:h-44">
+              <Link href={"/"}>
+                {" "}
+                <FaFacebook className="w-8 h-8" />
+              </Link>
+              <Link href={"/"}>
+                {" "}
+                <FaTwitter className="w-8 h-8" />
+              </Link>
+              <Link href={"/"}>
+                {" "}
+                <FaInstagram className="w-8 h-8" />
+              </Link>
+              <Link href={"/"}>
+                {" "}
+                <FaLinkedin className="w-8 h-8" />
+              </Link>
             </div>
           </p>
         </div>
