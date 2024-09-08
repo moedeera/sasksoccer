@@ -82,6 +82,7 @@ const homeCardsData = [
     image:
       "https://images.pexels.com/photos/1171084/pexels-photo-1171084.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
     link: "play/casual",
+    newWindow: false,
     blog: true,
     button: {
       text: "More",
@@ -97,6 +98,7 @@ const homeCardsData = [
     image:
       "https://www.saskatoonadultsoccer.com/cloud/saskatoonadultsoccerinc/css/img/assocLogo.svg",
     link: "https://www.saskatoonadultsoccer.com",
+    newWindow: true,
     blog: true,
     button: {
       text: "Website",
@@ -111,6 +113,7 @@ const homeCardsData = [
     image:
       "https://www.saskatoonyouthsoccer.ca/cloud/saskatoonyouthsoccer/css/img/assocLogo.svg",
     link: "https://www.saskatoonyouthsoccer.ca",
+    newWindow: true,
     blog: true,
     button: {
       text: "Website",
@@ -125,6 +128,7 @@ const homeCardsData = [
     image:
       "/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fimage0.c1c04e41.jpg&w=640&q=75",
     link: "/faqs",
+    newWindow: false,
     blog: true,
     button: {
       text: "More",

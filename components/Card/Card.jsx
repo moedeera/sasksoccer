@@ -85,9 +85,15 @@ export function Cards({ data }) {
               passHref
               legacyBehavior
             >
-              <a target="_blank" className="btn text-xs">
-                {dat.button ? dat.button.text : "Read More"}
-              </a>
+              {dat?.newWindow ? (
+                <a target="_blank" className="btn text-xs">
+                  {dat.button ? dat.button.text : "Read More"}
+                </a>
+              ) : (
+                <div className="btn">
+                  {dat.button ? dat.button.text : "Read More"}
+                </div>
+              )}
             </Link>
           </CardFooter>
         </Card>
