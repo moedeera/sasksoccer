@@ -24,24 +24,22 @@ export const SideMenu = () => {
     <div>
       <Sheet>
         <SheetTrigger>
-          <Button
-            variant="secondary"
-            class="border rounded  py-1 mx-3 "
-            onClick={toggleMenu}
-          >
+          <div class="border " onClick={toggleMenu}>
             <div className="side-menu-icon">
               <div className="side-menu-bar upper"></div>
               <div className="side-menu-bar middle"></div>
               <div className="side-menu-bar lower"></div>
             </div>
-          </Button>
+          </div>
         </SheetTrigger>
 
         <SheetContent>
           <div className="flex flex-col gap-10 font-semibold">
             {headerLinks.map((link, index) => (
               <Link key={index} href={link.Link}>
-                <SheetClose>{link.name}</SheetClose>
+                <SheetClose>
+                  <div className="text-black">{link.name}</div>
+                </SheetClose>
               </Link>
             ))}
 

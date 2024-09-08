@@ -1,0 +1,129 @@
+.mb-navbar-container {
+}
+.mb-upper-navbar-container {
+  width: 100%;
+  background-color: black;
+  color: white;
+  display: flex;
+  align-items: center;
+  padding: 10px 5px;
+  /* min-height: 60px;
+  position: fixed;
+  top: 0;
+  width: 100%; */
+}
+.mb-lower-navbar-container {
+  width: 100%;
+  background-color: white;
+}
+.mb-upper-navbar {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin: 0 auto;
+  max-width: var(--maxWidth);
+}
+.mb-menu-bar-container {
+  height: 35px;
+  width: 40px;
+  border: 2px solid lightgrey;
+  position: relative;
+  border-radius: 5px;
+}
+
+/* Menu-bar  */
+.mb-bar {
+  position: absolute;
+  height: 2px;
+  width: 70%;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: black;
+  transition: all 0.35s ease-in-out;
+}
+.bar-upper {
+  top: 20%;
+}
+
+.bar-middle {
+  top: 45%;
+}
+.bar-lower {
+  top: 70%;
+}
+
+.bar-upper.menu-active {
+  transform: translateX(-50%) rotate(45deg); /* Rotate the upper bar to form an X */
+  top: 45%; /* Move to the center */
+}
+.bar-lower.menu-active {
+  transform: translateX(-50%) rotate(-45deg); /* Rotate the lower bar to form an X */
+  top: 45%; /* Move to the center */
+}
+.bar-middle.menu-active {
+  top: 45%;
+  display: none;
+}
+/* End of Menu-bar  */
+/* Avatar  */
+.mb-avatar-container {
+  display: none;
+}
+/*end of avatat*/
+
+/* Login Button */
+.mb-navbar-login-container {
+  display: none;
+}
+/*end of login button */
+
+.mb-lower-navbar {
+  display: none;
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+  .mb-navbar-container {
+  }
+  .mb-upper-navbar {
+  }
+  /* Menu-bar  */
+  .mb-menu-bar-container {
+    display: none;
+  }
+  /* Avatar */
+  .mb-avatar-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 35px;
+    width: 35px;
+    border-radius: 50%;
+    border: 1px solid black;
+    overflow: hidden;
+  }
+  .mb-avatar-container img {
+    width: 200%;
+  }
+  /* Login Button */
+  .mb-navbar-login-container {
+    display: block;
+  }
+  /*end of login button */
+  .mb-lower-navbar {
+    display: flex;
+    width: 100%;
+    margin: 0 auto;
+    max-width: var(--maxWidth);
+  }
+}
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 600px) {
+  .mb-navbar-container {
+  }
+  .mb-upper-navbar {
+  }
+
+  .mb-lower-navbar {
+  }
+}

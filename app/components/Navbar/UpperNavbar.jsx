@@ -59,9 +59,12 @@ const UpperNavbar = () => {
             )}
           </div>
         ) : (
-          <button className="btn" onClick={() => signIn()}>
-            Login
-          </button>
+          <div className="hidden md:block">
+            {" "}
+            <button className="btn" onClick={() => signIn()}>
+              Login
+            </button>
+          </div>
         )}
 
         <div

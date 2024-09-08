@@ -9,6 +9,7 @@ import { Inter as FontSans } from "next/font/google";
 import { cn } from "@/lib/utils";
 import Navbar2 from "./components/Navbar/Navbar";
 import FooterComponent from "./components/Footer/Footer";
+import NavbarJS from "./components/NavbarJS/NavbarJS";
 
 export const metadata = {
   title: "SaskSoccerHub",
@@ -32,6 +33,7 @@ const MainLayout = ({ children }) => {
             )}
           >
             <Navbar2 />
+            {/* <NavbarJS /> */}
 
             <main
               style={{
