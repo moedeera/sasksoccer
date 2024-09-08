@@ -21,7 +21,7 @@ export const SideMenu = () => {
   };
 
   return (
-    <div>
+    <div className="text-black">
       <Sheet>
         <SheetTrigger>
           <div class="border " onClick={toggleMenu}>
@@ -35,6 +35,9 @@ export const SideMenu = () => {
 
         <SheetContent>
           <div className="flex flex-col gap-10 font-semibold">
+            <SheetClose>
+              <div className="text-black border px-5 py-2 w-max">Close</div>
+            </SheetClose>
             {headerLinks.map((link, index) => (
               <Link key={index} href={link.Link}>
                 <SheetClose>
