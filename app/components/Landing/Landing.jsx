@@ -12,7 +12,9 @@ const Landing = ({ data }) => {
       ></div>
       <div className="landing-container">
         <div className="landing-content">
-          <h1 className="capitalize w-4/5 md:w-max">{data.title}</h1>
+          <h1 className="capitalize w-4/5  text-4xl md:text-5xl lg:text-6xl ">
+            {data.title}
+          </h1>
           <p className="text-white w-4/5 md:w-">{data.content}</p>
           {data.button && (
             <Link className="btn" href={data.buttonLink}>

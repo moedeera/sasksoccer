@@ -63,7 +63,7 @@ const ContactForm = () => {
         <h3 className="h3-header font-bold text-3xl py-3">
           Any concerns or inquiries? Send us a message
         </h3>
-        <p className="mb-3">
+        <p className="mb-3 text-base">
           Please login with google in order use to form, Otherwise feel free to
           message us via email at{" "}
           <a className="font-bold" href="mailto:info@sasksoccerhub.ca">

@@ -24,13 +24,11 @@ const Block4 = ({ data }) => {
   return (
     <div className="component-container modified-container p-4">
       <p className="text-left text-sm">{info?.date}</p>
-      <div className="text-left h3-header text-xl font-bold py-1">
-        {info.title}
-      </div>
-      <p className="text-left">{info.content}</p>
-      <p className="text-left mt-2">{info.content_sec}</p>
+      <div className="text-left h3-header text-xl font-bold ">{info.title}</div>
+      <p className="text-left text-base">{info.content}</p>
+      <p className="text-left mt-2 text-base">{info.content_sec}</p>
       {info.button && (
-        <Link className="btn my-3" href={info.buttonLink}>
+        <Link className="btn my-1" href={info.buttonLink}>
           {info.buttonText}
         </Link>
       )}

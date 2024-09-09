@@ -82,7 +82,7 @@ const FooterComponent = () => {
         <div className="w-full md:w-1/3 h-80">
           {" "}
           <div className="text-2xl font-bold">Subscribe</div>
-          <div>
+          <div className="text-sm color-gray-200">
             {" "}
             Interested in keeping up to date with latest news and updates?. Sign
             up for our weekly newsletter.
