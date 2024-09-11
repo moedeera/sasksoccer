@@ -191,7 +191,7 @@ const LeaguePage = () => {
                       <SelectTrigger className="w-[180px]">
                         <SelectValue placeholder="All" />
                       </SelectTrigger>
-                      <SelectContent>
+                      <SelectContent style={{ border: "1px solid black" }}>
                         <SelectGroup>
                           {groupAssortedTeams.map((group, index) => (
                             <SelectItem
