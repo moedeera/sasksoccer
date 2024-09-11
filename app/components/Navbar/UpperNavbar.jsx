@@ -27,7 +27,7 @@ const UpperNavbar = () => {
         </div>
 
         {session?.user ? (
-          <div>
+          <div className="relative">
             {" "}
             <img
               onClick={() => {
@@ -35,10 +35,10 @@ const UpperNavbar = () => {
               }}
               src={session?.user?.image ? session.user.image : profileDefault}
               alt=""
-              style={{ height: "25px", width: "25px", borderRadius: "50%" }}
+              style={{ height: "35px", width: "35px", borderRadius: "50%" }}
             />
             {isProfileMenuOpen && (
-              <div className="absolute top-0 left-0 bg-gray-100 w-full h-48 top-full border rounded-md flex flex-col justify-evenly p-2 capitalize">
+              <div className="absolute top-0 left-0 bg-gray-100 w-40 min-h-40 top-full border rounded-md flex flex-col justify-evenly p-2 capitalize">
                 {" "}
                 {links.map(
                   (link, index) =>
@@ -55,6 +55,15 @@ const UpperNavbar = () => {
                       </Link>
                     )
                 )}
+                <div
+                  onClick={() => {
+                    signOut();
+                  }}
+                  className="text-black cursor-pointer"
+                >
+                  {" "}
+                  Sign Out
+                </div>
               </div>
             )}
           </div>
