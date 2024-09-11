@@ -207,12 +207,15 @@ const LeaguePage = () => {
                     </Select>
                   </div>
                   {teamsInView.length > 1 ? (
-                    <div className="overflow-x-scroll grid mt-4 md:grid-cols-2 gap-2">
+                    <div className="overflow-x-scroll grid mt-4 md:grid-cols-2 gap-2 ">
                       {teamsInView.map(
                         (group, index) =>
                           group.name !== "All" && (
-                            <div key={index} className="mb-8  border">
-                              <div className="px-1 py-3 bg-gray-200">
+                            <div
+                              key={index}
+                              className="mb-8  border bg-gray-200"
+                            >
+                              <div className="px-1 py-3 ">
                                 {" "}
                                 <h3 className="text-2xl text-xl font-bold">
                                   {league.groups && group.name}
@@ -226,83 +229,93 @@ const LeaguePage = () => {
                                 defaultValue="standings"
                                 className="md:block md:w-full border pb-1 mb-4"
                               >
-                                <TabsList className="flex justify-start  md:grid md:w-full md:grid-cols-4 gap-1 bg-gray-200 mb-1">
-                                  <TabsTrigger
+                                <div className=" py-1">
+                                  <TabsList className="flex justify-start  md:grid md:w-full md:grid-cols-4 gap-1 bg-gray-200 mb-1">
+                                    <TabsTrigger
+                                      className="color-black"
+                                      value="standings"
+                                      style={{
+                                        border:
+                                          "2px solid rgba(128,128,128,0.65)",
+                                        color: "black",
+                                      }}
+                                    >
+                                      Standings
+                                    </TabsTrigger>
+                                    <TabsTrigger
+                                      className="color-black"
+                                      value="playoffs"
+                                      style={{
+                                        border:
+                                          "2px solid rgba(128,128,128,0.65)",
+                                        color: "black",
+                                      }}
+                                    >
+                                      Playoffs
+                                    </TabsTrigger>
+                                  </TabsList>
+                                </div>
+
+                                <div className="">
+                                  <TabsContent
                                     value="standings"
-                                    style={{
-                                      border:
-                                        "2px solid rgba(128,128,128,0.65)",
-                                    }}
+                                    className="w-full"
                                   >
-                                    Standings
-                                  </TabsTrigger>
-                                  <TabsTrigger
-                                    value="playoffs"
-                                    style={{
-                                      border:
-                                        "2px solid rgba(128,128,128,0.65)",
-                                    }}
-                                  >
-                                    Playoffs
-                                  </TabsTrigger>
-                                </TabsList>
-                                <TabsContent
-                                  value="standings"
-                                  className="w-full"
-                                >
-                                  {" "}
-                                  <TableComponent
-                                    data={group.assorted_teams}
-                                    leagueDetails={league?.details}
-                                    name={group.name}
-                                  />
-                                </TabsContent>
-                                <TabsContent value="playoffs">
-                                  {league.details.map(
-                                    (detail, index) =>
-                                      detail.group === group.name &&
-                                      detail.completed && (
-                                        <div
-                                          key={index}
-                                          className="bg-gray-200 p-3 text-sm"
-                                        >
-                                          <div>
-                                            {" "}
-                                            Playoff Champions:{" "}
-                                            <span className="font-bold">
-                                              {detail.winner}
-                                            </span>
-                                          </div>
-                                          <div className="border border-gray-400 rounded p-1 my-1">
-                                            {" "}
-                                            Final: <br />
-                                            <span className="font-bold">
-                                              {detail.final}
-                                            </span>
-                                          </div>
-                                          {group.assorted_teams.length > 5 && (
-                                            <>
+                                    {" "}
+                                    <TableComponent
+                                      data={group.assorted_teams}
+                                      leagueDetails={league?.details}
+                                      name={group.name}
+                                    />
+                                  </TabsContent>
+                                  <TabsContent value="playoffs">
+                                    {league.details.map(
+                                      (detail, index) =>
+                                        detail.group === group.name &&
+                                        detail.completed && (
+                                          <div
+                                            key={index}
+                                            className="bg-gray-200 p-3 text-sm"
+                                          >
+                                            <div>
                                               {" "}
-                                              <div className="border border-gray-400 rounded p-1 my-1">
+                                              Playoff Champions:{" "}
+                                              <span className="font-bold">
+                                                {detail.winner}
+                                              </span>
+                                            </div>
+                                            <div className="border border-gray-400 rounded p-1 my-1">
+                                              {" "}
+                                              Final: <br />
+                                              <span className="font-bold">
+                                                {detail.final}
+                                              </span>
+                                            </div>
+                                            {group.assorted_teams.length >
+                                              5 && (
+                                              <>
                                                 {" "}
-                                                Semi-final 1: <br />
-                                                <span className="font-bold">
-                                                  {detail.playoffs1}
-                                                </span>
-                                              </div>
-                                              <div className="border border-gray-400 rounded p-1 my-1 ">
-                                                {" "}
-                                                Semi-final 2: <br />
-                                                <span className="font-bold">
-                                                  {detail.playoffs2}
-                                                </span>
-                                              </div>
-                                            </>
-                                          )}
-                                        </div>
-                                      )
-                                  )}
-                                </TabsContent>
+                                                <div className="border border-gray-400 rounded p-1 my-1">
+                                                  {" "}
+                                                  Semi-final 1: <br />
+                                                  <span className="font-bold">
+                                                    {detail.playoffs1}
+                                                  </span>
+                                                </div>
+                                                <div className="border border-gray-400 rounded p-1 my-1 ">
+                                                  {" "}
+                                                  Semi-final 2: <br />
+                                                  <span className="font-bold">
+                                                    {detail.playoffs2}
+                                                  </span>
+                                                </div>
+                                              </>
+                                            )}
+                                          </div>
+                                        )
+                                    )}
+                                  </TabsContent>
+                                </div>
                               </Tabs>
                             </div>
                           )

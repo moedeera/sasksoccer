@@ -10,19 +10,14 @@ const Banner = () => {
           {" "}
           Follow us on Social Media
         </div>
-        <div className="flex fap-3 justify-center py-3">
-          <Button variant="ghost" as="a" href="https://facebook.com">
-            <FaFacebook className="w-6 h-6  md:w-10 md:h-10 " />
-          </Button>
-          <Button variant="ghost" as="a" href="https://twitter.com">
-            <FaTwitter className="w-6 h-6  md:w-10 md:h-10" />
-          </Button>
-          <Button variant="ghost" as="a" href="https://instagram.com">
-            <FaInstagram className="w-6 h-6  md:w-10 md:h-10" />
-          </Button>
-          <Button variant="ghost" as="a" href="https://linkedin.com">
-            <FaLinkedin className="w-6 h-6  md:w-10 md:h-10" />
-          </Button>
+        <div className="flex gap-10 justify-center py-3">
+          <FaFacebook className="w-6 h-6  md:w-10 md:h-10 " />
+
+          <FaTwitter className="w-6 h-6  md:w-10 md:h-10" />
+
+          <FaInstagram className="w-6 h-6  md:w-10 md:h-10" />
+
+          <FaLinkedin className="w-6 h-6  md:w-10 md:h-10" />
         </div>
       </div>
     </div>
