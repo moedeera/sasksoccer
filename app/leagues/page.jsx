@@ -53,6 +53,37 @@ const PageComponent = () => {
   return (
     <div>
       <Landing data={pageHeader} />
+      <div className="component-container modified-container mt-10 p-4">
+        <div className="h3-header text-2xl font-bold mb-4">
+          Indoor Season 2024-25
+        </div>
+        <div className="">
+          <p className="text-base">
+            {" "}
+            Saskatoon Adult and youth Soccer both have their indoor season
+            starting around this October. For more information on each you can
+            visit their respective websites at{" "}
+            <a
+              className="underline"
+              href="https://www.saskatoonadultsoccer.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              saskatoonadultsoccer.com
+            </a>{" "}
+            &{" "}
+            <a
+              className="underline"
+              href="https://saskatoonyouthsoccer.ca/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              saskatoonyouthsoccer.ca
+            </a>
+          </p>
+        </div>
+      </div>
+
       <Block4 data={openerContent} />
 
       {loading ? (

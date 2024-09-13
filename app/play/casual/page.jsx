@@ -33,7 +33,7 @@ export const CasualPlayPage = () => {
             <div className="text-3xl font-bold h3-header">
               Saskatoon Pick-Up Soccer Meetup Group
             </div>
-            <div className="mt-1 mb-4  pr-2 text-slate-600">
+            <div className="mt-1 mb-4  pr-2 text-slate-600 text-base">
               A meetup group for pickup/casual soccer (non-competitive) and is
               just for people wanting to stay active or keep their skills fresh.
               Please be respectful to everyone regardless of their skill level.
