@@ -20,6 +20,7 @@ import {
 } from "@/assets/Info/Info";
 import LoadingBars from "./components/LoadingBars/LoadingBars";
 import Slideshow from "./components/SlideShow/SlideShow";
+import IndoorSeasonInfo from "./leagues/IndoorSeasonInfo";
 
 const HomePage = () => {
   const slides = [
@@ -57,7 +58,8 @@ const HomePage = () => {
         <Cards data={homeCardsData} />
         <CarouselComponent data={homeCarouselData} />
         <Block1 data={block1HomePageFall} />
-        <Block2 data={homepageInfo} />
+        {/* <Block2 data={homepageInfo} /> */}
+        <IndoorSeasonInfo />
         <Banner />
       </div>
     </div>

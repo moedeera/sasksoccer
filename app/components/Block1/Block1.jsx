@@ -35,7 +35,7 @@ const Block1 = ({ data }) => {
           <>
             {" "}
             <div className="text py-4 px-4">
-              <div className="text-3xl font-bold h3-header">{info.title}</div>
+              <div className="text-2xl font-bold h3-header">{info.title}</div>
               <small>{info.date}</small>
               <p className="pt-1 pb-3  pr-2 text-base">{info.content}</p>
               <p className="pt-1 pb-3  pr-2 text-base">{info.content_sec}</p>

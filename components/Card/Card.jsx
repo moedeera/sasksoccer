@@ -10,6 +10,8 @@ import {
 } from "@/components/ui/card";
 
 import Link from "next/link";
+import { AspectRatio } from "../ui/aspect-ratio";
+import Image from "next/image";
 
 export function Cards({ data }) {
   const defaultData = [
@@ -71,6 +73,16 @@ export function Cards({ data }) {
                   }")`,
                 }}
               ></div>
+            )}
+            {dat?.images && (
+              <AspectRatio ratio={16 / 9} className="bg-muted">
+                <Image
+                  src={dat?.images[0]}
+                  alt="Photo by Drew Beamer"
+                  fill
+                  className="h-full w-full rounded-md object-cover"
+                />
+              </AspectRatio>
             )}
 
             <CardTitle className="text-md md:text-xl">{dat.name}</CardTitle>

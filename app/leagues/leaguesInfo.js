@@ -1,12 +1,12 @@
 const openerContent = {
-  title: `Find and Follow Tournaments and Leagues.`,
+  title: `Results for the 2024 Summer leagues are in.`,
   content: `
-  Playing or following a league here in Saskatoon? Just find it here in our
-  list. 
+ Major credit to Saskatoon Adult Soccer and Saskatoon Youth Soccer for organizing another successful round season of leagues.
+ Another major thanks for all the organizers and volunteers for the various tournaments this past summer.
+ And finally Congratulations to all the league & tournament winners for their triumphs.  
 
   `,
-  content_sec: `If you would like regular updates, create an account and save the league. No charge or personal information required, just sign in with your google account and 
-  we will take care of the rest.`,
+  content_sec: `For more information on the results, browse through the leagues we monitored this summer.`,
 };
 
 const currentData = [
