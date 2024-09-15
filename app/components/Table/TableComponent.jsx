@@ -117,7 +117,7 @@ const TableComponent = ({ data, leagueDetails, name }) => {
                   currentdetails.winner === team.name && (
                     <small
                       className="hidden md:inline ml-2"
-                      style={{ fontSize: "4px" }}
+                      style={{ fontSize: "14px" }}
                     >
                       {" "}
                       <GiTrophy />
