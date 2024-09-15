@@ -25,7 +25,7 @@ const TableComponent = ({ data, leagueDetails, name }) => {
       const matchingDetails = leagueDetails.find(
         (detail) => detail.group === name
       );
-      console.log(matchingDetails);
+
       setCurrentDetails(matchingDetails);
     }
   }, []);
@@ -117,7 +117,7 @@ const TableComponent = ({ data, leagueDetails, name }) => {
                   currentdetails.winner === team.name && (
                     <small
                       className="hidden md:inline ml-2"
-                      style={{ fontSize: "4px;" }}
+                      style={{ fontSize: "4px" }}
                     >
                       {" "}
                       <GiTrophy />
@@ -128,7 +128,7 @@ const TableComponent = ({ data, leagueDetails, name }) => {
                   currentdetails.runnerUp === team.name && (
                     <small
                       className="hidden md:inline ml-2"
-                      style={{ fontSize: "4px;" }}
+                      style={{ fontSize: "4px" }}
                     >
                       *
                     </small>

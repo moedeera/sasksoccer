@@ -24,7 +24,7 @@ export const SideMenu = () => {
     <div className="text-black">
       <Sheet>
         <SheetTrigger>
-          <div class="border " onClick={toggleMenu}>
+          <div className="border " onClick={toggleMenu}>
             <div className="side-menu-icon">
               <div className="side-menu-bar upper"></div>
               <div className="side-menu-bar middle"></div>

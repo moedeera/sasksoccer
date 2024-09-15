@@ -56,6 +56,48 @@ export const GET = async (request) => {
 
 // Adding new League
 export const POST = async (request) => {
+  // try {
+  //   await connectDB();
+
+  //   const sessionUser = await getSessionUser();
+  //   if (!sessionUser || !sessionUser.userId) {
+  //     return new Response("User id not obtained", { status: 401 });
+  //   }
+  //   const { userId } = sessionUser;
+
+  //   const body = await request.json();
+  //   console.log("this is the body:", body);
+
+  //   let slug = body.name.toLowerCase().replace(/[\s]+/g, "-");
+  //   const existingLeague = await League.findOne({ slug: slug });
+
+  //   if (existingLeague) {
+  //     slug = generateSlug(body.name, userId);
+  //   }
+
+  //   const newLeague = new League({
+  //     ...body,
+  //     slug: slug,
+  //     admin: sessionUser.user.name,
+  //     owner: userId,
+  //   });
+
+  //   await newLeague.save();
+
+  //   return new Response(JSON.stringify(newLeague), { status: 201 });
+  //   // return Response.redirect(
+  //   //   `${process.env.NEXTAUTH_URL}/leagues/${newLeague.slug}`
+  //   // );
+  // } catch (error) {
+  //   console.log(error);
+  //   return new Response("Failed to add League", { status: 500 });
+  // }
+  const response = new Response();
+
+  // Set CORS headers
+  const corsResponse = setCorsHeaders(request, response);
+  if (corsResponse) return corsResponse; // If it's an OPTIONS request, return early
+
   try {
     await connectDB();
 
@@ -84,10 +126,11 @@ export const POST = async (request) => {
 
     await newLeague.save();
 
-    return new Response(JSON.stringify(newLeague), { status: 201 });
-    // return Response.redirect(
-    //   `${process.env.NEXTAUTH_URL}/leagues/${newLeague.slug}`
-    // );
+    response.headers.set("Content-Type", "application/json");
+    return new Response(JSON.stringify(newLeague), {
+      status: 201,
+      headers: response.headers,
+    });
   } catch (error) {
     console.log(error);
     return new Response("Failed to add League", { status: 500 });

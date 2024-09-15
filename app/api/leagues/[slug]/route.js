@@ -2,20 +2,31 @@ import { getSessionUser } from "@/app/components/getSessionUser";
 import { generateSlug } from "@/app/utlils/functions";
 import connectDB from "@/config/database";
 import League from "@/models/League";
+import { setCorsHeaders } from "../../custommiddleware";
 
 // GET /api/leagues/:id
 export const GET = async (request, { params }) => {
+  const response = new Response();
+
+  // Set CORS headers
+  const corsResponse = setCorsHeaders(request, response);
+  if (corsResponse) return corsResponse; // If it's an OPTIONS request, return early
+
   try {
     await connectDB();
     // Find league by slug
     console.log("params:", params.slug);
-    // const league = await League.findById(params.id);
     const league = await League.findOne({ slug: params.slug });
+
     // If league is not found
     if (!league) {
-      return new Response("Property not found", { status: 404 });
+      return new Response("League not found", { status: 404 });
     } else {
-      return new Response(JSON.stringify(league), { status: 200 });
+      response.headers.set("Content-Type", "application/json");
+      return new Response(JSON.stringify(league), {
+        status: 200,
+        headers: response.headers,
+      });
     }
   } catch (error) {
     console.log(error);
@@ -25,6 +36,12 @@ export const GET = async (request, { params }) => {
 
 // PUT /api/leagues/:id
 export const PUT = async (request, { params }) => {
+  const response = new Response();
+
+  // Set CORS headers
+  const corsResponse = setCorsHeaders(request, response);
+  if (corsResponse) return corsResponse; // If it's an OPTIONS request, return early
+
   try {
     await connectDB();
 
@@ -50,20 +67,19 @@ export const PUT = async (request, { params }) => {
     }
 
     // Update the league fields
-
-    // check if league name was changed
     const changed = league.name !== body.name;
 
     league.admin = sessionUser.user.name;
     league.name = body.name;
     league.description = body.description;
     league.type = body.type;
+
     if (changed) {
       let slug = body.name.toLowerCase().replace(/[\s]+/g, "-");
       const existingLeague = await League.findOne({ slug: slug });
 
       if (existingLeague) {
-        alternateSlug = generateSlug(body.name, userId);
+        let alternateSlug = generateSlug(body.name, userId);
         league.slug = alternateSlug;
       } else {
         league.slug = slug;
@@ -77,40 +93,59 @@ export const PUT = async (request, { params }) => {
 
     await league.save();
 
-    return new Response(JSON.stringify(league), { status: 200 });
+    response.headers.set("Content-Type", "application/json");
+    return new Response(JSON.stringify(league), {
+      status: 200,
+      headers: response.headers,
+    });
   } catch (error) {
     console.log(error);
     return new Response("Failed to update League", { status: 500 });
   }
 };
 
-// DELETE /api/properties/:id
+// DELETE /api/leagues/:id
 export const DELETE = async (request, { params }) => {
+  const response = new Response();
+
+  // Set CORS headers
+  const corsResponse = setCorsHeaders(request, response);
+  if (corsResponse) return corsResponse; // If it's an OPTIONS request, return early
+
   try {
     console.log("slug:", params.slug);
     const leagueSlug = params.slug;
+
     // Check for session
     const sessionUser = await getSessionUser();
     if (!sessionUser || !sessionUser.userId) {
       return new Response("User ID is required");
     }
-    // Get ID
     const { userId } = sessionUser;
-    // Connect
+
+    // Connect to DB
     await connectDB();
-    // Find property by ID
+
+    // Find the league by slug
     const league = await League.findOne({ slug: leagueSlug });
-    // If property is not found
+
+    // If the league is not found
     if (!league) {
-      return new Response("Property not found", { status: 404 });
+      return new Response("League not found", { status: 404 });
     }
+
     // Verify Ownership
     if (league.owner.toString() !== userId) {
       return new Response("Unauthorized Access", { status: 401 });
     }
-    //
+
+    // Delete the league
     await league.deleteOne();
-    return new Response("Property Deleted", { status: 200 });
+
+    return new Response("League Deleted", {
+      status: 200,
+      headers: response.headers,
+    });
   } catch (error) {
     console.log("error:", error);
     return new Response("Something went wrong", { status: 500 });

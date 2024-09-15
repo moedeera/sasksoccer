@@ -41,8 +41,6 @@ const LowerNavbar = () => {
 
       setSublink(`/${extractedSublink}`);
       setCurrentPage(`/${extractedSublink}`);
-
-      console.log("Sublink:", extractedSublink);
     }
   }, []); // Empty dependency array means this effect runs only on mount
   return (

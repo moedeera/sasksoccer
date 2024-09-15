@@ -66,7 +66,6 @@ const fetchProperty = async (id) => {
 };
 // fetch League
 const fetchLeague = async (slug) => {
-  console.log("this is slug:", slug);
   try {
     // handle case where domain is not available
     if (!apiDomain) {
