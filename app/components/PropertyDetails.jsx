@@ -85,13 +85,13 @@ const PropertyDetails = ({ property }) => {
                 className="w-full h-auto rounded-t-xl"
                 layout="responsive" // Optional: Adjusts the layout behavior of the image (e.g., fill, fixed, responsive)
               />
-              <p>
+              <>
                 {" "}
                 {detail.info}{" "}
                 <span className="hidden sm:inline capitalize">
                   {detail.name}
                 </span>
-              </p>
+              </>
             </div>
           ))}
         </div>

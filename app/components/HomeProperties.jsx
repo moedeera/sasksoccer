@@ -45,7 +45,7 @@ const HomeProperties = () => {
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {recentProperties.length === 0 ? (
-              <p>No Properties Found</p>
+              <>No Properties Found</>
             ) : (
               recentProperties.map((property) => (
                 <PropertyCard key={property._id} property={property} />
