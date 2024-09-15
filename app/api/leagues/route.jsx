@@ -2,24 +2,52 @@ import { getSessionUser } from "@/app/components/getSessionUser";
 import { generateSlug } from "@/app/utlils/functions";
 import connectDB from "@/config/database";
 import League from "@/models/League";
+import { setCorsHeaders } from "../custommiddleware";
 
 // GET /api/leagues
 export const GET = async (request) => {
+  // try {
+  //   await connectDB();
+
+  //   const page = request?.nextUrl?.searchParams?.get("page") || 1;
+  //   const pageSize = request?.nextUrl.searchParams.get("pageSize") || 3;
+
+  //   const skip = (page - 1) * pageSize;
+
+  //   const total = await League.countDocuments({});
+
+  //   const leagues = await League.find({}).skip(skip).limit(pageSize);
+
+  //   const result = { total, leagues };
+
+  //   return new Response(JSON.stringify(result), { status: 200 });
+  // } catch (error) {
+  //   console.log(error);
+  //   return new Response("Something went wrong", { status: 500 });
+  // }
+  const response = new Response();
+
+  // Set CORS headers
+  const corsResponse = setCorsHeaders(request, response);
+  if (corsResponse) return corsResponse; // If it's an OPTIONS request, return early
+
   try {
     await connectDB();
 
     const page = request?.nextUrl?.searchParams?.get("page") || 1;
-    const pageSize = request?.nextUrl.searchParams.get("pageSize") || 3;
-
+    const pageSize = request?.nextUrl?.searchParams?.get("pageSize") || 3;
     const skip = (page - 1) * pageSize;
 
     const total = await League.countDocuments({});
-
     const leagues = await League.find({}).skip(skip).limit(pageSize);
 
     const result = { total, leagues };
 
-    return new Response(JSON.stringify(result), { status: 200 });
+    response.headers.set("Content-Type", "application/json");
+    return new Response(JSON.stringify(result), {
+      status: 200,
+      headers: response.headers,
+    });
   } catch (error) {
     console.log(error);
     return new Response("Something went wrong", { status: 500 });
