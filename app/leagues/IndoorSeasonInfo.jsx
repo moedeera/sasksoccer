@@ -1,6 +1,108 @@
-import Link from "next/link";
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from "@/components/ui/table"; // Import Table components
+import Locations from "./Locations";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
 
 const IndoorSeasonInfo = () => {
+  const teams = {
+    mensBoarded: {
+      group1: ["Evolution FC", "Galaxy FC", "Hub City FC", "Whitecaps FC"],
+      group2: ["Ronin FC", "The Brodeo", "Thicc and Quick FC"],
+      group3: [
+        "Das Boots",
+        "Exegol United",
+        "Millwall FC",
+        "Tauro FC",
+        "Tired Turtles",
+      ],
+      masters: [
+        "Paladins",
+        "PPG FC",
+        "Predators",
+        "VendAsta Dodgers",
+        "Viking Masters",
+      ],
+    },
+    mensTurf: {
+      group1: ["ASTRA U23", "Galaxy TFC", "Simba", "Khukuri FC", "Ubuntu FC"],
+      group2: [
+        "Agi Sqwad",
+        "Brothers FC",
+        "Cumberland FC",
+        "Deportivo Sask",
+        "Proper Gander FC",
+        "PSK",
+        "Thundercats FC",
+      ],
+      group3: [
+        "Flamingo FC",
+        "Fulchester United",
+        "Galacticos FC",
+        "NLA FC",
+        "Sparta FC",
+        "Vikings Turf",
+        "Young Boys",
+      ],
+      group4: [
+        "FC Con Carne",
+        "Law-Sel",
+        "Pitchrippers",
+        "Oats",
+        "Red Star",
+        "Clearwater Revival",
+        "Saigon FC",
+        "Thunderducks FC",
+      ],
+      group5: [
+        "Bohemian Club",
+        "Atletico Saskatoon",
+        "Due Birra Unito",
+        "Dump and Chase",
+        "Lucky Charmers",
+        "OneTeam FC",
+      ],
+      group6: [
+        "Donald Ducks",
+        "Midfield Crisis",
+        "MyKey Drifters",
+        "NHFC",
+        "Whisky Jacks",
+        "WTFC",
+      ],
+    },
+    womensBoarded: {
+      group1: [
+        "Aftershock FC",
+        "Alianza",
+        "Dragons",
+        "Old Goats",
+        "Rampage",
+        "Shooters",
+        "Thorns FC",
+        "Tsunami",
+      ],
+      group2: [
+        "Barnstone FU",
+        "Beardys United",
+        "Coderunners",
+        "Purple Haze",
+        "Rebels",
+        "Royal Llama",
+        "Queens United",
+      ],
+    },
+  };
   return (
     <div className="component-container modified-container mt-10 p-4">
       <div className="h3-header text-2xl font-bold mb-2">
@@ -33,57 +135,94 @@ const IndoorSeasonInfo = () => {
           road and Henk Ruys center on 19 Primrose Dr. For more information on
           this fields check the links below.
         </p>
-        <div className="h3-header text-2xl font-bold mt-4 mb-2">Locations</div>
-        <div className="grid md:grid-cols-3 gap-4 min-h-48 w-4/5">
-          <div className=" border  flex flex-col gap-2 p-3 drop-shadow">
-            <div className="overflow-hidden">
-              <iframe
-                src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d9792.772536462164!2d-106.5794135!3d52.1489973!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5304f46bb8d4f86d%3A0xde2bdc0f81abfd53!2sSaskatoon%20Soccer%20Centre!5e0!3m2!1sen!2sca!4v1726303780661!5m2!1sen!2sca"
-                // width="400"
-                // height="300"
 
-                allowfullscreen=""
-                loading="lazy"
-                referrerpolicy="no-referrer-when-downgrade"
-              ></iframe>
-            </div>
-            <div>
-              <Link
-                className="font-bold"
-                href={
-                  "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d9788.745169832791!2d-106.6320023!3d52.1673063!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5304f67fd834e74d%3A0xed263370a0287d5!2sSaskatoon%20Kinsmen%2FHenk%20Ruys%20Soccer%20Centre!5e0!3m2!1sen!2sca!4v1726301254398!5m2!1sen!2sca"
-                }
-              >
-                Saskatoon Soccer Centre
-              </Link>
-            </div>
-            <small>150 Nelson Rd, Saskatoon, SK S7S 1P5</small>
-          </div>
-          <div className=" border  flex flex-col gap-2 p-3 drop-shadow">
-            <div className="overflow-hidden">
-              <iframe
-                src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d9788.745169832791!2d-106.6320023!3d52.1673063!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5304f67fd834e74d%3A0xed263370a0287d5!2sSaskatoon%20Kinsmen%2FHenk%20Ruys%20Soccer%20Centre!5e0!3m2!1sen!2sca!4v1726301254398!5m2!1sen!2sca"
-                // width="400"
-                // height="300"
-
-                allowfullscreen=""
-                loading="lazy"
-                referrerpolicy="no-referrer-when-downgrade"
-              ></iframe>
-            </div>
-            <div>
-              <Link
-                className="font-bold"
-                href={
-                  "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d9788.745169832791!2d-106.6320023!3d52.1673063!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5304f67fd834e74d%3A0xed263370a0287d5!2sSaskatoon%20Kinsmen%2FHenk%20Ruys%20Soccer%20Centre!5e0!3m2!1sen!2sca!4v1726301254398!5m2!1sen!2sca"
-                }
-              >
-                Saskatoon Kinsmen/Henk Ruys Soccer Centre
-              </Link>
-            </div>
-            <small>219 Primrose Dr, Saskatoon, SK S7K 2J9</small>
-          </div>
+        <div className="h3-header text-2xl font-bold mt-4">
+          Alignment & Teams
         </div>
+
+        <Accordion type="single" collapsible className="md:w-full">
+          {/* Mens Boarded Section */}
+          <AccordionItem value="mens-boarded">
+            <AccordionTrigger>Mens Boarded</AccordionTrigger>
+            <AccordionContent>
+              <Table>
+                <TableHeader>
+                  <TableRow>
+                    <TableHead>Group</TableHead>
+                    <TableHead>Teams</TableHead>
+                  </TableRow>
+                </TableHeader>
+                <TableBody>
+                  {Object.entries(teams.mensBoarded).map(
+                    ([group, teamList], index) => (
+                      <TableRow key={index}>
+                        <TableCell className="font-bold">
+                          Mens Boarded {index + 1}
+                        </TableCell>
+                        <TableCell>{teamList.join(", ")}</TableCell>
+                      </TableRow>
+                    )
+                  )}
+                </TableBody>
+              </Table>
+            </AccordionContent>
+          </AccordionItem>
+
+          {/* Mens Turf Section */}
+          <AccordionItem value="mens-turf">
+            <AccordionTrigger>Mens Turf</AccordionTrigger>
+            <AccordionContent>
+              <Table>
+                <TableHeader>
+                  <TableRow>
+                    <TableHead>Group</TableHead>
+                    <TableHead>Teams</TableHead>
+                  </TableRow>
+                </TableHeader>
+                <TableBody>
+                  {Object.entries(teams.mensTurf).map(
+                    ([group, teamList], index) => (
+                      <TableRow key={index}>
+                        <TableCell className="font-bold">
+                          Mens Turf {index + 1}
+                        </TableCell>
+                        <TableCell>{teamList.join(", ")}</TableCell>
+                      </TableRow>
+                    )
+                  )}
+                </TableBody>
+              </Table>
+            </AccordionContent>
+          </AccordionItem>
+
+          {/* Womens Boarded Section */}
+          <AccordionItem value="womens-boarded">
+            <AccordionTrigger>Womens Boarded</AccordionTrigger>
+            <AccordionContent>
+              <Table>
+                <TableHeader>
+                  <TableRow>
+                    <TableHead>Group</TableHead>
+                    <TableHead>Teams</TableHead>
+                  </TableRow>
+                </TableHeader>
+                <TableBody>
+                  {Object.entries(teams.womensBoarded).map(
+                    ([group, teamList], index) => (
+                      <TableRow key={index}>
+                        <TableCell className="font-bold">
+                          Womens Boarded {index + 1}{" "}
+                        </TableCell>
+                        <TableCell>{teamList.join(", ")}</TableCell>
+                      </TableRow>
+                    )
+                  )}
+                </TableBody>
+              </Table>
+            </AccordionContent>
+          </AccordionItem>
+        </Accordion>
+        <Locations />
       </div>
     </div>
   );

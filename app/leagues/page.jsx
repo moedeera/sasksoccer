@@ -60,7 +60,9 @@ const PageComponent = () => {
       <IndoorSeasonInfo />
 
       <Block4 data={openerContent} />
-      <div className="h3-header text-3xl font-bold text-center ">Leagues</div>
+      <div className="h3-header text-3xl font-bold text-center ">
+        Summer 2024 Results
+      </div>
 
       {loading ? (
         <>
