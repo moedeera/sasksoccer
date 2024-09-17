@@ -140,7 +140,7 @@ const IndoorSeasonInfo = () => {
           Alignment & Teams
         </div>
 
-        <Accordion type="single" collapsible className="md:w-full">
+        <Accordion type="single" collapsible className="md:w-full color-black">
           {/* Mens Boarded Section */}
           <AccordionItem value="mens-boarded">
             <AccordionTrigger>Mens Boarded</AccordionTrigger>

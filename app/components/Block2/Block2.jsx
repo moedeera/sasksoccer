@@ -46,7 +46,11 @@ const Block2 = ({ data }) => {
               <div className="text-2xl h3-header">
                 Frequently Asked Questions
               </div>
-              <Accordion type="single" collapsible className="md:w-full">
+              <Accordion
+                type="single"
+                collapsible
+                className="md:w-full  color-black"
+              >
                 <AccordionItem value="item-1">
                   <AccordionTrigger>
                     Where do I start if I want to play casual?
