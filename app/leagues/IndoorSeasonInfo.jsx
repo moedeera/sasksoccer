@@ -140,16 +140,24 @@ const IndoorSeasonInfo = () => {
           Alignment & Teams
         </div>
 
-        <Accordion type="single" collapsible className="md:w-full color-black">
+        <Accordion type="single" collapsible className="md:w-full text-black">
           {/* Mens Boarded Section */}
           <AccordionItem value="mens-boarded">
-            <AccordionTrigger>Mens Boarded</AccordionTrigger>
+            <AccordionTrigger className="hover:bg-emerald-500">
+              {" "}
+              <div className="text-black hover:text-white">Mens Boarded</div>
+            </AccordionTrigger>
             <AccordionContent>
               <Table>
                 <TableHeader>
                   <TableRow>
-                    <TableHead>Group</TableHead>
-                    <TableHead>Teams</TableHead>
+                    <TableHead>
+                      {" "}
+                      <div className="text-black hover:text-black">Group</div>
+                    </TableHead>
+                    <TableHead>
+                      <div className="text-black hover:text-black">Teams</div>{" "}
+                    </TableHead>
                   </TableRow>
                 </TableHeader>
                 <TableBody>
@@ -170,14 +178,20 @@ const IndoorSeasonInfo = () => {
 
           {/* Mens Turf Section */}
           <AccordionItem value="mens-turf">
-            <AccordionTrigger>Mens Turf</AccordionTrigger>
+            <AccordionTrigger className="hover:bg-emerald-500">
+              {" "}
+              <div className="text-black hover:text-black">Mens Turf</div>
+            </AccordionTrigger>
             <AccordionContent>
               <Table>
                 <TableHeader>
-                  <TableRow>
-                    <TableHead>Group</TableHead>
-                    <TableHead>Teams</TableHead>
-                  </TableRow>
+                  <TableHead>
+                    {" "}
+                    <div className="text-black hover:text-black">Group</div>
+                  </TableHead>
+                  <TableHead>
+                    <div className="text-black hover:text-black">Teams</div>{" "}
+                  </TableHead>
                 </TableHeader>
                 <TableBody>
                   {Object.entries(teams.mensTurf).map(
@@ -197,13 +211,21 @@ const IndoorSeasonInfo = () => {
 
           {/* Womens Boarded Section */}
           <AccordionItem value="womens-boarded">
-            <AccordionTrigger>Womens Boarded</AccordionTrigger>
-            <AccordionContent>
+            <AccordionTrigger className="hover:bg-emerald-500">
+              {" "}
+              <div className="text-black hover:text-white">Womens Boarded</div>
+            </AccordionTrigger>
+            <AccordionContent className="text-black hover:text-black">
               <Table>
                 <TableHeader>
                   <TableRow>
-                    <TableHead>Group</TableHead>
-                    <TableHead>Teams</TableHead>
+                    <TableHead>
+                      {" "}
+                      <div className="text-black hover:text-black">Group</div>
+                    </TableHead>
+                    <TableHead>
+                      <div className="text-black hover:text-black">Teams</div>{" "}
+                    </TableHead>
                   </TableRow>
                 </TableHeader>
                 <TableBody>
@@ -211,7 +233,9 @@ const IndoorSeasonInfo = () => {
                     ([group, teamList], index) => (
                       <TableRow key={index}>
                         <TableCell className="font-bold">
-                          Womens Boarded {index + 1}{" "}
+                          <div lassName="text-black hover:text-white">
+                            Womens Boarded {index + 1}{" "}
+                          </div>
                         </TableCell>
                         <TableCell>{teamList.join(", ")}</TableCell>
                       </TableRow>
