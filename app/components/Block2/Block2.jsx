@@ -53,14 +53,19 @@ const Block2 = ({ data }) => {
               >
                 <AccordionItem value="item-1">
                   <AccordionTrigger>
-                    Where do I start if I want to play casual?
+                    <div className="text-black hover:text-white">
+                      Where do I start if I want to play casual?
+                    </div>
                   </AccordionTrigger>
                   <AccordionContent>
-                    Click{" "}
-                    <Link href={"/play/casual"} className="font-bold">
-                      Here
-                    </Link>{" "}
-                    for weekly casual meetups
+                    <div className="text-black hover:text-white">
+                      {" "}
+                      Click{" "}
+                      <Link href={"/play/casual"} className="font-bold">
+                        Here
+                      </Link>{" "}
+                      for weekly casual meetups
+                    </div>
                   </AccordionContent>
                 </AccordionItem>
                 <AccordionItem value="item-2">
