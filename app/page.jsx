@@ -57,7 +57,7 @@ const HomePage = () => {
         {" "}
         <Cards data={homeCardsData} />
         <CarouselComponent data={homeCarouselData} />
-        <Block1 data={block1HomePageFall} />
+        <Block1 info={block1HomePageFall} />
         {/* <Block2 data={homepageInfo} /> */}
         <IndoorSeasonInfo />
         <Banner />
