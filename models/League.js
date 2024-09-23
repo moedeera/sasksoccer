@@ -51,11 +51,6 @@ const LeagueSchema = new Schema(
     games: [
       {
         game_id: { type: String, required: false },
-        home_team_name: { type: String, required: true },
-        away_team_name: { type: String, required: true },
-        home_team_goals: { type: Number, required: true },
-        away_team_goals: { type: Number, required: true },
-        date_of_game: { type: Date, required: true },
       },
     ],
     details: [
