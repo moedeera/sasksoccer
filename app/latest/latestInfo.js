@@ -1,3 +1,10 @@
+const GlitchesFix = {
+  title: `Minor Bugs Addressed`,
+  date: `September 21 2024`,
+  content: `We were aware of various bugs and glitches on the website that undermined user-friendliness. We were able to fix most of them, however there may still  be some problems with certain features including the profile menu.`,
+  content_sec: `These issues should be addressed with the next week but if you do notice any other problems please send us a message. Thanks.`,
+};
+
 const latestOpener = {
   title: `Alpha Launch of SaskSoccerHub!`,
   date: `July 27 2024`,
@@ -44,4 +51,4 @@ const soccerTournaments = [
   },
 ];
 
-export { latestOpener, soccerTournaments };
+export { latestOpener, soccerTournaments, GlitchesFix };

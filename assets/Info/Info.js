@@ -179,6 +179,14 @@ const playCardsData = [
 
 const homeCarouselData = [
   {
+    title: "Indoor Season 2024 Starting October.",
+    date: "September 23 2024",
+    content: `With all the teams registered and the alignments set,
+      another Indoor Season is set to be on its way. For more information,
+      visit the Saskatoon Adult Soccer Website.`,
+    link: null,
+  },
+  {
     title: "Refresher course for Referees starting August 26.",
     date: "August 23 2024",
     content: `Registered referees will have to option to
