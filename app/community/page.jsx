@@ -17,7 +17,7 @@ const page = () => {
   return (
     <div>
       <Landing2 data={pageHeader} />
-      <Block1 data={communityPageMainInfo} />
+      <Block1 info={communityPageMainInfo} />
       <Block2 data={communityPageData} />
       <ContactForm />
     </div>
