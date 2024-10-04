@@ -40,17 +40,12 @@ export function GlobalProvider({ children }) {
       case: "all",
       subLinks: [
         { name: "All", link: "/leagues" },
-        { name: "Mens Full Field 2024", link: "/leagues/men's-outdoor-2024" },
-        {
-          name: "Women's Full Field 2024",
-          link: "/leagues/women's-outdoor-2024",
-        },
-        { name: "Mens Legends 2024", link: "/leagues/men's-legends-2024" },
-        { name: "Mens Masters 2024", link: "/leagues/men's-masters-2024" },
-        {
-          name: "Mens Half field 2024",
-          link: "/leagues/men's-half-field-2024",
-        },
+        { name: "Mens Boarded", link: "/leagues/mens-boarded" },
+        ,
+        { name: "Mens Turf 2024", link: "/leagues/mens-turf-2024" },
+        ,
+        { name: "Womens Boarded 2024", link: "/leagues/mens-turf-2024" },
+        { name: "Womens Turf 2024", link: "/leagues/mens-turf-2024" },
       ],
     },
     {
