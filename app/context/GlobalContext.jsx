@@ -44,8 +44,8 @@ export function GlobalProvider({ children }) {
         ,
         { name: "Mens Turf 2024", link: "/leagues/mens-turf-2024" },
         ,
-        { name: "Womens Boarded 2024", link: "/leagues/mens-turf-2024" },
-        { name: "Womens Turf 2024", link: "/leagues/mens-turf-2024" },
+        { name: "Womens Boarded 2024", link: "/leagues/womens-boarded-2024" },
+        { name: "Womens Turf 2024", link: "/leagues/womans-turf-2024" },
       ],
     },
     {
