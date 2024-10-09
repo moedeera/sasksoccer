@@ -42,7 +42,7 @@ const PageComponent = () => {
         }
 
         const data = await res.json();
-        console.log(data.leagues);
+        // console.log(data.leagues);
         setLeagues(data.leagues);
         setTotalItems(data.total);
       } catch (error) {
@@ -51,7 +51,32 @@ const PageComponent = () => {
         setLoading(false);
       }
     };
+
+    const checkAndUpdateLeagues = async () => {
+      try {
+        const response = await fetch("/api/leagues/check-and-update", {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+          },
+        });
+
+        if (!response.ok) {
+          throw new Error(`Error: ${response.statusText}`);
+        }
+
+        const data = await response.json();
+        console.log("Leagues updated successfully:", data.message);
+
+        return data; // Returns the result to be used elsewhere if needed
+      } catch (error) {
+        console.error("Failed to update leagues:", error);
+        return { error: error.message };
+      }
+    };
+
     fetchAllLeagues();
+    checkAndUpdateLeagues();
   }, [page, pageSize]);
 
   return (

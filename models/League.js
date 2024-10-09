@@ -19,10 +19,15 @@ const LeagueSchema = new Schema(
       type: String,
       required: true,
     },
-    year: { type: Number, required: false },
+    year: { type: Number, required: true, default: 2024 },
 
     description: {
       type: String,
+    },
+    category: {
+      type: String,
+      required: true,
+      default: "indoor",
     },
     slug: {
       type: String,
