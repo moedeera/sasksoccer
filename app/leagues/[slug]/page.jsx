@@ -164,10 +164,10 @@ const LeaguePage = () => {
                 <>
                   <div className="flex items-center gap-4">
                     <BookMarkButton league={league} />
-                    <div className="text-base">Filter by league</div>
+                    <div className="text-base">View</div>
 
                     <Select
-                      className="mb-24 border"
+                      className="mb-24 border border-black"
                       defaultValue={"All"}
                       onValueChange={(value) => {
                         if (value.name === "all" || value.name === "All") {
