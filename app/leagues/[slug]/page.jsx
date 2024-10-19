@@ -11,7 +11,10 @@ import Spinner from "@/app/components/Spinner";
 import { useSession } from "next-auth/react";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
-import { reorganizeTeamsByGroupNumber } from "@/app/utlils/functions";
+import {
+  formatDateToString,
+  reorganizeTeamsByGroupNumber,
+} from "@/app/utlils/functions";
 import {
   Select,
   SelectContent,
@@ -137,6 +140,7 @@ const LeaguePage = () => {
   return (
     <div>
       <Landing data={leaguePageHeader} />
+
       {error ? (
         <h3>An Error Occured</h3>
       ) : (
@@ -145,10 +149,14 @@ const LeaguePage = () => {
             <Spinner />
           ) : (
             <div className="component-container">
+              <small className=" py-1 text-xs">
+                {formatDateToString(league?.updatedAt)}
+              </small>
               <div className="flex gap-3 mb-5 ">
                 <h3 className="h3-header text-4xl font-bold py-3">
                   {league?.description}{" "}
                 </h3>
+
                 {session && league && session.user.name === league.admin && (
                   <Link href={`/leagues/${slug}/edit`}>
                     <Button>Edit</Button>
@@ -220,9 +228,6 @@ const LeaguePage = () => {
                                 <h3 className="text-2xl text-xl font-bold">
                                   {league.groups && group.name}
                                 </h3>
-                                <small className="border py-1 text-xs">
-                                  Last updated August 29 2024
-                                </small>
                               </div>
 
                               <Tabs
