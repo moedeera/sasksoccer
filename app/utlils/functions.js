@@ -89,6 +89,9 @@ function calculateAndSortTeamsByPoints(teamsAssortedByGroup) {
 
 // utils/formatDate.js
 function formatDateToString(isoString) {
+  if (!isoString) {
+    return `Loading...`;
+  }
   const date = new Date(isoString);
 
   const months = [
