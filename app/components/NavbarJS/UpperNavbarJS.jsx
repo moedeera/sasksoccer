@@ -1,12 +1,17 @@
 "use client";
+import Link from "next/link";
 import React, { useState } from "react";
+import logo from "./logo-no-background.png";
+import Image from "next/image";
 
 const UpperNavbarJS = ({ state, setState }) => {
   const [loginState, setLoginState] = useState(false);
   return (
     <div className="mb-upper-navbar-container">
       <div className="mb-upper-navbar">
-        <div>Logo</div>
+        <Link href={"/"}>
+          <Image className="" src={logo} alt="" width={150} height={150} />
+        </Link>
         <div
           className="mb-menu-bar-container"
           onClick={() => {
