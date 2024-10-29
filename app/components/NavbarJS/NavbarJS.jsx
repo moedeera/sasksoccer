@@ -2,15 +2,14 @@
 import { useState } from "react";
 import "./NavbarJS.css";
 import UpperNavbarJS from "./UpperNavbarJS";
+import LowerNavBarJS from "./LowerNavBarJS";
 
 const NavbarJS = () => {
   const [menuActive, setMenuActive] = useState(false);
   return (
     <div className="mb-navbar-container">
       <UpperNavbarJS setState={setMenuActive} state={menuActive} />
-      <div className="mb-lower-navbar-container">
-        <div className="mb-lower-navbar">Lower</div>
-      </div>
+      <LowerNavBarJS />
       <div
         className={
           menuActive

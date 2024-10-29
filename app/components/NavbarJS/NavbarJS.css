@@ -135,9 +135,21 @@
   /*end of login button */
   .mb-lower-navbar {
     display: flex;
-    width: 100%;
+
     margin: 0 auto;
     max-width: var(--maxWidth);
+    /* border: 1px solid red; */
+    width: 80%;
+    padding: 10px 0;
+    font-size: medium;
+  }
+  .mb-lower-navbar a {
+    /* border: 2px solid green; */
+    min-width: 8rem;
+    padding-right: 20px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
   }
 }
 /* Medium devices (landscape tablets, 768px and up) */
