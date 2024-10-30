@@ -32,8 +32,8 @@ const MainLayout = ({ children }) => {
               fontSans.variable
             )}
           >
-            <Navbar2 />
-            {/* <NavbarJS /> */}
+            {/* <Navbar2 /> */}
+            <NavbarJS />
 
             <main
               style={{

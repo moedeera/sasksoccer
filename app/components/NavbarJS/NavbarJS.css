@@ -156,7 +156,7 @@
   .mb-lower-navbar-links > div {
     /* border: 2px solid green; */
     min-width: 5rem;
-    font-weight: 600;
+    font-weight: thin;
     display: flex;
     align-items: center;
 

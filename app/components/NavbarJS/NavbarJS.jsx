@@ -1,11 +1,14 @@
 "use client";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import "./NavbarJS.css";
 import UpperNavbarJS from "./UpperNavbarJS";
 import LowerNavBarJS from "./LowerNavBarJS";
+import Link from "next/link";
+import { GlobalContext } from "@/app/context/GlobalContext";
 
 const NavbarJS = () => {
   const [menuActive, setMenuActive] = useState(false);
+  const { headerLinks } = useContext(GlobalContext);
   return (
     <div className="mb-navbar-container">
       <UpperNavbarJS setState={setMenuActive} state={menuActive} />
@@ -25,7 +28,20 @@ const NavbarJS = () => {
         >
           X
         </div>
-        <div>Links</div>
+        <div className="pt-4 flex flex-col justify-evenly gap-8 text-lg font-bold">
+          {" "}
+          {headerLinks.map((page, index) => (
+            <Link
+              onClick={() => {
+                setSideMenu(false);
+              }}
+              key={index}
+              href={page.Link}
+            >
+              {page.name}
+            </Link>
+          ))}
+        </div>
       </div>
     </div>
   );
