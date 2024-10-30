@@ -1,19 +1,40 @@
 "use client";
 
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 import { GlobalContext } from "@/app/context/GlobalContext";
 import Link from "next/link";
 import { FaMagnifyingGlass } from "react-icons/fa6";
 import { BsFillCaretDownFill } from "react-icons/bs";
 
 const LowerNavBarJS = () => {
+  const containerRef = useRef(null);
   const { headerLinks } = useContext(GlobalContext);
   const [selected, setSelected] = useState(null);
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      // Check if the clicked target is not inside the container
+      if (
+        containerRef.current &&
+        !containerRef.current.contains(event.target)
+      ) {
+        setSelected(null);
+      }
+    };
+
+    // Attach the event listener
+    document.addEventListener("mousedown", handleClickOutside);
+
+    // Cleanup the event listener on component unmount
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
 
   return (
     <div className="mb-lower-navbar-container">
       <div className="mb-lower-navbar">
-        <div className="mb-lower-navbar-links">
+        <div className="mb-lower-navbar-links" ref={containerRef}>
           <Link
             href={"/"}
             onClick={() => {
@@ -27,8 +48,11 @@ const LowerNavBarJS = () => {
               index > 0 && (
                 <div
                   onClick={() => {
+                    if (selected === link.name) {
+                      setSelected(null);
+                      return;
+                    }
                     setSelected(link.name);
-                    console.log("testing:", link.name, selected);
                   }}
                   key={index}
                   href={link.Link}

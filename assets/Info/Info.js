@@ -1,5 +1,7 @@
 import img1 from "./logo.webp";
 
+import fall from "./fallsoccer.jpg";
+
 const homeLandingInfo = {
   title: "Saskatoon Soccer News & Updates",
   content: `Your premier destination for all things recreational soccer in Saskatoon! Whether you're a seasoned player or just looking to have fun`,
@@ -7,6 +9,7 @@ const homeLandingInfo = {
   buttonLink: "/latest",
   buttonName: "More",
   mini: false,
+  image: fall,
 };
 
 const homeLandingInfo2 = {
@@ -269,8 +272,9 @@ const block1HomePageFall = {
   date: "September 22 2024",
   content: `Looking for a team to join? Plenty of teams are looking for players to fill their rosters before indoor season kicks in. `,
   content_sec: ` Everything from Division 1 to Masters to Co-eds are still available.  If you are looking for something more casual you can check out our Meetup Group  on meetup up.com `,
-  image:
-    "https://images.pexels.com/photos/2935982/pexels-photo-2935982.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+  // image:
+  //   "https://images.pexels.com/photos/2935982/pexels-photo-2935982.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+  image: fall,
   buttonText: "Read More",
   buttonLink: "/",
 };

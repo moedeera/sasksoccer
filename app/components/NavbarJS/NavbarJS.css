@@ -7,14 +7,18 @@
   display: flex;
   align-items: center;
   padding: 10px 5px;
-  /* min-height: 60px;
   position: fixed;
   top: 0;
+  min-height: 60px;
+  z-index: 2;
+  /* min-height: 60px;
+
   width: 100%; */
 }
 .mb-lower-navbar-container {
   width: 100%;
   background-color: white;
+  margin-top: 60px;
 }
 .mb-upper-navbar {
   display: flex;
@@ -169,6 +173,7 @@
     display: flex;
     align-items: center;
     gap: 0px;
+    letter-spacing: 1px;
     /* padding: 20px 10px; */
   }
   .mb-links {
@@ -183,8 +188,11 @@
     left: 0;
     height: 200px;
     width: 250%;
-    background-color: red;
+    background-color: whitesmoke;
     z-index: 2;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Shadow effect */
+    transform: translateY(-5px); /* Slightly closer effect */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth animation */
   }
   .mb-lower-navbar a:hover,
   .mb-lower-navbar-links > div:hover {
