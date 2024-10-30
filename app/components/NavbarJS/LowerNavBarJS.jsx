@@ -35,44 +35,51 @@ const LowerNavBarJS = () => {
     <div className="mb-lower-navbar-container">
       <div className="mb-lower-navbar">
         <div className="mb-lower-navbar-links" ref={containerRef}>
-          <Link
-            href={"/"}
-            onClick={() => {
-              setSelected(null);
-            }}
-          >
-            Home
-          </Link>{" "}
-          {headerLinks.map(
-            (link, index) =>
-              index > 0 && (
+          {headerLinks.map((link, index) =>
+            index === 1 ? (
+              <div
+                onClick={() => {
+                  if (selected === link.name) {
+                    setSelected(null);
+                    return;
+                  }
+                  setSelected(link.name);
+                }}
+                key={index}
+                href={link.Link}
+                className={
+                  selected === link.name ? "mb-links selected-link" : "mb-links"
+                }
+              >
+                {link.name}
+                <BsFillCaretDownFill
+                  style={{ fontSize: "10px", marginLeft: "3px" }}
+                />
                 <div
-                  onClick={() => {
-                    if (selected === link.name) {
-                      setSelected(null);
-                      return;
-                    }
-                    setSelected(link.name);
-                  }}
-                  key={index}
-                  href={link.Link}
                   className={
                     selected === link.name
-                      ? "mb-links selected-link"
-                      : "mb-links"
+                      ? "mb-lower-navbar-dropdown"
+                      : "hidden"
                   }
                 >
-                  {link.name}
-                  <BsFillCaretDownFill
-                    style={{ fontSize: "10px", marginLeft: "3px" }}
-                  />
-                  <div
-                    className={
-                      selected === link.name && "mb-lower-navbar-dropdown"
-                    }
-                  ></div>
+                  {link.subLinks.map((sub, index) => (
+                    <Link key={index} href={sub.link}>
+                      {sub.name}
+                    </Link>
+                  ))}
                 </div>
-              )
+              </div>
+            ) : (
+              <Link
+                key={index}
+                href={link.Link}
+                onClick={() => {
+                  setSelected(null);
+                }}
+              >
+                {link.name}
+              </Link>
+            )
           )}
         </div>
         <div className="mb-lower-navbar-search-bar">
