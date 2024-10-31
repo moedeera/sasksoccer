@@ -45,7 +45,10 @@ const PageComponent = () => {
         // console.log(data.leagues);
         setLeagues(data.leagues);
         setTotalItems(data.total);
-        console.log("leagues:", data.leagues);
+        console.log(
+          "leagues:",
+          data.leagues.filter((league) => league.category === "indoor")
+        );
       } catch (error) {
         toast.error("Something went wrong");
       } finally {
@@ -86,7 +89,9 @@ const PageComponent = () => {
       <IndoorSeasonInfo />
 
       <Block4 data={openerContent} />
-      <div className="h3-header text-3xl font-bold text-center ">Leagues</div>
+      <div className="h3-header text-3xl font-bold text-center ">
+        Indoor Leagues 2023-2024
+      </div>
 
       {loading ? (
         <>
@@ -94,7 +99,9 @@ const PageComponent = () => {
           <CardSkeleton />
         </>
       ) : (
-        <Cards data={leagues} />
+        <Cards
+          data={leagues.filter((league) => league.category === "indoor")}
+        />
       )}
       <Block1 data={createOwnLeague} />
     </div>
