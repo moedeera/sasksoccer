@@ -90,7 +90,7 @@ const PageComponent = () => {
 
       <Block4 data={openerContent} />
       <div className="h3-header text-3xl font-bold text-center ">
-        Indoor Leagues 2023-2024
+        Indoor Leagues 2024-2025
       </div>
 
       {loading ? (
