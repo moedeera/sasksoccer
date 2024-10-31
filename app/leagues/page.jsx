@@ -45,6 +45,7 @@ const PageComponent = () => {
         // console.log(data.leagues);
         setLeagues(data.leagues);
         setTotalItems(data.total);
+        console.log("leagues:", data.leagues);
       } catch (error) {
         toast.error("Something went wrong");
       } finally {
