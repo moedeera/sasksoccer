@@ -1,11 +1,17 @@
 "use client";
 import Link from "next/link";
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import logo from "./logo-no-background.png";
 import Image from "next/image";
+import { GlobalContext } from "@/app/context/GlobalContext";
+import { useSession, signOut, signIn } from "next-auth/react";
 
 const UpperNavbarJS = ({ state, setState }) => {
+  const { data: session } = useSession();
   const [loginState, setLoginState] = useState(false);
+  const profileImage = session?.user?.image;
+  const [isProfileMenuOpen, setIsProfileMenuOpen] = useState(false);
+  const { links } = useContext(GlobalContext);
   return (
     <div className="mb-upper-navbar-container">
       <div className="mb-upper-navbar">
