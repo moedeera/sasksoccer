@@ -10,7 +10,7 @@ const Landing = ({ data }) => {
         className="landing-image"
         style={
           data.image && {
-            backgroundImage: `url(https://cdn.pixabay.com/photo/2019/10/29/07/33/soccer-4586282_1280.jpg)`,
+            backgroundImage: `url(https://cdn.pixabay.com/photo/2024/03/10/05/51/soccer-8624054_1280.jpg)`,
           }
         }
       ></div>
