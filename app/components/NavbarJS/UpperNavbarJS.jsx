@@ -52,9 +52,9 @@ const UpperNavbarJS = ({ state, setState }) => {
           </>
         ) : (
           <div className="mb-navbar-login-container">
-            <Link className="btn" href={"/login"}>
+            {/* <Link className="btn" href={"/login"}>
               Login
-            </Link>
+            </Link> */}
             {/* <div className="btn">Login</div> */}
           </div>
         )}
