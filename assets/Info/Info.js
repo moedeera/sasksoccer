@@ -182,11 +182,9 @@ const playCardsData = [
 
 const homeCarouselData = [
   {
-    title: "Aurora Tournament Concludes.",
-    date: "September 23 2024",
-    content: `With all the teams registered and the alignments set,
-      another Indoor Season is set to be on its way. For more information,
-      visit the Saskatoon Adult Soccer Website.`,
+    title: "Aurora Tournament This weekend.",
+    date: "November 21 2024",
+    content: `Another year of the Aurora tournament should be in the running this weekend. Thanks to all those who made it possible tis season`,
     link: null,
   },
   {
