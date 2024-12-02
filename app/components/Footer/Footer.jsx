@@ -64,7 +64,7 @@ const FooterComponent = () => {
               </a>
             </nav>
             <nav className="flex flex-col gap-y-4 text-sm text-slate-400">
-              <a href="/" className="hover:underline">
+              <a href="/community" className="hover:underline">
                 Community
               </a>
               <a href="/about" className="hover:underline">
