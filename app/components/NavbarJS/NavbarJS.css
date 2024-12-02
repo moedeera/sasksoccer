@@ -214,9 +214,10 @@
   .mb-lower-navbar-links > div:hover {
     background-color: var(--mainColor80);
   }
-  .mb-lower-navbar-search-bar {
+  .mb-lower-searchbar-container {
     display: none;
   }
+
   .no-focus-border {
     padding: 8px;
     outline: none;
@@ -230,6 +231,31 @@
 /* Medium devices (landscape tablets, 768px and up) */
 @media only screen and (min-width: 900px) {
   .mb-navbar-container {
+  }
+  .mb-lower-searchbar-container {
+    display: flex;
+    align-items: center;
+    position: relative;
+  }
+  .mb-searchbar-drop-down {
+    position: absolute;
+    border: 1px solid rgba(128, 128, 128, 0.5);
+    border-top: none;
+    min-height: 50px;
+    width: 100%;
+    top: 85%;
+    left: 0;
+    background-color: white;
+    z-index: 2;
+    transition: all 0.5s ease-in-out;
+  }
+  .searchbar-suggestion {
+    min-height: 30px;
+    /* border: 1px solid red; */
+    border-top: 1px solid rgba(128, 128, 128, 0.125);
+    padding: 10px 15px;
+    display: flex;
+    align-items: center;
   }
   .mb-lower-navbar-search-bar {
     display: flex;

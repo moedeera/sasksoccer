@@ -10,10 +10,30 @@ const LowerNavBarJS = () => {
   const containerRef = useRef(null);
   const { headerLinks } = useContext(GlobalContext);
   const [selected, setSelected] = useState(null);
+  const [searchQuery, setSearchQuery] = useState("");
+  const [filteredSuggestions, setFilteredSuggestions] = useState([]);
+
+  const suggestionList = [
+    { name: "About", link: "/about", keywords: ["about", "contact", "know"] },
+    {
+      name: "Men's league 1",
+      link: "/leagues/mens-boarded",
+      keywords: ["mens", "mens boarded", "boarded"],
+    },
+    {
+      name: "Shop",
+      link: "/shop",
+      keywords: ["merch", "shop", "merchandise"],
+    },
+    {
+      name: "Latest",
+      link: "/latest",
+      keywords: ["news", "latest", "upcoming"],
+    },
+  ];
 
   useEffect(() => {
     const handleClickOutside = (event) => {
-      // Check if the clicked target is not inside the container
       if (
         containerRef.current &&
         !containerRef.current.contains(event.target)
@@ -22,14 +42,24 @@ const LowerNavBarJS = () => {
       }
     };
 
-    // Attach the event listener
     document.addEventListener("mousedown", handleClickOutside);
 
-    // Cleanup the event listener on component unmount
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
   }, []);
+
+  useEffect(() => {
+    if (searchQuery.trim()) {
+      const query = searchQuery.toLowerCase();
+      const results = suggestionList.filter((item) =>
+        item.keywords.some((keyword) => keyword.includes(query))
+      );
+      setFilteredSuggestions(results);
+    } else {
+      setFilteredSuggestions([]);
+    }
+  }, [searchQuery]);
 
   return (
     <div className="mb-lower-navbar-container">
@@ -46,7 +76,6 @@ const LowerNavBarJS = () => {
                   setSelected(link.name);
                 }}
                 key={index}
-                href={link.Link}
                 className={
                   selected === link.name ? "mb-links selected-link" : "mb-links"
                 }
@@ -82,10 +111,35 @@ const LowerNavBarJS = () => {
             )
           )}
         </div>
-        <div className="mb-lower-navbar-search-bar">
-          {" "}
-          <input className="no-focus-border" name="myInput" type="text" />{" "}
-          <FaMagnifyingGlass style={{ cursor: "pointer" }} />
+        <div className="mb-lower-searchbar-container">
+          <div className="mb-lower-navbar-search-bar">
+            <input
+              className="no-focus-border"
+              name="myInput"
+              type="text"
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              placeholder="Search..."
+            />
+            <FaMagnifyingGlass style={{ cursor: "pointer" }} />
+          </div>
+          {filteredSuggestions.length > 0 && (
+            <div className="mb-searchbar-drop-down">
+              {filteredSuggestions.map((suggestion, index) => (
+                <Link
+                  key={index}
+                  className="searchbar-suggestion"
+                  href={suggestion.link}
+                  onClick={() => {
+                    setFilteredSuggestions("");
+                    setSearchQuery("");
+                  }}
+                >
+                  {suggestion.name}
+                </Link>
+              ))}
+            </div>
+          )}
         </div>
       </div>
     </div>
