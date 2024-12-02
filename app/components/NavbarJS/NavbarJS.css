@@ -256,6 +256,7 @@
     padding: 10px 15px;
     display: flex;
     align-items: center;
+    cursor: pointer;
   }
   .mb-lower-navbar-search-bar {
     display: flex;

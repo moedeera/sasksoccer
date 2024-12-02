@@ -65,6 +65,82 @@ export function GlobalProvider({ children }) {
     // { name: "My Dashboard", Link: "/myportal", case: "login" },
   ];
 
+  const suggestionList = [
+    { name: "About", link: "/about", keywords: ["about", "contact", "know"] },
+    {
+      name: "Home",
+      link: "/",
+      case: "all",
+      keywords: ["home", "homepage", "main"],
+    },
+    {
+      name: "Men's boarded",
+      link: "/leagues/mens-boarded",
+      keywords: [
+        "mens",
+        "mens boarded",
+        "boarded",
+        "league 1",
+        "league 2",
+        "league 3",
+        "division",
+        "masters",
+      ],
+    },
+    {
+      name: "Women's boarded",
+      link: "/leagues/womens-boarded-2024",
+      keywords: [
+        "womens",
+        "boarded",
+        "league 1",
+        "league 2",
+        "league 3",
+        "division",
+      ],
+    },
+    {
+      name: "Men's Turf",
+      link: "/leagues/mens-turf-2024",
+      keywords: [
+        "mens",
+        "turf",
+        "Mens",
+        "Turf",
+        "league 1",
+        "league 2",
+        "league 3",
+        "league 4",
+        "league 5",
+        "league 6",
+        "division",
+      ],
+    },
+    {
+      name: "Women's Turf",
+      link: "/leagues/womans-turf-2024",
+      keywords: ["womens", "turf", "league 1", "masters"],
+    },
+    {
+      name: "Shop",
+      link: "/shop",
+      keywords: [
+        "merch",
+        "shop",
+        "merchandise",
+        "buy",
+        "sell",
+        "jersey",
+        "kits",
+      ],
+    },
+    {
+      name: "Latest",
+      link: "/latest",
+      keywords: ["news", "latest", "upcoming"],
+    },
+  ];
+
   return (
     <GlobalContext.Provider
       value={{
@@ -73,6 +149,7 @@ export function GlobalProvider({ children }) {
         headerLinks,
         websiteInfo,
         links,
+        suggestionList,
       }}
     >
       {children}

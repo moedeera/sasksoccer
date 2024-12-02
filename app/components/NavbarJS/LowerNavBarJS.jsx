@@ -8,29 +8,10 @@ import { BsFillCaretDownFill } from "react-icons/bs";
 
 const LowerNavBarJS = () => {
   const containerRef = useRef(null);
-  const { headerLinks } = useContext(GlobalContext);
+  const { headerLinks, suggestionList } = useContext(GlobalContext);
   const [selected, setSelected] = useState(null);
   const [searchQuery, setSearchQuery] = useState("");
   const [filteredSuggestions, setFilteredSuggestions] = useState([]);
-
-  const suggestionList = [
-    { name: "About", link: "/about", keywords: ["about", "contact", "know"] },
-    {
-      name: "Men's league 1",
-      link: "/leagues/mens-boarded",
-      keywords: ["mens", "mens boarded", "boarded"],
-    },
-    {
-      name: "Shop",
-      link: "/shop",
-      keywords: ["merch", "shop", "merchandise"],
-    },
-    {
-      name: "Latest",
-      link: "/latest",
-      keywords: ["news", "latest", "upcoming"],
-    },
-  ];
 
   useEffect(() => {
     const handleClickOutside = (event) => {
