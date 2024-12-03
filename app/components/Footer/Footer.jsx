@@ -67,13 +67,13 @@ const FooterComponent = () => {
               <a href="/community" className="hover:underline">
                 Community
               </a>
-              <a href="/about" className="hover:underline">
+              <a href="/privacy" className="hover:underline">
                 Privacy Policy
               </a>
               <a href="/latest" className="hover:underline">
                 Careers
               </a>
-              <a href="/contact" className="hover:underline">
+              <a href="/privacy" className="hover:underline">
                 Disclaimer
               </a>
             </nav>
