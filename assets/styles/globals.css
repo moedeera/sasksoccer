@@ -150,6 +150,13 @@ p {
   border: 0.5px solid rgba(128, 128, 128, 0.25);
   border-bottom: none;
 }
+
+.privacy-policy h2 {
+  font-weight: bold;
+  font-size: x-large;
+  margin-top: 10px;
+}
+
 /* Extra small devices (phones, 600px and down) */
 @media only screen and (max-width: 768px) {
   .login-button {
