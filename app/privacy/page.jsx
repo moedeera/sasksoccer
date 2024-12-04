@@ -2,6 +2,7 @@ import React from "react";
 
 const page = () => {
   return (
+    // eslint-disable-next-line react/no-unescaped-entities
     <div className="component-container">
       <div className="privacy-policy">
         <h1>Privacy Policy</h1>
@@ -34,8 +35,8 @@ const page = () => {
         <ul>
           <li>
             We may collect technical data such as your IP address, browser type,
-            and operating system for analytics purposes to improve the website's
-            functionality.
+            and operating system for analytics purposes to improve the
+            functionality of this website.
           </li>
         </ul>
 
@@ -80,11 +81,11 @@ const page = () => {
         <h2>5. Third-Party Services</h2>
         <p>
           Our website uses Google for account login purposes. By logging in via
-          Google, you agree to Google’s privacy policies. We do not have access
-          to your password or other sensitive Google account data.
+          Google, you agree to Google privacy policies. We do not have access to
+          your password or other sensitive Google account data.
         </p>
         <p>
-          For more information about Google’s privacy policy, please visit{" "}
+          For more information about Google privacy policy, please visit{" "}
           <a
             href="https://policies.google.com/privacy"
             target="_blank"
@@ -117,7 +118,7 @@ const page = () => {
           </li>
         </ul>
 
-        <h2>8. Children's Privacy</h2>
+        <h2>8. Children</h2>
         <p>
           Our website is intended for adult users interested in soccer leagues
           and tournaments. We do not knowingly collect information from children
