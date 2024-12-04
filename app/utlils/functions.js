@@ -139,6 +139,84 @@ function formatDateToString(isoString) {
   )} ${year} at ${hours}:${minutes} ${ampm}`;
 }
 
+//
+// Function to process input and generate team stats
+function parseSoccerData(input) {
+  const lines = input.split("\n").filter((line) => line.trim() !== "");
+  const teams = {};
+
+  lines.forEach((line) => {
+    const parts = line.split("\t");
+    const [dateTime, field, teamAData, teamBData] = parts.slice(0, 4);
+
+    // Extract team names and scores
+    const [teamA, teamAScore] = teamAData.match(/(.*) \((\d+)\)/).slice(1, 3);
+    const [teamB, teamBScore] = teamBData.match(/(.*) \((\d+)\)/).slice(1, 3);
+    const scoreA = parseInt(teamAScore, 10);
+    const scoreB = parseInt(teamBScore, 10);
+
+    // Initialize teams if not already in the object
+    if (!teams[teamA]) {
+      teams[teamA] = { wins: 0, loss: 0, draw: 0, gf: 0, ga: 0 };
+    }
+    if (!teams[teamB]) {
+      teams[teamB] = { wins: 0, loss: 0, draw: 0, gf: 0, ga: 0 };
+    }
+
+    // Update stats
+    teams[teamA].gf += scoreA;
+    teams[teamA].ga += scoreB;
+    teams[teamB].gf += scoreB;
+    teams[teamB].ga += scoreA;
+
+    if (scoreA > scoreB) {
+      teams[teamA].wins += 1;
+      teams[teamB].loss += 1;
+    } else if (scoreB > scoreA) {
+      teams[teamB].wins += 1;
+      teams[teamA].loss += 1;
+    } else {
+      teams[teamA].draw += 1;
+      teams[teamB].draw += 1;
+    }
+  });
+
+  // Convert the teams object to an array
+  return Object.entries(teams).map(([team, stats]) => ({
+    team,
+    ...stats,
+  }));
+}
+
+// Function to generate formatted game strings
+function formatGames(input) {
+  const lines = input.split("\n").filter((line) => line.trim() !== "");
+  const games = lines.map((line) => {
+    const parts = line.split("\t");
+    const [dateTime, , teamAData, teamBData] = parts.slice(0, 4);
+
+    // Extract team names and scores
+    const [teamA, teamAScore] = teamAData.match(/(.*) \((\d+)\)/).slice(1, 3);
+    const [teamB, teamBScore] = teamBData.match(/(.*) \((\d+)\)/).slice(1, 3);
+
+    return `${teamA} ${teamAScore}-${teamBScore} ${teamB}, ${dateTime}`;
+  });
+
+  return games;
+}
+
+// Example usage
+const input = `Mon, Oct. 07, 2024 7:30 PM\tTrail Appliance\tFlamingo FC (3)\tFulchester United (1)\t\tPrint
+Mon, Oct. 07, 2024 8:30 PM\tTrail Appliance\tGalacticos FC (1)\tSparta FC (10)\t\tPrint
+Mon, Oct. 07, 2024 9:30 PM\tTrail Appliance\tNLA FC (7)\tVikings Turf (3)\t\tPrint
+Wed, Oct. 16, 2024 9:15 PM\tKavia Auto Body\tSparta FC (4)\tNLA FC (6)\t\tPrint`;
+
+const teamStats = parseSoccerData(input);
+console.log("Team Stats:", teamStats);
+
+const formattedGames = formatGames(input);
+console.log("Formatted Games:", formattedGames);
+
 export {
   generateSlug,
   formatDateFunction,
@@ -146,4 +224,6 @@ export {
   reorganizeTeamsByGroupNumber,
   calculateAndSortTeamsByPoints,
   formatDateToString,
+  parseSoccerData,
+  formatGames,
 };

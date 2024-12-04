@@ -67,7 +67,7 @@ const LeagueUpdateForm = () => {
                 final: "",
               }
         );
-        console.log(data.details);
+        // console.log(data.details);
       } catch (error) {
         console.error("Failed to fetch league data:", error);
       }
@@ -83,7 +83,7 @@ const LeagueUpdateForm = () => {
     }
 
     try {
-      console.log(details);
+      // console.log(details);
       if (details === 1) {
         console.log("error");
         return;
@@ -110,7 +110,7 @@ const LeagueUpdateForm = () => {
       }
 
       const result = await response.json();
-      console.log(result); // For demonstration purposes
+      // console.log(result); // For demonstration purposes
       router.push(`/leagues/${result.slug}`);
       setError(""); // Clear any existing errors
     } catch (error) {
