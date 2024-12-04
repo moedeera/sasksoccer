@@ -31,11 +31,11 @@ const BookMarkButton = ({ league }) => {
 
         if (res.status === 200) {
           const data = await res.json();
-          console.log("data:", data);
+          // console.log("data:", data);
           setIsBookmarked(data.isBookmarked);
         }
       } catch (error) {
-        console.log(error);
+        console.log("error");
       } finally {
         setLoading(false);
       }

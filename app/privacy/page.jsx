@@ -1,16 +1,6 @@
 import React from "react";
-import Landing2 from "../components/Landing2/Landing2";
-import Block1 from "../components/Block1/Block1";
-import Block2 from "../components/Block2/Block2";
-import { AboutPageMainInfo, communityPageData } from "../community/info";
 
 const page = () => {
-  const pageHeader = {
-    title: "Privacy Policy",
-    content: null,
-    button: null,
-    mini: true,
-  };
   return (
     <div className="component-container">
       <div className="privacy-policy">
