@@ -4,10 +4,22 @@ import React from "react";
 
 const page = () => {
   // Example usage
-  const input = `Mon, Oct. 07, 2024 7:30 PM\tTrail Appliance\tFlamingo FC (3)\tFulchester United (1)\t\tPrint
-Mon, Oct. 07, 2024 8:30 PM\tTrail Appliance\tGalacticos FC (1)\tSparta FC (10)\t\tPrint
-Mon, Oct. 07, 2024 9:30 PM\tTrail Appliance\tNLA FC (7)\tVikings Turf (3)\t\tPrint
-Wed, Oct. 16, 2024 9:15 PM\tKavia Auto Body\tSparta FC (4)\tNLA FC (6)\t\tPrint`;
+  const input = `Tue, Oct. 08, 2024 7:30 PM	Trail Appliance	Ubuntu Fc (5)	ASTRA U23 (2)		Print
+Tue, Oct. 08, 2024 8:30 PM	Trail Appliance	Simba Khukuri FC (2)	Galaxy TFC (7)		Print
+Tue, Oct. 15, 2024 9:15 PM	Kavia Auto Body	Galaxy TFC (7)	ASTRA U23 (7)		Print
+Tue, Oct. 15, 2024 10:15 PM	Kavia Auto Body	Simba Khukuri FC (1)	Ubuntu Fc (2)		Print
+Tue, Oct. 22, 2024 8:30 PM	Trail Appliance	Ubuntu Fc (5)	Galaxy TFC (6)		Print
+Tue, Oct. 22, 2024 9:30 PM	Trail Appliance	ASTRA U23 (5)	Simba Khukuri FC (0)		Print
+Tue, Oct. 29, 2024 9:15 PM	Kavia Auto Body	Galaxy TFC (4)	Simba Khukuri FC (3)		Print
+Tue, Oct. 29, 2024 10:15 PM	Kavia Auto Body	ASTRA U23 (2)	Ubuntu Fc (5)		Print
+Tue, Nov. 05, 2024 8:30 PM	Trail Appliance	Ubuntu Fc (6)	Simba Khukuri FC (1)		Print
+Tue, Nov. 05, 2024 9:30 PM	Trail Appliance	ASTRA U23 (5)	Galaxy TFC (6)		Print
+Tue, Nov. 12, 2024 9:00 PM	Kavia Auto Body	Simba Khukuri FC (3)	ASTRA U23 (4)		Print
+Tue, Nov. 12, 2024 10:00 PM	Kavia Auto Body	Galaxy TFC (6)	Ubuntu Fc (6)		Print
+Tue, Nov. 19, 2024 8:30 PM	Trail Appliance	Ubuntu Fc (3)	ASTRA U23 (5)		Print
+Tue, Nov. 19, 2024 9:30 PM	Trail Appliance	Simba Khukuri FC (6)	Galaxy TFC (6)		Print
+Tue, Dec. 03, 2024 9:00 PM	Kavia Auto Body	Simba Khukuri FC (0)	Ubuntu Fc (1)		Print
+Tue, Dec. 03, 2024 10:00 PM	Kavia Auto Body	Galaxy TFC (4)	ASTRA U23 (5)		Print`;
 
   const teamStats = parseSoccerData(input);
   console.log("Team Stats:", teamStats);
