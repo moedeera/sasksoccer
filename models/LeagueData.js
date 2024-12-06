@@ -65,6 +65,6 @@ const LeagueDataSchema = new Schema(
   }
 );
 
-const League = models.League || model("League", LeagueDataSchema);
+const LeagueData = models.League || model("League", LeagueDataSchema);
 
-export default League;
+export default LeagueData;

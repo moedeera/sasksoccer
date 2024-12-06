@@ -1,7 +1,7 @@
 import { getSessionUser } from "@/app/components/getSessionUser";
 import { generateSlug } from "@/app/utlils/functions";
 import connectDB from "@/config/database";
-import League from "@/models/League";
+
 import LeagueData from "@/models/LeagueData";
 import { setCorsHeaders } from "../custommiddleware";
 
@@ -20,8 +20,8 @@ export const GET = async (request) => {
     const pageSize = request?.nextUrl?.searchParams?.get("pageSize") || 3;
     const skip = (page - 1) * pageSize;
 
-    const total = await League.countDocuments({});
-    const leagues = await League.find({}).skip(skip).limit(pageSize);
+    const total = await LeagueData.countDocuments({});
+    const leagues = await LeagueData.find({}).skip(skip).limit(pageSize);
 
     const result = { total, leagues };
 
@@ -36,7 +36,7 @@ export const GET = async (request) => {
   }
 };
 
-// Adding new League
+// Adding new LeagueData
 export const POST = async (request) => {
   const response = new Response();
 
@@ -63,9 +63,28 @@ export const POST = async (request) => {
       slug = generateSlug(body.name, userId);
     }
 
-    const newLeague = new League({
-      ...body,
-      slug: slug,
+    const newLeague = new LeagueData({
+      //   ...body,
+      //   slug: slug,
+      name: "James",
+      type: "Soccer",
+      year: "2023",
+      description: "normal",
+      category: "soccer",
+      details: [
+        {
+          group: "sddsdas",
+          description: "dsdasdsa",
+          games: "",
+          completed: false,
+          winner: "n/a",
+          runnerUp: "n/a",
+          playoffs1: "tba",
+          playoffs2: "tba",
+          final: "tba",
+          link: "n/a",
+        },
+      ],
       admin: sessionUser.user.name,
       owner: userId,
     });
@@ -83,7 +102,7 @@ export const POST = async (request) => {
   }
 };
 
-// Update league
+// Update leagueData
 // PUT /api/leagues/check-and-update
 export const PUT = async (request) => {
   console.log("called");
