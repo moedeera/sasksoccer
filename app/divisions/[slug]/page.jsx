@@ -1,8 +1,28 @@
 "use client";
 import { formatGames, parseSoccerData } from "@/app/utlils/functions";
-import React from "react";
+import React, { useState } from "react";
 
-const page = () => {
+const randomPlaceHolderImages = [
+  "https://images.pexels.com/photos/47343/the-ball-stadion-horn-corner-47343.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+  "https://images.pexels.com/photos/54567/pexels-photo-54567.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+  "https://images.pexels.com/photos/46798/the-ball-stadion-football-the-pitch-46798.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+  "https://images.pexels.com/photos/209841/pexels-photo-209841.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+];
+
+const Page = () => {
+  const [league, setLeague] = useState({
+    name: "",
+    type: "",
+    description: "",
+    teams: [],
+    groups: false,
+    games: [],
+    images: [randomPlaceHolderImages[0]],
+    isFeatured: false,
+    createdAt: null,
+    updatedAt: null,
+  });
+
   // Example usage
   const input = `Tue, Oct. 08, 2024 7:30 PM	Trail Appliance	Ubuntu Fc (5)	ASTRA U23 (2)		Print
 Tue, Oct. 08, 2024 8:30 PM	Trail Appliance	Simba Khukuri FC (2)	Galaxy TFC (7)		Print
@@ -25,8 +45,63 @@ Tue, Dec. 03, 2024 10:00 PM	Kavia Auto Body	Galaxy TFC (4)	ASTRA U23 (5)		Print`
   console.log("Team Stats:", teamStats);
 
   const formattedGames = formatGames(input);
+
+  const handleSubmit = async () => {
+    if (!name || !description || type === "") {
+      setError("All fields are required.");
+      console.log(name, description, type);
+      return;
+    }
+
+    if (teams.length < 2) {
+      setError("A minimum of 2 teams is required.");
+      return;
+    }
+
+    if (teams.some((team) => team.name === "")) {
+      setError("Team names cannot be empty.");
+      return;
+    }
+
+    const currentDate = new Date();
+    const newLeague = {
+      name: name,
+      groups: groups,
+      description: description,
+      type: type,
+      teams: teams,
+      images: league.images[0],
+      isFeatured: false,
+      createdAt: currentDate,
+      updatedAt: currentDate,
+    };
+
+    try {
+      const response = await fetch("/api/leagues", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(newLeague),
+      });
+
+      if (!response.ok) {
+        throw new Error("Failed to save league");
+      }
+
+      const result = await response.json();
+      console.log(result); // For demonstration purposes
+
+      setError(""); // Clear any existing error
+      router.push(`/leagues/${result.slug}`);
+    } catch (error) {
+      console.error(error);
+      setError("An error occurred while saving the league.");
+    }
+  };
+
   console.log("Formatted Games:", formattedGames);
   return <div className="bg-black h-screen">Slug page</div>;
 };
 
-export default page;
+export default Page;
