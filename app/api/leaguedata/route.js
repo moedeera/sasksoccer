@@ -16,17 +16,16 @@ export const GET = async (request) => {
   try {
     await connectDB();
 
-    const page = request?.nextUrl?.searchParams?.get("page") || 1;
-    const pageSize = request?.nextUrl?.searchParams?.get("pageSize") || 3;
-    const skip = (page - 1) * pageSize;
+    // const page = request?.nextUrl?.searchParams?.get("page") || 1;
+    // const pageSize = request?.nextUrl?.searchParams?.get("pageSize") || 3;
+    // const skip = (page - 1) * pageSize;
 
-    const total = await LeagueData.countDocuments({});
-    const leagues = await LeagueData.find({}).skip(skip).limit(pageSize);
-
-    const result = { total, leagues };
+    // const total = await LeagueData.countDocuments({});
+    // const leagues = await LeagueData.find({}).skip(skip).limit(pageSize);
+    const leagues = await LeagueData.find();
 
     response.headers.set("Content-Type", "application/json");
-    return new Response(JSON.stringify(result), {
+    return new Response(JSON.stringify(leagues), {
       status: 200,
       headers: response.headers,
     });

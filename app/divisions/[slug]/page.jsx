@@ -70,7 +70,29 @@ Tue, Dec. 03, 2024 10:00 PM	Kavia Auto Body	Galaxy TFC (4)	ASTRA U23 (5)		Print`
       // setError("An error occurred while saving the league.");
     }
   };
+  const handleGET = async () => {
+    try {
+      const response = await fetch("/api/leaguedata", {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
 
+      if (!response.ok) {
+        throw new Error("Failed to fetch leagues");
+      }
+
+      const result = await response.json();
+      console.log(result); // For demonstration purposes
+
+      // setError(""); // Clear any existing error
+      // router.push(`/leagues/${result.slug}`);
+    } catch (error) {
+      console.error(error);
+      // setError("An error occurred while saving the league.");
+    }
+  };
   // console.log("Formatted Games:", formattedGames);
   return (
     <div className="component-container h-screen flex">
@@ -81,7 +103,15 @@ Tue, Dec. 03, 2024 10:00 PM	Kavia Auto Body	Galaxy TFC (4)	ASTRA U23 (5)		Print`
           handleSubmit();
         }}
       >
-        test generation
+        POST test
+      </button>
+      <button
+        className="border h-16 mx-4 p-4 flex align-center items-center text-white bg-black"
+        onClick={() => {
+          handleGET();
+        }}
+      >
+        GET test
       </button>
     </div>
   );
