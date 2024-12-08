@@ -27,7 +27,7 @@ const LeagueDataSchema = new Schema(
     category: {
       type: String,
       required: true,
-      default: "indoor",
+      default: "n/a",
     },
     slug: {
       type: String,
@@ -53,6 +53,7 @@ const LeagueDataSchema = new Schema(
     images: [
       {
         type: String,
+        required: false,
       },
     ],
     is_featured: {
@@ -65,6 +66,6 @@ const LeagueDataSchema = new Schema(
   }
 );
 
-const LeagueData = models.League || model("League", LeagueDataSchema);
+const LeagueData = models.LeagueData || model("LeagueData", LeagueDataSchema);
 
 export default LeagueData;

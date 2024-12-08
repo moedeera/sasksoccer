@@ -42,47 +42,18 @@ Tue, Dec. 03, 2024 9:00 PM	Kavia Auto Body	Simba Khukuri FC (0)	Ubuntu Fc (1)		P
 Tue, Dec. 03, 2024 10:00 PM	Kavia Auto Body	Galaxy TFC (4)	ASTRA U23 (5)		Print`;
 
   const teamStats = parseSoccerData(input);
-  console.log("Team Stats:", teamStats);
+  // console.log("Team Stats:", teamStats);
 
   const formattedGames = formatGames(input);
 
   const handleSubmit = async () => {
-    if (!name || !description || type === "") {
-      setError("All fields are required.");
-      console.log(name, description, type);
-      return;
-    }
-
-    if (teams.length < 2) {
-      setError("A minimum of 2 teams is required.");
-      return;
-    }
-
-    if (teams.some((team) => team.name === "")) {
-      setError("Team names cannot be empty.");
-      return;
-    }
-
-    const currentDate = new Date();
-    const newLeague = {
-      name: name,
-      groups: groups,
-      description: description,
-      type: type,
-      teams: teams,
-      images: league.images[0],
-      isFeatured: false,
-      createdAt: currentDate,
-      updatedAt: currentDate,
-    };
-
     try {
-      const response = await fetch("/api/leagues", {
+      const response = await fetch("/api/leaguedata", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(newLeague),
+        body: JSON.stringify("hello"),
       });
 
       if (!response.ok) {
@@ -92,16 +63,28 @@ Tue, Dec. 03, 2024 10:00 PM	Kavia Auto Body	Galaxy TFC (4)	ASTRA U23 (5)		Print`
       const result = await response.json();
       console.log(result); // For demonstration purposes
 
-      setError(""); // Clear any existing error
-      router.push(`/leagues/${result.slug}`);
+      // setError(""); // Clear any existing error
+      // router.push(`/leagues/${result.slug}`);
     } catch (error) {
       console.error(error);
-      setError("An error occurred while saving the league.");
+      // setError("An error occurred while saving the league.");
     }
   };
 
-  console.log("Formatted Games:", formattedGames);
-  return <div className="bg-black h-screen">Slug page</div>;
+  // console.log("Formatted Games:", formattedGames);
+  return (
+    <div className="component-container h-screen flex">
+      Slug page
+      <button
+        className="border h-16 mx-4 p-4 flex align-center items-center text-white bg-black"
+        onClick={() => {
+          handleSubmit();
+        }}
+      >
+        test generation
+      </button>
+    </div>
+  );
 };
 
 export default Page;

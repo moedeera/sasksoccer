@@ -38,6 +38,7 @@ export const GET = async (request) => {
 
 // Adding new LeagueData
 export const POST = async (request) => {
+  console.log("called POST route");
   const response = new Response();
 
   // Set CORS headers
@@ -53,29 +54,34 @@ export const POST = async (request) => {
     }
     const { userId } = sessionUser;
 
-    const body = await request.json();
-    console.log("this is the body:", body);
+    // const body = await request.json();
+    // console.log("this is the body:", body);
 
-    let slug = body.name.toLowerCase().replace(/[\s]+/g, "-");
-    const existingLeague = await League.findOne({ slug: slug });
+    // let slug = body.name.toLowerCase().replace(/[\s]+/g, "-");
+    // const existingLeague = await League.findOne({ slug: slug });
 
-    if (existingLeague) {
-      slug = generateSlug(body.name, userId);
-    }
-
+    // if (existingLeague) {
+    //   slug = generateSlug(body.name, userId);
+    // }
+    let x = Math.floor(Math.random() * 9);
+    let randomId = Math.floor(Math.random() * (999 - 100 + 1)) + 100;
+    let letters = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j"];
     const newLeague = new LeagueData({
       //   ...body,
       //   slug: slug,
-      name: "James",
-      type: "Soccer",
-      year: "2023",
-      description: "normal",
-      category: "soccer",
+      owner: userId,
+      admin: sessionUser.user.name,
+      name: "Men's turf division 1",
+      type: "Mens",
+      year: 2023,
+      description: "Turf divisions for Mens 2019-2020 season",
+      category: "indoor",
+      slug: `${letters[x]}-${randomId}`,
       details: [
         {
-          group: "sddsdas",
-          description: "dsdasdsa",
+          group: "Mens 1",
           games: "",
+          description: "Mens turf division 1",
           completed: false,
           winner: "n/a",
           runnerUp: "n/a",
@@ -85,8 +91,6 @@ export const POST = async (request) => {
           link: "n/a",
         },
       ],
-      admin: sessionUser.user.name,
-      owner: userId,
     });
 
     await newLeague.save();
