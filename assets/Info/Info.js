@@ -185,7 +185,7 @@ const homeCarouselData = [
     title: "Aurora Tournament This weekend.",
     date: "November 21 2024",
     content: `Another year of the Aurora tournament should be in the running this weekend. Thanks to all those who made it possible tis season`,
-    link: null,
+    link: "https://www.hollandiacup.ca/",
   },
   {
     title: "Indoor Season 2024 Starting October.",

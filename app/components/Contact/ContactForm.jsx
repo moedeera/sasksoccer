@@ -6,6 +6,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { toast } from "react-toastify";
 import Spinner from "../Spinner";
+import Link from "next/link";
 
 const ContactForm = () => {
   const [name, setName] = useState("");
@@ -65,10 +66,10 @@ const ContactForm = () => {
         </h3>
         <p className="mb-3 text-base">
           Please login with google in order use to form, Otherwise feel free to
-          message us via email at{" "}
-          <a className="font-bold" href="mailto:info@sasksoccerhub.ca">
+          <Link href={"/contact"}>message us </Link>
+          {/* <a className="font-bold" href="mailto:info@sasksoccerhub.ca">
             info@sasksoccerhub.ca
-          </a>
+          </a> */}
         </p>
 
         <form onSubmit={handleSubmit}>

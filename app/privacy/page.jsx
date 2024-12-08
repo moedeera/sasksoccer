@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React from "react";
 
 const page = () => {
@@ -137,7 +138,7 @@ const page = () => {
           please contact us at:
         </p>
         <p>
-          <strong>Email:</strong> info@sasksoccerhub.ca
+          <Link href={"/contact"}>message us </Link>
         </p>
 
         <p>
