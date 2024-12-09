@@ -21,49 +21,6 @@ function generateRentalBasisString(rates) {
   return `${rentalBases}`;
 }
 
-async function fetchProperties({ showFeatured = false } = {}) {
-  try {
-    // Handle the case where the domain is not available yet
-    if (!apiDomain) {
-      return [];
-    }
-
-    const res = await fetch(
-      `${apiDomain}/properties${showFeatured ? "/featured" : ""}`,
-      { cache: "no-store" }
-    );
-
-    if (!res.ok) {
-      throw new Error("Failed to fetch data");
-    }
-
-    return res.json();
-  } catch (error) {
-    console.log(error);
-    return [];
-  }
-}
-
-// fetch Single property
-const fetchProperty = async (id) => {
-  try {
-    // handle case where domain is not available
-    if (!apiDomain) {
-      return null;
-    }
-    const res = await fetch(`${apiDomain}/properties/${id}`);
-
-    if (!res.ok) {
-      throw new Error("Failed to fetch data");
-    }
-
-    const data = await res.json();
-    return data;
-  } catch (error) {
-    console.log(error);
-    return null;
-  }
-};
 // fetch League
 const fetchLeague = async (slug) => {
   try {
@@ -84,10 +41,27 @@ const fetchLeague = async (slug) => {
     return null;
   }
 };
+//
+const fetchLeagueData = async (slug) => {
+  console.log("slug is:", slug);
+  try {
+    // handle case where domain is not available
+    if (!apiDomain) {
+      return null;
+    }
+    const res = await fetch(`${apiDomain}/leaguedata/${slug}`);
 
-export {
-  fetchProperties,
-  fetchProperty,
-  generateRentalBasisString,
-  fetchLeague,
+    if (!res.ok) {
+      throw new Error("Failed to fetch data");
+    }
+
+    const data = await res.json();
+    console.log("data is :", data);
+    return data;
+  } catch (error) {
+    console.log(error);
+    return null;
+  }
 };
+
+export { generateRentalBasisString, fetchLeague, fetchLeagueData };
