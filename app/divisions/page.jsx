@@ -1,6 +1,10 @@
 "use client";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { formatGames, parseSoccerData } from "../utlils/functions";
+import Landing from "../components/Landing/Landing";
+import IndoorSeasonInfo from "../leagues/IndoorSeasonInfo";
+import CardSkeleton from "../components/CardSkeleton/CardSkeleton";
+import { Cards } from "@/components/Card/Card";
 
 const Page = () => {
   // Example usage
@@ -32,7 +36,7 @@ const Page = () => {
     "https://images.pexels.com/photos/46798/the-ball-stadion-football-the-pitch-46798.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
     "https://images.pexels.com/photos/209841/pexels-photo-209841.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
   ];
-  const [league, setLeague] = useState({
+  const [leagues, setLeagues] = useState({
     name: "",
     type: "",
     description: "",
@@ -44,6 +48,16 @@ const Page = () => {
     createdAt: null,
     updatedAt: null,
   });
+  const [loading, setLoading] = useState(true);
+  const pageHeader = {
+    title: "Leagues",
+
+    button: null,
+    mini: true,
+    image:
+      "/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fimage0.c1c04e41.jpg&w=640&q=75",
+  };
+
   const handleSubmit = async () => {
     try {
       const response = await fetch("/api/leaguedata", {
@@ -68,47 +82,52 @@ const Page = () => {
       // setError("An error occurred while saving the league.");
     }
   };
-  const handleGET = async () => {
-    try {
-      const response = await fetch("/api/leaguedata", {
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
 
-      if (!response.ok) {
-        throw new Error("Failed to fetch leagues");
+  useEffect(() => {
+    const handleGET = async () => {
+      try {
+        const response = await fetch("/api/leaguedata", {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+          },
+        });
+
+        if (!response.ok) {
+          throw new Error("Failed to fetch leagues");
+        }
+
+        const result = await response.json();
+        setLoading(false);
+        setLeagues(result);
+
+        console.log(result); // For demonstration purposes
+
+        // setError(""); // Clear any existing error
+        // router.push(`/leagues/${result.slug}`);
+      } catch (error) {
+        console.error(error);
+        // setError("An error occurred while saving the league.");
       }
+    };
+    handleGET();
+  }, []);
 
-      const result = await response.json();
-      console.log(result); // For demonstration purposes
-
-      // setError(""); // Clear any existing error
-      // router.push(`/leagues/${result.slug}`);
-    } catch (error) {
-      console.error(error);
-      // setError("An error occurred while saving the league.");
-    }
-  };
   return (
-    <div className="component-container h-screen flex">
-      <button
-        className="border h-16 mx-4 p-4 flex align-center items-center text-white bg-black"
-        onClick={() => {
-          handleSubmit();
-        }}
-      >
-        POST test
-      </button>
-      <button
-        className="border h-16 mx-4 p-4 flex align-center items-center text-white bg-black"
-        onClick={() => {
-          handleGET();
-        }}
-      >
-        GET test
-      </button>
+    <div className="">
+      <Landing data={pageHeader} />
+      <IndoorSeasonInfo />
+      <div className="h3-header text-3xl font-bold text-center ">
+        Indoor Leagues 2024-2025
+        {loading ? (
+          <>
+            <CardSkeleton />
+            <CardSkeleton />
+          </>
+        ) : (
+          <Cards data={leagues} />
+        )}
+      </div>
     </div>
   );
 };

@@ -13,7 +13,8 @@ import Link from "next/link";
 import { AspectRatio } from "../ui/aspect-ratio";
 import Image from "next/image";
 
-export function Cards({ data }) {
+export function Cards({ data, directory }) {
+  const [infoDirectory, setInfoDirectory] = React.useState("leagues");
   const defaultData = [
     {
       name: "Lakewood tournament",
@@ -56,12 +57,16 @@ export function Cards({ data }) {
     if (data) {
       setInfo(data);
     }
+
+    if (directory) {
+      setInfoDirectory(directory);
+    }
   }, [data]);
 
   return (
     <div className="component-container grid md:grid-cols-3 lg:grid-cols-4 gap-8 md:p-3">
       {" "}
-      {info.map((dat, index) => (
+      {info?.map((dat, index) => (
         <Card key={index} className="flex flex-col justify-between">
           <CardHeader>
             {dat?.image && (
@@ -93,7 +98,9 @@ export function Cards({ data }) {
 
           <CardFooter>
             <Link
-              href={dat.button ? `${dat.link}` : `leagues/${dat.slug}`}
+              href={
+                dat.button ? `${dat.link}` : `/${infoDirectory}/${dat.slug}`
+              }
               passHref
               legacyBehavior
             >
