@@ -125,7 +125,7 @@ const Page = () => {
             <CardSkeleton />
           </>
         ) : (
-          <Cards data={leagues} />
+          <Cards data={leagues} directory={"divisions"} />
         )}
       </div>
     </div>
