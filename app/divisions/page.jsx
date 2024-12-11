@@ -122,7 +122,6 @@ const Page = () => {
         {loading ? (
           <>
             <CardSkeleton />
-            <CardSkeleton />
           </>
         ) : (
           <Cards data={leagues} directory={"divisions"} />

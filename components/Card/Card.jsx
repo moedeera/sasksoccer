@@ -90,12 +90,17 @@ export function Cards({ data, directory }) {
               </AspectRatio>
             )}
 
-            <CardTitle className="text-md md:text-xl">{dat.name}</CardTitle>
-            <CardDescription className="text-sm">
+            <CardTitle className="text-md md:text-lg text-left">
+              {dat.name}
+            </CardTitle>
+            <CardDescription className="text-sm text-left">
               {dat.description}
             </CardDescription>
           </CardHeader>
-
+          <CardFooter className="text-sm">
+            {" "}
+            {dat?.details?.length} Division(s)
+          </CardFooter>
           <CardFooter>
             <Link
               href={
