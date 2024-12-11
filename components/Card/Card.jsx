@@ -101,6 +101,10 @@ export function Cards({ data, directory }) {
             {" "}
             {dat?.details?.length} Division(s)
           </CardFooter>
+          <CardFooter className="text-sm font-thin">
+            {" "}
+            Category:{dat?.category}(*)
+          </CardFooter>
           <CardFooter>
             <Link
               href={
