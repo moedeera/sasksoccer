@@ -99,11 +99,11 @@ export function Cards({ data, directory }) {
           </CardHeader>
           <CardFooter className="text-sm">
             {" "}
-            {dat?.details?.length} Division(s)
+            {dat?.details?.length > 0 && <> {dat?.details?.length} Divisions</>}
           </CardFooter>
           <CardFooter className="text-sm font-thin">
             {" "}
-            Category:{dat?.category}(*)
+            Category:{dat?.category}
           </CardFooter>
           <CardFooter>
             <Link
