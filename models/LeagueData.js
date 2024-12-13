@@ -29,6 +29,12 @@ const LeagueDataSchema = new Schema(
       required: true,
       default: "n/a",
     },
+    categories: [
+      {
+        type: String,
+        required: false,
+      },
+    ],
     slug: {
       type: String,
       required: true,

@@ -101,9 +101,18 @@ export function Cards({ data, directory }) {
             {" "}
             {dat?.details?.length > 0 && <> {dat?.details?.length} Divisions</>}
           </CardFooter>
+
           <CardFooter className="text-sm font-thin">
             {" "}
-            Category:{dat?.category}
+            Categories:
+            {dat?.categories?.map((category, index) => (
+              <div
+                className="border border-gray rounded p-1 mr-1 capitalize bg-slate-50"
+                key={index}
+              >
+                {category}
+              </div>
+            ))}
           </CardFooter>
           <CardFooter>
             <Link
