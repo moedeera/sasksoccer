@@ -45,6 +45,7 @@ const LeagueDataSchema = new Schema(
         group: { type: String, required: true },
         description: {
           type: String,
+          required: false,
         },
         games: { type: String },
         completed: { type: Boolean, required: true, default: false },

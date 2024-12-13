@@ -37,12 +37,62 @@ const Page = () => {
     "https://images.pexels.com/photos/209841/pexels-photo-209841.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
   ];
   const [leagues, setLeagues] = useState({
-    name: "",
-    type: "",
-    description: "",
-    teams: [],
-    groups: false,
-    games: [],
+    name: "Men's 2024-2025 Boarded",
+    type: "Mens",
+    description: "Mens 2024-2025 Boarded Divisions",
+    category: "indoor",
+    categories: ["indoor", "boarded", "mens"],
+    slug: "mensboarded2425",
+    details: [
+      {
+        group: "Mens Boarded ",
+        description: "Mens Boarded Masters",
+        games: "",
+        completed: false,
+        winner: "n/a",
+        runnerUp: "n/a",
+        playoffs1: "n/a",
+        playoffs2: "n/a",
+        final: "tba",
+        link: "",
+      },
+      {
+        group: "Mens Boarded ",
+        description: "Mens Boarded 1 ",
+        games: "",
+        completed: false,
+        winner: "n/a",
+        runnerUp: "n/a",
+        playoffs1: "n/a",
+        playoffs2: "n/a",
+        final: "tba",
+        link: "",
+      },
+      {
+        group: "Mens Boarded ",
+        description: "Mens Boarded 2",
+        games: "",
+        completed: false,
+        winner: "n/a",
+        runnerUp: "n/a",
+        playoffs1: "n/a",
+        playoffs2: "n/a",
+        final: "tba",
+        link: "",
+      },
+      {
+        group: "Mens Boarded ",
+        description: "Mens Boarded 3",
+        games: "",
+        completed: false,
+        winner: "n/a",
+        runnerUp: "n/a",
+        playoffs1: "n/a",
+        playoffs2: "n/a",
+        final: "tba",
+        link: "",
+      },
+    ],
     images: [randomPlaceHolderImages[0]],
     isFeatured: false,
     createdAt: null,
@@ -65,7 +115,7 @@ const Page = () => {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify("hello"),
+        body: JSON.stringify(leagues),
       });
 
       if (!response.ok) {
@@ -115,6 +165,13 @@ const Page = () => {
 
   return (
     <div className="">
+      <button
+        onClick={() => {
+          handleSubmit();
+        }}
+      >
+        Post
+      </button>
       <Landing data={pageHeader} />
       <IndoorSeasonInfo />
       <div className="h3-header text-3xl font-bold text-center ">
