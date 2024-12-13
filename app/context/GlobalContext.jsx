@@ -68,6 +68,11 @@ export function GlobalProvider({ children }) {
   const suggestionList = [
     { name: "About", link: "/about", keywords: ["about", "contact", "know"] },
     {
+      name: "Contact",
+      link: "/contact",
+      keywords: ["contact", "email", "message", "number"],
+    },
+    {
       name: "Home",
       link: "/",
       case: "all",

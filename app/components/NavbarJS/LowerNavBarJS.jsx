@@ -119,6 +119,16 @@ const LowerNavBarJS = () => {
                   {suggestion.name}
                 </Link>
               ))}
+              <Link
+                className="searchbar-suggestion"
+                href={`/search/${searchQuery}`}
+                onClick={() => {
+                  setFilteredSuggestions("");
+                  setSearchQuery("");
+                }}
+              >
+                See all Results
+              </Link>
             </div>
           )}
         </div>
