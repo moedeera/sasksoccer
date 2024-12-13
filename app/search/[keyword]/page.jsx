@@ -27,7 +27,7 @@ const Page = () => {
     return potentialMatch.split(" ").map((word, index) => {
       if (originalLower.includes(word.toLowerCase())) {
         return (
-          <span key={index} className="font-bold">
+          <span key={index} className="font-bold underline">
             {word}
           </span>
         );
@@ -56,13 +56,14 @@ const Page = () => {
   return (
     <div className="component-container">
       <div className="text-xl mb-8">
-        Search Results for{" "}
+        {results.length} Search Results for{" "}
         <span className="font-bold text-cyan-600 ">{keyword}</span>{" "}
       </div>
       <div className="results-container flex flex-col gap-4">
         {results.map((result, index) => (
           <div key={index}>
-            - {highlightMatch(keyword, result.name)} in{" "}
+            - {highlightMatch(keyword, result.name)}
+            {getNonMatchingLetters} in{" "}
             <Link href={result.link} className="text-cyan-600 font-bold">
               {result.name}
             </Link>
