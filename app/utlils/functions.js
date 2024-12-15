@@ -146,7 +146,7 @@ function parseSoccerData(input) {
   lines.forEach((line) => {
     // Updated regex to separate location explicitly
     const match = line.match(
-      /(.*?, \w+\. \d+, \d+ \d+:\d+ [APM]+)\s+(Trail Appliance|Kavia Auto Body)\s+(.*?)\s+\((\d+)\)\s+(.*?)\s+\((\d+)\)/
+      /(.*?, \w+\. \d+, \d+ \d+:\d+ [APM]+)\s+(Trail Appliance|Kavia Auto Body|Red Field)\s+(.*?)\s+\((\d+)\)\s+(.*?)\s+\((\d+)\)/
     );
 
     if (!match) return; // Skip invalid lines
@@ -193,7 +193,7 @@ function formatGames(input) {
   const lines = input.split("\n").filter((line) => line.trim() !== "");
   const games = lines.map((line) => {
     const match = line.match(
-      /(.*?, \w+\. \d+, \d+ \d+:\d+ [APM]+)\s+(Trail Appliance|Kavia Auto Body)\s+(.*?)\s+\((\d+)\)\s+(.*?)\s+\((\d+)\)/
+      /(.*?, \w+\. \d+, \d+ \d+:\d+ [APM]+)\s+(Trail Appliance|Kavia Auto Body |Red Field)\s+(.*?)\s+\((\d+)\)\s+(.*?)\s+\((\d+)\)/
     );
 
     if (!match) return ""; // Skip invalid lines

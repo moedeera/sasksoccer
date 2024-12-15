@@ -120,14 +120,14 @@ const LowerNavBarJS = () => {
                 </Link>
               ))}
               <Link
-                className="searchbar-suggestion"
+                className="searchbar-suggestion font-bold text-cyan-600"
                 href={`/search/${searchQuery}`}
                 onClick={() => {
                   setFilteredSuggestions("");
                   setSearchQuery("");
                 }}
               >
-                See all Results
+                See all Results{" "}
               </Link>
             </div>
           )}
