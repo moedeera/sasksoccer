@@ -146,7 +146,7 @@ function parseSoccerData(input) {
   lines.forEach((line) => {
     // Updated regex to separate location explicitly
     const match = line.match(
-      /(.*?, \w+\. \d+, \d+ \d+:\d+ [APM]+)\s+(Trail Appliance|Kavia Auto Body|Red Field)\s+(.*?)\s+\((\d+)\)\s+(.*?)\s+\((\d+)\)/
+      /(.*?, \w+\. \d+, \d+ \d+:\d+ [APM]+)\s+(Trail Appliance|Kavia Auto Body|Red Field|Winmar|Aurora Financial|Mark Tennant)\s+(.*?)\s+\((\d+)\)\s+(.*?)\s+\((\d+)\)/
     );
 
     if (!match) return; // Skip invalid lines
@@ -157,27 +157,39 @@ function parseSoccerData(input) {
 
     // Initialize teams if not already in the object
     if (!teams[teamA]) {
-      teams[teamA] = { wins: 0, loss: 0, draw: 0, gf: 0, ga: 0 };
+      teams[teamA] = {
+        win_total: 0,
+        loss_total: 0,
+        draw_total: 0,
+        goals_for: 0,
+        goals_against: 0,
+      };
     }
     if (!teams[teamB]) {
-      teams[teamB] = { wins: 0, loss: 0, draw: 0, gf: 0, ga: 0 };
+      teams[teamB] = {
+        win_total: 0,
+        loss_total: 0,
+        draw_total: 0,
+        goals_for: 0,
+        goals_against: 0,
+      };
     }
 
     // Update stats
-    teams[teamA].gf += scoreA;
-    teams[teamA].ga += scoreB;
-    teams[teamB].gf += scoreB;
-    teams[teamB].ga += scoreA;
+    teams[teamA].goals_for += scoreA;
+    teams[teamA].goals_against += scoreB;
+    teams[teamB].goals_for += scoreB;
+    teams[teamB].goals_against += scoreA;
 
     if (scoreA > scoreB) {
-      teams[teamA].wins += 1;
-      teams[teamB].loss += 1;
+      teams[teamA].win_total += 1;
+      teams[teamB].loss_total += 1;
     } else if (scoreB > scoreA) {
-      teams[teamB].wins += 1;
-      teams[teamA].loss += 1;
+      teams[teamB].win_total += 1;
+      teams[teamA].loss_total += 1;
     } else {
-      teams[teamA].draw += 1;
-      teams[teamB].draw += 1;
+      teams[teamA].draw_total += 1;
+      teams[teamB].draw_total += 1;
     }
   });
 
@@ -206,6 +218,25 @@ function formatGames(input) {
   return games.filter((game) => game !== ""); // Remove any empty strings
 }
 
+// points fetch
+const calculatePointsAndDifferential = (teams) => {
+  return teams.map((team) => ({
+    ...team,
+    points: team.win_total * 3 + team.draw_total,
+    goal_differential: team.goals_for - team.goals_against,
+  }));
+};
+
+//assort teams
+const sortTeams = (teams) => {
+  return teams.sort((a, b) => {
+    if (b.points !== a.points) return b.points - a.points;
+    if (b.goal_differential !== a.goal_differential)
+      return b.goal_differential - a.goal_differential;
+    return b.goals_for - a.goals_for;
+  });
+};
+
 export {
   generateSlug,
   formatDateFunction,
@@ -215,4 +246,6 @@ export {
   formatDateToString,
   parseSoccerData,
   formatGames,
+  sortTeams,
+  calculatePointsAndDifferential,
 };
