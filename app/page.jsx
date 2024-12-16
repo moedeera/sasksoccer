@@ -14,6 +14,7 @@ import Banner from "./components/Banner/Banner";
 import {
   block1HomePage,
   block1HomePageFall,
+  block1HomePageWinter,
   homeCardsData,
   homeCarouselData,
   homeLandingInfo,
@@ -57,7 +58,7 @@ const HomePage = () => {
         {" "}
         <Cards data={homeCardsData} />
         <CarouselComponent data={homeCarouselData} />
-        <Block1 info={block1HomePageFall} />
+        <Block1 info={block1HomePageWinter} />
         {/* <Block2 data={homepageInfo} /> */}
         <IndoorSeasonInfo />
         <Banner />

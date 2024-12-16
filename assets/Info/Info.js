@@ -1,6 +1,7 @@
 import img1 from "./logo.webp";
 
 import fall from "./fallsoccer.jpg";
+import winter from "./winter.jpg";
 
 const homeLandingInfo = {
   title: "Saskatoon Soccer News & Updates",
@@ -284,6 +285,18 @@ const block1HomePageFall = {
   buttonText: "Read More",
   buttonLink: "/",
 };
+const block1HomePageWinter = {
+  reverse: true,
+  title: "Don't Miss out on Winter Soccer",
+  date: "December 18 2024",
+  content: `Far from being a time to hang up the cleats, winter in Saskatoon is bustling with activity, offering tournaments for both youth and adult teams. These events provide a great way to stay active, hone skills, and foster a sense of community, no matter the weather outside. Whether you're a seasoned player or just looking to join a local league, there's no shortage of opportunities to get involved.`,
+  content_sec: `To stay on top of all the action, make sure to check out SaskSoccerHub, your go-to source for the latest updates on tournaments, schedules, and league news. This website keeps you informed about everything happening in Saskatoon's soccer scene, ensuring you never miss a match or registration deadline. Be sure to subscribe to our newsletter for real-time updates and exclusive insights into upcoming events. Don't let winter weather fool you—there’s always something happening on the pitch in Saskatoon!`,
+  // image:
+  //   "https://images.pexels.com/photos/2935982/pexels-photo-2935982.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+  image: winter,
+  buttonText: "Read More",
+  buttonLink: "/",
+};
 const block1HomePage2 = {
   reverse: true,
   title: "Support Canada in Copa America 2024 ",
@@ -303,4 +316,5 @@ export {
   playCardsData,
   shopCardsData,
   block1HomePageFall,
+  block1HomePageWinter,
 };

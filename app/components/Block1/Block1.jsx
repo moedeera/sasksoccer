@@ -45,7 +45,7 @@ const Block1 = ({ info }) => {
                 </Link>
               )}
             </div>
-            <AspectRatio ratio={16 / 9} className="bg-muted">
+            <AspectRatio ratio={16 / 9} className="bg-muted border">
               <Image
                 src={info.image}
                 alt="Photo by Drew Beamer"
