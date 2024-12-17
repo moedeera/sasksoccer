@@ -104,7 +104,7 @@ export function Cards({ data, directory }) {
 
           <CardFooter className="text-sm font-thin">
             {" "}
-            Categories:
+            {dat?.categories && "  Categories:"}
             {dat?.categories?.map((category, index) => (
               <div
                 className="border border-gray rounded p-1 mr-1 capitalize bg-slate-50"
