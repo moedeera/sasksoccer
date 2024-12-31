@@ -7,7 +7,7 @@ import { GlobalProvider } from "./context/GlobalContext";
 import "photoswipe/dist/photoswipe.css";
 import { Inter as FontSans } from "next/font/google";
 import { cn } from "@/lib/utils";
-
+import { GoogleAnalytics } from "@next/third-parties/google";
 import FooterComponent from "./components/Footer/Footer";
 import NavbarJS from "./components/NavbarJS/NavbarJS";
 
@@ -50,20 +50,7 @@ const MainLayout = ({ children }) => {
         <html lang="en">
           <head>
             {/* Google Analytics */}
-            <script
-              async
-              src="https://www.googletagmanager.com/gtag/js?id=G-Q818263H9V"
-            ></script>
-            <script
-              dangerouslySetInnerHTML={{
-                __html: `
-              window.dataLayer = window.dataLayer || [];
-              function gtag(){dataLayer.push(arguments);}
-              gtag('js', new Date());
-              gtag('config', 'G-Q818263H9V');
-            `,
-              }}
-            />
+            <GoogleAnalytics gaId="G-Q818263H9V" />
           </head>
           <body
             className={cn(
