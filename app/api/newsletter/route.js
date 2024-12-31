@@ -10,20 +10,20 @@ export const POST = async (request) => {
   try {
     await connectDB();
 
-    const { email } = await request.json();
+    const { email, message } = await request.json();
     console.log(
       "email:",
       email,
-      "request.email",
-      request.email,
-      "request",
-      request
+      "request.body",
+      request.body,
+      "message",
+      message
     );
     const newMessage = new Message({
       recipient: "66693f8716b9933b34ef7ecb",
       name: "Visitor",
       email,
-      body: "Would like to join Newsletter list",
+      body: message,
     });
 
     await newMessage.save();
