@@ -6,9 +6,6 @@ import Block1 from "./components/Block1/Block1";
 
 import CarouselComponent from "./components/Slide/CarouselComponent";
 
-import Block2 from "./components/Block2/Block2";
-
-import { homepageInfo } from "./homepagecontent";
 import Banner from "./components/Banner/Banner";
 
 import {

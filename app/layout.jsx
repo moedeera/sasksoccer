@@ -48,6 +48,23 @@ const MainLayout = ({ children }) => {
     <GlobalProvider>
       <AuthProvider>
         <html lang="en">
+          <head>
+            {/* Google Analytics */}
+            <script
+              async
+              src="https://www.googletagmanager.com/gtag/js?id=G-Q818263H9V"
+            ></script>
+            <script
+              dangerouslySetInnerHTML={{
+                __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'G-Q818263H9V');
+            `,
+              }}
+            />
+          </head>
           <body
             className={cn(
               "min-h-screen bg-background font-sans antialiased",
