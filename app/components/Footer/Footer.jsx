@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import { FaFacebook, FaTwitter, FaInstagram, FaLinkedin } from "react-icons/fa";
 import { Button } from "@/components/ui/button";
@@ -5,11 +6,12 @@ import Link from "next/link";
 import Image from "next/image";
 import logo from "../Navbar/logo-no-background.png";
 import { Input } from "@/components/ui/input";
+import Subscribe from "./Subscribe";
 
 const FooterComponent = () => {
   return (
     <footer className="bg-black text-white py-8">
-      <div className="container mx-auto px-4 flex flex-col md:flex-row justify-between items-center">
+      <div className="container mx-auto px-4 flex flex-col lg:flex-row justify-between items-center">
         <div className="mb-4 md:mb-0 mt-4">
           <Link href={"/"}>
             <Image className="" src={logo} alt="" width={300} height={300} />
@@ -79,17 +81,10 @@ const FooterComponent = () => {
             </nav>
           </div>
         </div>
-        <div className="w-full md:w-1/3 h-80">
+        <>
           {" "}
-          <div className="text-2xl font-bold">Subscribe</div>
-          <div className="text-sm color-gray-200">
-            {" "}
-            Interested in keeping up to date with latest news and updates?. Sign
-            up for our weekly newsletter.
-          </div>
-          <Input className="my-3" placeholder="Enter in your email" />
-          <button className="btn">Sign Up</button>
-        </div>
+          <Subscribe />
+        </>
       </div>
       <div className="text-center mt-8 text-sm text-gray-400">
         &copy; 2024 SaskSoccerHub. All rights reserved.
