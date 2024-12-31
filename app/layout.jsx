@@ -7,13 +7,35 @@ import { GlobalProvider } from "./context/GlobalContext";
 import "photoswipe/dist/photoswipe.css";
 import { Inter as FontSans } from "next/font/google";
 import { cn } from "@/lib/utils";
-import Navbar2 from "./components/Navbar/Navbar";
+
 import FooterComponent from "./components/Footer/Footer";
 import NavbarJS from "./components/NavbarJS/NavbarJS";
 
 export const metadata = {
-  title: "SaskSoccerHub",
-  description: "Saskatoon Soccer News",
+  title: "SaskSoccerHub - Saskatoon's Ultimate Soccer News & Updates",
+  description:
+    "Stay updated with the latest Saskatoon soccer news, game schedules, player highlights, league updates, and more on SaskSoccerHub.",
+  keywords:
+    "Saskatoon soccer, soccer news, SaskSoccerHub, Saskatoon leagues, soccer updates, player highlights, game schedules, soccer events",
+  author: "SaskSoccerHub Team",
+  robots: "index, follow", // Ensures your page is indexed and links are followed by search engines
+  canonical: "https://www.sasksoccerhub.com", // Indicates the preferred URL for this page
+  og: {
+    title: "SaskSoccerHub - Saskatoon's Ultimate Soccer News",
+    description:
+      "Discover Saskatoon's premier source for soccer news, events, and updates. Stay informed with SaskSoccerHub.",
+    url: "https://www.sasksoccerhub.com",
+    type: "website",
+    image: "https://www.sasksoccerhub.com/og-image.jpg", // Add a representative image for social sharing
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "SaskSoccerHub - Saskatoon's Ultimate Soccer News",
+    description:
+      "Explore the latest soccer updates, game schedules, and highlights with Saskatoon's #1 soccer news source.",
+    image: "https://www.sasksoccerhub.com/twitter-image.jpg", // Same or different image from the OG image
+    site: "@SaskSoccerHub", // Your Twitter handle if applicable
+  },
 };
 
 const fontSans = FontSans({
