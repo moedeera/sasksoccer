@@ -89,10 +89,10 @@
   position: fixed;
   height: 100vh;
   background-color: white;
-  width: 100px;
+  width: 100%;
   top: 0;
   right: 0;
-  width: 100vw;
+
   /* transform: translateX(100%); */
   transition: all 0.35s ease-in-out;
   padding: 5px 10px 5px 20px;
