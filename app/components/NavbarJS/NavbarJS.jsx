@@ -32,8 +32,7 @@ const NavbarJS = () => {
           <div className="pt-4 flex flex-col  gap-8 ">
             {" "}
             <div className=" pl-2 font-bold">
-              Directories{" "}
-              <span className="text-gray-400 font-bold text-lg"> | </span>
+              Menu <span className="text-gray-400 font-bold text-lg"> | </span>
             </div>
             {headerLinks.map((page, index) => (
               <Link
