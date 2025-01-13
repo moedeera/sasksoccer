@@ -15,49 +15,8 @@ import Image from "next/image";
 
 export function Cards({ data, directory }) {
   const [infoDirectory, setInfoDirectory] = React.useState("leagues");
-  const defaultData = [
-    {
-      name: "Lakewood tournament",
-      id: "lakewood",
-      date: "May 15 2024",
-      description:
-        "Lakewood tournament starting this thursday.See latest updates on the action today",
-      image:
-        "https://images.pexels.com/photos/1171084/pexels-photo-1171084.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-      slug: "blog/lakewood-tournament",
-      blog: true,
-    },
-
-    {
-      name: "City Soccer Festival",
-      date: "May 18 2024",
-      id: "cityfestival",
-      description:
-        "Fun and Festivities at the SaskSoccerFestival starting this thursday",
-      image:
-        "https://images.pexels.com/photos/47730/the-ball-stadion-football-the-pitch-47730.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-      slug: "blog/city-soccer-festival",
-      blog: true,
-    },
-    {
-      name: "New Jersey kits",
-      date: "June 20 2024",
-      id: "newjersey",
-      description:
-        "Amazing new kits for amazing new prices. Look into our new catalogue for the summer.",
-
-      image: "https://images.pexels.com/photos/114296/pexels-photo-114296.jpeg",
-      slug: "blog/new-kits",
-      blog: true,
-    },
-  ];
-  const [info, setInfo] = React.useState(defaultData);
 
   React.useEffect(() => {
-    if (data) {
-      setInfo(data);
-    }
-
     if (directory) {
       setInfoDirectory(directory);
     }
@@ -66,7 +25,7 @@ export function Cards({ data, directory }) {
   return (
     <div className="component-container grid md:grid-cols-3 lg:grid-cols-4 gap-8 md:p-3">
       {" "}
-      {info?.map((dat, index) => (
+      {data.map((dat, index) => (
         <Card key={index} className="flex flex-col justify-between">
           <CardHeader>
             {dat?.image && (
