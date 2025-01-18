@@ -183,6 +183,19 @@ const playCardsData = [
 
 const homeCarouselData = [
   {
+    title: "January Chills Tournament to start on the 24th.",
+    date: "January 18 2024",
+    content: `The CHILLS tournament is back again and is for every divisional category.
+. Registration has started as of now. Click on the link for more`,
+    link: "https://www.saskatoonadultsoccer.com/content/january-chills-turf-tournament/",
+  },
+  {
+    title: "Enjoy your holidays.",
+    date: "December 16 2024",
+    content: `Another Year of soccer in saskatoon has passed and big thanks to everyone who helped to me that happen. Now it's time to take a break and enjoy the holidays with friends and family. Happy holidays and have a happy new year.`,
+    link: null,
+  },
+  {
     title: "Aurora Tournament This weekend.",
     date: "November 21 2024",
     content: `Another year of the Aurora tournament should be in the running this weekend. Thanks to all those who made it possible tis season`,
