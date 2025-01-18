@@ -129,9 +129,10 @@ const LeagueUpdateForm = () => {
         <h3 className="text-2xl">Update League Information </h3>
         <p className="text-2xl text-red-500">{error}</p>
         <Tabs defaultValue="teams" className="md:w-[800px] min-h-56">
-          <TabsList className="grid w-full grid-cols-3 gap-1">
+          <TabsList className="grid w-full grid-cols-4 gap-1">
             <TabsTrigger value="results">Enter Results</TabsTrigger>
             <TabsTrigger value="teams">Edit Teams</TabsTrigger>
+            <TabsTrigger value="quick-edit">Quick Edit</TabsTrigger>
             <TabsTrigger value="settings">Settings</TabsTrigger>
           </TabsList>
           <TabsContent value="results" className="w-full">
@@ -149,6 +150,15 @@ const LeagueUpdateForm = () => {
             </>
           </TabsContent>
           <TabsContent value="teams">
+            <EditTeams
+              teams={teams}
+              setTeams={setTeams}
+              league={league}
+              error={error}
+              setError={setError}
+            />
+          </TabsContent>
+          <TabsContent value="quick-edit">
             <EditTeams
               teams={teams}
               setTeams={setTeams}
