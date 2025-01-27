@@ -26,6 +26,7 @@ import LeagueSettings from "./LeagueSettings";
 import Spinner from "../Spinner";
 import EditTeams from "./EditTeams";
 import UpdateResults from "./UpdateResults";
+import QuickEdit from "./QuickEdit";
 
 const LeagueUpdateForm = () => {
   const [league, setLeague] = useState(null);
@@ -159,7 +160,7 @@ const LeagueUpdateForm = () => {
             />
           </TabsContent>
           <TabsContent value="quick-edit">
-            <EditTeams
+            <QuickEdit
               teams={teams}
               setTeams={setTeams}
               league={league}
