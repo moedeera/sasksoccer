@@ -183,8 +183,16 @@ const playCardsData = [
 
 const homeCarouselData = [
   {
+    title: "Jesse Marsch Event",
+    date: "January 26 2025",
+    content:
+      "National Men's Soccer Team coach coming to town to town to talk and meet with local community leaders.",
+    link: "https://www.rampregistrations.com/public/participantregpage?v3=20cd24cfd7&pgname=JesseMarsch",
+  },
+
+  {
     title: "January Chills Tournament to start on the 24th.",
-    date: "January 18 2024",
+    date: "January 18 2025",
     content: `The CHILLS tournament is back again and is for every divisional category.
 . Registration has started as of now. Click on the link for more`,
     link: "https://www.saskatoonadultsoccer.com/content/january-chills-turf-tournament/",
