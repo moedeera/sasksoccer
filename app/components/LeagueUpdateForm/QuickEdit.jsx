@@ -10,6 +10,8 @@ const QuickEdit = ({ teams, setTeams, league, error, setError }) => {
     // ...your logic for publishing the results
   };
 
+  console.log(teams);
+
   return (
     <div className="border border-black min-h-80 p-3 bg-gray-100">
       QuickEdit
@@ -28,7 +30,7 @@ const QuickEdit = ({ teams, setTeams, league, error, setError }) => {
               onClick={handlePublish}
               className="mt-2 px-4 py-2 bg-blue-500 text-white rounded"
             >
-              publish results
+              Publish results
             </button>
           </>
         )}
