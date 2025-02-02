@@ -21,7 +21,38 @@ const sortTeamsByGroup = (teams) => {
     return acc;
   }, []);
 };
+const sortTeamsByGroup2 = (teams) => {
+  return teams.reduce((acc, team) => {
+    const groupIndex = acc.findIndex((group) => group.name === team.group);
 
+    if (groupIndex === -1) {
+      acc.push({
+        name: team.group,
+        teams: [team],
+      });
+    } else {
+      acc[groupIndex].teams.push(team);
+    }
+
+    return acc;
+  }, []);
+};
+const sortTeamsByGroup3 = (teams) => {
+  return teams.reduce((acc, team) => {
+    const groupIndex = acc.findIndex((group) => group.name === team.group);
+
+    if (groupIndex === -1) {
+      acc.push({
+        name: team.group,
+        teams: [team],
+      });
+    } else {
+      acc[groupIndex].teams.push(team);
+    }
+
+    return acc;
+  }, []);
+};
 const updatePlayoffResultsAndFinalists = (
   score,
   teamName,
