@@ -77,21 +77,21 @@ Saskatoon, Saskatchewan S7K 2C1`,
 ];
 
 const homeCardsData = [
-  {
-    name: "New to Soccer?",
-    id: "newarrivals",
-    date: "July 1, 2024",
-    description:
-      "Don't know where and when to start? Just click on this post to get quick scoops on how to start playing soccer.",
-    image:
-      "https://images.pexels.com/photos/1171084/pexels-photo-1171084.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-    link: "play/casual",
-    newWindow: false,
-    blog: true,
-    button: {
-      text: "More",
-    },
-  },
+  // {
+  //   name: "New to Soccer?",
+  //   id: "newarrivals",
+  //   date: "July 1, 2024",
+  //   description:
+  //     "Don't know where and when to start? Just click on this post to get quick scoops on how to start playing soccer.",
+  //   image:
+  //     "https://images.pexels.com/photos/1171084/pexels-photo-1171084.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+  //   link: "play/casual",
+  //   newWindow: false,
+  //   blog: true,
+  //   button: {
+  //     text: "More",
+  //   },
+  // },
 
   {
     name: "Adult Soccer",
