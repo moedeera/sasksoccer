@@ -27,6 +27,8 @@ const Landing = ({ data }) => {
             </Link>
           )}
         </div>
+        {/* <div className="landing-blog"> Hello </div>
+        <div className="landing-cta"> Hello </div> */}
       </div>
     </div>
   );
