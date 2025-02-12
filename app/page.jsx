@@ -49,6 +49,7 @@ const HomePage = () => {
   return (
     <div>
       {/* <Slideshow slides={slides} /> */}
+      {/* <div className="homepage-landing-slideshow"></div> */}
       <Landing data={homeLandingInfo} />
 
       <div className="">
