@@ -4,6 +4,7 @@ import Block1 from "../components/Block1/Block1";
 import { shopInfo } from "./data";
 import { Cards } from "@/components/Card/Card";
 import { shopCardsData } from "@/assets/Info/Info";
+import Landing2 from "../components/Landing2/Landing2";
 
 const page = () => {
   const pageHeader = {
@@ -15,7 +16,7 @@ const page = () => {
 
   return (
     <div>
-      <Landing data={pageHeader} />
+      <Landing2 data={pageHeader} />
       <div className="text-3xl font-bold h3-header text-center mt-8  mb-0">
         {" "}
         List of Soccer Shops in Saskatoon{" "}

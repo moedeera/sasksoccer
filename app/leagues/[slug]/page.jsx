@@ -26,6 +26,7 @@ import {
 import BookMarkButton from "@/app/components/BookMarkButton";
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { TabsContent } from "@radix-ui/react-tabs";
+import Landing2 from "@/app/components/Landing2/Landing2";
 
 const LeaguePage = () => {
   const { data: session } = useSession();
@@ -139,7 +140,7 @@ const LeaguePage = () => {
 
   return (
     <div>
-      <Landing data={leaguePageHeader} />
+      <Landing2 data={leaguePageHeader} />
 
       {error ? (
         <h3>An Error Occured</h3>

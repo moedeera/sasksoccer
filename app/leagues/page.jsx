@@ -13,6 +13,7 @@ import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { AspectRatio } from "@/components/ui/aspect-ratio";
 import Link from "next/link";
 import IndoorSeasonInfo from "./IndoorSeasonInfo";
+import Landing2 from "../components/Landing2/Landing2";
 
 const PageComponent = () => {
   const pageHeader = {
@@ -85,7 +86,7 @@ const PageComponent = () => {
 
   return (
     <div>
-      <Landing data={pageHeader} />
+      <Landing2 data={pageHeader} />
       <IndoorSeasonInfo />
 
       <Block4 data={openerContent} />
