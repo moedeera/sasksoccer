@@ -153,10 +153,18 @@ const LeaguePage = () => {
               <small className=" py-1 text-xs">
                 {formatDateToString(league?.updatedAt)}
               </small>
-              <div className="flex gap-3 mb-5 ">
-                <h3 className="h3-header text-4xl font-bold py-3">
-                  {league?.description}{" "}
-                </h3>
+              <div className="flex flex-col gap-3 mb-5 ">
+                <div className="flex flex-col">
+                  {" "}
+                  <h3 className="h3-header text-4xl font-bold py-2 mb-1">
+                    {league?.description}{" "}
+                  </h3>
+                  <p className="w-1/2 tracking-wide">
+                    Note that the standings displayed below are based only on
+                    regular season games and do not take into consideration
+                    exhibition or playoff games
+                  </p>
+                </div>
 
                 {session && league && session.user.name === league.admin && (
                   <Link href={`/leagues/${slug}/edit`}>
