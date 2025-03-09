@@ -1,6 +1,7 @@
 import React from "react";
-import Landing from "../components/Landing/Landing";
+
 import Block2 from "../components/Block2/Block2";
+import Landing2 from "../components/Landing2/Landing2";
 
 const page = () => {
   const pageHeader = {
@@ -26,7 +27,7 @@ const page = () => {
 
   return (
     <div>
-      <Landing data={pageHeader} />
+      <Landing2 data={pageHeader} />
       <Block2 data={homepageInfo} />
     </div>
   );

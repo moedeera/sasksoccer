@@ -49,9 +49,9 @@ const Block2 = ({ data }) => {
               <Accordion
                 type="single"
                 collapsible
-                className="md:w-full  color-black"
+                className="md:w-full  text-black"
               >
-                <AccordionItem value="item-1">
+                {/* <AccordionItem value="item-1">
                   <AccordionTrigger>
                     <div className="text-black hover:text-white">
                       Where do I start if I want to play casual?
@@ -67,9 +67,9 @@ const Block2 = ({ data }) => {
                       for weekly casual meetups
                     </div>
                   </AccordionContent>
-                </AccordionItem>
+                </AccordionItem> */}
                 <AccordionItem value="item-2">
-                  <AccordionTrigger>
+                  <AccordionTrigger className="text-black">
                     How do I find tournaments/leagues that suit my skill level?
                   </AccordionTrigger>
                   <AccordionContent>
@@ -84,7 +84,9 @@ const Block2 = ({ data }) => {
                   </AccordionContent>
                 </AccordionItem>
                 <AccordionItem value="item-3">
-                  <AccordionTrigger>Where can I volunteer?</AccordionTrigger>
+                  <AccordionTrigger className="text-black">
+                    Where can I volunteer?
+                  </AccordionTrigger>
                   <AccordionContent>
                     Go to our{" "}
                     <Link href={"/play/casual"} className="font-bold">

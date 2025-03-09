@@ -1,5 +1,4 @@
-import Block1 from "@/app/components/Block1/Block1";
-import Landing from "@/app/components/Landing/Landing";
+import Landing2 from "@/app/components/Landing2/Landing2";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import React from "react";
@@ -25,7 +24,7 @@ export const CasualPlayPage = () => {
   };
   return (
     <div>
-      <Landing data={pageHeader} />
+      <Landing2 data={pageHeader} />
       <div className="component-container">
         <div className="flex flex-col gap-3 md:grid md:grid-cols-2">
           <div>
