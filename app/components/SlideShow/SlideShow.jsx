@@ -10,7 +10,7 @@ const Slideshow = ({ slides }) => {
       setCurrentSlide((prevSlide) =>
         prevSlide === slides.length - 1 ? 0 : prevSlide + 1
       );
-    }, 3000); // Change slide every 5 seconds
+    }, 5000); // Change slide every 5 seconds
 
     return () => clearInterval(interval);
   }, [slides.length]);

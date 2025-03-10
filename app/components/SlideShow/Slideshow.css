@@ -4,6 +4,7 @@
   height: 80vh;
   overflow: hidden;
   background-color: black;
+  border: 2px solid red;
 }
 
 .slide {
@@ -21,7 +22,7 @@
   justify-content: flex-start;
   align-items: center;
   color: white;
-  text-align: center;
+  /* text-align: center; */
   padding: 0px;
   box-sizing: border-box;
 }
@@ -47,6 +48,8 @@
   width: 80%;
   height: 100%;
   max-width: var(--maxWidth);
+  border: 1px solid orange;
+  position: relative;
 }
 
 h1 {
@@ -56,7 +59,10 @@ h1 {
 
 p {
   font-size: 1.5rem;
-  margin-bottom: 20px;
+  margin-bottom: 0px;
+  /* border: 1px solid orange; */
+  min-height: 100px;
+  width: 50%;
 }
 
 button {
