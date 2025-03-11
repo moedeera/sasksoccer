@@ -1,0 +1,94 @@
+/* Container with a 4:1 vertical grid below 768px,
+   switching to a 4:1 horizontal grid at 768px and above */
+.blog-landing-container {
+  border: 1px solid rgba(128, 128, 128, 0.5);
+  display: grid;
+  /* Below 768px: 4:1 ratio as rows */
+  grid-template-rows: 4fr 1fr;
+  gap: 1rem;
+  padding: 0 5px;
+}
+
+@media (min-width: 768px) {
+  /* At 768px and above: 4:1 ratio as columns */
+  .blog-landing-container {
+    grid-template-rows: none;
+    grid-template-columns: 3fr 1fr;
+  }
+}
+
+/* Ken Burns animation keyframes */
+@keyframes kenburns {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.1);
+  }
+}
+
+/* Main header area with Ken Burns background effect */
+.blog-header-main {
+  position: relative;
+  overflow: hidden;
+  min-height: 405px;
+  width: 100%;
+}
+
+/* The background image itself, using the Ken Burns animation */
+.blog-header-main::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url("https://images.pexels.com/photos/114296/pexels-photo-114296.jpeg")
+    center/cover no-repeat;
+  animation: kenburns 20s infinite alternate ease-in-out;
+}
+
+/* Featured text and button anchored at the bottom of the container */
+.blog-header-content {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  padding: 1rem;
+  color: #fff;
+  background: rgba(0, 0, 0, 0.4); /* optional dark overlay */
+  box-sizing: border-box;
+  text-align: left;
+}
+
+.blog-header-content h2 {
+  margin-bottom: 0.5rem;
+}
+
+.blog-header-content p {
+  margin-bottom: 0.75rem;
+}
+
+/* Side container with two sub-items
+     - side by side by default
+     - stacked on top of each other at 768px and above */
+.blog-header-side {
+  min-height: 35px;
+  width: 100%;
+  display: flex;
+  flex-direction: row; /* side by side below 768px */
+  gap: 1rem;
+}
+
+@media (min-width: 768px) {
+  .blog-header-side {
+    flex-direction: column; /* stacked at 768px and above */
+  }
+}
+
+/* Just an example style for the side items */
+.blog-header-side-item {
+  flex: 1;
+  border: 1px solid grey;
+  padding: 0.5rem;
+  box-sizing: border-box;
+}
