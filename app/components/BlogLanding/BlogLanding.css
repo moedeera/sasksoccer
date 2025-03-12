@@ -31,7 +31,7 @@
 .blog-header-main {
   position: relative;
   overflow: hidden;
-  min-height: 405px;
+  min-height: 300px;
   width: 100%;
 }
 
@@ -55,13 +55,13 @@
   width: 100%;
   padding: 1rem;
   color: #fff;
-  background: rgba(0, 0, 0, 0.4); /* optional dark overlay */
+  background: rgba(0, 0, 0, 0.75); /* optional dark overlay */
   box-sizing: border-box;
   text-align: left;
 }
 
 .blog-header-content h2 {
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.1rem;
 }
 
 .blog-header-content p {
@@ -80,6 +80,10 @@
 }
 
 @media (min-width: 768px) {
+  .blog-header-main {
+    min-height: 450px;
+  }
+
   .blog-header-side {
     flex-direction: column; /* stacked at 768px and above */
   }
@@ -88,7 +92,9 @@
 /* Just an example style for the side items */
 .blog-header-side-item {
   flex: 1;
-  border: 1px solid grey;
+  border: 1px solid rgba(128, 128, 128, 0.25);
+  border-radius: 5px;
   padding: 0.5rem;
   box-sizing: border-box;
+  min-height: 100px;
 }
