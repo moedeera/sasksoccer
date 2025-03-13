@@ -48,7 +48,10 @@
     center/cover no-repeat;
   animation: kenburns 20s infinite alternate ease-in-out;
 }
-
+#feature-card {
+  /* background: url("https://images.pexels.com/photos/114296/pexels-photo-114296.jpeg")
+    center/cover no-repeat; */
+}
 /* Featured text and button anchored at the bottom of the container */
 .blog-header-content {
   position: absolute;
@@ -97,4 +100,9 @@
   border-radius: 5px;
 
   box-sizing: border-box;
+}
+@media (min-width: 992px) {
+  .blog-header-main {
+    min-height: 550px;
+  }
 }

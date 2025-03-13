@@ -12,15 +12,26 @@ const BlogLanding = () => {
     { id: 2, name: "Event B" },
     { id: 3, name: "Event C" },
   ];
+
+  const features = [
+    { id: 2, name: "Indoor 2024-25 Playoffs" },
+    {
+      id: 1,
+      name: "Outdoor 2025 Registration",
+    },
+
+    { id: 3, name: "Referee Registration" },
+  ];
   return (
     <div className="blog-landing-container">
       <div className="blog-header-main">
         {/* Featured content over the background image */}
         <div className="blog-header-content">
-          <h2>Featured Article Title</h2>
+          <h2>Indoor Playoffs Have Started</h2>
           <p>
-            A short description of the article goes here. This text sits near
-            the bottom half of the image.
+            The playoffs for the 2024-25 Indoor season have started. For latest
+            information on teams you follow, check the league page or click on
+            the button below.
           </p>
           <button className="btn">Read More</button>
         </div>
@@ -29,7 +40,7 @@ const BlogLanding = () => {
       {/* Side container that has two items. 
           They’re side by side below 768px and stacked from 768px up. */}
       <div className="blog-header-side">
-        <Card className="blog-header-side-item flex flex-col space-in-between pt-4">
+        <Card className="blog-header-side-item flex flex-col space-in-between pt-4 ">
           <CardContent>
             <div className="text-lg font-bold mb-2">Upcoming Events</div>
             <div className="flex flex-col gap-3 mb-2">
@@ -47,7 +58,18 @@ const BlogLanding = () => {
             <Button className="mt-2">See All</Button>
           </CardContent>
         </Card>
-        <div className="blog-header-side-item hidden md:block">Side Item 2</div>
+        <Card
+          className="bg-amber-200 blog-header-side-item hidden   px-4 md:flex flex-col justify-evenly"
+          id="feature-card"
+        >
+          <div className="text-lg font-bold ">Latest</div>
+          {features.map((feature, index) => (
+            <div key={index} className="text-sm font-semi-bold">
+              {" "}
+              {feature.name}
+            </div>
+          ))}
+        </Card>
       </div>
     </div>
   );
