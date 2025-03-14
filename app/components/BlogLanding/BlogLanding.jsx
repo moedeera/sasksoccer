@@ -27,7 +27,9 @@ const BlogLanding = () => {
       <div className="blog-header-main">
         {/* Featured content over the background image */}
         <div className="blog-header-content">
-          <h2>Indoor Playoffs Have Started</h2>
+          <div className="text-xl mb-2 font-bold">
+            Indoor Playoffs Have Started
+          </div>
           <p>
             The playoffs for the 2024-25 Indoor season have started. For latest
             information on teams you follow, check the league page or click on
@@ -59,7 +61,7 @@ const BlogLanding = () => {
           </CardContent>
         </Card>
         <Card
-          className="bg-amber-200 blog-header-side-item hidden   px-4 md:flex flex-col justify-evenly"
+          className="bg-amber-200 blog-header-side-item hidden   px-4 lg:flex flex-col justify-evenly"
           id="feature-card"
         >
           <div className="text-lg font-bold ">Latest</div>
