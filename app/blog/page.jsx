@@ -27,7 +27,9 @@ const page = () => {
             <div key={index} className="w-full">
               <SampleCard1
                 name={article.name}
-                description={"lorem ipsum blah blah blah"}
+                description={
+                  "lorem ipsum blah blah blah,lorem ipsum blah blah blah,lorem ipsum blah blah blah"
+                }
                 image={imgUrl}
                 link={"/"}
               />

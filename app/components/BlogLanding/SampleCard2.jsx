@@ -1,9 +1,8 @@
-import { Badge } from "@/components/ui/badge";
 import { Card } from "@/components/ui/card";
 import Link from "next/link";
 import React from "react";
 
-export const SampleCard1 = ({ name, description, image, link }) => {
+export const SampleCard2 = () => {
   return (
     <Card className="min-h-60 w-full p-4 relative">
       <div className="w-100"></div>
@@ -17,15 +16,13 @@ export const SampleCard1 = ({ name, description, image, link }) => {
           height: "100%",
           display: "flex",
           flexDirection: "column",
-          justifyContent: "space-evenly",
-          padding: "10px",
-          alignItems: "flex-start",
+          justifyContent: "center",
+          alignItems: "center",
           backgroundColor: "rgba(0, 0, 0, 0.65)",
           zIndex: 1,
           color: "white",
         }}
       >
-        <Badge>Leagues</Badge>
         <div className="text-md">{name}</div>
         <div className="text">{description}</div>
         <Link href={link} className="btn">

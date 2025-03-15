@@ -183,6 +183,13 @@ const playCardsData = [
 
 const homeCarouselData = [
   {
+    title: "Indoor Playoffs",
+    date: "March 01 2025",
+    content:
+      "Indoor playoffs have started for the 2024-25 season. All the results will be updated on the playoffs tab of the league page tables.",
+    link: "/leagues",
+  },
+  {
     title: "Jesse Marsch Event",
     date: "January 26 2025",
     content:
