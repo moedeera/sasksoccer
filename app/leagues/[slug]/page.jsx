@@ -298,10 +298,10 @@ const LeaguePage = () => {
                                                 {detail.winner}
                                               </span>
                                             </div>
-                                            <div className="border border-gray-400 rounded p-1 my-1">
+                                            <div className="bg-white border border-gray-400 rounded px-1 py-4 my-1 text-center">
                                               {" "}
                                               Final: <br />
-                                              <span className="font-bold">
+                                              <span className="font-bold tracking-wider">
                                                 {detail.final}
                                               </span>
                                             </div>
@@ -309,19 +309,22 @@ const LeaguePage = () => {
                                               3 && (
                                               <>
                                                 {" "}
-                                                <div className="border border-gray-400 rounded p-1 my-1">
-                                                  {" "}
-                                                  Semi-final 1: <br />
-                                                  <span className="font-bold">
-                                                    {detail.playoffs1}
-                                                  </span>
-                                                </div>
-                                                <div className="border border-gray-400 rounded p-1 my-1 ">
-                                                  {" "}
-                                                  Semi-final 2: <br />
-                                                  <span className="font-bold">
-                                                    {detail.playoffs2}
-                                                  </span>
+                                                Semi-Finals
+                                                <div className="flex gap-2 w-full">
+                                                  <div className="bg-amber-100 w-full border border-gray-400 rounded p-1 my-1">
+                                                    {" "}
+                                                    Semi-final 1: <br />
+                                                    <span className="font-bold">
+                                                      {detail.playoffs1}
+                                                    </span>
+                                                  </div>
+                                                  <div className="bg-amber-100 w-full border border-gray-400 rounded p-1 my-1 ">
+                                                    {" "}
+                                                    Semi-final 2: <br />
+                                                    <span className="font-bold">
+                                                      {detail.playoffs2}
+                                                    </span>
+                                                  </div>
                                                 </div>
                                               </>
                                             )}
@@ -375,20 +378,22 @@ const LeaguePage = () => {
                                       </div>
                                       {group.assorted_teams.length > 5 && (
                                         <>
-                                          {" "}
-                                          <div className="border border-gray-400 rounded p-1 my-1">
+                                          <div className="flex">
                                             {" "}
-                                            Semi-final 1: <br />
-                                            <span className="font-bold">
-                                              {detail.playoffs1}
-                                            </span>
-                                          </div>
-                                          <div className="border border-gray-400 rounded p-1 my-1 ">
-                                            {" "}
-                                            Semi-final 2: <br />
-                                            <span className="font-bold">
-                                              {detail.playoffs2}
-                                            </span>
+                                            <div className="border border-gray-400 rounded p-1 my-1">
+                                              {" "}
+                                              Semi-final 1?: <br />
+                                              <span className="font-bold">
+                                                {detail.playoffs1}
+                                              </span>
+                                            </div>
+                                            <div className="border border-gray-400 rounded p-1 my-1 ">
+                                              {" "}
+                                              Semi-final 2: <br />
+                                              <span className="font-bold">
+                                                {detail.playoffs2}
+                                              </span>
+                                            </div>
                                           </div>
                                         </>
                                       )}

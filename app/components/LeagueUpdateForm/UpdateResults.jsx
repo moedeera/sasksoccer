@@ -38,8 +38,11 @@ const UpdateResults = ({
     secondPlace: "2nd Place Team",
     thirdPlace: "3rd Place Team",
     fourthPlace: "4th Place Team",
-    firstFinalist: "Winner of SF1 (1st vs 4th)",
-    secondFinalist: "Winner of SF2 (2nd vs 3rd)",
+    firstFinalist: "Finalist 1",
+    secondFinalist: "Finalist 2",
+
+    // firstFinalist: "Winner of SF1 (1st vs 4th)",
+    // secondFinalist: "Winner of SF2 (2nd vs 3rd)",
   });
 
   const teamsAssortedByGroup = teams.reduce((acc, team) => {
@@ -332,8 +335,58 @@ const UpdateResults = ({
             </div>
           </div>
         </div>
-        {/* If there are more than 5 teams */}
-        {selectedGroupLength > 3 && (
+        {/* If there are  less than 4*/}
+        {selectedGroupLength === 3 && (
+          <>
+            {" "}
+            <div className=" mt-3 font-bold">Playoff 2nd vs 3rd</div>
+            <div className="flex gap-3 items-center mt-3">
+              {" "}
+              <div className="flex gap-2 items-center">
+                <div>{teamRankings.firstPlace} </div>
+                <Input
+                  type="number"
+                  className="w-16"
+                  value={playoffResults.playoffResult2[0]}
+                  onChange={(e) => {
+                    setPlayoffResults((prevResults) => ({
+                      ...prevResults,
+                      playoffResult2: [
+                        Number(e.target.value),
+                        prevResults.playoffResult2[1],
+                      ],
+                    }));
+                    updatePlayoffResultsAndFinalists(
+                      e.target.value,
+                      teamRankings.firstPlace
+                    );
+                  }}
+                />
+                <Input
+                  type="number"
+                  className="w-16"
+                  value={playoffResults.playoffResult2[1]}
+                  onChange={(e) => {
+                    setPlayoffResults((prevResults) => ({
+                      ...prevResults,
+                      playoffResult2: [
+                        prevResults.playoffResult2[0],
+                        Number(e.target.value),
+                      ],
+                    }));
+                    updatePlayoffResultsAndFinalists(
+                      e.target.value,
+                      teamRankings.secondPlace
+                    );
+                  }}
+                />
+                <div>{teamRankings.secondPlace}</div>
+              </div>
+            </div>
+          </>
+        )}
+        {/* If there are more than 3 teams but less than 6*/}
+        {selectedGroupLength > 3 && selectedGroupLength < 6 && (
           <>
             {" "}
             <div className=" mt-3 font-bold">Playoff 2nd vs 3rd</div>
