@@ -1,7 +1,7 @@
 "use client";
 
 import Block4 from "@/app/components/Block4/Block4";
-import Landing from "@/app/components/Landing/Landing";
+
 import TableComponent from "@/app/components/Table/TableComponent";
 import { useParams } from "next/navigation";
 import React, { useEffect, useState } from "react";
@@ -306,7 +306,7 @@ const LeaguePage = () => {
                                               </span>
                                             </div>
                                             {group.assorted_teams.length >
-                                              5 && (
+                                              3 && (
                                               <>
                                                 {" "}
                                                 <div className="border border-gray-400 rounded p-1 my-1">
