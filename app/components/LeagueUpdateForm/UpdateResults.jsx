@@ -14,11 +14,8 @@ import React, { useEffect, useState } from "react";
 import { calculateTeamRating } from "./Functions";
 
 const UpdateResults = ({
-  games,
-  setGames,
   teams,
-  setTeams,
-  setError,
+
   details,
   setDetails,
 }) => {
@@ -62,6 +59,8 @@ const UpdateResults = ({
 
     return acc;
   }, []);
+  const [selectedGroup, setSelectedGroup] = useState(null);
+  const [selectedGroupLength, setSelectedGroupLength] = useState(0);
 
   const groups = [];
   teamsAssortedByGroup.forEach((unit) => {
@@ -73,6 +72,8 @@ const UpdateResults = ({
     let updatedLeagueDetailsArray = [];
     // check if the variable being changed is group
     if (name === "group") {
+      //setting the current group hook to the value
+      setSelectedGroup(value);
       // If it is, check if details is zero in length
       if (details.length === 0) {
         console.log("no details for this league, creating one...");
@@ -157,6 +158,7 @@ const UpdateResults = ({
         .sort((a, b) => b.rating - a.rating);
       //
       setGroupsTeams(sortedTeams);
+      setSelectedGroupLength(sortedTeams.length);
       setTeamRankings({
         ...teamRankings,
         firstPlace: sortedTeams[0]?.name || "",
@@ -282,6 +284,12 @@ const UpdateResults = ({
   return (
     <div className="flex flex-col gap-3 justify-center">
       <div>
+        {" "}
+        <div className="my-2">
+          {selectedGroup
+            ? `${selectedGroup}- ${selectedGroupLength} Teams`
+            : "Please Select a group"}
+        </div>
         <div className="flex gap-3 items-center">
           {" "}
           <div className="flex gap-2 items-center">
@@ -324,97 +332,152 @@ const UpdateResults = ({
             </div>
           </div>
         </div>
-        <div className=" mt-3 font-bold">Playoff Semi-final 1</div>
-        <div className="flex gap-3 items-center mt-3">
-          {" "}
-          <div className="flex gap-2 items-center">
-            <div>{teamRankings.firstPlace}</div>
-            <Input
-              type="number"
-              className="w-16"
-              value={playoffResults.playoffResult1[0]}
-              onChange={(e) => {
-                setPlayoffResults((prevResults) => ({
-                  ...prevResults,
-                  playoffResult1: [
-                    Number(e.target.value),
-                    prevResults.playoffResult1[1],
-                  ],
-                }));
-                updatePlayoffResultsAndFinalists(
-                  e.target.value,
-                  teamRankings.firstPlace
-                );
-              }}
-            />
-            <div>vs</div>
-            <Input
-              type="number"
-              className="w-16"
-              value={playoffResults.playoffResult1[1]}
-              onChange={(e) => {
-                setPlayoffResults((prevResults) => ({
-                  ...prevResults,
-                  playoffResult1: [
-                    prevResults.playoffResult1[0],
-                    Number(e.target.value),
-                  ],
-                }));
-                updatePlayoffResultsAndFinalists(
-                  e.target.value,
-                  teamRankings.fourthPlace
-                );
-              }}
-            />
-          </div>
-          <div className="flex gap-2 items-center">
-            <div>{teamRankings.fourthPlace}</div>
-          </div>
-        </div>
-        <div className=" mt-3 font-bold">Playoff Semi-final 2</div>
-        <div className="flex gap-3 items-center mt-3">
-          {" "}
-          <div className="flex gap-2 items-center">
-            <div>{teamRankings.secondPlace} </div>
-            <Input
-              type="number"
-              className="w-16"
-              value={playoffResults.playoffResult2[0]}
-              onChange={(e) => {
-                setPlayoffResults((prevResults) => ({
-                  ...prevResults,
-                  playoffResult2: [
-                    Number(e.target.value),
-                    prevResults.playoffResult2[1],
-                  ],
-                }));
-                updatePlayoffResultsAndFinalists(
-                  e.target.value,
-                  teamRankings.secondPlace
-                );
-              }}
-            />
-            <Input
-              type="number"
-              className="w-16"
-              value={playoffResults.playoffResult2[1]}
-              onChange={(e) => {
-                setPlayoffResults((prevResults) => ({
-                  ...prevResults,
-                  playoffResult2: [
-                    prevResults.playoffResult2[0],
-                    Number(e.target.value),
-                  ],
-                }));
-                updatePlayoffResultsAndFinalists(
-                  e.target.value,
-                  teamRankings.thirdPlace
-                );
-              }}
-            />
-            <div>{teamRankings.thirdPlace}</div>
-          </div>
-        </div>
+        {/* If there are more than 5 teams */}
+        {selectedGroupLength > 3 && (
+          <>
+            {" "}
+            <div className=" mt-3 font-bold">Playoff 2nd vs 3rd</div>
+            <div className="flex gap-3 items-center mt-3">
+              {" "}
+              <div className="flex gap-2 items-center">
+                <div>{teamRankings.secondPlace} </div>
+                <Input
+                  type="number"
+                  className="w-16"
+                  value={playoffResults.playoffResult2[0]}
+                  onChange={(e) => {
+                    setPlayoffResults((prevResults) => ({
+                      ...prevResults,
+                      playoffResult2: [
+                        Number(e.target.value),
+                        prevResults.playoffResult2[1],
+                      ],
+                    }));
+                    updatePlayoffResultsAndFinalists(
+                      e.target.value,
+                      teamRankings.secondPlace
+                    );
+                  }}
+                />
+                <Input
+                  type="number"
+                  className="w-16"
+                  value={playoffResults.playoffResult2[1]}
+                  onChange={(e) => {
+                    setPlayoffResults((prevResults) => ({
+                      ...prevResults,
+                      playoffResult2: [
+                        prevResults.playoffResult2[0],
+                        Number(e.target.value),
+                      ],
+                    }));
+                    updatePlayoffResultsAndFinalists(
+                      e.target.value,
+                      teamRankings.thirdPlace
+                    );
+                  }}
+                />
+                <div>{teamRankings.thirdPlace}</div>
+              </div>
+            </div>
+          </>
+        )}
+        {selectedGroupLength > 5 && (
+          <>
+            {" "}
+            <div className=" mt-3 font-bold">Playoff Semi-final 1</div>
+            <div className="flex gap-3 items-center mt-3">
+              {" "}
+              <div className="flex gap-2 items-center">
+                <div>{teamRankings.firstPlace}</div>
+                <Input
+                  type="number"
+                  className="w-16"
+                  value={playoffResults.playoffResult1[0]}
+                  onChange={(e) => {
+                    setPlayoffResults((prevResults) => ({
+                      ...prevResults,
+                      playoffResult1: [
+                        Number(e.target.value),
+                        prevResults.playoffResult1[1],
+                      ],
+                    }));
+                    updatePlayoffResultsAndFinalists(
+                      e.target.value,
+                      teamRankings.firstPlace
+                    );
+                  }}
+                />
+                <div>vs</div>
+                <Input
+                  type="number"
+                  className="w-16"
+                  value={playoffResults.playoffResult1[1]}
+                  onChange={(e) => {
+                    setPlayoffResults((prevResults) => ({
+                      ...prevResults,
+                      playoffResult1: [
+                        prevResults.playoffResult1[0],
+                        Number(e.target.value),
+                      ],
+                    }));
+                    updatePlayoffResultsAndFinalists(
+                      e.target.value,
+                      teamRankings.fourthPlace
+                    );
+                  }}
+                />
+              </div>
+              <div className="flex gap-2 items-center">
+                <div>{teamRankings.fourthPlace}</div>
+              </div>
+            </div>
+            <div className=" mt-3 font-bold">Playoff Semi-final 2</div>
+            <div className="flex gap-3 items-center mt-3">
+              {" "}
+              <div className="flex gap-2 items-center">
+                <div>{teamRankings.secondPlace} </div>
+                <Input
+                  type="number"
+                  className="w-16"
+                  value={playoffResults.playoffResult2[0]}
+                  onChange={(e) => {
+                    setPlayoffResults((prevResults) => ({
+                      ...prevResults,
+                      playoffResult2: [
+                        Number(e.target.value),
+                        prevResults.playoffResult2[1],
+                      ],
+                    }));
+                    updatePlayoffResultsAndFinalists(
+                      e.target.value,
+                      teamRankings.secondPlace
+                    );
+                  }}
+                />
+                <Input
+                  type="number"
+                  className="w-16"
+                  value={playoffResults.playoffResult2[1]}
+                  onChange={(e) => {
+                    setPlayoffResults((prevResults) => ({
+                      ...prevResults,
+                      playoffResult2: [
+                        prevResults.playoffResult2[0],
+                        Number(e.target.value),
+                      ],
+                    }));
+                    updatePlayoffResultsAndFinalists(
+                      e.target.value,
+                      teamRankings.thirdPlace
+                    );
+                  }}
+                />
+                <div>{teamRankings.thirdPlace}</div>
+              </div>
+            </div>
+          </>
+        )}
         <div className=" mt-3 font-bold">Final</div>
         <div className="flex gap-3 items-center mt-3">
           {" "}
