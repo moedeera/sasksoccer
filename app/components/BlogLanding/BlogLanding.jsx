@@ -21,6 +21,7 @@ const BlogLanding = () => {
     },
 
     { id: 3, name: "Referee Registration" },
+    { id: 3, name: "Referee Registration" },
   ];
   return (
     <div className="blog-landing-container">
@@ -61,16 +62,19 @@ const BlogLanding = () => {
           </CardContent>
         </Card>
         <Card
-          className="bg-amber-200 blog-header-side-item hidden   px-4 lg:flex flex-col justify-evenly"
+          className="bg-amber-100 blog-header-side-item hidden   px-4 lg:flex flex-col justify-evenly"
           id="feature-card"
         >
           <div className="text-lg font-bold ">Latest</div>
-          {features.map((feature, index) => (
-            <div key={index} className="text-sm font-semi-bold">
-              {" "}
-              {feature.name}
-            </div>
-          ))}
+          <div className="flex flex-col h-4/5 gap-5">
+            {" "}
+            {features.map((feature, index) => (
+              <div key={index} className="text-sm font-semi-bold">
+                {" "}
+                {feature.name}
+              </div>
+            ))}
+          </div>
         </Card>
       </div>
     </div>

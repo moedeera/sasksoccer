@@ -12,24 +12,32 @@ const page = () => {
       name: "Women's Boarded Divisions Completed",
       description:
         "The Women's Boarded Divisions have officially concluded, showcasing an exciting season of competition. Check out the final standings, top performers, and key highlights from this year's matches.",
+      date: "March 15, 2025",
+      author: "Admin",
     },
     {
       id: 2,
       name: "Men's Boarded Divisions Wraps Up",
       description:
         "The Men's Boarded Divisions have come to an end, with thrilling matches and intense rivalries defining the season. Read more about the championship results and standout moments from the league.",
+      date: "March 14, 2025",
+      author: "Admin",
     },
     {
       id: 3,
       name: "List of Tournaments This Summer",
       description:
         "Looking for competitive action this summer? Here’s a complete list of upcoming tournaments, including registration details, locations, and key dates to mark on your calendar.",
+      date: "March 12, 2025",
+      author: "Admin",
     },
     {
       id: 4,
       name: "Outdoor Registration Starting",
       description:
         "Get ready for outdoor soccer! Registration for the upcoming season is now open. Sign up early to secure your spot and join the action under the sun.",
+      date: "March 10, 2025",
+      author: "Admin",
     },
   ];
 
@@ -46,6 +54,8 @@ const page = () => {
                 name={article.name}
                 description={article.description}
                 image={imgUrl}
+                date={article.date}
+                author={article.author}
                 link={"/"}
               />
             </div>

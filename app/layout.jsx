@@ -12,7 +12,7 @@ import FooterComponent from "./components/Footer/Footer";
 import NavbarJS from "./components/NavbarJS/NavbarJS";
 
 export const metadata = {
-  title: "Saskatoon Soccer Hub - Saskatoon's Ultimate Soccer News & Updates",
+  title: "SaskSoccerHub - Saskatoon's Ultimate Soccer News & Updates",
   description:
     "Stay updated with the latest Saskatoon soccer news, game schedules, player highlights, league updates, and more on SaskSoccerHub.",
   keywords:
