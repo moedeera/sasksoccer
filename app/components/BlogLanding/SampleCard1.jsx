@@ -5,7 +5,7 @@ import React from "react";
 
 export const SampleCard1 = ({ name, description, image, link }) => {
   return (
-    <Card className="min-h-60 w-full p-4 relative">
+    <Card className="min-h-80 w-full p-5 relative">
       <div className="w-100"></div>
       <div
         className="blog-article-summary"
@@ -17,7 +17,7 @@ export const SampleCard1 = ({ name, description, image, link }) => {
           height: "100%",
           display: "flex",
           flexDirection: "column",
-          justifyContent: "space-evenly",
+          justifyContent: "center",
           padding: "10px",
           alignItems: "flex-start",
           backgroundColor: "rgba(0, 0, 0, 0.65)",
@@ -26,11 +26,11 @@ export const SampleCard1 = ({ name, description, image, link }) => {
         }}
       >
         <Badge>Leagues</Badge>
-        <div className="text-md">{name}</div>
-        <div className="text">{description}</div>
+        <div className="text-lg mt-1 font-bold w-4/5">{name}</div>
+        <div className="text-sm mb-2">{description}</div>
         <Link href={link} className="btn">
           {" "}
-          More
+          Read More
         </Link>
       </div>
 
