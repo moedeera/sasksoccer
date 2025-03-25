@@ -2,6 +2,7 @@ import React from "react";
 import "./BlogLanding.css";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import Link from "next/link";
 
 const BlogLanding = () => {
   const events = [
@@ -58,7 +59,10 @@ const BlogLanding = () => {
                 </div>
               ))}
             </div>
-            <Button className="mt-2">See All</Button>
+            <Button className="mt-2">
+              {" "}
+              <Link href={"/"}>See All</Link>
+            </Button>
           </CardContent>
         </Card>
         <Card
