@@ -1,5 +1,7 @@
 import { AspectRatio } from "@/components/ui/aspect-ratio";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 import React from "react";
 
 const Page = () => {
@@ -8,6 +10,11 @@ const Page = () => {
       {" "}
       <div className="component-container max-w-3xl mx-auto p-6">
         {/* Article Meta Information */}
+        <div className="mb-2 flex align-center">
+          {" "}
+          <Link href={"/news"}>News</Link>{" "}
+          <ChevronRight className="text-sm text-gray-400" />
+        </div>
         <div className="text-gray-500 text-sm flex justify-between border-b pb-2">
           <span>March 19, 2025</span>
           <span>by John Doe</span>
@@ -22,9 +29,9 @@ const Page = () => {
           <div>
             <div>
               {" "}
-              <h1 className="text-3xl font-bold mt-4">
-                The Title of the Article
-              </h1>
+              <div className="text-md  my-2 text-gray-800">
+                Description of Article.{" "}
+              </div>
             </div>
           </div>
           <div>
