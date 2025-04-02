@@ -183,6 +183,12 @@ const playCardsData = [
 
 const homeCarouselData = [
   {
+    title: "Outdoor Team Registration dates",
+    date: "March 21 2025",
+    content: "Outdoor Team registrations started and is open until April 2.",
+    link: "/leagues",
+  },
+  {
     title: "Indoor Playoffs",
     date: "March 01 2025",
     content:
