@@ -1,5 +1,5 @@
 import { AspectRatio } from "@/components/ui/aspect-ratio";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import { ChevronRight } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
@@ -52,15 +52,10 @@ const Page = () => {
         <div className="mt-6 text-gray-800 leading-relaxed space-y-4">
           <p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus
-            lacinia odio vitae vestibulum vestibulum.
-          </p>
-          <p>
-            Cras venenatis euismod malesuada. Curabitur dapibus risus non enim
-            fringilla, nec accumsan lectus pretium.
-          </p>
-          <p>
-            Donec euismod, nisi vel consectetur sollicitudin, nisi odio
-            ultricies libero, in viverra metus nisi id eros.
+            lacinia odio vitae vestibulum vestibulum. Cras venenatis euismod
+            malesuada. Curabitur dapibus risus non enim fringilla, nec accumsan
+            lectus pretium. Donec euismod, nisi vel consectetur sollicitudin,
+            nisi odio ultricies libero, in viverra metus nisi id eros.
           </p>
         </div>
       </div>
