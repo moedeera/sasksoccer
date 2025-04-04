@@ -17,15 +17,17 @@ const Landing = ({ data }) => {
       ></div>
       <div className="landing-container">
         <div className="landing-content">
-          <h1 className="capitalize w-4/5  text-4xl md:text-5xl lg:text-6xl ">
+          <h1 className="capitalize w-4/5  text-4xl md:text-5xl  ">
             {data.title}
           </h1>
           <p className="text-white w-4/5 md:w-">{data.content}</p>
-          {data.button && (
-            <Link className="btn" href={data.buttonLink}>
-              {data.buttonName}
-            </Link>
-          )}
+          <div className="text-left w-4/5">
+            {data.button && (
+              <Link className="btn text-left" href={data.buttonLink}>
+                {data.buttonName}
+              </Link>
+            )}
+          </div>
         </div>
         {/* <div className="landing-blog"> Hello </div>
         <div className="landing-cta"> Hello </div> */}

@@ -125,6 +125,7 @@ p {
   /* max-width: max-content; */
   padding: 8px 5px;
   border-radius: 5px;
+  max-width: max-content;
 }
 .btn-danger {
   background-color: crimson;

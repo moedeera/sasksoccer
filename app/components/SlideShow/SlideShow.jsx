@@ -1,6 +1,7 @@
 "use client";
 import { useEffect, useState } from "react";
 import "./Slideshow.css";
+import Link from "next/link";
 
 const Slideshow = ({ slides }) => {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -25,9 +26,13 @@ const Slideshow = ({ slides }) => {
         >
           <div className="content">
             <div className="content-container">
-              <h1>{slide.header}</h1>
-              <p>{slide.paragraph}</p>
-              <button>{slide.button}</button>
+              <div className="font-bold text-4xl md:text-5xl lg:text-6xl">
+                {slide.header}
+              </div>
+              <div className="text-md my-2">{slide.paragraph}</div>
+              <Link href={"/"} className="btn">
+                {slide.button}
+              </Link>
             </div>
           </div>
         </div>

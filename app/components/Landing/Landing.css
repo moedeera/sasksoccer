@@ -1,6 +1,6 @@
 .landing {
   min-height: 200px;
-  height: calc(85vh - 110px);
+  height: 100vh;
   width: 100%;
   margin: 0 auto;
   color: white;
@@ -56,14 +56,14 @@
 
 .landing h1 {
   margin: 0;
-  text-align: center;
+  text-align: left;
 }
 .landing p {
   margin: 0;
   max-width: 800px;
   line-height: 1.8em;
   font-size: smaller;
-  text-align: center;
+  text-align: left;
 }
 
 /* Small devices (portrait tablets and large phones, 600px and up) */
@@ -87,9 +87,9 @@
 
 /* Large devices (laptops/desktops, 992px and up) */
 @media only screen and (min-width: 992px) {
-  .landing {
+  /* .landing {
     height: calc(80vh - 110px);
-  }
+  } */
   .landing-mini {
     height: max-content;
   }

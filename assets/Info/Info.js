@@ -5,7 +5,7 @@ import winter from "./winter.jpg";
 
 const homeLandingInfo = {
   title: "Saskatoon Soccer News & Updates",
-  content: `Welcome to your premier destination for recreational soccer in Saskatoon! Stay informed with the latest Saskatoon soccer news, upcoming events, league highlights, and everything you need to know about playing soccer in our vibrant community. Whether you’re a seasoned player or just looking to have fun on the field, we’re here to connect you with local clubs, tournaments, and training opportunities that suit your skill level. Get ready to lace up your cleats and be a part of Saskatoon’s growing soccer scene`,
+  content: `Welcome to your premier destination for recreational soccer in Saskatoon! Stay informed with the latest news, upcoming events, league highlights, and everything you need to know about playing soccer in town. Whether you’re a seasoned player or just looking to have fun on the field, we’re here to connect you with opportunities that suit your skill level. Get ready to lace up and be a part of Saskatoon’s soccer scene`,
   button: true,
   buttonLink: "/latest",
   buttonName: "More",

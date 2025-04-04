@@ -24,8 +24,7 @@ const HomePage = () => {
   const slides = [
     {
       header: "Saskatoon Soccer News & Updates",
-      paragraph:
-        "Your premier destination for all things recreational soccer in Saskatoon! Whether you're a seasoned player or just looking to have fun.",
+      paragraph: "",
       image:
         "https://images.pexels.com/photos/9519554/pexels-photo-9519554.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
       button: "Learn More",

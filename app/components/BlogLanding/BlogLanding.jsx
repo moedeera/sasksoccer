@@ -32,7 +32,7 @@ const BlogLanding = () => {
           <div className="text-xl mb-2 font-bold">
             Indoor Playoffs Have Started
           </div>
-          <p>
+          <p className="text-gray-200">
             The playoffs for the 2024-25 Indoor season have started. For latest
             information on teams you follow, check the league page or click on
             the button below.
