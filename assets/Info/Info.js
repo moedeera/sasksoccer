@@ -334,7 +334,7 @@ const block1HomePageWinter = {
 
 const block1HomePageSpring = {
   reverse: true,
-  title: "Register Now for Outdoor Summer Soccer",
+  title: "Register Now for Outdoor Season",
   date: "April 10 2025",
   content: `Spring in Saskatoon means one thing for soccer lovers—it's time to gear up for the outdoor season! As the weather warms and the fields dry out, players of all ages are getting ready to kick off another exciting summer of competition, camaraderie, and fun in the sun. Now’s the time to secure your spot in one of the many leagues kicking off soon.`,
   content_sec: `Head over to Saskatoon Adult Soccer or it's Youth Website to find everything you need to register for outdoor summer soccer. From youth development programs to adult recreational and competitive leagues, there's a place for everyone to play. Don’t wait—registration deadlines are approaching fast. Sign up for our newsletter to stay informed about key dates, schedule releases, and exclusive early access to events. Let this be your best summer season yet!`,
