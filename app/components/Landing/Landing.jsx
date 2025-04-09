@@ -11,7 +11,7 @@ const Landing = ({ data }) => {
         style={
           data.image && {
             backgroundImage: `url(https://cdn.pixabay.com/photo/2024/03/10/05/51/soccer-8624054_1280.jpg)`,
-            backgroundImage: `url(https://images.pexels.com/photos/4036040/pexels-photo-4036040.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1)`,
+            // backgroundImage: `url(https://images.pexels.com/photos/4036040/pexels-photo-4036040.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1)`,
           }
         }
       ></div>
