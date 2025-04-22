@@ -1,8 +1,8 @@
 const openerContent = {
-  title: `Results for the 2024 Summer leagues are in.`,
+  title: `Results for the 2024-25 Indoor Season are in.`,
   content: `
  Major credit to Saskatoon Adult Soccer and Saskatoon Youth Soccer for organizing another successful round season of leagues.
- Another major thanks for all the organizers and volunteers for the various tournaments this past summer.
+ Another major thanks for all the organizers and volunteers for the various tournaments this past indoor season.
  And finally Congratulations to all the league & tournament winners for their triumphs.  
 
   `,
