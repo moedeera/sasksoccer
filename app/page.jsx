@@ -20,6 +20,7 @@ import {
 import LoadingBars from "./components/LoadingBars/LoadingBars";
 import Slideshow from "./components/SlideShow/SlideShow";
 import IndoorSeasonInfo from "./leagues/IndoorSeasonInfo";
+import OutdoorSeasonInfo from "./leagues/OutdoorSeasonInfo";
 
 const HomePage = () => {
   const slides = [
@@ -59,6 +60,7 @@ const HomePage = () => {
         <Block1 info={block1HomePageSpring} />
         {/* <Block2 data={homepageInfo} /> */}
         {/* <IndoorSeasonInfo /> */}
+        <OutdoorSeasonInfo />
         <Banner />
       </div>
     </div>
