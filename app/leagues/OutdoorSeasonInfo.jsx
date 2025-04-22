@@ -199,10 +199,8 @@ const OutdoorSeasonInfo = () => {
 
       <p className="text-base">
         Saskatoon’s outdoor adult &amp; youth leagues run
-        May&nbsp;→&nbsp;September. Matches rotate between the Saskatoon
-        Sports Centre (150 Nelson Rd), the Gordie Howe Sports Complex, and
-        community grass pitches city‑wide. Alignment for every division is
-        listed below.
+        May&nbsp;→&nbsp;September. Matches are in fields all across the city in
+        Saskatoon. Alignment for every division is listed below.
       </p>
 
       <h3 className="text-2xl font-bold mt-4">Alignment &amp; Teams</h3>
