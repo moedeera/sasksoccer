@@ -103,7 +103,7 @@ const PageComponent = () => {
         </>
       ) : (
         <Cards
-          data={leagues.filter((league) => league.category === "indoor")}
+          data={leagues?.filter((league) => league.category === "indoor")}
         />
       )}
       <Block1 data={createOwnLeague} />
