@@ -14,6 +14,7 @@ import { AspectRatio } from "@/components/ui/aspect-ratio";
 import Link from "next/link";
 import IndoorSeasonInfo from "./IndoorSeasonInfo";
 import Landing2 from "../components/Landing2/Landing2";
+import OutdoorSeasonInfo from "./OutdoorSeasonInfo";
 
 const PageComponent = () => {
   const pageHeader = {
@@ -87,11 +88,12 @@ const PageComponent = () => {
   return (
     <div>
       <Landing2 data={pageHeader} />
-      <IndoorSeasonInfo />
+      {/* <IndoorSeasonInfo /> */}
+      <OutdoorSeasonInfo />
 
       <Block4 data={openerContent} />
       <div className="h3-header text-3xl font-bold text-center ">
-        Indoor Leagues 2024-2025
+        Indoor League Results for 2024-2025
       </div>
 
       {loading ? (
