@@ -58,7 +58,7 @@ const HomePage = () => {
         <CarouselComponent data={homeCarouselData} />
         <Block1 info={block1HomePageSpring} />
         {/* <Block2 data={homepageInfo} /> */}
-        <IndoorSeasonInfo />
+        {/* <IndoorSeasonInfo /> */}
         <Banner />
       </div>
     </div>

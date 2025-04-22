@@ -183,6 +183,13 @@ const playCardsData = [
 
 const homeCarouselData = [
   {
+    title: "Outdoor Player Registration Open",
+    date: "April 21 2025",
+    content:
+      "Outdoor Player registrations started for the 2025 outdoor season. ",
+    link: "https://www.saskatoonadultsoccer.com/content/outdoor-individual-player-registration",
+  },
+  {
     title: "Outdoor Team Registration dates",
     date: "March 21 2025",
     content: "Outdoor Team registrations started and is open until April 2.",
@@ -340,7 +347,8 @@ const block1HomePageSpring = {
   content_sec: `Head over to Saskatoon Adult Soccer or it's Youth Website to find everything you need to register for outdoor summer soccer. From youth development programs to adult recreational and competitive leagues, there's a place for everyone to play. Don’t wait—registration deadlines are approaching fast. Sign up for our newsletter to stay informed about key dates, schedule releases, and exclusive early access to events. Let this be your best summer season yet!`,
   image: spring,
   buttonText: "Register Today",
-  buttonLink: "/",
+  buttonLink:
+    "https://www.saskatoonadultsoccer.com/content/outdoor-individual-player-registration",
 };
 
 const block1HomePage2 = {
