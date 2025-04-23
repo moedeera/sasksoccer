@@ -1,6 +1,5 @@
-import connectDB from "@/config/database";
-import Property from "@/models/Property";
-import League from "@/models/League";
+import connectDB from "../../../../../config/database";
+import League from "../../../../../models/League";
 
 // GET /api/properties/user/:userId
 export const GET = async (request, { params }) => {
