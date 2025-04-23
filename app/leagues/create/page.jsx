@@ -1,7 +1,7 @@
 "use client";
-import LeagueForm from "@/app/components/FormComponent/FormComponent";
-import Landing from "@/app/components/Landing/Landing";
-import { useRouter } from "next/router";
+import LeagueForm from "../../components/FormComponent/FormComponent";
+import Landing from "../../components/Landing/Landing";
+
 import React from "react";
 
 export const page = () => {

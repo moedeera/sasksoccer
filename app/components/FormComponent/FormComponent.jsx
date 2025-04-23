@@ -3,8 +3,8 @@ import React, { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { MdOutlineDoNotDisturbAlt } from "react-icons/md";
 // Sample components from your UI library (replace with actual imports)
-import { Input } from "@/components/ui/input";
-import { Button } from "@/components/ui/button";
+import { Input } from "../../../components/ui/input";
+import { Button } from "../../../components/ui/button";
 import {
   Select,
   SelectContent,
@@ -13,9 +13,9 @@ import {
   SelectLabel,
   SelectTrigger,
   SelectValue,
-} from "@/components/ui/select";
-import { Textarea } from "@/components/ui/textarea";
-import { generateId } from "@/app/utlils/functions";
+} from "../../../components/ui/select";
+import { Textarea } from "../../../components/ui/textarea";
+import { generateId } from "../../utlils/functions";
 
 const LeagueForm = () => {
   const randomPlaceHolderImages = [

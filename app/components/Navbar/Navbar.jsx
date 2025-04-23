@@ -2,7 +2,7 @@
 import { useContext, useState } from "react";
 import "./Navbar.css";
 import React from "react";
-import { GlobalContext } from "@/app/context/GlobalContext";
+import { GlobalContext } from "../../context/GlobalContext";
 import Link from "next/link";
 import UpperNavbar from "./UpperNavbar";
 import LowerNavbar from "./LowerNavbar";

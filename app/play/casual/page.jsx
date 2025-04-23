@@ -1,5 +1,5 @@
-import Landing2 from "@/app/components/Landing2/Landing2";
-import { Button } from "@/components/ui/button";
+import Landing2 from "../../components/Landing2/Landing2";
+import { Button } from "../../../components/ui/button";
 import Link from "next/link";
 import React from "react";
 import { FaMeetup } from "react-icons/fa";

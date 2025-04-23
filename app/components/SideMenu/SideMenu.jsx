@@ -5,12 +5,11 @@ import {
   SheetClose,
   SheetContent,
   SheetTrigger,
-} from "@/components/ui/sheet";
-import { Button } from "@/components/ui/button";
-import { GlobalContext } from "@/app/context/GlobalContext";
+} from "../../../components/ui/sheet";
+i;
+import { GlobalContext } from "../../context/GlobalContext";
 import Link from "next/link";
 import "./SideMenu.css";
-import { Input } from "@/components/ui/input";
 
 export const SideMenu = () => {
   const [isOpen, setIsOpen] = useState(false);

@@ -11,7 +11,7 @@ import {
   TableHead,
   TableHeader,
   TableRow,
-} from "@/components/ui/table";
+} from "../../../components/ui/table";
 import Spinner from "../Spinner";
 
 const DemoTableComponent = ({ data, leagueDetails, name }) => {

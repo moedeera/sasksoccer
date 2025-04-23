@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import "./Calendar.css";
-import { Calendar } from "@/components/ui/calendar";
+import { Calendar } from "../../../components/ui/calendar";
 import { isSameDay, parseISO } from "date-fns";
 
 const CalendarComponent = () => {

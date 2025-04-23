@@ -1,4 +1,3 @@
-import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import Link from "next/link";
 import React, { useContext, useState } from "react";
@@ -7,7 +6,7 @@ import SideMenu from "../SideMenu/SideMenu";
 
 import profileDefault from "@/assets/images/profile.png";
 import logo from "./logo-no-background.png";
-import { GlobalContext } from "@/app/context/GlobalContext";
+import { GlobalContext } from "../../context/GlobalContext";
 
 const UpperNavbar = () => {
   const { data: session } = useSession();
