@@ -1,13 +1,13 @@
 "use client";
 import Image from "next/image";
 import React, { useEffect, useState } from "react";
-import profileDefault from "../../assets/images/profile.png";
+
 import { useSession } from "next-auth/react";
 import Spinner from "../components/Spinner";
 
 import Link from "next/link";
 import { toast } from "react-toastify";
-import { Cards } from "@/components/Card/Card";
+
 import {
   Card,
   CardContent,
@@ -15,17 +15,13 @@ import {
   CardFooter,
   CardHeader,
   CardTitle,
-} from "@/components/ui/card";
-import { AspectRatio } from "@/components/ui/aspect-ratio";
-import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
+} from "../../components/ui/card";
+import { AspectRatio } from "../../components/ui/aspect-ratio";
+import { Button } from "../../components/ui/button";
 
 toast;
 const FollowingPage = () => {
   const { data: session } = useSession();
-  const profileImage = session?.user?.image;
-  const profileName = session?.user?.name;
-  const profileEmail = session?.user?.email;
 
   const [loading, setLoading] = useState(true);
   const [leagues, setLeagues] = useState([]);

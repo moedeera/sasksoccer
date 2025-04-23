@@ -1,14 +1,13 @@
 "use client";
 
-import SingleTable from "@/app/components/Table/SingleTable";
-import TableComponent from "@/app/components/Table/TableComponent";
+import SingleTable from "../../components/Table/SingleTable";
+
 import {
   calculatePointsAndDifferential,
-  formatGames,
   parseSoccerData,
   sortTeams,
-} from "@/app/utlils/functions";
-import { fetchLeagueData } from "@/app/utlils/request";
+} from "../../utlils/functions";
+import { fetchLeagueData } from "../../utlils/request";
 import { useSession } from "next-auth/react";
 import { useParams } from "next/navigation";
 import React, { useEffect, useState } from "react";

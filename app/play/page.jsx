@@ -1,8 +1,7 @@
 import React from "react";
 import Landing from "../components/Landing/Landing";
-import Block1 from "../components/Block1/Block1";
-import { Cards } from "@/components/Card/Card";
-import { homeCardsData, playCardsData } from "@/assets/Info/Info";
+import { Cards } from "../../components/Card/Card";
+import { homeCardsData, playCardsData } from "../../assets/Info/Info";
 
 const page = () => {
   const pageHeader = {
