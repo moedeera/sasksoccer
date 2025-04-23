@@ -1,7 +1,6 @@
-import { getSessionUser } from "@/app/components/getSessionUser";
-import connectDB from "@/config/database";
+import connectDB from "../../../config/database";
 
-import Message from "@/models/Messages";
+import Message from "../../../models/Messages";
 
 export const dynamic = "force-dynamic";
 

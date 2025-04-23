@@ -1,7 +1,7 @@
 import React from "react";
 import "./BlogLanding.css";
-import { Card, CardContent } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "../../../components/ui/card";
+import { Button } from "../../../components/ui/button";
 import Link from "next/link";
 
 const BlogLanding = () => {

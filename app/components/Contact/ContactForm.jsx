@@ -1,9 +1,9 @@
 "use client";
 
 import React, { useState } from "react";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
+import { Button } from "../../../components/ui/button";
+import { Input } from "../../../components/ui/input";
+import { Textarea } from "../../../components/ui/textarea";
 import { toast } from "react-toastify";
 import Spinner from "../Spinner";
 import Link from "next/link";

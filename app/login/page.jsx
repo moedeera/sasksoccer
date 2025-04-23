@@ -3,7 +3,8 @@ import React, { useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { useSession } from "next-auth/react";
 import LoginFormComponent from "../components/LoginFormComponent/LoginFormComponent";
-import Landing from "../components/Landing/Landing";
+
+import Landing2 from "../components/Landing2/Landing2";
 
 const LoginPage = () => {
   const { data: session, status } = useSession();
@@ -24,7 +25,7 @@ const LoginPage = () => {
 
   return (
     <div>
-      <Landing data={pageHeader} />
+      <Landing2 data={pageHeader} />
       <LoginFormComponent />
     </div>
   );

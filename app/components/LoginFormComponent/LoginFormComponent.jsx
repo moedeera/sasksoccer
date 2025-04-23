@@ -3,8 +3,8 @@
 import React, { useEffect, useState } from "react";
 import { FaGoogle } from "react-icons/fa";
 // import { signInWithPopup, signInWithEmailAndPassword, auth, googleProvider } from "./firebase";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
+import { Button } from "../../../components/ui/button";
+
 import "./LoginForm.css";
 import Link from "next/link";
 import { getProviders, signIn, useSession } from "next-auth/react";

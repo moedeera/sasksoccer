@@ -1,6 +1,6 @@
 import React from "react";
 import BlogLanding from "../components/BlogLanding/BlogLanding";
-import { Card } from "@/components/ui/card";
+
 import { SampleCard1 } from "../components/BlogLanding/SampleCard1";
 
 const page = () => {

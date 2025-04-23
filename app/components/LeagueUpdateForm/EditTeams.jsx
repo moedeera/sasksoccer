@@ -1,12 +1,12 @@
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
+import { Button } from "../../../components/ui/button";
+import { Input } from "../../../components/ui/input";
+import { Label } from "../../../components/ui/label";
 import React, { useState } from "react";
 import Spinner from "../Spinner";
 import {
   calculateAndSortTeamsByPoints,
   generateId,
-} from "@/app/utlils/functions";
+} from "../../utlils/functions";
 
 const EditTeams = ({ teams, setTeams, league, error, setError }) => {
   const [editTeams, setEditTeams] = useState("");

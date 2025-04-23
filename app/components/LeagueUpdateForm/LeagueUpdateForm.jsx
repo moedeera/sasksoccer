@@ -2,25 +2,18 @@
 import React, { useState, useEffect } from "react";
 
 // Sample components from your UI library (replace with actual imports)
-import { Input } from "@/components/ui/input";
-import { Button } from "@/components/ui/button";
+
+import { Button } from "../../../components/ui/button";
+
+import { useParams, useRouter } from "next/navigation";
+import { fetchLeague } from "../../utlils/request";
 
 import {
-  Select,
-  SelectContent,
-  SelectGroup,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
-import { Textarea } from "@/components/ui/textarea";
-import { useParams, useRouter } from "next/navigation";
-import { fetchLeague } from "@/app/utlils/request";
-import { Label } from "@/components/ui/label";
-import { formatDate } from "date-fns";
-import { formatDateFunction } from "@/app/utlils/functions";
-import { UpdateLeague } from "../LeagueFormUpdate2/UpdateForm";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+  Tabs,
+  TabsContent,
+  TabsList,
+  TabsTrigger,
+} from "../../../components/ui/tabs";
 
 import LeagueSettings from "./LeagueSettings";
 import Spinner from "../Spinner";

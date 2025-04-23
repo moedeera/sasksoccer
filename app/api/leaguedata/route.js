@@ -1,9 +1,11 @@
-import { getSessionUser } from "@/app/components/getSessionUser";
-import { generateSlug } from "@/app/utlils/functions";
-import connectDB from "@/config/database";
-
 import LeagueData from "@/models/LeagueData";
 import { setCorsHeaders } from "../custommiddleware";
+
+import { getSessionUser } from "../../components/getSessionUser";
+import connectDB from "../../../config/database";
+import League from "../../../models/League";
+
+import User from "../../../models/User";
 
 // GET /api/leagues
 export const GET = async (request) => {

@@ -1,5 +1,5 @@
 "use client";
-import LeagueUpdateForm from "@/app/components/LeagueUpdateForm/LeagueUpdateForm";
+import LeagueUpdateForm from "../../../components/LeagueUpdateForm/LeagueUpdateForm";
 import React from "react";
 
 const page = () => {
