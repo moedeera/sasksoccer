@@ -1,20 +1,20 @@
 "use client";
 
-import Block4 from "@/app/components/Block4/Block4";
+import Block4 from "../../components/Block4/Block4";
 
-import TableComponent from "@/app/components/Table/TableComponent";
+import TableComponent from "../../components/Table/TableComponent";
 import { useParams } from "next/navigation";
 import React, { useEffect, useState } from "react";
 import { errorReportInfo } from "./info";
-import { fetchLeague } from "@/app/utlils/request";
-import Spinner from "@/app/components/Spinner";
+import { fetchLeague } from "../../utlils/request";
+import Spinner from "../../components/Spinner";
 import { useSession } from "next-auth/react";
-import { Button } from "@/components/ui/button";
+import { Button } from "../../../components/ui/button";
 import Link from "next/link";
 import {
   formatDateToString,
   reorganizeTeamsByGroupNumber,
-} from "@/app/utlils/functions";
+} from "../../../app/utlils/functions";
 import {
   Select,
   SelectContent,
@@ -22,11 +22,11 @@ import {
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "@/components/ui/select";
-import BookMarkButton from "@/app/components/BookMarkButton";
-import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
+} from "../../../components/ui/select";
+import BookMarkButton from "../../components/BookMarkButton";
+import { Tabs, TabsList, TabsTrigger } from "../../../components/ui/tabs";
 import { TabsContent } from "@radix-ui/react-tabs";
-import Landing2 from "@/app/components/Landing2/Landing2";
+import Landing2 from "../../components/Landing2/Landing2";
 
 const LeaguePage = () => {
   const { data: session } = useSession();
