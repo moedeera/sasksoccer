@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import Spinner from "../Spinner";
 import { toast } from "react-toastify";
-import { Input } from "@/components/ui/input";
+import { Input } from "../../../components/ui/input";
 
 const Subscribe = () => {
   const [email, setEmail] = useState("");

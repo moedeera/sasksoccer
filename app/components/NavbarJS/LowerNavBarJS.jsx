@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useContext, useEffect, useRef, useState } from "react";
-import { GlobalContext } from "@/app/context/GlobalContext";
+import { GlobalContext } from "../../context/GlobalContext";
 import Link from "next/link";
 import { FaMagnifyingGlass } from "react-icons/fa6";
 import { BsFillCaretDownFill } from "react-icons/bs";

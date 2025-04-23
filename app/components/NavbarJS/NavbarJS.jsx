@@ -4,7 +4,7 @@ import "./NavbarJS.css";
 import UpperNavbarJS from "./UpperNavbarJS";
 import LowerNavBarJS from "./LowerNavBarJS";
 import Link from "next/link";
-import { GlobalContext } from "@/app/context/GlobalContext";
+import { GlobalContext } from "../../context/GlobalContext";
 
 const NavbarJS = () => {
   const [menuActive, setMenuActive] = useState(false);

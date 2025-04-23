@@ -1,11 +1,11 @@
 "use client";
 import React from "react";
 import { FaFacebook, FaTwitter, FaInstagram, FaLinkedin } from "react-icons/fa";
-import { Button } from "@/components/ui/button";
+
 import Link from "next/link";
 import Image from "next/image";
 import logo from "../Navbar/logo-no-background.png";
-import { Input } from "@/components/ui/input";
+
 import Subscribe from "./Subscribe";
 
 const FooterComponent = () => {

@@ -1,4 +1,4 @@
-import "@/assets/styles/globals.css";
+import "../assets/styles/globals.css";
 
 import AuthProvider from "./components/AuthProvider";
 import { ToastContainer } from "react-toastify";
@@ -6,7 +6,7 @@ import "react-toastify/dist/ReactToastify.css";
 import { GlobalProvider } from "./context/GlobalContext";
 import "photoswipe/dist/photoswipe.css";
 import { Inter as FontSans } from "next/font/google";
-import { cn } from "@/lib/utils";
+import { cn } from "../lib/utils";
 import { GoogleAnalytics } from "@next/third-parties/google";
 import FooterComponent from "./components/Footer/Footer";
 import NavbarJS from "./components/NavbarJS/NavbarJS";

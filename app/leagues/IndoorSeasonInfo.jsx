@@ -5,14 +5,14 @@ import {
   TableHead,
   TableHeader,
   TableRow,
-} from "@/components/ui/table"; // Import Table components
+} from "../../components/ui/table"; // Import Table components
 import Locations from "./Locations";
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
-} from "@/components/ui/accordion";
+} from "../../components/ui/accordion";
 
 const IndoorSeasonInfo = () => {
   const teams = {

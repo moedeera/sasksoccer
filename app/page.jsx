@@ -1,6 +1,6 @@
 import React from "react";
 
-import { Cards } from "@/components/Card/Card";
+import { Cards } from "../components/Card/Card";
 import Landing from "./components/Landing/Landing";
 import Block1 from "./components/Block1/Block1";
 
@@ -16,7 +16,7 @@ import {
   homeCardsData,
   homeCarouselData,
   homeLandingInfo,
-} from "@/assets/Info/Info";
+} from "../assets/Info/Info";
 import LoadingBars from "./components/LoadingBars/LoadingBars";
 import Slideshow from "./components/SlideShow/SlideShow";
 import IndoorSeasonInfo from "./leagues/IndoorSeasonInfo";

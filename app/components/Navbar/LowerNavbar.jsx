@@ -1,4 +1,4 @@
-import { GlobalContext } from "@/app/context/GlobalContext";
+import { GlobalContext } from "../../context/GlobalContext";
 import Link from "next/link";
 import React, { useContext, useEffect, useRef, useState } from "react";
 import { FaCaretDown } from "react-icons/fa";

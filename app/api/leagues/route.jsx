@@ -1,8 +1,8 @@
-import { getSessionUser } from "@/app/components/getSessionUser";
-import { generateSlug } from "@/app/utlils/functions";
-import connectDB from "@/config/database";
-import League from "@/models/League";
-import LeagueData from "@/models/LeagueData";
+import { getSessionUser } from "../../components/getSessionUser";
+import { generateSlug } from "../../utlils/functions";
+import connectDB from "../../../config/database";
+import League from "../../../models/League";
+
 import { setCorsHeaders } from "../custommiddleware";
 
 // GET /api/leagues

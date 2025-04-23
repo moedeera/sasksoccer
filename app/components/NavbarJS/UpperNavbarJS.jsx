@@ -4,7 +4,7 @@ import React, { useContext, useState } from "react";
 import logo from "./logo-no-background.png";
 import logo2 from "./logo-transparent.png";
 import Image from "next/image";
-import { GlobalContext } from "@/app/context/GlobalContext";
+import { GlobalContext } from "../../context/GlobalContext";
 import { useSession, signOut, signIn } from "next-auth/react";
 
 const UpperNavbarJS = ({ state, setState }) => {

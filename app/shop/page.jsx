@@ -1,9 +1,7 @@
 import React from "react";
-import Landing from "../components/Landing/Landing";
-import Block1 from "../components/Block1/Block1";
-import { shopInfo } from "./data";
-import { Cards } from "@/components/Card/Card";
-import { shopCardsData } from "@/assets/Info/Info";
+
+import { Cards } from "../../components/Card/Card";
+import { shopCardsData } from "../../assets/Info/Info";
 import Landing2 from "../components/Landing2/Landing2";
 
 const page = () => {
