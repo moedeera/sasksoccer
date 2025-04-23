@@ -25,7 +25,7 @@ export function Cards({ data, directory }) {
   return (
     <div className="component-container grid md:grid-cols-3 lg:grid-cols-4 gap-8 md:p-3">
       {" "}
-      {data.map((dat, index) => (
+      {data?.map((dat, index) => (
         <Card key={index} className="flex flex-col justify-between">
           <CardHeader>
             {dat?.image && (

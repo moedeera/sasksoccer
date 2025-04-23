@@ -117,7 +117,7 @@ import { Cards } from "../../components/Card/Card";
 import { createOwnLeague, currentData, openerContent } from "./leaguesInfo";
 import Block1 from "../components/Block1/Block1";
 
-import { CardSkeleton } from "../components/CardSkeleton/CardSkeleton";
+import CardSkeleton from "../components/CardSkeleton/CardSkeleton";
 
 import Landing2 from "../components/Landing2/Landing2";
 import OutdoorSeasonInfo from "./OutdoorSeasonInfo";
@@ -196,6 +196,20 @@ const Page = () => {
       {" "}
       <Landing2 data={pageHeader} />
       <OutdoorSeasonInfo />
+      <Block4 data={openerContent} />
+      <div className="h3-header text-3xl font-bold text-center ">
+        Indoor League Results for 2024-2025
+      </div>
+      {loading ? (
+        <>
+          <CardSkeleton />
+          <CardSkeleton />
+        </>
+      ) : (
+        <Cards
+          data={leagues?.filter((league) => league.category === "indoor")}
+        />
+      )}
     </div>
   );
 };
