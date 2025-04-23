@@ -7,7 +7,7 @@ import Spinner from "../components/Spinner";
 
 import Link from "next/link";
 import { toast } from "react-toastify";
-import { Cards } from "@/components/Card/Card";
+
 import {
   Card,
   CardDescription,
