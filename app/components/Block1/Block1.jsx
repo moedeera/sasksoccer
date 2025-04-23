@@ -5,7 +5,8 @@ import Link from "next/link";
 import "./Block1.css";
 // import { useState, useEffect } from "react";
 import Image from "next/image";
-import { AspectRatio } from "@/components/ui/aspect-ratio";
+import { AspectRatio } from "../../../components/ui/aspect-ratio";
+// import { AspectRatio } from "@/components/ui/aspect-ratio";
 
 const Block1 = ({ info }) => {
   // const defaultInfo = {
