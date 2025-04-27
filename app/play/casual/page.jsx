@@ -4,7 +4,7 @@ import Link from "next/link";
 import React from "react";
 import { FaMeetup } from "react-icons/fa";
 
-export const CasualPlayPage = () => {
+export const page = () => {
   const pageHeader = {
     title: "Casual Soccer",
     content: null,
@@ -64,4 +64,4 @@ export const CasualPlayPage = () => {
     </div>
   );
 };
-export default CasualPlayPage;
+export default page;
