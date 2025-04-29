@@ -4,7 +4,7 @@ import {
   TableHead,
   TableHeader,
   TableRow,
-} from "../../../components/ui/tabs";
+} from "../../../components/ui/table";
 import React from "react";
 
 const SingleTable = ({ teamsInfo }) => {

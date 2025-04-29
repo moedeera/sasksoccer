@@ -1,4 +1,4 @@
-import { Cards } from "../../../components/Card/Card";
+import { Card } from "../../../components/Card/Card";
 import Link from "next/link";
 import React from "react";
 
