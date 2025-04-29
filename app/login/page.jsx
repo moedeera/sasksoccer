@@ -6,7 +6,7 @@ import LoginFormComponent from "../components/LoginFormComponent/LoginFormCompon
 
 import Landing2 from "../components/Landing2/Landing2";
 
-const LoginPage = () => {
+export const Page = () => {
   const { data: session, status } = useSession();
   const router = useRouter();
 

@@ -3,7 +3,7 @@ import LeagueForm from "../../components/FormComponent/FormComponent";
 import Landing from "../../components/Landing/Landing";
 import React from "react";
 
-export default function Page() {
+export const page = () => {
   const openerContent = {
     title: `Add your current league`,
     content: `Lorem ipsum dolor sit amet, consectetur adipiscing elit…`,
@@ -16,4 +16,4 @@ export default function Page() {
       <LeagueForm />
     </div>
   );
-}
+};

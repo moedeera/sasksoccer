@@ -1,8 +1,6 @@
 import React from "react";
 import Messages from "../components/Messages";
 
-const MessagesPage = () => {
+export const page = () => {
   return <Messages />;
 };
-
-export default MessagesPage;

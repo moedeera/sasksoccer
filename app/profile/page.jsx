@@ -20,7 +20,7 @@ import { AspectRatio } from "../../components/ui/aspect-ratio";
 import { Button } from "../../components/ui/button";
 
 toast;
-const ProfilePage = () => {
+export const ProfilePage = () => {
   const { data: session } = useSession();
   const profileImage = session?.user?.image;
   const profileName = session?.user?.name;
@@ -29,29 +29,6 @@ const ProfilePage = () => {
   const [loading, setLoading] = useState(true);
   const [leagues, setLeagues] = useState([]);
 
-  // useEffect(() => {
-  //   const fetchUserLeagues = async (userId) => {
-  //     if (!userId) {
-  //       return;
-  //     }
-  //     try {
-  //       const res = await fetch(`api/leagues/user/${userId}`);
-
-  //       if (res.status === 200) {
-  //         const data = await res.json();
-  //         setLeagues(data);
-  //       }
-  //     } catch (error) {
-  //       console.log(error);
-  //     } finally {
-  //       setLoading(false);
-  //     }
-  //   };
-  //   // fetch only if user is available
-  //   if (session) {
-  //     fetchUserLeagues(session.user.id);
-  //   }
-  // }, [session]);
   const handleDeleteBookmark = async (leagueID) => {
     try {
       const res = await fetch("/api/bookmarks", {
@@ -73,32 +50,6 @@ const ProfilePage = () => {
       toast.error("Something went wrong");
     }
   };
-
-  // const handleDeleteLeague = async (leagueSlug) => {
-  //   const confirmed = window.confirm(
-  //     "Are you sure you want to delete this league?"
-  //   );
-  //   if (!confirmed) {
-  //     return;
-  //   }
-
-  //   try {
-  //     const res = await fetch(`api/leagues/${leagueSlug}`, {
-  //       method: "DELETE",
-  //     });
-
-  //     if (res.status === 200) {
-  //       const updatedLeagues = leagues.filter((league) => league.slug);
-  //       setLeagues(updatedLeagues);
-  //       toast.success("league deleted");
-  //     } else {
-  //       toast.error("failed to delete league");
-  //     }
-  //   } catch (error) {
-  //     console.log(error);
-  //     toast.error("Failed to delete league");
-  //   }
-  // };
 
   useEffect(() => {
     const fetchSavedLeagues = async () => {
@@ -228,5 +179,3 @@ const ProfilePage = () => {
     </section>
   );
 };
-
-export default ProfilePage;

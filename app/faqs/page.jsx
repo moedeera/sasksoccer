@@ -3,7 +3,7 @@ import React from "react";
 import Block2 from "../components/Block2/Block2";
 import Landing2 from "../components/Landing2/Landing2";
 
-const page = () => {
+export const page = () => {
   const pageHeader = {
     title: "Frequently asked questions",
     content: null,
@@ -32,5 +32,3 @@ const page = () => {
     </div>
   );
 };
-
-export default page;

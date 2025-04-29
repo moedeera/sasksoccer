@@ -19,8 +19,7 @@ import {
 import { AspectRatio } from "../../components/ui/aspect-ratio";
 import { Button } from "../../components/ui/button";
 
-toast;
-const FollowingPage = () => {
+export const FollowingPage = () => {
   const { data: session } = useSession();
 
   const [loading, setLoading] = useState(true);
@@ -198,5 +197,3 @@ const FollowingPage = () => {
     </section>
   );
 };
-
-export default FollowingPage;

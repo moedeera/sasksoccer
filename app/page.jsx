@@ -22,7 +22,7 @@ import Slideshow from "./components/SlideShow/SlideShow";
 import IndoorSeasonInfo from "./leagues/IndoorSeasonInfo";
 import OutdoorSeasonInfo from "./leagues/OutdoorSeasonInfo";
 
-const HomePage = () => {
+export const HomePage = () => {
   const slides = [
     {
       header: "Saskatoon Soccer News & Updates",

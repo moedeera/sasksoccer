@@ -5,7 +5,7 @@ import Link from "next/link";
 import { useParams } from "next/navigation";
 import React, { useContext, useEffect, useState } from "react";
 
-const Page = () => {
+export const Page = () => {
   const { keyword } = useParams();
   const { suggestionList } = useContext(GlobalContext);
 
@@ -73,5 +73,3 @@ const Page = () => {
     </div>
   );
 };
-
-export default Page;

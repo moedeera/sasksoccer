@@ -3,7 +3,7 @@ import Landing from "../components/Landing/Landing";
 import { Cards } from "../../components/Card/Card";
 import { homeCardsData, playCardsData } from "../../assets/Info/Info";
 
-const page = () => {
+export const page = () => {
   const pageHeader = {
     title: "Getting active in the game",
     content: `Whether it's for health, competition, or just fun, you can always have a good time playing soccer. `,
@@ -29,5 +29,3 @@ const page = () => {
     </div>
   );
 };
-
-export default page;

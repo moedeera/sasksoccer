@@ -2,7 +2,7 @@ import { AspectRatio } from "../../../components/ui/aspect-ratio";
 import Image from "next/image";
 import React from "react";
 
-const Page = () => {
+export const Page = () => {
   return (
     <div className="component-container">
       {" "}
@@ -60,5 +60,3 @@ const Page = () => {
     </div>
   );
 };
-
-export default Page;

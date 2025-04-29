@@ -64,4 +64,3 @@ export const page = () => {
     </div>
   );
 };
-export default page;

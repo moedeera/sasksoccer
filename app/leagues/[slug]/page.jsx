@@ -28,7 +28,7 @@ import { Tabs, TabsList, TabsTrigger } from "../../../components/ui/tabs";
 import { TabsContent } from "@radix-ui/react-tabs";
 import Landing2 from "../../components/Landing2/Landing2";
 
-const LeaguePage = () => {
+export const LeaguePage = () => {
   const { data: session } = useSession();
   const { slug } = useParams();
 
@@ -417,5 +417,3 @@ const LeaguePage = () => {
     </div>
   );
 };
-
-export default LeaguePage;

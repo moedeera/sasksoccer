@@ -4,7 +4,7 @@ import { Cards } from "../../components/Card/Card";
 import { shopCardsData } from "../../assets/Info/Info";
 import Landing2 from "../components/Landing2/Landing2";
 
-const page = () => {
+export const page = () => {
   const pageHeader = {
     title: "Shop",
     content: null,
@@ -24,5 +24,3 @@ const page = () => {
     </div>
   );
 };
-
-export default page;

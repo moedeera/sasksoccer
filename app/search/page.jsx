@@ -2,7 +2,7 @@
 
 import React, { useEffect } from "react";
 
-const Page = () => {
+export const Page = () => {
   useEffect(() => {
     console.log("hello");
   }, []);
@@ -12,5 +12,3 @@ const Page = () => {
     </div>
   );
 };
-
-export default Page;

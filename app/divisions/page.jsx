@@ -6,7 +6,7 @@ import IndoorSeasonInfo from "../leagues/IndoorSeasonInfo";
 import CardSkeleton from "../components/CardSkeleton/CardSkeleton";
 import { Cards } from "../../components/Card/Card";
 
-const Page = () => {
+export const Page = () => {
   const randomPlaceHolderImages = [
     "https://images.pexels.com/photos/47343/the-ball-stadion-horn-corner-47343.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
     "https://images.pexels.com/photos/54567/pexels-photo-54567.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
@@ -164,5 +164,3 @@ const Page = () => {
     </div>
   );
 };
-
-export default Page;

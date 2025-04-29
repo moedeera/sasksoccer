@@ -1,7 +1,7 @@
 import Link from "next/link";
 import React from "react";
 
-const page = () => {
+export const page = () => {
   return (
     // eslint-disable-next-line react/no-unescaped-entities
     <div className="component-container">
@@ -150,5 +150,3 @@ const page = () => {
     </div>
   );
 };
-
-export default page;

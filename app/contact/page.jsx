@@ -3,7 +3,7 @@ import Landing from "../components/Landing/Landing";
 import ContactForm from "../components/Contact/ContactForm";
 import Landing2 from "../components/Landing2/Landing2";
 
-const page = () => {
+export const page = () => {
   const pageHeader = {
     title: "Contact",
     content: null,
