@@ -16,8 +16,7 @@ import {
   CardTitle,
 } from "../../components/ui/card";
 
-toast;
-const ProfilePage = () => {
+export const page = () => {
   const { data: session } = useSession();
   const profileImage = session?.user?.image;
   const profileName = session?.user?.name;
@@ -160,5 +159,3 @@ const ProfilePage = () => {
     </section>
   );
 };
-
-export default ProfilePage;

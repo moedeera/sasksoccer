@@ -5,7 +5,7 @@ import { AboutPageMainInfo, communityPageData } from "../community/info";
 import Block2 from "../components/Block2/Block2";
 import ContactForm from "../components/Contact/ContactForm";
 
-const page = () => {
+export const page = () => {
   const pageHeader = {
     title: "About Us",
     content: null,
@@ -21,5 +21,3 @@ const page = () => {
     </div>
   );
 };
-
-export default page;
