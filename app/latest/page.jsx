@@ -7,7 +7,7 @@ import Block3 from "../components/Block3/Block3";
 import { homeCarouselData } from "../../assets/Info/Info";
 import Landing2 from "../components/Landing2/Landing2";
 
-export const page = () => {
+export default function Page() {
   const leaguePageHeader = {
     title: "Latest",
     content: null,
@@ -24,4 +24,4 @@ export const page = () => {
       {/* <Block3 /> */}
     </div>
   );
-};
+}

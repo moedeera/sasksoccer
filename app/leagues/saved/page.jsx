@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import { toast } from "react-toastify";
 import Spinner from "../../components/Spinner";
 
-export const Page = () => {
+export default function Page() {
   const [properties, setProperties] = useState([]);
   const [loading, setLoading] = useState(true);
 
@@ -36,4 +36,4 @@ export const Page = () => {
   ) : (
     <section className="px-4 py-6 border"></section>
   );
-};
+}

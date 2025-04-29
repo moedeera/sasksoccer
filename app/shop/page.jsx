@@ -4,7 +4,7 @@ import { Cards } from "../../components/Card/Card";
 import { shopCardsData } from "../../assets/Info/Info";
 import Landing2 from "../components/Landing2/Landing2";
 
-export const page = () => {
+export default function Page() {
   const pageHeader = {
     title: "Shop",
     content: null,
@@ -23,4 +23,4 @@ export const page = () => {
       {/* <Block1 data={shopInfo} /> */}
     </div>
   );
-};
+}

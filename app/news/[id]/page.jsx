@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 
-const Page = () => {
+export default function Page() {
   return (
     <div className="component-container">
       {" "}
@@ -61,6 +61,4 @@ const Page = () => {
       </div>
     </div>
   );
-};
-
-export default Page;
+}

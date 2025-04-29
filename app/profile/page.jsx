@@ -19,8 +19,7 @@ import {
 import { AspectRatio } from "../../components/ui/aspect-ratio";
 import { Button } from "../../components/ui/button";
 
-toast;
-export const ProfilePage = () => {
+export default function Page() {
   const { data: session } = useSession();
   const profileImage = session?.user?.image;
   const profileName = session?.user?.name;
@@ -178,4 +177,4 @@ export const ProfilePage = () => {
       </div>
     </section>
   );
-};
+}

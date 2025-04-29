@@ -12,7 +12,7 @@ import { useSession } from "next-auth/react";
 import { useParams } from "next/navigation";
 import React, { useEffect, useState } from "react";
 
-export const Page = () => {
+export default function Page() {
   const { data: session } = useSession();
   const { slug } = useParams();
   const [league, setLeague] = useState(null);
@@ -79,4 +79,4 @@ export const Page = () => {
       ))}
     </div>
   );
-};
+}

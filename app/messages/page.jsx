@@ -1,6 +1,6 @@
 import React from "react";
 import Messages from "../components/Messages";
 
-export const page = () => {
+export default function Page() {
   return <Messages />;
-};
+}

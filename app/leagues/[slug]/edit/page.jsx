@@ -2,10 +2,10 @@
 import LeagueUpdateForm from "../../../components/LeagueUpdateForm/LeagueUpdateForm";
 import React from "react";
 
-export const page = () => {
+export default function Page() {
   return (
     <div>
       <LeagueUpdateForm />
     </div>
   );
-};
+}

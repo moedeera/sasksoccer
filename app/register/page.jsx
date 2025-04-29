@@ -2,7 +2,7 @@ import React from "react";
 import Landing from "../components/Landing/Landing";
 import RegisterForm from "../components/RegisterForm/RegisterForm";
 
-export const page = () => {
+export default function Page() {
   const pageHeader = {
     title: "Register",
     content: null,
@@ -15,4 +15,4 @@ export const page = () => {
       <RegisterForm />
     </div>
   );
-};
+}

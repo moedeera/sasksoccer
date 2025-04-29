@@ -11,7 +11,7 @@ import CardSkeleton from "../components/CardSkeleton/CardSkeleton";
 import Landing2 from "../components/Landing2/Landing2";
 import OutdoorSeasonInfo from "./OutdoorSeasonInfo";
 
-export const Page = () => {
+export default function Page() {
   const pageHeader = {
     title: "Leagues",
 
@@ -101,4 +101,4 @@ export const Page = () => {
       )}
     </div>
   );
-};
+}

@@ -2,7 +2,7 @@
 
 import React, { useEffect } from "react";
 
-export const Page = () => {
+export default function Page() {
   useEffect(() => {
     console.log("hello");
   }, []);
@@ -11,4 +11,4 @@ export const Page = () => {
       <div className="text-xl">Search</div>
     </div>
   );
-};
+}

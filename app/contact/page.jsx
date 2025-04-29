@@ -3,7 +3,7 @@ import Landing from "../components/Landing/Landing";
 import ContactForm from "../components/Contact/ContactForm";
 import Landing2 from "../components/Landing2/Landing2";
 
-export const page = () => {
+export default function Page() {
   const pageHeader = {
     title: "Contact",
     content: null,
@@ -18,6 +18,4 @@ export const page = () => {
       <ContactForm />
     </div>
   );
-};
-
-export default page;
+}

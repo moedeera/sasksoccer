@@ -3,7 +3,7 @@ import BlogLanding from "../components/BlogLanding/BlogLanding";
 
 import { SampleCard1 } from "../components/BlogLanding/SampleCard1";
 
-export const page = () => {
+export default function Page() {
   let imgUrl =
     "https://images.pexels.com/photos/114296/pexels-photo-114296.jpeg";
   const articles = [
@@ -64,4 +64,4 @@ export const page = () => {
       </div>
     </div>
   );
-};
+}
