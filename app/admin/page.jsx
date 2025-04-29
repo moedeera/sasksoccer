@@ -16,7 +16,7 @@ import {
   CardTitle,
 } from "../../components/ui/card";
 
-export const Page = () => {
+export default function Page() {
   const { data: session } = useSession();
   const profileImage = session?.user?.image;
   const profileName = session?.user?.name;
@@ -158,4 +158,4 @@ export const Page = () => {
       </div>
     </section>
   );
-};
+}
