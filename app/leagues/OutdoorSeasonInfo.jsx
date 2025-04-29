@@ -209,7 +209,7 @@ const OutdoorSeasonInfo = () => {
         {accordionSections.map(({ key, label }) => {
           const divisionData = teams[key];
           return (
-            <AccordionItem key={key} value={key}>
+            <AccordionItem key={key} value={key} className="border bg-white">
               <AccordionTrigger className="hover:bg-emerald-500">
                 <span className="text-black group-hover:text-white">
                   {label}
