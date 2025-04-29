@@ -16,7 +16,7 @@ import {
   CardTitle,
 } from "../../components/ui/card";
 
-export const page = () => {
+export const Page = () => {
   const { data: session } = useSession();
   const profileImage = session?.user?.image;
   const profileName = session?.user?.name;
