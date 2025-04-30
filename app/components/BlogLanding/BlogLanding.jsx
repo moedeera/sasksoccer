@@ -6,7 +6,6 @@ import { Button } from "../../../components/ui/button";
 import Link from "next/link";
 
 const BlogLanding = ({ data }) => {
-  console.log(data);
   const events = [
     {
       id: 1,
@@ -56,9 +55,9 @@ const BlogLanding = ({ data }) => {
             <div className="text-lg font-bold mb-2">Upcoming Events</div>
             <div className="flex flex-col gap-3 mb-2">
               {events.map((event) => (
-                <div key={event.id} className="flex flex-col">
+                <div key={event?.id} className="flex flex-col">
                   <div className="text-xs md:text-sm lg:text-md">
-                    {event.name}
+                    {event?.name}
                   </div>
                   <div className="hidden md:block text-xs">{event?.date}</div>
                 </div>
