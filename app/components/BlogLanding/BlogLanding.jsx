@@ -42,7 +42,7 @@ const BlogLanding = ({ data }) => {
         <div className="blog-header-content">
           <div className="text-xl mb-2 font-bold">{data?.header}</div>
           <p className="text-gray-200">{data?.description}</p>
-          <Link href={data.link} className="btn">
+          <Link href={data?.link} className="btn">
             Read More
           </Link>
         </div>
