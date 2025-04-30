@@ -41,27 +41,5 @@ export default function Page() {
     },
   ];
 
-  return (
-    <div className="component-container blog-container">
-      <BlogLanding />
-
-      <div className="my-12">
-        <div className="text-lg font-bold mb-4">Latest Articles</div>
-        <div className="w-full flex gap-2 flex-wrap md:flex-nowrap ">
-          {articles.map((article, index) => (
-            <div key={index} className="w-full">
-              <SampleCard1
-                name={article.name}
-                description={article.description}
-                image={imgUrl}
-                date={article.date}
-                author={article.author}
-                link={"/"}
-              />
-            </div>
-          ))}
-        </div>
-      </div>
-    </div>
-  );
+  return <div className="component-container blog-container">Blog</div>;
 }
