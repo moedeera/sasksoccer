@@ -2,6 +2,7 @@ import React from "react";
 import BlogLanding from "../components/BlogLanding/BlogLanding";
 
 import { SampleCard1 } from "../components/BlogLanding/SampleCard1";
+import { newsHeaderInfo } from "../../assets/Info/Info";
 
 export default function Page() {
   let imgUrl =
@@ -43,7 +44,7 @@ export default function Page() {
 
   return (
     <div className="component-container blog-container">
-      <BlogLanding />
+      <BlogLanding data={newsHeaderInfo} />
 
       <div className="my-12">
         <div className="text-lg font-bold mb-4">Latest Articles</div>

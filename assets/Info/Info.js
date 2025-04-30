@@ -22,6 +22,12 @@ const homeLandingInfo2 = {
   mini: false,
 };
 
+const newsHeaderInfo = {
+  header: "Outdoor Schedule is Set",
+  description:
+    "Outdoor Season is here and player registrations are open. Click here if you want more info on the upcoming outdoor season",
+  link: "/news/outdoor2025",
+};
 const shopCardsData = [
   {
     name: "SoccerLocker",
@@ -372,4 +378,5 @@ export {
   block1HomePageFall,
   block1HomePageWinter,
   block1HomePageSpring,
+  newsHeaderInfo,
 };
