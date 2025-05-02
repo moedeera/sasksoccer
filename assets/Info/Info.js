@@ -82,6 +82,18 @@ Saskatoon, Saskatchewan S7K 2C1`,
   },
 ];
 
+const blogs = [
+  {
+    slug: "outdoor2025",
+    title: "2025 Outdoor season is here",
+    author: "Admin",
+    date: "May 1 2025",
+    description: "Outdoor season is here don't miss out on the fun.",
+    image: "https://images.pexels.com/photos/114296/pexels-photo-114296.jpeg",
+    content: `Outdoor soccer season has officially kicked off in Saskatoon for both adult and youth leagues! Player registrations are now open, and team alignments for every division are available on the main website. Whether you're a beginner or a seasoned player, there's a spot for every age and skill level. Field locations are listed online so you can plan your games with ease. Plus, this season brings a variety of exciting tournaments you won’t want to miss. Make sure to check the updates page regularly to stay informed on schedules, changes, and new events throughout the season. See you on the pitch!`,
+  },
+];
+
 const homeCardsData = [
   // {
   //   name: "New to Soccer?",
@@ -379,4 +391,5 @@ export {
   block1HomePageWinter,
   block1HomePageSpring,
   newsHeaderInfo,
+  blogs,
 };

@@ -1,10 +1,18 @@
+"use client";
 import { AspectRatio } from "../../../components/ui/aspect-ratio";
 import { ChevronRight } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import { useParams } from "next/navigation";
 import React from "react";
+import { blogs } from "../../../assets/Info/Info";
 
 export default function Page() {
+  const { id } = useParams();
+
+  const article = blogs?.find((blog) => blog.slug === id);
+  console.log(article);
+
   return (
     <div className="component-container">
       {" "}
@@ -16,13 +24,13 @@ export default function Page() {
           <ChevronRight className="text-sm text-gray-400" />
         </div>
         <div className="text-gray-500 text-sm flex justify-between border-b pb-2">
-          <span>March 19, 2025</span>
-          <span>by John Doe</span>
-          <span>5 min read</span>
+          <span>{article?.date}</span>
+          <span>by {article?.author}</span>
+          <span>1 min read</span>
         </div>
 
         {/* Article Header */}
-        <h1 className="text-3xl font-bold mt-4">The Title of the Article</h1>
+        <h1 className="text-3xl font-bold mt-4">{article?.title}</h1>
 
         {/* Article Image */}
         <div className="mt-4">
@@ -30,11 +38,11 @@ export default function Page() {
             <div>
               {" "}
               <div className="text-md  my-2 text-gray-800">
-                Description of Article.{" "}
+                {article?.description}{" "}
               </div>
             </div>
           </div>
-          <div>
+          {/* <div>
             <AspectRatio ratio={16 / 9} className="bg-muted border">
               <Image
                 src={
@@ -45,18 +53,12 @@ export default function Page() {
                 className="h-full w-full rounded-md object-cover"
               />
             </AspectRatio>
-          </div>
+          </div> */}
         </div>
 
         {/* Article Content */}
         <div className="mt-6 text-gray-800 leading-relaxed space-y-4">
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus
-            lacinia odio vitae vestibulum vestibulum. Cras venenatis euismod
-            malesuada. Curabitur dapibus risus non enim fringilla, nec accumsan
-            lectus pretium. Donec euismod, nisi vel consectetur sollicitudin,
-            nisi odio ultricies libero, in viverra metus nisi id eros.
-          </p>
+          <p>{article?.content}</p>
         </div>
       </div>
     </div>

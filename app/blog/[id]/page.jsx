@@ -1,8 +1,11 @@
+"use client";
 import { AspectRatio } from "../../../components/ui/aspect-ratio";
 import Image from "next/image";
 import React from "react";
 
 export default function Page() {
+  const { id } = useParams();
+  alert(id);
   return (
     <div className="component-container">
       {" "}
