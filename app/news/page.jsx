@@ -15,6 +15,7 @@ export default function Page() {
         "The Women's Boarded Divisions have officially concluded, showcasing an exciting season of competition. Check out the final standings, top performers, and key highlights from this year's matches.",
       date: "March 15, 2025",
       author: "Admin",
+      link: "leagues/womens-boarded-2024",
     },
     {
       id: 2,
@@ -23,15 +24,17 @@ export default function Page() {
         "The Men's Boarded Divisions have come to an end, with thrilling matches and intense rivalries defining the season. Read more about the championship results and standout moments from the league.",
       date: "March 14, 2025",
       author: "Admin",
+      link: "leagues/mens-boarded",
     },
-    {
-      id: 3,
-      name: "List of Tournaments This Summer",
-      description:
-        "Looking for competitive action this summer? Here’s a complete list of upcoming tournaments, including registration details, locations, and key dates to mark on your calendar.",
-      date: "March 12, 2025",
-      author: "Admin",
-    },
+    // {
+    //   id: 3,
+    //   name: "List of Tournaments This Summer",
+    //   description:
+    //     "Looking for competitive action this summer? Here’s a complete list of upcoming tournaments, including registration details, locations, and key dates to mark on your calendar.",
+    //   date: "March 12, 2025",
+    //   author: "Admin",
+    //   link: "news/list",
+    // },
     {
       id: 4,
       name: "Outdoor Registration Starting",
@@ -39,6 +42,7 @@ export default function Page() {
         "Get ready for outdoor soccer! Registration for the upcoming season is now open. Sign up early to secure your spot and join the action under the sun.",
       date: "March 10, 2025",
       author: "Admin",
+      link: "news//registration2025",
     },
   ];
 
@@ -57,7 +61,7 @@ export default function Page() {
                 image={imgUrl}
                 date={article.date}
                 author={article.author}
-                link={"/"}
+                link={article.link}
               />
             </div>
           ))}

@@ -92,6 +92,25 @@ const blogs = [
     image: "https://images.pexels.com/photos/114296/pexels-photo-114296.jpeg",
     content: `Outdoor soccer season has officially kicked off in Saskatoon for both adult and youth leagues! Player registrations are now open, and team alignments for every division are available on the main website. Whether you're a beginner or a seasoned player, there's a spot for every age and skill level. Field locations are listed online so you can plan your games with ease. Plus, this season brings a variety of exciting tournaments you won’t want to miss. Make sure to check the updates page regularly to stay informed on schedules, changes, and new events throughout the season. See you on the pitch!`,
   },
+  {
+    slug: "registration2025",
+    title: "Outdoor 2025 Soccer Registration is Now Open!",
+    author: "Admin",
+    date: "April 15 2025",
+    description: "Outdoor season is here don't miss out on the fun.",
+    image: "https://images.pexels.com/photos/114296/pexels-photo-114296.jpeg",
+    content: `Saskatoon Adult Soccer’s Outdoor 2025 season is here, and all players must register individually to participate. The Individual Player Registration (IPR) fee is $45, separate from your team’s league fees. This one-time, non-refundable fee covers the full outdoor season (May–August), regardless of how many teams you join.
+
+Your IPR fee includes membership with the Saskatchewan Soccer Association (SSA), which provides access to sanctioned referees, insurance, and major events like Provincials and Nationals. It also supports Canada’s national teams.
+
+Breakdown of the $45 fee: $34 SSA fee, Remaining covers transaction costs, RAMP, and taxes
+
+Registration must be completed before your first game, or you risk suspension. Once registered, players are automatically added to team rosters.
+
+Team Personnel must also pay a one-time $11.10 fee.
+
+Register today to ensure you're eligible, insured, and ready to play!`,
+  },
 ];
 
 const homeCardsData = [
