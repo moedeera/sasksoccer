@@ -50,7 +50,7 @@ export function GlobalProvider({ children }) {
     },
     {
       name: "Latest",
-      Link: "/latest",
+      Link: "/news",
       case: "all",
       subLinks: [],
     },
