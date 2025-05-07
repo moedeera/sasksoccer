@@ -29,8 +29,6 @@ const Landing = ({ data }) => {
             )}
           </div>
         </div>
-        {/* <div className="landing-blog"> Hello </div>
-        <div className="landing-cta"> Hello </div> */}
       </div>
     </div>
   );
