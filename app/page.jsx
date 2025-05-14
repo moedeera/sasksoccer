@@ -16,6 +16,7 @@ import {
   homeCardsData,
   homeCarouselData,
   homeLandingInfo,
+  summerSoccerInfo,
 } from "../assets/Info/Info";
 import LoadingBars from "./components/LoadingBars/LoadingBars";
 import Slideshow from "./components/SlideShow/SlideShow";
@@ -51,7 +52,7 @@ export default function Page() {
     <div>
       {/* <Slideshow slides={slides} /> */}
       {/* <div className="homepage-landing-slideshow"></div> */}
-      <Landing data={homeLandingInfo} />
+      <Landing data={summerSoccerInfo} />
 
       <div className="">
         {" "}
