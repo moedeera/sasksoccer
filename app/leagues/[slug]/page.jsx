@@ -240,7 +240,7 @@ export default function Page() {
                               </div>
 
                               <Tabs
-                                defaultValue="playoffs"
+                                defaultValue="standings"
                                 className="md:block md:w-full border pb-1 mb-4"
                               >
                                 <div className=" py-1">
