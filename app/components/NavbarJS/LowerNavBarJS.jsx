@@ -106,19 +106,22 @@ const LowerNavBarJS = () => {
           </div>
           {filteredSuggestions.length > 0 && (
             <div className="mb-searchbar-drop-down">
-              {filteredSuggestions.map((suggestion, index) => (
-                <Link
-                  key={index}
-                  className="searchbar-suggestion"
-                  href={suggestion.link}
-                  onClick={() => {
-                    setFilteredSuggestions("");
-                    setSearchQuery("");
-                  }}
-                >
-                  {suggestion.name}
-                </Link>
-              ))}
+              {filteredSuggestions.map(
+                (suggestion, index) =>
+                  index < 6 && (
+                    <Link
+                      key={index}
+                      className="searchbar-suggestion"
+                      href={suggestion.link}
+                      onClick={() => {
+                        setFilteredSuggestions("");
+                        setSearchQuery("");
+                      }}
+                    >
+                      {suggestion.name}
+                    </Link>
+                  )
+              )}
               <Link
                 className="searchbar-suggestion font-bold text-cyan-600"
                 href={`/search/${searchQuery}`}
@@ -127,7 +130,7 @@ const LowerNavBarJS = () => {
                   setSearchQuery("");
                 }}
               >
-                See all Results{" "}
+                See all {filteredSuggestions.length} Results{" "}
               </Link>
             </div>
           )}
