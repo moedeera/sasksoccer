@@ -1,6 +1,6 @@
 .landing {
   min-height: 200px;
-  height: 100vh;
+  height: 130vh;
   width: 100%;
   margin: 0 auto;
   color: white;
@@ -48,7 +48,7 @@
   margin: auto auto;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: baseline;
   align-items: center;
   gap: 10px;
   padding-top: 80px;
@@ -65,7 +65,21 @@
   font-size: smaller;
   text-align: left;
 }
-
+.news-card-banner {
+  position: absolute;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  z-index: -1;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+}
+.news-card {
+  background-color: rgba(0, 0, 0, 0.75);
+  border: 0.5px solid rgba(128, 128, 128, 0.75);
+}
 /* Small devices (portrait tablets and large phones, 600px and up) */
 @media only screen and (min-width: 600px) {
   .landing-content {
