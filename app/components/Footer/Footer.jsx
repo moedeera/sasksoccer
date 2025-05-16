@@ -16,7 +16,7 @@ const FooterComponent = () => {
           <Link href={"/"}>
             <Image className="" src={logo} alt="" width={300} height={300} />
           </Link>
-          <p className="text-sm mt-2 max-w-80">
+          <div className="text-sm mt-2 max-w-80">
             <div>
               Dedicated to connecting soccer enthusiast in and around Saskatoon.
               For more content and latest updates, follow us on social media{" "}
@@ -39,7 +39,7 @@ const FooterComponent = () => {
                 <FaLinkedin className="w-8 h-8" />
               </Link>
             </div>
-          </p>
+          </div>
         </div>
         <div className="hidden md:flex flex-col w-full md:w-1/4 px-4 h-80">
           <div

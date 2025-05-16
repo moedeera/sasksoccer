@@ -147,7 +147,52 @@ export function GlobalProvider({ children }) {
     {
       name: "Latest",
       link: "/latest",
-      keywords: ["news", "latest", "upcoming"],
+      keywords: ["news", "latest", "upcoming", "blog", "updates"],
+    },
+    {
+      name: "Archives",
+      link: "/archives",
+      keywords: ["leagues", "archives", "previous", "last", "history"],
+    },
+    {
+      name: "Men's Full Field Outdoor 2024",
+      link: "../leagues/men's-outdoor-2024",
+      keywords: ["Mens", "outdoor", "2024", "last", "full", "full field"],
+    },
+    {
+      name: "Women's Full Field Outdoor 2024",
+      link: "../leagues/women's-outdoor-2024",
+      keywords: ["Womens", "outdoor", "2024", "last", "full", "full field"],
+    },
+    {
+      name: "Men's Half Field Outdoor 2024",
+      link: "../leagues/men's-half-field-2024",
+      keywords: ["Mens", "outdoor", "2024", "last", "half", "field"],
+    },
+    {
+      name: "Women's Half Field Outdoor 2024",
+      link: "../leagues/women's-half-field-2024",
+      keywords: ["Womens", "outdoor", "2024", "last", "half", "field"],
+    },
+    {
+      name: "Men's Full Field Outdoor 2025",
+      link: "../leagues/men's-outdoor-2025",
+      keywords: ["Mens", "outdoor", "2025", "last", "full", "full field"],
+    },
+    {
+      name: "Women's Full Field Outdoor 2025",
+      link: "../leagues/women's-outdoor-2025",
+      keywords: ["Womens", "outdoor", "2025", "last", "full", "full field"],
+    },
+    {
+      name: "Men's Half Field Outdoor 2025",
+      link: "../leagues/men's-half-field-2025",
+      keywords: ["Mens", "outdoor", "2025", "last", "half", "field"],
+    },
+    {
+      name: "Women's Half Field Outdoor 2025",
+      link: "../leagues/women's-half-field-2024",
+      keywords: ["Womens", "outdoor", "2025", "last", "half", "field"],
     },
   ];
 

@@ -13,7 +13,7 @@ export default function Page() {
 
   const getNonMatchingLetters = (originalKeyword, potentialMatch) => {
     const originalWords = originalKeyword.toLowerCase().split(" ");
-    const potentialWords = potentialMatch.toLowerCase().split(" ");
+    const potentialWords = potentialMatch?.toLowerCase().split(" ");
 
     return potentialWords
       .filter((word) => !originalWords.includes(word))
