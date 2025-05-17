@@ -1,9 +1,9 @@
 import React from "react";
 import BlogLanding from "../components/BlogLanding/BlogLanding";
-
+import { getPosts } from "../../lib/sanity";
 import { SampleCard1 } from "../components/BlogLanding/SampleCard1";
 
-export default function Page() {
+export default async function BlogPage() {
   let imgUrl =
     "https://images.pexels.com/photos/114296/pexels-photo-114296.jpeg";
   const articles = [
@@ -40,6 +40,23 @@ export default function Page() {
       author: "Admin",
     },
   ];
-
-  return <div className="component-container blog-container">Blog</div>;
+  const posts = await getPosts();
+  return (
+    <div className="component-container blog-container">
+      {" "}
+      <main className="p-6">
+        <h1 className="text-3xl font-bold mb-4">Blog</h1>
+        <ul>
+          {posts.map((post) => (
+            <li key={post._id} className="mb-4">
+              <h2 className="text-xl font-semibold">{post.title}</h2>
+              <p className="text-gray-500">
+                {new Date(post.publishedAt).toDateString()}
+              </p>
+            </li>
+          ))}
+        </ul>
+      </main>
+    </div>
+  );
 }
