@@ -35,9 +35,9 @@ const Landing = ({ data }) => {
       ></div>
       <div className="landing-container">
         <div className="landing-content">
-          <h1 className="capitalize w-4/5  text-4xl md:text-5xl  ">
+          <div className="capitalize w-4/5  text-4xl md:text-5xl align-left font-bold ">
             {data.title}
-          </h1>
+          </div>
           <p className="text-white w-4/5">{data.content}</p>
           {data?.content2 && (
             <p className="text-white w-4/5 hidden lg:block">{data.content2}</p>
@@ -49,7 +49,8 @@ const Landing = ({ data }) => {
               </Link>
             )}
           </div>
-          <div className="lg:mt-8 h-80  md:h-52 my-2 lg:h-64 w-4/5 flex flex-col md:flex-row gap-2">
+          <div className="text-xl font-bold">Latest</div>
+          <div className="lg:mt-1 h-80  md:h-52 mb-2 lg:h-64 w-4/5 flex flex-col md:flex-row gap-2">
             {newsFeed.map((news, index) => (
               <div
                 key={index}

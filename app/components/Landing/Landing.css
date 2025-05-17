@@ -82,6 +82,9 @@
 }
 /* Small devices (portrait tablets and large phones, 600px and up) */
 @media only screen and (min-width: 600px) {
+  .landing {
+    height: 80vh;
+  }
   .landing-content {
     align-items: self-start;
     width: 80%;

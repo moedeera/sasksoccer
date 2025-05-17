@@ -22,7 +22,7 @@ const summerSoccerInfo = {
    there’s a place for everyone to join a team, stay active, and soak up the summer sun.,
 `,
   content2: `Registration is now open—don’t miss your chance to be part of Saskatoon’s vibrant soccer community this season. Visit SaskSoccerHub today to secure your spot and get ready to play!`,
-  button: true,
+  button: false,
   buttonLink: "/news",
   buttonName: "Latest",
   mini: false,
