@@ -1,3 +1,5 @@
+export const dynamic = "force-dynamic"; // ⬅ disables static caching
+
 import React from "react";
 import BlogLanding from "../components/BlogLanding/BlogLanding";
 import { getPosts } from "../../lib/sanity";
