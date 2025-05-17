@@ -8,7 +8,7 @@ const nextConfig = {
         pathname: "**",
       },
       { protocol: "https", hostname: "cdn.pixabay.com", pathname: "**" },
-      { protocol: "https", hostname: "https://cdn.sanity.io", pathname: "**" },
+      { protocol: "https", hostname: "cdn.sanity.io", pathname: "**" },
       {
         protocol: "https",
         hostname: "placehold.co",
