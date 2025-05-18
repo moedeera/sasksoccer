@@ -35,7 +35,7 @@ const Landing = ({ data }) => {
       ></div>
       <div className="landing-container">
         <div className="landing-content">
-          <div className="capitalize w-4/5  text-4xl md:text-5xl align-left font-bold ">
+          <div className="capitalize w-4/5  text-4xl md:text-5xl lg:text-6xl align-left font-bold ">
             {data.title}
           </div>
           <p className="text-white w-4/5">{data.content}</p>
@@ -50,7 +50,7 @@ const Landing = ({ data }) => {
             )}
           </div>
           <div className="text-xl font-bold">Latest</div>
-          <div className="lg:mt-1 h-80  md:h-52 mb-2 lg:h-64 w-4/5 flex flex-col md:flex-row gap-2">
+          <div className="lg:mt-1 h-80  md:h-52 mb-2 lg:h-60 w-4/5 flex flex-col md:flex-row gap-2">
             {newsFeed.map((news, index) => (
               <div
                 key={index}
