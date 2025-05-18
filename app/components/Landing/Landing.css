@@ -79,6 +79,7 @@
 .news-card {
   background-color: rgba(0, 0, 0, 0.75);
   border: 0.5px solid rgba(128, 128, 128, 0.75);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 /* Small devices (portrait tablets and large phones, 600px and up) */
 @media only screen and (min-width: 600px) {
