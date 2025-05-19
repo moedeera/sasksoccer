@@ -9,17 +9,34 @@ const Landing = ({ data }) => {
   const newsFeed = [
     {
       id: 1,
-      name: "Outdoor Season Schedule and Info",
+      name: "Latest News and Updates",
       image:
         "https://images.pexels.com/photos/274506/pexels-photo-274506.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-      link: "/news/outdoor2025",
+      link: "/news",
     },
     {
       id: 2,
+      name: "League Standings and Updates",
+      image:
+        "https://images.pexels.com/photos/47730/the-ball-stadion-football-the-pitch-47730.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      link: "/leagues",
+      button: "View",
+    },
+    {
+      id: 3,
       name: "Upcoming Summer Tournaments",
       image:
         "https://images.pexels.com/photos/47730/the-ball-stadion-football-the-pitch-47730.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-      link: "/news/outdoor2025",
+      link: "/news",
+    },
+
+    {
+      id: 4,
+      name: "Join & Become a Member",
+      image:
+        "https://images.pexels.com/photos/47730/the-ball-stadion-football-the-pitch-47730.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      link: "/contact",
+      button: "join",
     },
   ];
   return (
@@ -35,7 +52,7 @@ const Landing = ({ data }) => {
       ></div>
       <div className="landing-container">
         <div className="landing-content">
-          <div className="capitalize w-4/5  text-4xl md:text-5xl lg:text-6xl align-left font-bold ">
+          <div className="capitalize w-4/5  text-4xl md:text-5xl lg:text-7xl align-left font-bold ">
             {data.title}
           </div>
           <p className="text-white w-4/5">{data.content}</p>
@@ -54,7 +71,7 @@ const Landing = ({ data }) => {
             {newsFeed.map((news, index) => (
               <div
                 key={index}
-                className="py-4 news-card color-white h-full w-full max-w-96  flex flex-col  justify-end items-start pb-4 pl-4 relative"
+                className="py-4 news-card color-white h-full w-full max-w-96  flex flex-col  justify-center gap-2 items-start pb-4 pl-4 relative"
               >
                 <div className="text-white text-xl mb-1 font-bold w-4/5">
                   {news.name}

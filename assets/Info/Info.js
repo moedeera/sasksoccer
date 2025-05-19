@@ -15,13 +15,13 @@ const homeLandingInfo = {
 
 const summerSoccerInfo = {
   title: "Summer Soccer Is Here",
-  content: `Summer soccer in Saskatoon is officially underway! 
+  content: `Summer soccer in Saskatoon is officially underway. 
   The outdoor season for youth, adult, and coed leagues has 
   kicked off across the city’s top venues—bringing together
   athletes of all ages and abilities. From skill-building youth programs to competitive adult divisions and fun, social coed matches,
    there’s a place for everyone to join a team, stay active, and soak up the summer sun.,
 `,
-  content2: `Registration is now open—don’t miss your chance to be part of Saskatoon’s vibrant soccer community this season. Visit SaskSoccerHub today to secure your spot and get ready to play!`,
+  content2: `Registration is now open—don’t miss your chance to be part of Saskatoon’s vibrant soccer community this season.`,
   button: false,
   buttonLink: "/news",
   buttonName: "Latest",
@@ -236,6 +236,13 @@ const playCardsData = [
 ];
 
 const homeCarouselData = [
+  {
+    title: "Saskatoon World Cup This Weekend",
+    date: "May 14 2025",
+    content:
+      "Another rendition of the Saskatoon World Cup kicks off this weekend. Click on the link for more ionfo",
+    link: "https://saskatoonworldcup.com/",
+  },
   {
     title: "Outdoor Player Registration Open",
     date: "April 21 2025",
