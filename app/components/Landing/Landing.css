@@ -78,7 +78,7 @@
   left: 0;
 }
 .news-card {
-  background-color: rgba(0, 0, 0, 0.875);
+  background-color: rgba(0, 0, 0, 0.95);
   border: 0.5px solid rgba(128, 128, 128, 0.75);
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
