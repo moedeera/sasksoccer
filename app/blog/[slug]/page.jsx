@@ -27,7 +27,6 @@ async function getPost(slug) {
 // Dynamic page for a blog post
 export default async function BlogPostPage({ params }) {
   const post = await getPost(params.slug);
-  console.log("info1", params, "info 2", params.slug);
 
   if (!post) {
     return notFound();

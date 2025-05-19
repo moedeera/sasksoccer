@@ -9,35 +9,17 @@ const Landing = ({ data }) => {
   const newsFeed = [
     {
       id: 1,
-      name: "Latest News & Updates",
+      name: "Outdoor Season Schedule and Info",
       image:
         "https://images.pexels.com/photos/274506/pexels-photo-274506.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-      link: "/news",
-      button: "More",
+      link: "/news/outdoor2025",
     },
     {
       id: 2,
-      name: "Current Leagues & Standings",
-      image:
-        "https://images.pexels.com/photos/47730/the-ball-stadion-football-the-pitch-47730.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-      link: "/leagues",
-      button: "View",
-    },
-    {
-      id: 3,
       name: "Upcoming Summer Tournaments",
       image:
         "https://images.pexels.com/photos/47730/the-ball-stadion-football-the-pitch-47730.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
       link: "/news/outdoor2025",
-      button: "View",
-    },
-    {
-      id: 4,
-      name: "Join & Become a Member",
-      image:
-        "https://images.pexels.com/photos/47730/the-ball-stadion-football-the-pitch-47730.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-      link: "/contact",
-      button: "join",
     },
   ];
   return (
@@ -53,7 +35,7 @@ const Landing = ({ data }) => {
       ></div>
       <div className="landing-container">
         <div className="landing-content">
-          <div className="capitalize w-4/5  text-4xl md:text-5xl lg:text-7xl align-left font-bold ">
+          <div className="capitalize w-4/5  text-4xl md:text-5xl lg:text-6xl align-left font-bold ">
             {data.title}
           </div>
           <p className="text-white w-4/5">{data.content}</p>
@@ -67,12 +49,12 @@ const Landing = ({ data }) => {
               </Link>
             )}
           </div>
-          <div className="text-xl font-bold"></div>
+          <div className="text-xl font-bold">Latest</div>
           <div className="lg:mt-1 h-80  md:h-52 mb-2 lg:h-60 w-4/5 flex flex-col md:flex-row gap-2">
             {newsFeed.map((news, index) => (
               <div
                 key={index}
-                className="py-4 news-card color-white h-full w-full max-w-96  flex flex-col  justify-center gap-2 items-start pb-4 pl-4 relative"
+                className="py-4 news-card color-white h-full w-full max-w-96  flex flex-col  justify-end items-start pb-4 pl-4 relative"
               >
                 <div className="text-white text-xl mb-1 font-bold w-4/5">
                   {news.name}
@@ -81,7 +63,7 @@ const Landing = ({ data }) => {
                   Last Updated May 01 2025
                 </div>
                 <Link href={news.link} className="btn">
-                  {news.button}
+                  More
                 </Link>
                 <div
                   className="news-card-banner"

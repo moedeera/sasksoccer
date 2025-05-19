@@ -237,12 +237,6 @@ const playCardsData = [
 
 const homeCarouselData = [
   {
-    title: "Outdoor Season Is Here",
-    date: "May 12 2025",
-    content: "Outdoor Season is Here. Check the standings for latest Updates. ",
-    link: "/leagues",
-  },
-  {
     title: "Outdoor Player Registration Open",
     date: "April 21 2025",
     content:
