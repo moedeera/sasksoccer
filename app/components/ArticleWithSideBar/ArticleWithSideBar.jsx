@@ -27,7 +27,7 @@ export default function ArticleWithSidebar({ article, related }) {
           <div className="text-sm text-gray-500 flex flex-wrap gap-4 mb-6">
             <span>{new Date(article.publishedAt).toDateString()}</span>
             <span>by {article.author?.name || "Unknown"}</span>
-            <span>{article.readTime || "5 min read"}</span>
+            <span>{article.readTime || "1 min read"}</span>
           </div>
 
           {/* Content */}
@@ -42,7 +42,7 @@ export default function ArticleWithSidebar({ article, related }) {
           <div className="space-y-4">
             {related.map((item) => (
               <Link
-                href={`/blog/${item.slug.current}`}
+                href={`/news/${item.slug.current}`}
                 key={item._id}
                 className="flex gap-3 items-start hover:bg-gray-50 p-2 rounded-md transition"
               >
