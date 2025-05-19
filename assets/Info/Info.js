@@ -40,10 +40,10 @@ const homeLandingInfo2 = {
 };
 
 const newsHeaderInfo = {
-  header: "Outdoor Schedule is Set",
+  header: "Outdoor Soccer is here",
   description:
-    "Outdoor Season is here and player registrations are open. Click here if you want more info on the upcoming outdoor season",
-  link: "/news/outdoor2025",
+    "Outdoor season is on the way. Keep a check on our Leagues Menu for Latest Updates",
+  link: "/news/2025-outdoor-season-is-here",
 };
 const shopCardsData = [
   {
