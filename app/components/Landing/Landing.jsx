@@ -73,7 +73,7 @@ const Landing = ({ data }) => {
                 key={index}
                 className="py-4 news-card color-white h-full w-full max-w-96  flex flex-col  justify-center gap-2 items-start pb-4 pl-4 relative"
               >
-                <div className="text-white text-xl mb-1 font-bold w-4/5">
+                <div className="text-white text:sm md:text-xl mb-1 font-bold w-4/5">
                   {news.name}
                 </div>
                 <div className="text-xs mb-3 text-gray">
