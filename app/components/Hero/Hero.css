@@ -1,0 +1,32 @@
+.hero-landing {
+  height: max-content;
+  display: grid;
+  grid-template-rows: 4fr 3fr;
+  min-height: 90vh;
+  width: 100vw;
+}
+
+.upper-hero-landing {
+  background-color: antiquewhite;
+  min-height: 400px;
+}
+
+.lower-hero-landing {
+  background-color: black;
+  color: white;
+}
+.hero-landing-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 300px;
+  max-width: 1300px;
+  margin: 0 auto;
+}
+
+@media only screen and (min-width: 768px) {
+  .hero-landing-content {
+    display: flex;
+    width: 90%;
+    gap: 5px;
+  }
+}

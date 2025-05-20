@@ -3,7 +3,7 @@ import React from "react";
 import { Cards } from "../components/Card/Card";
 import Landing from "./components/Landing/Landing";
 import Block1 from "./components/Block1/Block1";
-
+import Hero from "./components/Hero/Hero";
 import CarouselComponent from "./components/Slide/CarouselComponent";
 
 import Banner from "./components/Banner/Banner";
@@ -52,6 +52,7 @@ export default function Page() {
     <div>
       {/* <Slideshow slides={slides} /> */}
       {/* <div className="homepage-landing-slideshow"></div> */}
+      {/* <Hero /> */}
       <Landing data={summerSoccerInfo} />
 
       <div className="">
