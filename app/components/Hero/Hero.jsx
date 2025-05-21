@@ -38,7 +38,28 @@ export default function Hero() {
   return (
     <div className="hero-landing  border border-black">
       <div className="upper-hero-landing">
-        <div className="upper-hero-content">Hello</div>
+        <div className="upper-hero-content">
+          <div className="text-5xl lg:text-6xl font-extrabold text-yellow-400">
+            Summer Soccer Is Here
+          </div>
+          <div className="text-lg mt-4 md:hidden">
+            Outdoor Seasons and Tournaments Have Started. Make sure to not miss
+            out on all the summer leagues. Adult, Youth and Co-ed Leagues are
+            all running. Click on our league directory for more details.
+          </div>
+          <div className="hidden md:block text-lg mt-4 w-4/5">
+            Summer soccer in Saskatoon is officially underway. The outdoor
+            season for youth, adult, and coed leagues has kicked off across the
+            city’s fields—bringing together athletes of all ages and abilities.
+            From skill-building youth programs to competitive adult divisions
+            and fun, social coed matches, there’s a place for everyone to join a
+            team, stay active, and soak up the summer sun.,
+          </div>
+          <div className="hidden md:block text-lg mt-4 w-4/5">
+            Registration is now open—don’t miss your chance to be part of
+            Saskatoon’s vibrant soccer community this season.
+          </div>
+        </div>
         <div className="upper-hero-banner">Hello</div>
       </div>
       <div className="lower-hero-landing">
@@ -46,9 +67,9 @@ export default function Hero() {
           {newsFeed.map((news, index) => (
             <div
               key={index}
-              className="border border-white h-4/5 md:h-40 lg:h-44  my-auto w-4/5 mx-auto flex flex-col justify-center items-center"
+              className="border bg-white border-white h-4/5 md:h-40 lg:h-60  md: my-auto w-4/5 mx-auto flex flex-col justify-center items-center"
             >
-              Hello
+              {news.name}
             </div>
           ))}
         </div>

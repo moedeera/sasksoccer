@@ -4,13 +4,37 @@
   grid-template-rows: 4fr 3fr;
   min-height: 90vh;
   width: 100vw;
+  position: relative;
+  overflow: hidden;
 }
 
 .upper-hero-landing {
   background-color: antiquewhite;
   min-height: 400px;
+  position: relative;
+  background-color: rgba(3, 31, 17, 0.825);
+  display: flex;
+  color: white;
+  padding-top: 50px;
 }
+.upper-hero-content {
+  width: 90%;
+  max-width: var(--maxWidth);
+  margin: 0 auto;
+}
+.upper-hero-banner {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
 
+  background-image: url("https://images.pexels.com/photos/9519554/pexels-photo-9519554.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1");
+  background-position: center;
+  background-size: cover;
+  z-index: -1;
+  animation: kenBurns 20s infinite reverse;
+}
 .lower-hero-landing {
   background-color: black;
   color: white;
@@ -19,14 +43,31 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   min-height: 300px;
-  max-width: 1300px;
+  max-width: var(--maxWidth);
   margin: 0 auto;
+
+  color: red;
 }
 
 @media only screen and (min-width: 768px) {
   .hero-landing-content {
     display: flex;
-    width: 90%;
+
     gap: 5px;
+  }
+  .upper-hero-content {
+    width: 100%;
+  }
+}
+
+@media only screen and (min-width: 992px) {
+  .hero-landing {
+    grid-template-rows: 4.5fr 3fr;
+  }
+  .hero-landing-content {
+    display: flex;
+    width: 90%;
+    gap: 15px;
+    transform: translateY(-50%);
   }
 }
