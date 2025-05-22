@@ -15,7 +15,7 @@ export default function Hero() {
       id: 2,
       name: "League Standings and Updates",
       image:
-        "https://images.pexels.com/photos/47730/the-ball-stadion-football-the-pitch-47730.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "https://images.pexels.com/photos/774321/pexels-photo-774321.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
       link: "/leagues",
       button: "View",
     },
