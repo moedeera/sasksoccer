@@ -23,7 +23,7 @@ export default function Hero() {
       id: 3,
       name: "Upcoming Summer Tournaments",
       image:
-        "https://images.pexels.com/photos/47730/the-ball-stadion-football-the-pitch-47730.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "https://images.pexels.com/photos/9519554/pexels-photo-9519554.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
       link: "/news",
     },
 
@@ -73,7 +73,10 @@ export default function Hero() {
             >
               <div className="w-4/5 text-center font-bold"> {news.name}</div>
 
-              <div className="hero-landing-content-banner"></div>
+              <div
+                className="hero-landing-content-banner"
+                style={{ backgroundImage: `url(${news.image})` }}
+              ></div>
             </Link>
           ))}
         </div>
