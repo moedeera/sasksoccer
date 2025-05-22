@@ -123,7 +123,7 @@ p {
   font-size: medium;
   min-width: 5rem;
   /* max-width: max-content; */
-  padding: 4px 2px;
+  padding: 8px 2px;
   border-radius: 5px;
   max-width: max-content;
 }

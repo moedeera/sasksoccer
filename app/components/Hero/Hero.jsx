@@ -1,5 +1,6 @@
 import React from "react";
 import "./Hero.css";
+import Link from "next/link";
 
 export default function Hero() {
   const newsFeed = [
@@ -57,7 +58,7 @@ export default function Hero() {
           </div>
           <div className="hidden md:block text-lg mt-4 w-4/5">
             Registration is now open—don’t miss your chance to be part of
-            Saskatoon’s vibrant soccer community this season.
+            another amazing season of soccer this summer.
           </div>
         </div>
         <div className="upper-hero-banner">Hello</div>
@@ -65,12 +66,15 @@ export default function Hero() {
       <div className="lower-hero-landing">
         <div className="hero-landing-content">
           {newsFeed.map((news, index) => (
-            <div
+            <Link
               key={index}
-              className="border bg-white border-white h-4/5 md:h-40 lg:h-60  md: my-auto w-4/5 mx-auto flex flex-col justify-center items-center"
+              href={news.link}
+              className="hero-landing-card relative   p-3   h-4/5 md:h-40 lg:h-60   my-auto mx-auto w-full flex flex-col justify-center items-center"
             >
-              {news.name}
-            </div>
+              <div className="w-4/5 text-center font-bold"> {news.name}</div>
+
+              <div className="hero-landing-content-banner"></div>
+            </Link>
           ))}
         </div>
       </div>
