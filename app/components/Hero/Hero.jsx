@@ -48,7 +48,7 @@ export default function Hero() {
             out on all the summer leagues. Adult, Youth and Co-ed Leagues are
             all running. Click on our league directory for more details.
           </div>
-          <div className="hidden md:block text-lg mt-4 w-4/5">
+          <div className="hidden md:block text-lg mt-4 w-1/2">
             Summer soccer in Saskatoon is officially underway. The outdoor
             season for youth, adult, and coed leagues has kicked off across the
             city’s fields—bringing together athletes of all ages and abilities.
@@ -56,7 +56,7 @@ export default function Hero() {
             and fun, social coed matches, there’s a place for everyone to join a
             team, stay active, and soak up the summer sun.,
           </div>
-          <div className="hidden md:block text-lg mt-4 w-4/5">
+          <div className="hidden md:block text-lg mt-4 w-1/2">
             Registration is now open—don’t miss your chance to be part of
             another amazing season of soccer this summer.
           </div>
