@@ -43,12 +43,12 @@ export default function Hero() {
           <div className="text-5xl lg:text-6xl font-extrabold text-yellow-400">
             Summer Soccer Is Here
           </div>
-          <div className="text-lg mt-4 md:hidden">
+          <div className="text-sm mt-4 md:hidden">
             Outdoor Seasons and Tournaments Have Started. Make sure to not miss
             out on all the summer leagues. Adult, Youth and Co-ed Leagues are
             all running. Click on our league directory for more details.
           </div>
-          <div className="hidden md:block text-lg mt-4 w-1/2">
+          <div className="hidden md:block text-md mt-4  w-4/5 lg:w-1/2">
             Summer soccer in Saskatoon is officially underway. The outdoor
             season for youth, adult, and coed leagues has kicked off across the
             city’s fields—bringing together athletes of all ages and abilities.
@@ -56,12 +56,12 @@ export default function Hero() {
             and fun, social coed matches, there’s a place for everyone to join a
             team, stay active, and soak up the summer sun.,
           </div>
-          <div className="hidden md:block text-lg mt-4 w-1/2">
+          <div className="hidden lg:block text-md mt-4 w-1/2">
             Registration is now open—don’t miss your chance to be part of
             another amazing season of soccer this summer.
           </div>
         </div>
-        <div className="upper-hero-banner">Hello</div>
+        <div className="upper-hero-banner"></div>
       </div>
       <div className="lower-hero-landing">
         <div className="hero-landing-content">
@@ -69,7 +69,7 @@ export default function Hero() {
             <Link
               key={index}
               href={news.link}
-              className="hero-landing-card relative   p-3   h-4/5 md:h-40 lg:h-60   my-auto mx-auto w-full flex flex-col justify-center items-center"
+              className="hero-landing-card relative  p-3  h-4/5 md:h-40 lg:h-60   my-auto mx-auto w-full flex flex-col justify-center items-center"
             >
               <div className="w-4/5 text-center font-bold"> {news.name}</div>
 
