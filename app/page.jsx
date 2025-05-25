@@ -53,7 +53,7 @@ export default function Page() {
       {/* <Slideshow slides={slides} /> */}
       {/* <div className="homepage-landing-slideshow"></div> */}
       <Hero />
-      {/* <Landing data={summerSoccerInfo} /> */}
+      {/* <Landing data={summerSoccerInfo}/>?? */}
 
       <div className="">
         {" "}
