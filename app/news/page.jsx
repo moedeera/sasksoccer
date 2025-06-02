@@ -100,7 +100,7 @@ export default async function Page() {
         </div>
         <div className="w-full flex gap-2 flex-wrap md:flex-nowrap ">
           {articles.map((article, index) => (
-            <div key={index} className="">
+            <div key={index} className="w-full">
               <SampleCard1
                 name={article.name}
                 description={article.description}
