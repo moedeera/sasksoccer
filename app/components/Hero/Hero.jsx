@@ -40,9 +40,9 @@ export default function Hero() {
     <div className="hero-landing  border border-black">
       <div className="upper-hero-landing">
         <div className="upper-hero-content">
-          <div className="text-5xl lg:text-6xl font-extrabold text-yellow-400">
+          <h1 className="text-5xl lg:text-6xl font-extrabold text-yellow-400">
             Summer Soccer Is Here
-          </div>
+          </h1>
           <div className="text-sm mt-4 md:hidden">
             Outdoor Seasons and Tournaments Have Started. Make sure to not miss
             out on all the summer leagues. Adult, Youth and Co-ed Leagues are
