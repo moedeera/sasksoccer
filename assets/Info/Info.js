@@ -237,10 +237,17 @@ const playCardsData = [
 
 const homeCarouselData = [
   {
+    title: "Outdoor Playoff Schedule",
+    date: "June 14 2025",
+    content:
+      "The playoff schedule is ready for both half and full field leagues!",
+    link: "https://www.saskatoonadultsoccer.com/content/outdoor-playoff-schedule",
+  },
+  {
     title: "Saskatoon World Cup This Weekend",
     date: "May 14 2025",
     content:
-      "Another rendition of the Saskatoon World Cup kicks off this weekend. Click on the link for more ionfo",
+      "Another rendition of the Saskatoon World Cup kicks off this weekend. Click on the link for more info",
     link: "https://saskatoonworldcup.com/",
   },
   {
