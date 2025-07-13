@@ -37,7 +37,11 @@ const CarouselComponent = ({ data }) => {
                   <small className="py-1">{item.date}</small>
                   <p className="pr-2 text-sm">{item.content}</p>
                   {item.link && (
-                    <Link href={item.link} className=" btn-carousel mt-3">
+                    <Link
+                      href={item.link}
+                      className=" btn-carousel mt-3"
+                      target="_blank"
+                    >
                       More
                     </Link>
                   )}

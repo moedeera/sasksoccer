@@ -237,6 +237,12 @@ const playCardsData = [
 
 const homeCarouselData = [
   {
+    title: "Indoor 2025-2026 Registration Open",
+    date: "July 11 2025",
+    content: "Register your team for the 2025-26 Indoor season",
+    link: "https://www.saskatoonadultsoccer.com/article/105280",
+  },
+  {
     title: "Outdoor Playoff Schedule",
     date: "June 14 2025",
     content:
